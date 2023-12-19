@@ -10,6 +10,10 @@ require("mason-lspconfig").setup({
         "angularls",
         "jdtls",
         "cssls",
+        "bashls",
+        "jsonls",
+        "tailwindcss",
+        "emmet_ls",
         "cssmodules_ls",
         "html"
         --"ruby_ls"
@@ -22,7 +26,11 @@ require("mason-lspconfig").setup({
 local lsconfig = require("lspconfig")
 lsconfig.tsserver.setup({})
 lsconfig.lua_ls.setup({})
+lsconfig.tailwindcss.setup({})
 lsconfig.cssls.setup({})
+lsconfig.bashls.setup({})
+lsconfig.emmet_ls.setup({})
+lsconfig.jsonls.setup({})
 lsconfig.cssmodules_ls.setup({})
 lsconfig.html.setup({})
 lsconfig.angularls.setup({})
