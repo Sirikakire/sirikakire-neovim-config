@@ -74,6 +74,5 @@ return {
                 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
             end
         }
-        vim.cmd("Gitsigns toggle_current_line_blame")
     end
 }
