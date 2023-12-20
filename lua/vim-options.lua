@@ -1,10 +1,26 @@
-vim.cmd("set expandtab")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set tabstop=4")
-vim.cmd("set wrap")
-vim.cmd("set linebreak")
-vim.cmd("set number relativenumber")
-vim.cmd("set clipboard+=unnamedplus")
+local options = {
+    "set autoindent",
+    "set smartindent",
+    "set expandtab",
+    "set shiftwidth=4",
+    "set tabstop=4",
+    "set wrap",
+    "set autoread",
+    "set autowrite",
+    "set cursorline",
+    "set showcmd",
+    "set laststatus=2",
+    "set shiftround",
+    "set signcolumn=yes",
+    "set linebreak",
+    "set number relativenumber",
+    "set clipboard+=unnamedplus"
+}
+
+for i, option in pairs(options) do vim.cmd(option) end
+
+vim.keymap.set('n', ':', ':FineCmdline<CR>')
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-o>', '')
+vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.opt.termguicolors = true

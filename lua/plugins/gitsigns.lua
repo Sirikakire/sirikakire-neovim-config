@@ -69,7 +69,6 @@ return {
                 map('n', '<leader>hp', gs.preview_hunk)
                 map('n', '<leader>hb', function() gs.blame_line{full=true} end)
                 map('n', '<leader>hD', function() gs.diffthis('~') end)
-
                 -- Text object
                 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
             end
