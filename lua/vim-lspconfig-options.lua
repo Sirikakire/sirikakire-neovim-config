@@ -1,9 +1,19 @@
 local lsp_zero = require('lsp-zero')
+lsp_zero.setup()
+lsp_zero.cmp_action()
+lsp_zero.extend_lspconfig()
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
 end)
-require("mason").setup()
-require("mason-lspconfig").setup({
+local cmp = require('cmp')
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+    })
+})
+require('mason').setup()
+require('mason-lspconfig').setup({
     ensure_installed = {
         "tsserver",
         "lua_ls",
@@ -19,7 +29,7 @@ require("mason-lspconfig").setup({
         --"ruby_ls"
     },
     handlers = {
-        lsp_zero.default_setup,
+        require('lsp-zero').default_setup,
     },
     automatic_installation = true
 })
@@ -35,15 +45,6 @@ lsconfig.cssmodules_ls.setup({})
 lsconfig.html.setup({})
 lsconfig.angularls.setup({})
 lsconfig.jdtls.setup({})
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        ['<C-Space>'] = cmp.mapping.complete(),
-    })
-})
--- lsconfig.ruby_ls.setup({})
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 

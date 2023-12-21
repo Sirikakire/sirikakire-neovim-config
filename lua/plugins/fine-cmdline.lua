@@ -4,7 +4,7 @@ return {
     config = function()
         require('fine-cmdline').setup({
             cmdline = {
-                prompt = 'Command'
+                prompt = 'CMD: '
             }
         })
     end
