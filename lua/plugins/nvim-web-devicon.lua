@@ -8,9 +8,8 @@ end
 return {
     "nvim-tree/nvim-web-devicons",
     config = function ()
-        require'nvim-web-devicons'.setup {
+        require'nvim-web-devicons'.setup({
             color_icons = true;
-           -- default = true;
             strict = true;
             override_by_extension = {
                 java = si("", "#e46368", "java"),
@@ -19,7 +18,11 @@ return {
                 json = si("", "#f7cd6d", "JSON"),
                 ts = si("󰛦", "#808dc7", "TypeScript"),
                 html = si("", "#de7558", "HTML"),
+                rb = si("", "#ef757c", "Ruby"),
+                rake = si("", "#ef757c", "Rake"),
+                rakefile = si("", "#ef757c", "RakeFile"),
+                jbuilder = si("", "#f7cd6d", "Jbuilder"),
             };
-        }
+        })
     end
 }
