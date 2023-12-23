@@ -1,16 +1,16 @@
 local lsp_servers = {
-    "tsserver",
-    "lua_ls",
-    "angularls",
-    "jdtls",
-    "cssls",
-    "bashls",
-    "jsonls",
-    "tailwindcss",
-    "emmet_ls",
-    "cssmodules_ls",
-    "html"
-    --"ruby_ls"
+  "tsserver",
+  "lua_ls",
+  "angularls",
+  "jdtls",
+  "cssls",
+  "bashls",
+  "jsonls",
+  "tailwindcss",
+  "emmet_ls",
+  "cssmodules_ls",
+  "html"
+  --"ruby_ls"
 }
 
 --[[local lsp_zero = require('lsp-zero')
@@ -68,29 +68,29 @@ cmp.setup {
 -- Setup Mason, Mason lsp config and Lsp config programming languages
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = lsp_servers,
-   --[[ handlers = {
+  ensure_installed = lsp_servers,
+  --[[ handlers = {
         lsp_zero.default_setup,
     },]]--
-    automatic_installation = true
+  automatic_installation = true
 })
 local lspconfig = require("lspconfig")
 for i, lsp in ipairs(lsp_servers) do
-    lspconfig[lsp].setup({
-        capabilities = capabilities
-    })
+  lspconfig[lsp].setup({
+    capabilities = capabilities
+  })
 end
 -- Setup keymap
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-    callback = function(ev)
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        local opts = { buffer = ev.buf }
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    end,
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+  end,
 })
 -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
