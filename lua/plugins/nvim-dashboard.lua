@@ -18,7 +18,7 @@ return {
               key = 'f',
             },
             {
-              icon = ' ', 
+              icon = ' ',
               desc = 'Sidebar',
               action = 'Neotree . focus right',
               key = 'n',
