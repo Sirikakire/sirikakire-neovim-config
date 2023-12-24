@@ -77,6 +77,7 @@ local kind_icons = {
   Event = '  ',
   Operator = '  ',
   TypeParameter = '  ',
+  TabNine = '󰂂  '
 }
 cmp.setup {
   window = {
@@ -92,6 +93,7 @@ cmp.setup {
         luasnip = "[LuaSnip]",
         nvim_lua = "[Lua]",
         latex_symbols = "[Latex]",
+        cmp_tabnine = "[TabNine]",
       })[entry.source.name]
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
       return vim_item
@@ -123,7 +125,11 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  }),
+    { name = 'tabnine' },
+    { name = 'cmp_tabnine' },
+  }, {
+      { name = 'buffer' },
+    }),
 }
 -- Setup Mason, Mason lsp config and Lsp config programming languages
 require('mason').setup()
