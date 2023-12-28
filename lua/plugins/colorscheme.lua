@@ -1,5 +1,9 @@
 return {
-  { "rebelot/kanagawa.nvim" },
+  { "rebelot/kanagawa.nvim",
+    config = function()
+      vim.cmd.colorscheme "kanagawa"
+    end
+  },
   {
     "bluz71/vim-nightfly-colors",
     name = "nightfly",
@@ -20,8 +24,8 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require 'nordic' .load()
-      vim.cmd.colorscheme("nordic")
+      --[[ require 'nordic' .load()
+      vim.cmd.colorscheme("nordic") ]]
     end
   }
 }

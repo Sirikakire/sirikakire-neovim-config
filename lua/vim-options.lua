@@ -17,9 +17,9 @@ local options = {
   "set clipboard+=unnamedplus"
 }
 for i, option in pairs(options) do vim.cmd(option) end
-
 vim.keymap.set('n', ':', ':FineCmdline<CR>')
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
+vim.keymap.set('n', '<C-z>', '')
 vim.opt.termguicolors = true
