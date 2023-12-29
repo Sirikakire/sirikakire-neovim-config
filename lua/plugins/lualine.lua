@@ -22,7 +22,7 @@ return {
       },
       sections = {
         lualine_a = {
-          function() return "Hello Sirikakire :3" end,
+          function() return "Hi Sirikakire :3" end,
         },
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {},
