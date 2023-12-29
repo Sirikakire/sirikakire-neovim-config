@@ -40,13 +40,13 @@ return {
       -- Draw options
       draw = {
         -- Delay (in ms) between event and start of drawing scope indicator
-        delay = 100,
+        delay = 50,
 
         -- Animation rule for scope's first drawing. A function which, given
         -- next and total step numbers, returns wait time (in ms). See
         -- |MiniIndentscope.gen_animation| for builtin options. To disable
         -- animation, use `require('mini.indentscope').gen_animation.none()`.
-        -- animation = require('mini.indentscope').gen_animation.none(),
+        animation = function(s, n) return 15 end,
         -- Symbol priority. Increase to display on top of more symbols.
         priority = 2,
       },
