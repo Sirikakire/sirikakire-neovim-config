@@ -12,16 +12,10 @@ local lsp_servers = {
   "html"
   --"ruby_ls"
 }
---[[ local lsp_zero = require('lsp-zero') lsp_zero.setup()
-lsp_zero.cmp_action()
-lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({ buffer = bufnr })
-end)
--- Setup lsp zero for suggesstions ]]
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- luasnip setup
-local luasnip = require 'luasnip'
+local luasnip = require('luasnip')
 local cmp = require('cmp')
 --[[local kind_icons = {
   Text = "",
@@ -132,26 +126,20 @@ cmp.setup {
   ),
 }
 -- Setup Mason, Mason lsp config and Lsp config programming languages
-local default_setup = function(server)
-  require('lspconfig')[server].setup({
-    capabilities = capabilities,
+local function setupLSP (lsp_server)
+  require("lspconfig")[lsp_server].setup({
+    capabilities = capabilities
   })
 end
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = lsp_servers,
   handlers = {
-    default_setup,
+    setupLSP
   },
   automatic_installation = true
 })
---[[ for i, lsp in ipairs(lsp_servers) do
-  require("lspconfig")[lsp].setup({
-    capabilities = capabilities
-  })
-end ]]
 -- Setup keymap
-
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -179,3 +167,19 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
   end
   return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
 end
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = true,
+})
+--[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = true,
+  }
+) ]]
