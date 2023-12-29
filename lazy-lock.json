@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "2463d687fe704b76eb0aa3bb34e95f69a5bb0362" },
+  "aylin.vim": { "branch": "0.5-nvim", "commit": "91d3e5e720d900eec18b49a40c9a27f4a44e56e3" },
   "barbar.nvim": { "branch": "master", "commit": "dd852401ee902745b67fc09a83d113b3fe82a96f" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
   "cmp-tabnine": { "branch": "main", "commit": "b93f82ef5150e578677fc2e2b4b328b19eed77e1" },
@@ -18,6 +19,7 @@
   "mini.indentscope": { "branch": "main", "commit": "5a8369475cd7cd6f207a4d288406d03b0fc48bdb" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "77d9f484b88fd380386b46ed9206e5374d69d9d8" },
   "nightfly": { "branch": "master", "commit": "90d85c8a094266122fb1fd173e7bcc0cd0efdd49" },
+  "nightfox.nvim": { "branch": "main", "commit": "fcf699bef2b2731c840a5746113c3dd31a9cb813" },
   "nordic.nvim": { "branch": "main", "commit": "be1bab59c56668af7020af11190ec7fcd25d59b4" },
   "nui.nvim": { "branch": "main", "commit": "80445d015d2b5f9af0d9e8bce63d303bc86eda8a" },
   "nvim-cmp": { "branch": "main", "commit": "538e37ba87284942c1d76ed38dd497e54e65b891" },

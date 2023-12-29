@@ -1,7 +1,7 @@
 return {
   { "rebelot/kanagawa.nvim",
     config = function()
-      vim.cmd.colorscheme "kanagawa"
+      -- vim.cmd.colorscheme "kanagawa"
     end
   },
   {
@@ -10,13 +10,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      --vim.cmd.colorscheme "nightfly"
+      vim.cmd.colorscheme "nightfly"
     end
   },
   {
     "rmehri01/onenord.nvim",
     config = function()
-      --vim.cmd.colorscheme "onenord"
+      -- vim.cmd.colorscheme "onenord"
     end
   },
   {
@@ -26,6 +26,18 @@ return {
     config = function()
       --[[ require 'nordic' .load()
       vim.cmd.colorscheme("nordic") ]]
+    end
+  },
+  {
+    'AhmedAbdulrahman/aylin.vim', branch = '0.5-nvim',
+    config = function()
+      -- vim.cmd.colorscheme("aylin")
+    end
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    config = function ()
+      vim.cmd.colorscheme("nightfox")
     end
   }
 }
