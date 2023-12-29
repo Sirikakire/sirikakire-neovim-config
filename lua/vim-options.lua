@@ -14,7 +14,8 @@ local options = {
   "set signcolumn=yes",
   "set linebreak",
   "set number relativenumber",
-  "set clipboard+=unnamedplus"
+  "set clipboard+=unnamedplus",
+  "set laststatus=3"
 }
 for i, option in pairs(options) do vim.cmd(option) end
 vim.keymap.set('n', ':', ':FineCmdline<CR>')
