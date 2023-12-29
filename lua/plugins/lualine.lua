@@ -25,11 +25,10 @@ return {
           function() return "Hello Sirikakire :3" end,
         },
         lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'fileformat'},
+        lualine_c = {},
         lualine_x = {
-          'filename',
-          'filesize',
           'filetype',
+          'filesize',
         },
         lualine_y = {
           {
