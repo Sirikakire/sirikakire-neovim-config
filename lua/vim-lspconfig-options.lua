@@ -12,13 +12,12 @@ local lsp_servers = {
   "html"
   --"ruby_ls"
 }
---[[local lsp_zero = require('lsp-zero')
-lsp_zero.setup()
+--[[ local lsp_zero = require('lsp-zero') lsp_zero.setup()
 lsp_zero.cmp_action()
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })
-end)]]--
--- Setup lsp zero for suggesstions
+end)
+-- Setup lsp zero for suggesstions ]]
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- luasnip setup
@@ -122,30 +121,35 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'tabnine' },
-    { name = 'cmp_tabnine' },
-  }, {
+  sources = cmp.config.sources(
+    {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+      { name = 'cmp_tabnine' },
+    }, {
       { name = 'buffer' },
-    }),
+    }
+  ),
 }
 -- Setup Mason, Mason lsp config and Lsp config programming languages
+local default_setup = function(server)
+  require('lspconfig')[server].setup({
+    capabilities = capabilities,
+  })
+end
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = lsp_servers,
-  --[[ handlers = {
-        lsp_zero.default_setup,
-    },]]--
+  handlers = {
+    default_setup,
+  },
   automatic_installation = true
 })
-local lspconfig = require("lspconfig")
-for i, lsp in ipairs(lsp_servers) do
-  lspconfig[lsp].setup({
+--[[ for i, lsp in ipairs(lsp_servers) do
+  require("lspconfig")[lsp].setup({
     capabilities = capabilities
   })
-end
+end ]]
 -- Setup keymap
 
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
