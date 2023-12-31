@@ -1,4 +1,4 @@
-local lsp_servers = {
+--[[ local lsp_servers = {
   "tsserver",
   "lua_ls",
   "angularls",
@@ -11,12 +11,12 @@ local lsp_servers = {
   "cssmodules_ls",
   "html"
   --"ruby_ls"
-}
+} ]]
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- luasnip setup
-local luasnip = require('luasnip')
-local cmp = require('cmp')
+-- local luasnip = require('luasnip')
+-- local cmp = require('cmp')
 --[[local kind_icons = {
   Text = "",
   Method = "󰆧",
@@ -44,7 +44,7 @@ local cmp = require('cmp')
   Operator = "󰆕",
   TypeParameter = "󰅲",
 }]]--
-local kind_icons = {
+--[[ local kind_icons = {
   Text = '  ',
   Method = '  ',
   Function = '  ',
@@ -71,10 +71,13 @@ local kind_icons = {
   Operator = '  ',
   TypeParameter = '  ',
   TabNine = '󰂂  '
-}
-cmp.setup {
+} ]]
+--[[ cmp.setup {
   window = {
     completion = cmp.config.window.bordered({
+      border = "single"
+    }),
+    documentation = cmp.config.window.bordered({
       border = "single"
     }),
   },
@@ -124,23 +127,23 @@ cmp.setup {
       { name = 'buffer' },
     }
   ),
-}
+} ]]
 -- Setup Mason, Mason lsp config and Lsp config programming languages
-local function setupLSP (lsp_server)
+--[[ local function setupLSP (lsp_server)
   require("lspconfig")[lsp_server].setup({
     capabilities = capabilities
   })
-end
-require('mason').setup()
+end ]]
+--[[ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = lsp_servers,
   handlers = {
     setupLSP
   },
   automatic_installation = true
-})
+}) ]]
 -- Setup keymap
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+--[[ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -166,7 +169,7 @@ vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
     return
   end
   return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
-end
+end ]]
 --[[ vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -174,7 +177,7 @@ end
   update_in_insert = true,
   severity_sort = true,
 }) ]]
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+--[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
     signs = true,
@@ -182,4 +185,4 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     update_in_insert = true,
     severity_sort = true,
   }
-)
+) ]]
