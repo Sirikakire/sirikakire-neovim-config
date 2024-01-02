@@ -17,14 +17,14 @@ return {
           ---LHS of toggle mappings in NORMAL mode
           toggler = {
             ---Line-comment toggle keymap
-            line = '<leader>gc',
+            line = '<leader>kc',
             ---Block-comment toggle keymap
-            block = '<leader>gb',
+            block = '<leader>kb',
           },
-          ---LHS of extra mappings
+          ---lhs of extra mappings
           extra = {
-            ---Add comment on the line above
-            above = 'gcO',
+            ---add comment on the line above
+            above = 'gco',
             ---Add comment on the line below
             below = 'gco',
             ---Add comment at the end of line
