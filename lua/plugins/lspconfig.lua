@@ -1,3 +1,13 @@
+local border = {
+  { "┌", "NormalFloat" },
+  { "─", "NormalFloat" },
+  { "┐", "NormalFloat" },
+  { "│", "NormalFloat" },
+  { "┘", "NormalFloat" },
+  { "─", "NormalFloat" },
+  { "└", "NormalFloat" },
+  { "│", "NormalFloat" },
+}
 return {
   {
     'L3MON4D3/LuaSnip',
@@ -73,10 +83,10 @@ return {
       cmp.setup {
         window = {
           completion = cmp.config.window.bordered({
-            border = "single"
+            border = border
           }),
           documentation = cmp.config.window.bordered({
-            border = "single"
+            border = border
           }),
         },
         formatting = {
@@ -170,7 +180,6 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
           local opts = { buffer = ev.buf }
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
@@ -179,9 +188,12 @@ return {
       })
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
+
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
       vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
+        config.border = border
         if not (result and result.contents) then
           return
         end
@@ -208,27 +220,6 @@ return {
           severity_sort = true,
         }
       )
-      local border = {
-        -- {"│' ", "FloatBorder"},
-        -- {"▔", "FloatBorder"},
-        -- {"🭽", "FloatBorder"},
-        -- {"▕", "FloatBorder"},
-        -- {"🭿", "FloatBorder"},
-        -- {"▁", "FloatBorder"},
-        -- {"🭼", "FloatBorder"},
-        -- {"▏", "FloatBorder"}, 
-        { "┌", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "┐", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "┘", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "└", "FloatBorder" },
-        { "│", "FloatBorder" },
-      }
-      -- LSP settings (for overriding per client)
-      vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-      vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border })
     end
   },
 }
