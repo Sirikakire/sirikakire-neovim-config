@@ -8,6 +8,7 @@ return {
         "javascript",
         "typescript",
         "java",
+        "json",
         "ruby",
         "sql",
         "html",
