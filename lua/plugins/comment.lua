@@ -6,7 +6,8 @@ return {
     },
     lazy = false,
     config = function ()
-      require('Comment').setup(
+      local comment = require("Comment")
+      comment.setup(
         {
           ---Add a space b/w comment and the line
           padding = true,
@@ -17,19 +18,26 @@ return {
           ---LHS of toggle mappings in NORMAL mode
           toggler = {
             ---Line-comment toggle keymap
-            line = '<leader>kc',
+            line = 'gcc',
             ---Block-comment toggle keymap
-            block = '<leader>kb',
+            block = 'gbc',
+          },
+          ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+          opleader = {
+            ---Line-comment keymap
+            line = 'gc',
+            ---Block-comment keymap
+            block = 'gb',
           },
           ---lhs of extra mappings
-          extra = {
-            ---add comment on the line above
-            above = 'gco',
-            ---Add comment on the line below
-            below = 'gco',
-            ---Add comment at the end of line
-            eol = 'gcA',
-          },
+          -- extra = {
+          --   ---add comment on the line above
+          --   above = 'gco',
+          --   ---Add comment on the line below
+          --   below = 'gco',
+          --   ---Add comment at the end of line
+          --   eol = 'gcA',
+          -- },
           ---Enable keybindings
           ---NOTE: If given `false` then the plugin won't create any mappings
           mappings = {
@@ -42,7 +50,8 @@ return {
           pre_hook = nil,
           ---Function to call after (un)comment
           post_hook = nil,
-        })
+        }
+      )
     end
   }
 }

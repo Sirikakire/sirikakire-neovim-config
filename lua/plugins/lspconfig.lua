@@ -1,3 +1,60 @@
+-- Icon for lsp diagnostics
+--[[ local kind_icons = {
+  Text = "",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰇽",
+  Variable = "󰂡",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "󰅲",
+} ]]
+local kind_icons = {
+  Text = '  ',
+  Method = '  ',
+  Function = '  ',
+  Constructor = '  ',
+  Field = '  ',
+  Variable = '  ',
+  Class = '  ',
+  Interface = '  ',
+  Module = '  ',
+  Property = '  ',
+  Unit = '  ',
+  Value = '  ',
+  Enum = '  ',
+  Keyword = '  ',
+  Snippet = '  ',
+  Color = '  ',
+  File = '  ',
+  Reference = '  ',
+  Folder = '  ',
+  EnumMember = '  ',
+  Constant = '  ',
+  Struct = '  ',
+  Event = '  ',
+  Operator = '  ',
+  TypeParameter = '  ',
+  TabNine = '󰂂  '
+}
+-- Border configure for diagnostic float window
 local border = {
   { "┌", "NormalFloat" },
   { "─", "NormalFloat" },
@@ -8,6 +65,24 @@ local border = {
   { "└", "NormalFloat" },
   { "│", "NormalFloat" },
 }
+-- Lsp server list
+local lsp_servers = {
+  "tsserver",
+  "lua_ls",
+  "angularls",
+  "jdtls",
+  "cssls",
+  "bashls",
+  "jsonls",
+  "tailwindcss",
+  "emmet_ls",
+  "cssmodules_ls",
+  "html",
+  -- "rubocop@1.12.1",
+  -- "solargraph@0.47.2",
+  -- "ruby_ls"
+}
+
 return {
   {
     'L3MON4D3/LuaSnip',
@@ -25,61 +100,6 @@ return {
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
-      --[[ local kind_icons = {
-        Text = "",
-        Method = "󰆧",
-        Function = "󰊕",
-        Constructor = "",
-        Field = "󰇽",
-        Variable = "󰂡",
-        Class = "󰠱",
-        Interface = "",
-        Module = "",
-        Property = "󰜢",
-        Unit = "",
-        Value = "󰎠",
-        Enum = "",
-        Keyword = "󰌋",
-        Snippet = "",
-        Color = "󰏘",
-        File = "󰈙",
-        Reference = "",
-        Folder = "󰉋",
-        EnumMember = "",
-        Constant = "󰏿",
-        Struct = "",
-        Event = "",
-        Operator = "󰆕",
-        TypeParameter = "󰅲",
-      } ]]
-      local kind_icons = {
-        Text = '  ',
-        Method = '  ',
-        Function = '  ',
-        Constructor = '  ',
-        Field = '  ',
-        Variable = '  ',
-        Class = '  ',
-        Interface = '  ',
-        Module = '  ',
-        Property = '  ',
-        Unit = '  ',
-        Value = '  ',
-        Enum = '  ',
-        Keyword = '  ',
-        Snippet = '  ',
-        Color = '  ',
-        File = '  ',
-        Reference = '  ',
-        Folder = '  ',
-        EnumMember = '  ',
-        Constant = '  ',
-        Struct = '  ',
-        Event = '  ',
-        Operator = '  ',
-        TypeParameter = '  ',
-        TabNine = '󰂂  '
-      }
       cmp.setup {
         window = {
           completion = cmp.config.window.bordered({
@@ -148,20 +168,6 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function ()
-      local lsp_servers = {
-        "tsserver",
-        "lua_ls",
-        "angularls",
-        "jdtls",
-        "cssls",
-        "bashls",
-        "jsonls",
-        "tailwindcss",
-        "emmet_ls",
-        "cssmodules_ls",
-        "html"
-        --"ruby_ls"
-      }
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local function setupLSP (lsp_server)
         require("lspconfig")[lsp_server].setup({
