@@ -19,9 +19,9 @@ return {
       end
 
       if neotreeBuf and currentBufNr == neotreeBuf then
-        vim.api.nvim_command(':Neotree . close right')
+        vim.api.nvim_command('Neotree . close right')
       else
-        vim.api.nvim_command(':Neotree . focus right')
+        vim.api.nvim_command('Neotree . focus right')
       end
     end
     vim.keymap.set('n', '<C-b>', function() neotreeTrigger() end)
