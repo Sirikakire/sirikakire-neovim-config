@@ -26,7 +26,7 @@ vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.keymap.set('n', '<C-z>', '')
 vim.opt.termguicolors = true
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
-
+vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap
 local function navigateToTerminal()
   local currentBufNr = vim.api.nvim_get_current_buf()
@@ -38,7 +38,6 @@ local function navigateToTerminal()
       break
     end
   end
-
   if termBufNr and currentBufNr == termBufNr then
     vim.api.nvim_command('BufferClose!')
   elseif termBufNr then
