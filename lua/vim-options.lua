@@ -18,6 +18,7 @@ local options = {
   "set clipboard+=unnamedplus",
   "set laststatus=3"
 }
+vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd(option) end
 vim.keymap.set('n', ':', ':FineCmdline<CR>')
 vim.g.mapleader = " "

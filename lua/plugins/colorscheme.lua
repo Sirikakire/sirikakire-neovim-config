@@ -99,13 +99,13 @@ return {
   {
     'AhmedAbdulrahman/aylin.vim', branch = '0.5-nvim',
     config = function()
-      -- vim.cmd.colorscheme("aylin")
+      --vim.cmd.colorscheme("aylin")
     end
   },
   {
     "EdenEast/nightfox.nvim",
     config = function ()
-      -- vim.cmd.colorscheme("nightfox")
+      --vim.cmd.colorscheme("nightfox")
     end
   }
 }

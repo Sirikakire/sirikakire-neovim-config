@@ -204,20 +204,20 @@ return {
           width = "100%",
           right_padding = 0,
         },
-        --diagnostics = {
-        --  symbols = {
-        --    hint = "H",
-        --    info = "I",
-        --    warn = "!",
-        --    error = "X",
-        --  },
-        --  highlights = {
-        --    hint = "DiagnosticSignHint",
-        --    info = "DiagnosticSignInfo",
-        --    warn = "DiagnosticSignWarn",
-        --    error = "DiagnosticSignError",
-        --  },
-        --},
+        diagnostics = {
+          symbols = {
+            hint = "H",
+            info = "I",
+            warn = "!",
+            error = "X",
+          },
+          highlights = {
+            hint = "DiagnosticSignHint",
+            info = "DiagnosticSignInfo",
+            warn = "DiagnosticSignWarn",
+            error = "DiagnosticSignError",
+          },
+        },
         indent = {
           indent_size = 2,
           padding = 1,
