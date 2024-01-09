@@ -53,17 +53,17 @@ return {
         buffer_index = false,
         buffer_number = false,
         button = '',
-        -- Enables / disables diagnostic symbols
+        ---- Enables / disables diagnostic symbols
         diagnostics = {
-          [vim.diagnostic.severity.ERROR] = {enabled = true},
-          [vim.diagnostic.severity.WARN] = {enabled = true},
-          [vim.diagnostic.severity.INFO] = {enabled = true},
-          [vim.diagnostic.severity.HINT] = {enabled = true},
+          [vim.diagnostic.severity.ERROR] = {enabled = false},
+          [vim.diagnostic.severity.WARN] = {enabled = false},
+          [vim.diagnostic.severity.INFO] = {enabled = false},
+          [vim.diagnostic.severity.HINT] = {enabled = false},
         },
         gitsigns = {
-          added = {enabled = true, icon = '+'},
-          changed = {enabled = true, icon = '~'},
-          deleted = {enabled = true, icon = '-'},
+          added = {enabled = false, icon = '+'},
+          changed = {enabled = false, icon = '~'},
+          deleted = {enabled = false, icon = '-'},
         },
         filetype = {
           -- Sets the icon's highlight group.

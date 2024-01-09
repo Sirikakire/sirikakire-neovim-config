@@ -63,10 +63,11 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      vim.cmd.colorscheme "catppuccin-mocha"
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
-  { "rebelot/kanagawa.nvim",
+  {
+    "rebelot/kanagawa.nvim",
     config = function()
       -- vim.cmd.colorscheme "kanagawa"
     end
@@ -91,8 +92,8 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      --[[ require 'nordic' .load()
-      vim.cmd.colorscheme("nordic") ]]
+      require 'nordic' .load()
+      vim.cmd.colorscheme("nordic")
     end
   },
   {
