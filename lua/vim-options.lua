@@ -48,3 +48,4 @@ local function navigateToTerminal()
   end
 end
 vim.keymap.set('n', '<leader>t', function() navigateToTerminal() end)
+vim.keymap.set('n', '<C-j>', "a<CR><esc>")
