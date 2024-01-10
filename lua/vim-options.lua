@@ -23,7 +23,7 @@ for i, option in pairs(options) do vim.cmd(option) end
 vim.keymap.set('n', ':', ':FineCmdline<CR>')
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-o>', '')
-vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR#242933>')
+vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.keymap.set('n', '<C-z>', '')
 vim.opt.termguicolors = true
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
