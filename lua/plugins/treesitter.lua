@@ -12,7 +12,8 @@ return {
         "ruby",
         "sql",
         "html",
-        "css"
+        "css",
+        "scss",
       },
       sync_install = true,
       highlight = { enable = true },
