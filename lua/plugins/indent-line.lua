@@ -99,6 +99,15 @@ return {
           vim.b.miniindentscope_disable = true
         end,
       })
+      vim.api.nvim_create_autocmd("BufRead", {
+        pattern = {
+          "terminal"
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+
     end,
   }
 }
