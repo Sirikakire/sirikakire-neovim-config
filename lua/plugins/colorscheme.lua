@@ -126,16 +126,16 @@ return {
           },
           styles = {               -- Style to be applied to different syntax groups
             comments = "italic", -- Change the style of comments
-            conditionals = "italic",
-            functions = "italic,bold",
-            keywords = "bold,bold",
+            conditionals = "NONE",
+            functions = "bold",
+            keywords = "bold",
             strings = "NONE",
             variables = "NONE",
-            numbers = "italic",
-            booleans = "italic",
-            properties = "NONE",
+            numbers = "NONE",
+            booleans = "NONE",
+            properties = "bold",
             types = "bold",
-            operators = "NONE",
+            operators = "bold",
           },
           inverse = {             -- Inverse highlight for different types
             match_paren = false,
