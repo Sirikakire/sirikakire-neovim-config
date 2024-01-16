@@ -10,9 +10,11 @@ return {
         pickers = {
           find_files = {
             theme = "dropdown",
+            hidden = true
           },
           live_grep = {
-            theme = "dropdown"
+            theme = "dropdown",
+            hidden = true
           },
           buffers = {
             theme = "dropdown"
