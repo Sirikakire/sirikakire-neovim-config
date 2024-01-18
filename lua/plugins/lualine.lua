@@ -5,8 +5,8 @@ return {
       options = {
         icons_enabled = true,
         -- theme = 'nord',
-        theme = "nightfox",
-        -- theme = "auto",
+        -- theme = "nightfox",
+        theme = "auto",
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {

@@ -16,7 +16,8 @@ local options = {
   "set linebreak",
   "set number relativenumber",
   "set clipboard+=unnamedplus",
-  "set laststatus=3"
+  "set laststatus=3",
+  "set termguicolors"
 }
 vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd(option) end

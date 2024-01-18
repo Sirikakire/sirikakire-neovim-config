@@ -99,14 +99,14 @@ return {
   {
     'AhmedAbdulrahman/aylin.vim', branch = '0.5-nvim',
     config = function()
-      --vim.cmd.colorscheme("aylin")
+      -- vim.cmd.colorscheme("aylin")
     end
   },
   {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      require('nightfox').setup({
+      --[[ require('nightfox').setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -146,10 +146,19 @@ return {
         palettes = {},
         specs = {},
         groups = {},
-      })
+      }) ]]
 
       -- setup must be called before loading
-      vim.cmd.colorscheme("nordfox")
+      -- vim.cmd.colorscheme("nordfox")
+    end
+  },
+  {
+    "sainnhe/everforest",
+    config = function ()
+      vim.g.everforest_background = 'hard'
+      vim.g.everforest_better_performance = 1
+      vim.cmd.colorscheme("everforest")
     end
   }
+
 }
