@@ -73,7 +73,7 @@ return {
       log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
       open_files_in_last_window = true, -- false = open files in top left window
       open_files_do_not_replace_types = { "Trouble", "qf", "edgy" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      popup_border_style = "NC", -- "double", "none", "rounded", "shadow", "single" or "solid"
+      popup_border_style = "double", -- "double", "none", "rounded", "shadow", "single" or "solid"
       resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
       -- set to -1 to disable the resize timer entirely
       --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
@@ -492,14 +492,14 @@ return {
         --         The rest of the fields are passed to the function as the "config" argument.
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
-          force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
+          force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
           show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
           hide_dotfiles = true,
           hide_gitignored = true,
           hide_hidden = true, -- only works on Windows for hidden files/directories
           hide_by_name = {
-            ".DS_Store",
-            "thumbs.db"
+            -- ".DS_Store",
+            -- "thumbs.db"
             --"node_modules",
           },
           hide_by_pattern = { -- uses glob style patterns
@@ -620,7 +620,7 @@ return {
         },
       },
       document_symbols = {
-        follow_cursor = false,
+        follow_cursor = true,
         client_filters = "first",
         renderers = {
           root = {
