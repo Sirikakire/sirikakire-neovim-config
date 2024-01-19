@@ -1,6 +1,6 @@
 return {
   "karb94/neoscroll.nvim",
-  config = function ()
+  --[[ config = function ()
     require('neoscroll').setup({
       -- All these keys will be mapped to their corresponding default scrolling animation
       mappings = {
@@ -18,5 +18,5 @@ return {
       post_hook = nil,             -- Function to run after the scrolling animation ends
       performance_mode = true,    -- Disable "Performance Mode" on all buffers.
     })
-  end
+  end ]]
 }

@@ -21,7 +21,7 @@ return {
       vim.keymap.set("n", "<leader>ts", ":TermSelect<CR>")
       vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>")
       require("toggleterm").setup({
-        shade_terminals = true,
+        shade_terminals = false,
         persist_size = true,
         persist_mode = true,
         start_in_insert = false,
