@@ -78,7 +78,7 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  "ruby_ls@0.5.1",
+  -- "ruby_ls@0.5.1",
 }
 
 return {
@@ -168,18 +168,9 @@ return {
     config = function ()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local function setupLSP (lsp_server)
-        if(lsp_server == "ruby_ls@0.5.1") then
-          require("lspconfig")[lsp_server].setup({
-            capabilities = capabilities,
-            init_options = {
-              formatter = "auto"
-            }
-          })
-        else
-          require("lspconfig")[lsp_server].setup({
-            capabilities = capabilities
-          })
-        end
+        require("lspconfig")[lsp_server].setup({
+          capabilities = capabilities
+        })
       end
       require('mason-lspconfig').setup({
         ensure_installed = lsp_servers,
