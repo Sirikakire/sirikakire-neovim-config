@@ -23,7 +23,7 @@ return {
       require("toggleterm").setup({
         shade_terminals = false,
         persist_size = true,
-        persist_mode = true,
+        persist_mode = false,
         start_in_insert = false,
         direction = "horizontal",
         auto_scroll = true,
