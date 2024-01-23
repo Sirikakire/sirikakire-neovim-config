@@ -25,6 +25,7 @@
   Event = "",
   Operator = "󰆕",
   TypeParameter = "󰅲",
+  Copilot = '  '
 } ]]
 local kind_icons = {
   Text = '  ',
@@ -52,18 +53,19 @@ local kind_icons = {
   Event = '  ',
   Operator = '  ',
   TypeParameter = '  ',
-  TabNine = '󰂂  '
+  TabNine = '󰂂  ',
+  Copilot = '  '
 }
 -- Border configure for diagnostic float window
 local border = {
-  { "┌", "NormalFloat" },
-  { "─", "NormalFloat" },
-  { "┐", "NormalFloat" },
-  { "│", "NormalFloat" },
-  { "┘", "NormalFloat" },
-  { "─", "NormalFloat" },
-  { "└", "NormalFloat" },
-  { "│", "NormalFloat" },
+  { "┌", "Normal" },
+  { "─", "Normal" },
+  { "┐", "Normal" },
+  { "│", "Normal" },
+  { "┘", "Normal" },
+  { "─", "Normal" },
+  { "└", "Normal" },
+  { "│", "Normal" },
 }
 -- Lsp server list
 local lsp_servers = {
@@ -98,6 +100,15 @@ return {
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
       local luasnip = require('luasnip')
+
+      cmp.event:on("menu_opened", function()
+        vim.b.copilot_suggestion_hidden = true
+      end)
+
+      cmp.event:on("menu_closed", function()
+        vim.b.copilot_suggestion_hidden = false
+      end)
+
       cmp.setup {
         window = {
           completion = cmp.config.window.bordered({
@@ -116,6 +127,7 @@ return {
               latex_symbols = "[Latex]",
               cmp_tabnine = "[TabNine]",
               buffer = "[Buffer]",
+              copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -149,6 +161,7 @@ return {
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'cmp_tabnine' },
+            { name = 'copilot' },
           }, {
             { name = 'buffer' },
           }
