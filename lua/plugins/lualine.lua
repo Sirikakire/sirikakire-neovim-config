@@ -6,7 +6,7 @@ return {
         icons_enabled = true,
         -- theme = 'nord',
         -- theme = "nightfox",
-        theme = "tokyonight",
+        theme = "auto",
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
