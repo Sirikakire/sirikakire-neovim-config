@@ -233,7 +233,7 @@ return {
         },
         automatic_installation = true
       })
-      vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+      -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
