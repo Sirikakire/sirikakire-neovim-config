@@ -85,11 +85,63 @@ local lsp_servers = {
 
 return {
   {
+    'codota/tabnine-nvim', build = "./dl_binaries.sh",
+    config = function ()
+      require('tabnine').setup({
+        disable_auto_comment=true,
+        accept_keymap="<Tab>",
+        dismiss_keymap = "<C-]>",
+        debounce_ms = 800,
+        suggestion_color = {gui = "#808080", cterm = 244},
+        exclude_filetypes = {"TelescopePrompt", "NvimTree"},
+        log_file_path = nil
+      })
+    end
+  },
+  {
+    'tzachar/cmp-tabnine',
+    build = './install.sh',
+    dependencies = 'hrsh7th/nvim-cmp',
+  },
+  {
+    "github/copilot.vim",
+    config = function()
+    end
+  },
+  {
     'L3MON4D3/LuaSnip',
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets"
     }
+  },
+  {
+    'hrsh7th/vim-vsnip'
+  },
+  {
+    'hrsh7th/vim-vsnip-integ'
+  },
+  {
+    "hrsh7th/cmp-vsnip"
+  },
+  {
+    "dcampos/nvim-snippy",
+    config = function()
+      require('snippy').setup({
+        mappings = {
+          is = {
+            ['<Tab>'] = 'expand_or_advance',
+            ['<S-Tab>'] = 'previous',
+          },
+          nx = {
+            ['<leader>x'] = 'cut_text',
+          },
+        },
+      })
+    end
+  },
+  {
+    "dcampos/cmp-snippy"
   },
   {
     'hrsh7th/cmp-nvim-lsp',
@@ -99,32 +151,18 @@ return {
     config = function ()
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
-      local luasnip = require('luasnip')
-
-      cmp.event:on("menu_opened", function()
-        vim.b.copilot_suggestion_hidden = true
-      end)
-
-      cmp.event:on("menu_closed", function()
-        vim.b.copilot_suggestion_hidden = false
-      end)
-
       cmp.setup {
         window = {
-          completion = cmp.config.window.bordered({
-            border = border
-          }),
-          documentation = cmp.config.window.bordered({
-            border = border
-          }),
+          completion = cmp.config.window.bordered({ border = border }),
+          documentation = cmp.config.window.bordered({ border = border }),
         },
         formatting = {
           format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
-              nvim_lua = "[Lua]",
+              vsnip = "[Vsnip]",
+              snippy = "[Snippy]",
               luasnip = "[LuaSnip]",
-              latex_symbols = "[Latex]",
               cmp_tabnine = "[TabNine]",
               buffer = "[Buffer]",
               copilot = "[Copilot]"
@@ -135,7 +173,9 @@ return {
         },
         snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            require('snippy').expand_snippet(args.body) -- For `snippy` users.
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -149,8 +189,8 @@ return {
           ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            elseif require("luasnip").jumpable(-1) then
+              require("luasnip").jump(-1)
             else
               fallback()
             end
@@ -161,9 +201,10 @@ return {
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'cmp_tabnine' },
-            { name = 'copilot' },
-          }, {
+            { name = 'vsnip' },
+            { name = 'snippy' },
             { name = 'buffer' },
+            { name = 'copilot' }
           }
         ),
       }

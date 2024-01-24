@@ -69,7 +69,31 @@ return {
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      -- vim.cmd.colorscheme "kanagawa"
+      require("kanagawa").setup({
+        compile = false,             -- enable compiling the colorscheme
+        undercurl = true,            -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = { bold = true },
+        keywordStyle = { italic = true},
+        statementStyle = { bold = true },
+        typeStyle = { bold = true },
+        transparent = false,         -- do not set background color
+        dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+        colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors) -- add/modify highlights
+          return {}
+        end,
+        theme = "wave",              -- Load "wave" theme when 'background' option is not set
+        background = {               -- map the value of 'background' option to a theme
+          dark = "wave",           -- try "dragon" !
+          light = "lotus"
+        },
+      })
+      vim.cmd.colorscheme "kanagawa-dragon"
     end
   },
   {
@@ -106,14 +130,14 @@ return {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      --[[ require('nightfox').setup({
+      require('nightfox').setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
           compile_file_suffix = "_compiled", -- Compiled file suffix
           transparent = false,     -- Disable setting background
           terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = false,    -- Non focused panes set to alternative background
+          dim_inactive = true,    -- Non focused panes set to alternative background
           module_default = true,   -- Default enable value for modules
           colorblind = {
             enable = false,        -- Enable colorblind support
@@ -146,10 +170,10 @@ return {
         palettes = {},
         specs = {},
         groups = {},
-      }) ]]
+      })
 
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("nordfox")
+      -- vim.cmd.colorscheme("nightfox")
     end
   },
   {
@@ -208,7 +232,7 @@ return {
   {
     'embark-theme/vim',
     config = function()
-      vim.cmd.colorscheme("embark")
+      -- vim.cmd.colorscheme("embark")
     end
-  }
+  },
 }
