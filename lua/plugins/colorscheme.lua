@@ -119,7 +119,7 @@ return {
     end
   },
   {
-    'AhmedAbdulrahman/aylin.vim', branch = '0.5-nvim',
+    'AhmedAbdulrahman/aylin.vim',
     config = function()
       -- vim.cmd.colorscheme("aylin")
     end
@@ -149,13 +149,13 @@ return {
           styles = {               -- Style to be applied to different syntax groups
             comments = "italic", -- Change the style of comments
             conditionals = "NONE",
-            functions = "bold",
+            functions = "italic",
             keywords = "bold",
             strings = "NONE",
             variables = "NONE",
             numbers = "NONE",
             booleans = "NONE",
-            properties = "bold",
+            properties = "italic",
             types = "bold",
             operators = "bold",
           },
@@ -171,7 +171,7 @@ return {
       })
 
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("nightfox")
+      -- vim.cmd.colorscheme("duskfox")
     end
   },
   {
@@ -197,14 +197,14 @@ return {
           -- Value is any valid attr-list value for `:help nvim_set_hl`
           comments = { italic = true }, -- Change the style of comments
           conditionals = {},
-          functions = { bold = true },
+          functions = { bold = true, italic = true },
           keywords = { bold = true },
           strings = {},
           variables = {},
           numbers = {},
           booleans = {},
           properties = { bold = true },
-          types = { bold = true },
+          types = { bold = true, italic = true },
           operators = { bold = true },
           -- Background styles. Can be "dark", "transparent" or "normal"
           sidebars = "dark", -- style for sidebars, see below
@@ -224,7 +224,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      -- vim.cmd.colorscheme("tokyonight-moon")
+      vim.cmd.colorscheme("tokyonight-moon")
     end
   },
   {
@@ -236,7 +236,7 @@ return {
   {
     "oxfist/night-owl.nvim",
     config = function()
-      vim.cmd.colorscheme("night-owl")
+      -- vim.cmd.colorscheme("night-owl")
     end
   },
 }

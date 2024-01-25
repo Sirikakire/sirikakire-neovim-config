@@ -116,34 +116,6 @@ return {
     }
   },
   {
-    'hrsh7th/vim-vsnip'
-  },
-  {
-    'hrsh7th/vim-vsnip-integ'
-  },
-  {
-    "hrsh7th/cmp-vsnip"
-  },
-  {
-    "dcampos/nvim-snippy",
-    config = function()
-      require('snippy').setup({
-        mappings = {
-          is = {
-            ['<Tab>'] = 'expand_or_advance',
-            ['<S-Tab>'] = 'previous',
-          },
-          nx = {
-            ['<leader>x'] = 'cut_text',
-          },
-        },
-      })
-    end
-  },
-  {
-    "dcampos/cmp-snippy"
-  },
-  {
     'hrsh7th/cmp-nvim-lsp',
   },
   {
@@ -160,8 +132,6 @@ return {
           format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
-              vsnip = "[Vsnip]",
-              snippy = "[Snippy]",
               luasnip = "[LuaSnip]",
               cmp_tabnine = "[TabNine]",
               buffer = "[Buffer]",
@@ -174,8 +144,6 @@ return {
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            require('snippy').expand_snippet(args.body) -- For `snippy` users.
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -202,7 +170,6 @@ return {
             { name = 'luasnip' },
             { name = 'cmp_tabnine' },
             { name = 'vsnip' },
-            { name = 'snippy' },
             { name = 'buffer' },
             { name = 'copilot' }
           }
