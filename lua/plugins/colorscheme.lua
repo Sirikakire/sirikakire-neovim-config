@@ -93,14 +93,12 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa-dragon"
+      -- vim.cmd.colorscheme "kanagawa-dragon"
     end
   },
   {
     "bluz71/vim-nightfly-colors",
     name = "nightfly",
-    lazy = false,
-    priority = 1000,
     config = function()
       -- vim.cmd.colorscheme "nightfly"
     end
@@ -233,6 +231,12 @@ return {
     'embark-theme/vim',
     config = function()
       -- vim.cmd.colorscheme("embark")
+    end
+  },
+  {
+    "oxfist/night-owl.nvim",
+    config = function()
+      vim.cmd.colorscheme("night-owl")
     end
   },
 }
