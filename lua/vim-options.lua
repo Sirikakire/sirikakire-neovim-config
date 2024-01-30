@@ -28,6 +28,7 @@ vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.opt.termguicolors = true
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
+-- vim.cmd('au TermOpen * au <buffer> WinEnter redraw!')
 -- vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap
 --[[ local function navigateToTerminal()
