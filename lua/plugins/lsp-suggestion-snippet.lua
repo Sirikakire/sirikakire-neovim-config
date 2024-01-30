@@ -211,7 +211,10 @@ return {
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
         end,
       })
-      vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+      vim.diagnostic.config {
+        float = { border = border },
+      }
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
