@@ -20,12 +20,13 @@ return {
             {
               icon = ' ',
               desc = 'Sidebar',
-              action = 'Neotree . focus right',
+              action = 'Neotree . focus',
               key = 'n',
             }
           },
         },
-      })        end,
-    dependencies = { {'nvim-tree/nvim-web-devicons'}}
+      })
+    end,
+    dependencies = {{'nvim-tree/nvim-web-devicons'}}
   }
 }

@@ -19,9 +19,9 @@ return {
       end
 
       if neotreeBuf and currentBufNr == neotreeBuf then
-        vim.api.nvim_command('Neotree . close right')
+        vim.api.nvim_command('Neotree . close')
       else
-        vim.api.nvim_command('Neotree . focus right')
+        vim.api.nvim_command('Neotree . focus')
       end
     end
     vim.keymap.set('n', '<C-b>', function() neotreeTrigger() end)
@@ -223,13 +223,17 @@ return {
           padding = 1,
           -- indent guides
           with_markers = true,
-          indent_marker = "│",
-          last_indent_marker = "└",
+          -- indent_marker = "│",
+          -- last_indent_marker = "└",
+          indent_marker = "",
+          last_indent_marker = "",
           highlight = "NeoTreeIndentMarker",
           -- expander config, needed for nesting files
           with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-          expander_collapsed = "",
-          expander_expanded = "",
+          -- expander_collapsed = "",
+          -- expander_expanded = "",
+          expander_collapsed = "",
+          expander_expanded = "",
           expander_highlight = "NeoTreeExpander",
         },
         icon = {
@@ -439,7 +443,6 @@ return {
         },
       },
       filesystem = {
-
         window = {
           mappings = {
             ["H"] = "toggle_hidden",

@@ -16,7 +16,7 @@ return {
         gitignore = si("", "#428850", "GitIgnore"),
         js = si("", "#f7cd6d", "JavaScript"),
         json = si("", "#f7cd6d", "JSON"),
-        ts = si("󰛦", "#808dc7", "TypeScript"),
+        ts = si("󰛦", "#87b2e2", "TypeScript"),
         html = si("", "#de7558", "HTML"),
         rb = si("", "#ef757c", "Ruby"),
         rake = si("", "#ef757c", "Rake"),
