@@ -14,7 +14,7 @@ return {
           col = '50%',
         },
         border = {
-          style = 'double',
+          style = 'single',
         },
         win_options = {
           winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
