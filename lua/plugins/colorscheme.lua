@@ -72,8 +72,8 @@ return {
       require("kanagawa").setup({
         compile = false,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
-        commentStyle = { italic = true },
-        functionStyle = { bold = true },
+        commentStyle = { italic = true, bold = true },
+        functionStyle = { bold = true, italic = true },
         keywordStyle = { italic = true},
         statementStyle = { bold = true },
         typeStyle = { bold = true },
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      -- vim.cmd.colorscheme "kanagawa-dragon"
+      vim.cmd.colorscheme "kanagawa"
     end
   },
   {
@@ -132,7 +132,7 @@ return {
         custom_highlights = {}, -- Overwrite default highlight groups
         custom_colors = {}, -- Overwrite default colors
       })
-      vim.cmd.colorscheme "onenord"
+      -- vim.cmd.colorscheme "onenord"
     end
   },
   {
