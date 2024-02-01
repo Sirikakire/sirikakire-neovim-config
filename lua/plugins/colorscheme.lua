@@ -70,7 +70,7 @@ return {
     "rebelot/kanagawa.nvim",
     config = function()
       require("kanagawa").setup({
-        compile = false,             -- enable compiling the colorscheme
+        compile = true,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
         commentStyle = { italic = true, bold = true },
         functionStyle = { bold = true, italic = true },
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa"
+      vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -106,7 +106,7 @@ return {
   {
     "rmehri01/onenord.nvim",
     config = function()
-      require('onenord').setup({
+      --[[ require('onenord').setup({
         theme = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
         borders = false, -- Split window borders
         fade_nc = false, -- Fade non-current windows, making them more distinguishable
@@ -131,7 +131,7 @@ return {
         },
         custom_highlights = {}, -- Overwrite default highlight groups
         custom_colors = {}, -- Overwrite default colors
-      })
+      }) ]]
       -- vim.cmd.colorscheme "onenord"
     end
   },
