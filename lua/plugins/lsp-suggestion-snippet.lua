@@ -80,7 +80,8 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  -- "ruby_ls@0.5.1",
+  -- "ruby_ls@0.1.0",
+  -- "solargraph@0.13.2"
 }
 
 return {

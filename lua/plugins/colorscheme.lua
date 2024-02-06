@@ -63,7 +63,7 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      -- vim.cmd.colorscheme "catppuccin-mocha"
+      -- vim.cmd.colorscheme "catppuccin-macchiato"
     end
   },
   {
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa-wave"
+      -- vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -216,7 +216,7 @@ return {
           },
           styles = {               -- Style to be applied to different syntax groups
             comments = "italic", -- Change the style of comments
-            conditionals = "NONE",
+            conditionals = "italic,bold",
             functions = "italic",
             keywords = "bold",
             strings = "NONE",
@@ -225,7 +225,7 @@ return {
             booleans = "NONE",
             properties = "italic",
             types = "bold",
-            operators = "bold",
+            operators = "italic,bold",
           },
           inverse = {             -- Inverse highlight for different types
             match_paren = false,
@@ -239,7 +239,7 @@ return {
       })
 
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("duskfox")
+      -- vim.cmd.colorscheme("nordfox")
     end
   },
   {
@@ -256,15 +256,15 @@ return {
       require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
-        style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
         light_style = "day", -- The theme is used when the background is set to light
         transparent = false, -- Enable this to disable setting the background color
         terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
         styles = {
           -- Style to be applied to different syntax groups
           -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = true }, -- Change the style of comments
-          conditionals = {},
+          comments = { bold = true, italic = true }, -- Change the style of comments
+          conditionals = { italic = true },
           functions = { bold = true, italic = true },
           keywords = { bold = true },
           strings = {},
@@ -292,7 +292,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      -- vim.cmd.colorscheme("tokyonight-night")
+      vim.cmd.colorscheme("tokyonight-moon")
     end
   },
   {

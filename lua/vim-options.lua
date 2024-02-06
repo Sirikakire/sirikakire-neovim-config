@@ -10,6 +10,7 @@ local options = {
   "set autowrite",
   "set cursorline",
   "set showcmd",
+  "set completeopt=menuone,noinsert,noselect",
   "set laststatus=2",
   "set shiftround",
   "set signcolumn=yes",
@@ -17,7 +18,8 @@ local options = {
   "set number relativenumber",
   "set clipboard+=unnamedplus",
   "set laststatus=3",
-  "set termguicolors"
+  "set termguicolors",
+  "set scrolloff=8"
 }
 vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd(option) end
@@ -28,6 +30,7 @@ vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.opt.termguicolors = true
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
+vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
 -- vim.cmd('au TermOpen * au <buffer> WinEnter redraw!')
 -- vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap
