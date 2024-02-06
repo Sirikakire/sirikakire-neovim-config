@@ -46,7 +46,7 @@ return {
         "document_symbols",
       },
       add_blank_line_at_top = true, -- Add a blank line at the top of the tree.
-      auto_clean_after_session_restore = false, -- Automatically clean up broken neo-tree buffers saved in sessions
+      auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
       -- popup_border_style is for input and confirmation dialogs.
       -- Configurtaion of floating window is done in the individual source sections.
@@ -66,14 +66,14 @@ return {
         max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
         -- Anything before this will be used. The last items to be processed are the untracked files.
       },
-      hide_root_node = false, -- Hide the root node.
-      retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow. 
+      hide_root_node = true, -- Hide the root node.
+      retain_hidden_root_indent = true, -- IF the root node is hidden, keep the indentation anyhow. 
       -- This is needed if you use expanders because they render in the indent.
       log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
       log_to_file = false, -- true, false, "/path/to/file.log", use :NeoTreeLogs to show the file
       open_files_in_last_window = true, -- false = open files in top left window
       open_files_do_not_replace_types = { "Trouble", "qf", "edgy" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      popup_border_style = "double", -- "double", "none", "rounded", "shadow", "single" or "solid"
+      popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"
       resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
       -- set to -1 to disable the resize timer entirely
       --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
@@ -287,11 +287,11 @@ return {
           required_width = 88, -- min width of window required to show this column
         },
         created = {
-          enabled = false,
+          enabled = true,
           required_width = 120, -- min width of window required to show this column
         },
         symlink_target = {
-          enabled = false,
+          enabled = true,
         },
       },
       renderers = {
@@ -494,7 +494,7 @@ return {
         --         The first field in each component is the name of the function to call.
         --         The rest of the fields are passed to the function as the "config" argument.
         filtered_items = {
-          visible = false, -- when true, they will just be displayed differently than normal items
+          visible = true, -- when true, they will just be displayed differently than normal items
           force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
           show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
           hide_dotfiles = true,

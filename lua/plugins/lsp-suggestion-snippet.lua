@@ -120,6 +120,12 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   {
+    "hrsh7th/cmp-buffer",
+  },
+  {
+    "hrsh7th/cmp-path",
+  },
+  {
     'hrsh7th/nvim-cmp',
     config = function ()
       require('luasnip.loaders.from_vscode').lazy_load()
@@ -136,6 +142,7 @@ return {
               luasnip = "[LuaSnip]",
               cmp_tabnine = "[TabNine]",
               buffer = "[Buffer]",
+              path = "[Path]",
               copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
@@ -148,6 +155,8 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
+          ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
@@ -160,9 +169,7 @@ return {
               cmp.select_prev_item()
             elseif require("luasnip").jumpable(-1) then
               require("luasnip").jump(-1)
-            else
-              fallback()
-            end
+            else fallback() end
           end, { 'i', 's' }),
         }),
         sources = cmp.config.sources(
@@ -170,8 +177,15 @@ return {
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'cmp_tabnine' },
-            { name = 'vsnip' },
-            { name = 'buffer' },
+            {
+              name = 'buffer',
+              option = {
+                get_bufnrs = function()
+                  return vim.api.nvim_list_bufs()
+                end
+              }
+            },
+            { name = 'path' },
             { name = 'copilot' }
           }
         ),
@@ -213,9 +227,6 @@ return {
         end,
       })
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-      vim.diagnostic.config {
-        float = { border = border },
-      }
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
@@ -233,14 +244,16 @@ return {
         end
         return vim.lsp.util.open_floating_preview(markdown_lines, 'markdown', config)
       end
-      --[[ vim.diagnostic.config({
+
+      vim.diagnostic.config({
         virtual_text = true,
         signs = true,
         underline = true,
         update_in_insert = true,
         severity_sort = true,
-      }) ]]
-      vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+        float = { border = border },
+      })
+      --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = true,
           signs = true,
@@ -248,7 +261,7 @@ return {
           update_in_insert = true,
           severity_sort = true,
         }
-      )
+      ) ]]
     end
   },
 }
