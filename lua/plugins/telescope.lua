@@ -9,22 +9,14 @@ return {
       require('telescope').setup({
         pickers = {
           find_files = {
-            theme = "dropdown",
             hidden = true
           },
           live_grep = {
-            theme = "dropdown",
             hidden = true
           },
-          buffers = {
-            theme = "dropdown"
-          },
-          diagnostics = {
-            theme = "dropdown"
-          },
-          git_bcommits = {
-            theme = "dropdown"
-          },
+          buffers = {},
+          diagnostics = {},
+          git_bcommits = {},
         },
       })
       local builtin = require('telescope.builtin')
