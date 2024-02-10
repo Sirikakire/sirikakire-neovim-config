@@ -53,3 +53,9 @@ vim.keymap.set('n', '<C-j>', "a<CR><esc>")
   end
 end
 vim.keymap.set('n', '<leader>t', function() navigateToTerminal() end) ]]
+vim.cmd([[
+  hi SpellBad   guisp=red    gui=undercurl term=underline cterm=undercurl
+  hi SpellCap   guisp=yellow gui=undercurl term=underline cterm=undercurl
+  hi SpellRare  guisp=blue   gui=undercurl term=underline cterm=undercurl
+  hi SpellLocal guisp=orange gui=undercurl term=underline cterm=undercurl
+]])

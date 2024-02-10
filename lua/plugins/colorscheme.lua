@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      -- vim.cmd.colorscheme "kanagawa-wave"
+      vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -292,7 +292,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      vim.cmd.colorscheme("tokyonight-moon")
+      -- vim.cmd.colorscheme("tokyonight-moon")
     end
   },
   {
