@@ -21,6 +21,7 @@ return {
         "regex",
         "tsx",
         "vim",
+        "vimdoc",
         "vue",
         "xml",
         "yaml",
