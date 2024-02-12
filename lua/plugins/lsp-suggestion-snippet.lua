@@ -106,18 +106,33 @@ return {
     build = './install.sh',
     dependencies = 'hrsh7th/nvim-cmp',
   },
-  {
+  --[[ {
     "github/copilot.vim",
     config = function()
       vim.keymap.set('n', '<leader>cp', ':Copilot panel<CR>')
     end
-  },
+  }, ]]
   {
     'L3MON4D3/LuaSnip',
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets"
     }
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require('copilot_cmp').setup()
+    end
   },
   {
     'hrsh7th/cmp-nvim-lsp',
