@@ -19,7 +19,7 @@ local options = {
   "set clipboard+=unnamedplus",
   "set laststatus=3",
   "set termguicolors",
-  "set scrolloff=8"
+  "set scrolloff=5"
 }
 vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd(option) end
