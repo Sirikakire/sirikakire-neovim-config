@@ -7,25 +7,25 @@ return {
         no_bold = false, -- Force no bold
         no_underline = false, -- Force no underline
         styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-          comments = { "italic" }, -- Change the style of comments
+          comments = { "italic", "bold" }, -- Change the style of comments
           conditionals = { "italic" },
-          loops = {"italic"},
-          functions = {"italic"},
+          loops = {"italic", "bold"},
+          functions = {"bold", "italic"},
           keywords = {"bold"},
           strings = {},
           variables = {},
-          numbers = {"italic"},
-          booleans = {"italic"},
-          properties = {},
+          numbers = {},
+          booleans = {},
+          properties = {"bold"},
           types = {"bold"},
-          operators = {},
+          operators = {"bold"},
         },
         custom_highlights = function(colors)
           return {
-            Comment = { fg = "#89AEB1"},
-            LineNr = { fg = colors.overlay0 },
-            WarningMsg = { style = { "italic" } },
-            ErrorMsg = { style = { "italic" } }
+            WarningMsg = { style = { "italic", "bold" } },
+            ErrorMsg = { style = { "italic", "bold" } },
+            HintMsg = { style = { "italic", "bold" } },
+            InfoMsg = { style = { "italic", "bold" } }
           }
         end,
         integrations = {
@@ -44,10 +44,10 @@ return {
           native_lsp = {
             enabled = true,
             virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
+              errors = { "italic", "bold" },
+              hints = { "italic", "bold" },
+              warnings = { "italic", "bold" },
+              information = { "italic", "bold" },
             },
             underlines = {
               errors = { "underline" },
@@ -63,7 +63,7 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      -- vim.cmd.colorscheme "catppuccin-macchiato"
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa-wave"
+      -- vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -203,7 +203,7 @@ return {
           compile_file_suffix = "_compiled", -- Compiled file suffix
           transparent = false,     -- Disable setting background
           terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = true,    -- Non focused panes set to alternative background
+          dim_inactive = false,    -- Non focused panes set to alternative background
           module_default = true,   -- Default enable value for modules
           colorblind = {
             enable = false,        -- Enable colorblind support
