@@ -8,12 +8,8 @@ return {
     config = function()
       require('telescope').setup({
         pickers = {
-          find_files = {
-            hidden = true
-          },
-          live_grep = {
-            hidden = true
-          },
+          find_files = {},
+          live_grep = {},
           buffers = {},
           diagnostics = {},
           git_bcommits = {},

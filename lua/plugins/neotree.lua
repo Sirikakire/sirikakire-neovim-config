@@ -1,6 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
+  branch = "main",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "3rd/image.nvim",
@@ -41,9 +41,8 @@ return {
       -- The name used here must be the same name you would use in a require() call.
       sources = {
         "filesystem",
-        "buffers",
-        "git_status",
         "document_symbols",
+        "git_status",
       },
       add_blank_line_at_top = true, -- Add a blank line at the top of the tree.
       auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
@@ -84,14 +83,13 @@ return {
       -- source_selector provides clickable tabs to switch between sources.
       source_selector = {
         winbar = true, -- toggle to show selector on winbar
-        statusline = false,
+        statusline = true,
         show_scrolled_off_parent_node = true, -- this will replace the tabs with the parent path
         -- of the top visible node when scrolled down.
         sources = {
           { source = "filesystem" },
-          { source = "buffers" },
+          { source = "document_symbols" },
           { source = "git_status" },
-          { source = "document_symbols" }
         },
         content_layout = "center", -- only with `tabs_layout` = "equal", "focus"
         --                start  : |/ 󰓩 bufname     \/...
@@ -250,7 +248,7 @@ return {
         },
         name = {
           trailing_slash = false,
-          highlight_opened_files = false, -- Requires `enable_opened_markers = true`. 
+          highlight_opened_files = true, -- Requires `enable_opened_markers = true`. 
           -- Take values in { false (no highlight), true (only loaded), 
           -- "all" (both loaded and unloaded)}. For more information,
           -- see the `show_unloaded` config of the `buffers` source.
@@ -374,10 +372,10 @@ return {
 
       window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
-        position = "right", -- left, right, top, bottom, float, current
+        position = "left", -- left, right, top, bottom, float, current
         width = 40, -- applies to left and right positions
         height = 15, -- applies to top and bottom positions
-        auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
+        auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
         popup = { -- settings that apply to float position only
           size = {
             height = "80%",
@@ -400,7 +398,7 @@ return {
         mappings = {
           ["<space>"] = {
             "toggle_node",
-            nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+            nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
@@ -558,7 +556,7 @@ return {
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
-          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
         update_focused_file = {
           enable = true,
@@ -576,15 +574,15 @@ return {
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time
           --              -- the current file is changed while the tree is open.
-          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
         update_focused_file = {
           enable = true,
         },
         group_empty_dirs = true,  -- when true, empty directories will be grouped together
-        show_unloaded = false,    -- When working with sessions, for example, restored but unfocused buffers
+        show_unloaded = true,    -- When working with sessions, for example, restored but unfocused buffers
         -- are mark as "unloaded". Turn this on to view these unloaded buffer.
-        terminals_first = false,  -- when true, terminals will be listed before file buffers
+        terminals_first = true,  -- when true, terminals will be listed before file buffers
         window = {
           mappings = {
             ["<bs>"] = "navigate_up",
