@@ -1,3 +1,4 @@
+vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 -- Vim basic configuration options
 local options = {
   "set autoindent",
@@ -11,7 +12,6 @@ local options = {
   "set cursorline",
   "set showcmd",
   "set completeopt=menuone,noinsert,noselect",
-  "set laststatus=2",
   "set shiftround",
   "set signcolumn=yes",
   "set linebreak",
@@ -28,9 +28,10 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
+vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
-vim.keymap.set('n', '<C-j>', "a<CR><esc>")
+vim.cmd('highlight WinSeparator guibg=None')
 -- vim.cmd('au TermOpen * au <buffer> WinEnter redraw!')
 -- vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap

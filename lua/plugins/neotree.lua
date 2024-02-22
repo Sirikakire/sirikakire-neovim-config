@@ -7,7 +7,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    local function neotreeTrigger()
+    --[[ local function neotreeTrigger()
       local currentBufNr = vim.api.nvim_get_current_buf()
       local neotreeBuf = nil
 
@@ -23,8 +23,8 @@ return {
       else
         vim.api.nvim_command('Neotree . focus')
       end
-    end
-    vim.keymap.set('n', '<C-b>', function() neotreeTrigger() end)
+    end ]]
+    vim.keymap.set('n', '<C-b>', ':Neotree . focus<CR>')
     vim.fn.sign_define("DiagnosticSignError",
       {text = " ", texthl = "DiagnosticSignError"})
     vim.fn.sign_define("DiagnosticSignWarn",
@@ -83,7 +83,7 @@ return {
       -- source_selector provides clickable tabs to switch between sources.
       source_selector = {
         winbar = true, -- toggle to show selector on winbar
-        statusline = true,
+        statusline = false,
         show_scrolled_off_parent_node = true, -- this will replace the tabs with the parent path
         -- of the top visible node when scrolled down.
         sources = {
@@ -375,7 +375,7 @@ return {
         position = "left", -- left, right, top, bottom, float, current
         width = 40, -- applies to left and right positions
         height = 15, -- applies to top and bottom positions
-        auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
+        auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
         popup = { -- settings that apply to float position only
           size = {
             height = "80%",
