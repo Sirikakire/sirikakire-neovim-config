@@ -63,7 +63,7 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      vim.cmd.colorscheme "catppuccin-mocha"
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
@@ -298,7 +298,7 @@ return {
   {
     'embark-theme/vim',
     config = function()
-      -- vim.cmd.colorscheme("embark")
+      vim.cmd.colorscheme("embark")
     end
   },
   {

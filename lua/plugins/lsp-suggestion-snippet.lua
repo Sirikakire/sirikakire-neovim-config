@@ -81,8 +81,8 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  -- "rubocop"
-  "ruby_ls@0.1.0",
+  "rubocop@1.12.1"
+  -- "ruby_ls@0.2.0",
   -- "solargraph"
 }
 
