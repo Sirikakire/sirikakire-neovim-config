@@ -35,7 +35,12 @@ return {
         enable_close = true,
         enable_close_on_slash = true,
         filetypes = { "html" , "xml" },
-      }
+      },
+      query_linter = {
+        enable = true,
+        use_virtual_text = true,
+        lint_events = { "BufWrite", "CursorHold" }
+      },
     })
   end
 }

@@ -1,30 +1,37 @@
-vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 -- Vim basic configuration options
 local options = {
   "set autoindent",
   "set smartindent",
   "set expandtab",
+  "set smarttab",
+  "set breakindent",
   "set shiftwidth=2",
   "set tabstop=2",
   "set wrap",
+  "set mouse=a",
   "set autoread",
   "set autowrite",
   "set cursorline",
   "set showcmd",
+  "set cmdheight=0",
   "set completeopt=menuone,noinsert,noselect",
+  "set backspace=start,eol,indent",
   "set shiftround",
+  "set nobackup",
+  "set ignorecase",
   "set signcolumn=yes",
   "set linebreak",
   "set number relativenumber",
   "set clipboard+=unnamedplus",
   "set laststatus=3",
   "set termguicolors",
-  "set scrolloff=5"
+  "set scrolloff=5",
+  -- "set title"
 }
 vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd(option) end
-vim.keymap.set('n', ':', ':FineCmdline<CR>')
 vim.g.mapleader = " "
+vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')

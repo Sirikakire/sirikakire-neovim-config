@@ -26,7 +26,11 @@ return {
         lualine_a = {
           function() return "Hi Sirikakire :3" end,
         },
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {
+          'branch',
+          -- 'diff',
+          -- 'diagnostics'
+        },
         lualine_c = {},
         lualine_x = {
           'filetype',

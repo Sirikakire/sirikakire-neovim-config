@@ -81,7 +81,7 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  "rubocop@1.12.1"
+  "rubocop"
   -- "ruby_ls@0.2.0",
   -- "solargraph"
 }
@@ -144,6 +144,9 @@ return {
     "hrsh7th/cmp-path",
   },
   {
+    "hrsh7th/cmp-cmdline",
+  },
+  {
     'hrsh7th/nvim-cmp',
     config = function ()
       require('luasnip.loaders.from_vscode').lazy_load()
@@ -160,6 +163,7 @@ return {
               luasnip = "[LuaSnip]",
               cmp_tabnine = "[TabNine]",
               buffer = "[Buffer]",
+              cmdline = "[CMDLine]",
               path = "[Path]",
               copilot = "[Copilot]"
             })[entry.source.name]
@@ -208,6 +212,28 @@ return {
           }
         ),
       }
+      -- `/` cmdline setup.
+      cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' },
+          { name = 'copilot' }
+        }
+      })    -- `:` cmdline setup.
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' },
+          { name = 'copilot' }
+        }, {
+            {
+              name = 'cmdline',
+              option = {
+                ignore_cmds = { 'Man', '!' }
+              }
+            }
+          })
+      })
     end
   },
   { "neovim/nvim-lspconfig" },

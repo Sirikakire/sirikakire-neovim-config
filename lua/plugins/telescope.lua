@@ -32,6 +32,7 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
       vim.keymap.set('n', '<leader>fp', builtin.git_bcommits, {})
       vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+      vim.keymap.set('n', '<leader>fm', builtin.reloader, {})
       require("telescope").load_extension("ui-select")
     end
   }
