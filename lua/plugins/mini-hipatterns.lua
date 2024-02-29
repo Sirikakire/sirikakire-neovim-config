@@ -15,7 +15,7 @@ return {
       },
       delay = {
         -- How much to wait for update after every text change
-        text_change = 200,
+        text_change = 1000,
 
         -- How much to wait for update after window scroll
         scroll = 50,

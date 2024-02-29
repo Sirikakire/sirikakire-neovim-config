@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      -- vim.cmd.colorscheme "kanagawa-wave"
+      vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -106,7 +106,7 @@ return {
   {
     "rmehri01/onenord.nvim",
     config = function()
-      require('onenord').setup({
+      --[[ require('onenord').setup({
         theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
         borders = false, -- Split window borders
         fade_nc = false, -- Fade non-current windows, making them more distinguishable
@@ -131,8 +131,8 @@ return {
         },
         custom_highlights = {}, -- Overwrite default highlight groups
         custom_colors = {}, -- Overwrite default colors
-      })
-      vim.cmd.colorscheme "onenord"
+      }) ]]
+      -- vim.cmd.colorscheme "onenord"
     end
   },
   {
