@@ -28,8 +28,8 @@ return {
         },
         lualine_b = {
           'branch',
-          -- 'diff',
-          -- 'diagnostics'
+          'diff',
+          'diagnostics'
         },
         lualine_c = {},
         lualine_x = {

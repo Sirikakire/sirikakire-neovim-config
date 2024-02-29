@@ -81,7 +81,6 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  -- "rubocop"
   "ruby_ls@0.2.0",
 }
 
@@ -96,38 +95,31 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets"
-    }
+    },
   },
   {
+    "zbirenbaum/copilot-cmp",
+    dependencies = {
     "zbirenbaum/copilot.lua",
+    },
     config = function()
       require('copilot').setup({
         suggestion = { enabled = false },
         panel = { enabled = false },
       })
       vim.keymap.set('n', '<leader>cp', ':Copilot panel<CR>')
-    end
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
       require('copilot_cmp').setup()
     end
   },
   {
-    'hrsh7th/cmp-nvim-lsp',
-  },
-  {
-    "hrsh7th/cmp-buffer",
-  },
-  {
-    "hrsh7th/cmp-path",
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-  },
-  {
     'hrsh7th/nvim-cmp',
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+    },
     config = function ()
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
@@ -159,6 +151,7 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -174,11 +167,14 @@ return {
               name = 'buffer',
               option = {
                 get_bufnrs = function()
-                  return vim.api.nvim_list_bufs()
+                  local bufs = {}
+                  for _, win in ipairs(vim.api.nvim_list_wins()) do
+                    bufs[vim.api.nvim_win_get_buf(win)] = true
+                  end
+                  return vim.tbl_keys(bufs)
                 end
               }
             },
-            { name = 'path' },
             { name = 'copilot' }
           }
         ),
@@ -261,7 +257,7 @@ return {
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,
-        underline = true,
+        underline = false,
         update_in_insert = true,
         severity_sort = true,
         float = { border = border },
