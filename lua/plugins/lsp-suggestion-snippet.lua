@@ -81,9 +81,8 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  "rubocop"
-  -- "ruby_ls@0.2.0",
-  -- "solargraph"
+  -- "rubocop"
+  "ruby_ls@0.2.0",
 }
 
 return {
@@ -126,6 +125,7 @@ return {
         suggestion = { enabled = false },
         panel = { enabled = false },
       })
+      vim.keymap.set('n', '<leader>cp', ':Copilot panel<CR>')
     end
   },
   {
@@ -177,10 +177,11 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,

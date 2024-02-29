@@ -106,8 +106,8 @@ return {
   {
     "rmehri01/onenord.nvim",
     config = function()
-      --[[ require('onenord').setup({
-        theme = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+      require('onenord').setup({
+        theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
         borders = false, -- Split window borders
         fade_nc = false, -- Fade non-current windows, making them more distinguishable
         -- Style that is applied to various groups: see `highlight-args` for options
@@ -131,8 +131,8 @@ return {
         },
         custom_highlights = {}, -- Overwrite default highlight groups
         custom_colors = {}, -- Overwrite default colors
-      }) ]]
-      -- vim.cmd.colorscheme "onenord"
+      })
+      vim.cmd.colorscheme "onenord"
     end
   },
   {
@@ -239,7 +239,7 @@ return {
       })
 
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("nordfox")
+      -- vim.cmd.colorscheme("duskfox")
     end
   },
   {
@@ -292,7 +292,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      vim.cmd.colorscheme("tokyonight-storm")
+      -- vim.cmd.colorscheme("tokyonight-storm")
     end
   },
   {
