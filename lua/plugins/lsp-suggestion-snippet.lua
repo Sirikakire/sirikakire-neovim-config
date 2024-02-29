@@ -72,7 +72,6 @@ local border = {
 local lsp_servers = {
   "tsserver",
   "lua_ls",
-  "angularls",
   "jdtls",
   "cssls",
   "bashls",
