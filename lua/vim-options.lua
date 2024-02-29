@@ -4,7 +4,7 @@ local options = {
   "set smartindent",
   "set expandtab",
   "set smarttab",
-  -- "set breakindent",
+  "set breakindent",
   "set shiftwidth=2",
   "set tabstop=2",
   "set wrap",
@@ -12,11 +12,11 @@ local options = {
   "set autowrite",
   "set cursorline",
   "set showcmd",
-  -- "set cmdheight=0",
-  -- "set completeopt=menuone,noinsert,noselect",
-  -- "set backspace=start,eol,indent",
+  "set cmdheight=0",
+  "set completeopt=menuone,noinsert,noselect",
+  "set backspace=start,eol,indent",
   "set shiftround",
-  -- "set nobackup",
+  "set nobackup",
   "set ignorecase",
   "set signcolumn=yes",
   "set linebreak",
@@ -37,7 +37,7 @@ vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
--- vim.cmd('highlight WinSeparator guibg=None')
+vim.cmd('highlight WinSeparator guibg=None')
 -- vim.cmd('au TermOpen * au <buffer> WinEnter redraw!')
 -- vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap

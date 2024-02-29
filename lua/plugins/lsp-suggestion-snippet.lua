@@ -87,30 +87,10 @@ local lsp_servers = {
 
 return {
   {
-    'codota/tabnine-nvim', build = "./dl_binaries.sh",
-    config = function ()
-      require('tabnine').setup({
-        disable_auto_comment=true,
-        accept_keymap="<Tab>",
-        dismiss_keymap = "<C-]>",
-        debounce_ms = 800,
-        suggestion_color = {gui = "#808080", cterm = 244},
-        exclude_filetypes = {"TelescopePrompt", "NvimTree"},
-        log_file_path = nil
-      })
-    end
-  },
-  {
     'tzachar/cmp-tabnine',
     build = './install.sh',
     dependencies = 'hrsh7th/nvim-cmp',
   },
-  --[[ {
-    "github/copilot.vim",
-    config = function()
-      vim.keymap.set('n', '<leader>cp', ':Copilot panel<CR>')
-    end
-  }, ]]
   {
     'L3MON4D3/LuaSnip',
     dependencies = {
@@ -179,21 +159,11 @@ return {
         mapping = cmp.mapping.preset.insert({
           ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           },
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif require("luasnip").jumpable(-1) then
-              require("luasnip").jump(-1)
-            else fallback() end
-          end, { 'i', 's' }),
         }),
         sources = cmp.config.sources(
           {
@@ -218,14 +188,12 @@ return {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
           { name = 'buffer' },
-          { name = 'copilot' }
         }
       })    -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
           { name = 'path' },
-          { name = 'copilot' }
         }, {
             {
               name = 'cmdline',
