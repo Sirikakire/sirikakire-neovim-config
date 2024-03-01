@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup({
+      --[[ require("catppuccin").setup({
         no_italic = false, -- Force no italic
         no_bold = false, -- Force no bold
         no_underline = false, -- Force no underline
@@ -63,13 +63,13 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      -- vim.cmd.colorscheme "catppuccin-mocha"
+      vim.cmd.colorscheme "catppuccin-mocha" ]]
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      require("kanagawa").setup({
+      --[[ require("kanagawa").setup({
         compile = true,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
         commentStyle = { italic = true, bold = true },
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa-wave"
+      vim.cmd.colorscheme "kanagawa-wave" ]]
     end
   },
   {
@@ -138,7 +138,7 @@ return {
   {
     'AlexvZyl/nordic.nvim',
     config = function()
-      require 'nordic' .setup {
+      --[[ require 'nordic' .setup {
         -- This callback can be used to override the colors used in the palette.
         on_palette = function(palette) return palette end,
         -- Enable bold keywords.
@@ -183,7 +183,7 @@ return {
           dark_background = true,
         }
       }
-      -- vim.cmd.colorscheme("nordic")
+      vim.cmd.colorscheme("nordic") ]]
     end
   },
   {
@@ -196,7 +196,7 @@ return {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      require('nightfox').setup({
+      --[[ require('nightfox').setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -239,7 +239,7 @@ return {
       })
 
       -- setup must be called before loading
-      -- vim.cmd.colorscheme("duskfox")
+      vim.cmd.colorscheme("duskfox") ]]
     end
   },
   {
@@ -253,7 +253,7 @@ return {
   {
     "folke/tokyonight.nvim",
     config = function ()
-      require("tokyonight").setup({
+      --[[ require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -292,7 +292,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      -- vim.cmd.colorscheme("tokyonight-storm")
+      vim.cmd.colorscheme("tokyonight-storm") ]]
     end
   },
   {
@@ -304,7 +304,80 @@ return {
   {
     "oxfist/night-owl.nvim",
     config = function()
-      -- vim.cmd.colorscheme("night-owl")
+      vim.cmd.colorscheme("night-owl")
     end
   },
+  {
+    "rose-pine/neovim",
+    config = function()
+      require("rose-pine").setup({
+        variant = "auto", -- auto, main, moon, or dawn
+        dark_variant = "main", -- main, moon, or dawn
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
+        enable = {
+          terminal = true,
+          legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+          migrations = true, -- Handle deprecated options automatically
+        },
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = false,
+        },
+        groups = {
+          border = "muted",
+          link = "iris",
+          panel = "surface",
+
+          error = "love",
+          hint = "iris",
+          info = "foam",
+          note = "pine",
+          todo = "rose",
+          warn = "gold",
+
+          git_add = "foam",
+          git_change = "rose",
+          git_delete = "love",
+          git_dirty = "rose",
+          git_ignore = "muted",
+          git_merge = "iris",
+          git_rename = "pine",
+          git_stage = "iris",
+          git_text = "rose",
+          git_untracked = "subtle",
+
+          h1 = "iris",
+          h2 = "foam",
+          h3 = "rose",
+          h4 = "gold",
+          h5 = "pine",
+          h6 = "foam",
+        },
+
+        highlight_groups = {
+          -- Comment = { fg = "foam" },
+          -- VertSplit = { fg = "muted", bg = "muted" },
+        },
+
+        before_highlight = function(group, highlight, palette)
+          -- Disable all undercurls
+          -- if highlight.undercurl then
+          --     highlight.undercurl = false
+          -- end
+          --
+          -- Change palette colour
+          -- if highlight.fg == palette.pine then
+          --     highlight.fg = palette.foam
+          -- end
+        end,
+      })
+
+      -- vim.cmd("colorscheme rose-pine")
+      -- vim.cmd("colorscheme rose-pine-main")
+      vim.cmd("colorscheme rose-pine-moon")
+      -- vim.cmd("colorscheme rose-pine-dawn")
+    end
+  }
 }
