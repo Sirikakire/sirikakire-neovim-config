@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      --[[ require("catppuccin").setup({
+      require("catppuccin").setup({
         no_italic = false, -- Force no italic
         no_bold = false, -- Force no bold
         no_underline = false, -- Force no underline
@@ -63,7 +63,7 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      vim.cmd.colorscheme "catppuccin-mocha" ]]
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
