@@ -10,7 +10,7 @@ return {
     vim.keymap.set('n', '<A-.>', ':BufferNext<CR>'),
     vim.keymap.set('n', '<A-c>', ':BufferClose')
   },
-  version = '^1.0.0',
+  -- version = 'main',
   config = function()
     require('barbar').setup({
       animation = true,
@@ -28,7 +28,7 @@ return {
       clickable = true,
 
       -- Excludes buffers from the tabline
-      exclude_ft = {},
+      exclude_ft = { 'neo-tree' },
       exclude_name = {},
 
       -- A buffer to this direction will be focused (if it exists) when closing the current buffer.
@@ -74,9 +74,10 @@ return {
           enabled = true,
         },
         separator = {left = '▎', right = ''},
+        -- separator = {left = '|', right = '|'},
 
         -- If true, add an additional separator at the end of the buffer list
-        separator_at_end = true,
+        -- separator_at_end = true,
 
         -- Configure the icons on the bufferline when modified or pinned.
         -- Supports all the base icon options.
@@ -89,7 +90,7 @@ return {
         -- Configure the icons on the bufferline based on the visibility of a buffer.
         -- Supports all the base icon options, plus `modified` and `pinned`.
         -- alternate = {filetype = {enabled = true}},
-        current = {buffer_index = true},
+        -- current = {buffer_index = true},
         -- inactive = {button = '×'},
         -- visible = {modified = {buffer_number = true}},
       },
@@ -100,16 +101,16 @@ return {
       insert_at_start = false,
 
       -- Sets the maximum padding width with which to surround each tab
-      maximum_padding = 1,
+      maximum_padding = 0,
 
       -- Sets the minimum padding width with which to surround each tab
-      minimum_padding = 1,
+      minimum_padding = 0,
 
       -- Sets the maximum buffer name length.
       maximum_length = 30,
 
       -- Sets the minimum buffer name length.
-      minimum_length = 0,
+      minimum_length = 20,
 
       -- If set, the letters for each buffer in buffer-pick mode will be
       -- assigned based on their name. Otherwise or in case all letters are
@@ -118,16 +119,17 @@ return {
       semantic_letters = true,
 
       -- Set the filetypes which barbar will offset itself for
-      --[[ sidebar_filetypes = {
+      -- sidebar_filetypes = {
         -- Use the default values: {event = 'BufWinLeave', text = nil}
-        NvimTree = true,
+        -- NvimTree = true,
+        -- NeoTree = true
         -- Or, specify the text used for the offset:
-        undotree = {text = 'undotree'},
+        -- undotree = {text = 'undotree'},
         -- Or, specify the event which the sidebar executes when leaving:
-        ['neo-tree'] = {event = 'BufWipeout'},
+        -- ['neo-tree'] = {event = {'BufWipeout', 'BufEnter'},
         -- Or, specify both
-        Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
-      }, ]]
+        -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+      -- },
 
       -- New buffer letters are assigned in this order. This order is
       -- optimal for the qwerty keyboard layout but might need adjustment
@@ -136,7 +138,7 @@ return {
 
       -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
       -- where X is the buffer number. But only a static string is accepted here.
-      no_name_title = nil,
+      no_name_title = 'Blank buffer',
     })
   end
 }

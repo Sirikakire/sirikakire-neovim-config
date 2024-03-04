@@ -80,10 +80,18 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
-  "ruby_ls@0.2.0",
+  -- "ruby_ls@0.2.0",
+  "solargraph"
+  -- "angularls"
 }
 
 return {
+  {
+   "nvimdev/lspsaga.nvim",
+    config = function ()
+      require("lspsaga").setup({})
+    end
+  },
   {
     'tzachar/cmp-tabnine',
     build = './install.sh',

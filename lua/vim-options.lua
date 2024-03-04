@@ -12,6 +12,8 @@ local options = {
   "set autowrite",
   "set cursorline",
   "set showcmd",
+  "set fillchars+=vert:\\▏",
+  "set fillchars+=horiz:\\▁",
   "set cmdheight=0",
   "set completeopt=menuone,noinsert,noselect",
   "set backspace=start,eol,indent",

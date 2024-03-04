@@ -63,13 +63,13 @@ return {
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
-      -- vim.cmd.colorscheme "catppuccin-mocha"
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      --[[ require("kanagawa").setup({
+      require("kanagawa").setup({
         compile = true,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
         commentStyle = { italic = true, bold = true },
@@ -93,7 +93,7 @@ return {
           light = "lotus"
         },
       })
-      vim.cmd.colorscheme "kanagawa-wave" ]]
+      -- vim.cmd.colorscheme "kanagawa-dragon"
     end
   },
   {
@@ -139,7 +139,7 @@ return {
     'AlexvZyl/nordic.nvim',
     config = function()
       --[[ require 'nordic' .setup {
-        -- This callback can be used to override the colors used in the palette.
+         -- This callback can be used to override the colors used in the palette.
         on_palette = function(palette) return palette end,
         -- Enable bold keywords.
         bold_keywords = true,
@@ -148,7 +148,7 @@ return {
         -- Enable general editor background transparency.
         transparent_bg = false,
         -- Enable brighter float border.
-        bright_border = true,
+        bright_border = false,
         -- Reduce the overall amount of blue in the theme (diverges from base Nord).
         reduced_blue = true,
         -- Swap the dark background with the normal one.
@@ -182,8 +182,8 @@ return {
           -- Enables dark background for treesitter-context window
           dark_background = true,
         }
-      }
-      vim.cmd.colorscheme("nordic") ]]
+      } ]]
+      -- vim.cmd.colorscheme("nordic")
     end
   },
   {
@@ -253,7 +253,7 @@ return {
   {
     "folke/tokyonight.nvim",
     config = function ()
-      --[[ require("tokyonight").setup({
+      require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -292,7 +292,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      vim.cmd.colorscheme("tokyonight-storm") ]]
+      -- vim.cmd.colorscheme("tokyonight-storm")
     end
   },
   {
@@ -304,7 +304,7 @@ return {
   {
     "oxfist/night-owl.nvim",
     config = function()
-      vim.cmd.colorscheme("night-owl")
+      -- vim.cmd.colorscheme("night-owl")
     end
   },
   {
@@ -376,8 +376,22 @@ return {
 
       -- vim.cmd("colorscheme rose-pine")
       -- vim.cmd("colorscheme rose-pine-main")
-      vim.cmd("colorscheme rose-pine-moon")
+      -- vim.cmd("colorscheme rose-pine-moon")
       -- vim.cmd("colorscheme rose-pine-dawn")
+    end
+  },
+  {
+    "drewtempelmeyer/palenight.vim",
+    config = function()
+      -- vim.cmd.colorscheme("palenight")
+    end
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    config = function ()
+      require("github-theme").setup({})
+
+      -- vim.cmd.colorscheme("github_dark")
     end
   }
 }
