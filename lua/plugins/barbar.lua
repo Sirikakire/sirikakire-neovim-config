@@ -107,7 +107,7 @@ return {
       minimum_padding = 0,
 
       -- Sets the maximum buffer name length.
-      maximum_length = 30,
+      maximum_length = 50,
 
       -- Sets the minimum buffer name length.
       minimum_length = 20,
