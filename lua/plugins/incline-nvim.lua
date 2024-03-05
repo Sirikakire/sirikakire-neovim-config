@@ -1,5 +1,5 @@
 return {
-  "b0o/incline.nvim",
+  --[[ "b0o/incline.nvim",
   config = function()
     local devicons = require("nvim-web-devicons")
     require('incline').setup({
@@ -77,5 +77,5 @@ return {
     })
   end,
   -- Optional: Lazy load Incline
-  event = 'VeryLazy',
+  event = 'VeryLazy', ]]
 }
