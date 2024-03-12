@@ -100,9 +100,9 @@ return {
     "bluz71/vim-nightfly-colors",
     name = "nightfly",
     config = function()
-    -- vim.g.nightflyVirtualTextColor = true
-    -- vim.g.nightglyItalic = true
-    -- vim.cmd.colorscheme "nightfly"
+      -- vim.g.nightflyVirtualTextColor = true
+      -- vim.g.nightglyItalic = true
+      -- vim.cmd.colorscheme "nightfly"
     end
   },
   {
@@ -140,7 +140,7 @@ return {
   {
     'AlexvZyl/nordic.nvim',
     config = function()
-      --[[ require 'nordic' .setup {
+      --[[require 'nordic' .setup {
          -- This callback can be used to override the colors used in the palette.
         on_palette = function(palette) return palette end,
         -- Enable bold keywords.
@@ -184,8 +184,8 @@ return {
           -- Enables dark background for treesitter-context window
           dark_background = true,
         }
-      } ]]
-      -- vim.cmd.colorscheme("nordic")
+      }
+      vim.cmd.colorscheme("nordic") ]]
     end
   },
   {
@@ -422,5 +422,12 @@ return {
       -- vim.g.sonokai_dim_inactive_windows = 1
       -- vim.cmd.colorscheme("sonokai")
     end
-  }
+  },
+  --[[ {
+    "ntk148v/habamax.nvim",
+    dependencies={ "rktjmp/lush.nvim" },
+    config = function ()
+      vim.cmd.colorscheme("habamax.nvim")
+    end
+  } ]]
 }

@@ -1,36 +1,43 @@
 -- Vim basic configuration options
 local options = {
-  "set autoindent",
-  "set smartindent",
-  "set expandtab",
-  "set smarttab",
-  "set breakindent",
-  "set shiftwidth=2",
-  "set tabstop=2",
-  "set wrap",
-  "set autoread",
-  "set autowrite",
-  "set cursorline",
-  "set showcmd",
-  --[[ "set fillchars+=vert:\\▏",
-  "set fillchars+=horiz:\\▁", ]]
-  "set cmdheight=0",
-  "set completeopt=menuone,noinsert,noselect",
-  "set backspace=start,eol,indent",
-  "set shiftround",
-  "set nobackup",
-  "set ignorecase",
-  "set signcolumn=yes",
-  "set linebreak",
-  "set number relativenumber",
-  "set clipboard+=unnamedplus",
-  "set laststatus=3",
-  "set termguicolors",
-  "set scrolloff=5",
-  "set title"
+  "autoindent",
+  "incsearch",
+  "smartindent",
+  "expandtab",
+  "smarttab",
+  "breakindent",
+  "shiftwidth=2",
+  "tabstop=2",
+  "wrap",
+  "autoread",
+  "autowrite",
+  "cursorline",
+  "noshowcmd",
+  --[[ "fillchars+=vert:\\▏",
+  "fillchars+=horiz:\\▁", ]]
+  "cmdheight=0",
+  "completeopt=menuone,noinsert,noselect",
+  "backspace=start,eol,indent",
+  "shiftround",
+  "nobackup",
+  "ignorecase",
+  "signcolumn=yes",
+  "linebreak",
+  "number relativenumber",
+  "clipboard+=unnamedplus",
+  "laststatus=3",
+  "termguicolors",
+  "scrolloff=5",
+  "title",
+  "undofile",
+  "pumheight=10",
+  "noswapfile",
+  "noshowmode",
+  "nowritebackup",
+  "noruler"
 }
 vim.opt.fillchars = { eob = ' ' }
-for i, option in pairs(options) do vim.cmd(option) end
+for i, option in pairs(options) do vim.cmd("set "..option) end
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')
@@ -38,7 +45,13 @@ vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('highlight WinSeparator guibg=None')
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function ()
+    vim.highlight.on_yank()
+  end
+})
 -- vim.cmd('au TermOpen * au <buffer> WinEnter redraw!')
 -- vim.cmd('autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE')
 -- Vim terminal configuration keymap
