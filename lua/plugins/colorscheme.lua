@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup({
+      --[[ require("catppuccin").setup({
         no_italic = false, -- Force no italic
         no_bold = false, -- Force no bold
         no_underline = false, -- Force no underline
@@ -62,14 +62,14 @@ return {
 
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
-      })
-      vim.cmd.colorscheme "catppuccin-mocha"
+      }) ]]
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      require("kanagawa").setup({
+      --[[ require("kanagawa").setup({
         compile = true,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
         commentStyle = { italic = true, bold = true },
@@ -93,14 +93,16 @@ return {
           light = "lotus"
         },
       })
-      -- vim.cmd.colorscheme "kanagawa-dragon"
+      vim.cmd.colorscheme "kanagawa-dragon" ]]
     end
   },
   {
     "bluz71/vim-nightfly-colors",
     name = "nightfly",
     config = function()
-      -- vim.cmd.colorscheme "nightfly"
+    -- vim.g.nightflyVirtualTextColor = true
+    -- vim.g.nightglyItalic = true
+    -- vim.cmd.colorscheme "nightfly"
     end
   },
   {
@@ -131,8 +133,8 @@ return {
         },
         custom_highlights = {}, -- Overwrite default highlight groups
         custom_colors = {}, -- Overwrite default colors
-      }) ]]
-      -- vim.cmd.colorscheme "onenord"
+      })
+      vim.cmd.colorscheme "onenord" ]]
     end
   },
   {
@@ -189,7 +191,7 @@ return {
   {
     'AhmedAbdulrahman/aylin.vim',
     config = function()
-       -- vim.cmd.colorscheme("aylin")
+      -- vim.cmd.colorscheme("aylin")
     end
   },
   {
@@ -245,15 +247,21 @@ return {
   {
     "sainnhe/everforest",
     config = function ()
-      -- vim.g.everforest_background = 'hard'
-      -- vim.g.everforest_better_performance = 1
-      -- vim.cmd.colorscheme("everforest")
+      vim.g.everforest_background = 'soft'
+      vim.g.everforest_better_performance = 1
+      vim.g.everforest_enable_italic = 1
+      vim.g.everforest_transparent_background = 1
+      vim.g.everforest_dim_inactive_windows = 1
+      vim.g.everforest_diagnostic_text_highlight = 1
+      vim.g.everforest_diagnostic_line_highlight = 1
+      vim.g.everforest_diagnostic_virtual_text = "highlighted"
+      vim.cmd.colorscheme("everforest")
     end
   },
   {
     "folke/tokyonight.nvim",
     config = function ()
-      require("tokyonight").setup({
+      --[[ require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -292,7 +300,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      -- vim.cmd.colorscheme("tokyonight-storm")
+      vim.cmd.colorscheme("tokyonight-storm") ]]
     end
   },
   {
@@ -310,7 +318,7 @@ return {
   {
     "rose-pine/neovim",
     config = function()
-      require("rose-pine").setup({
+      --[[ require("rose-pine").setup({
         variant = "auto", -- auto, main, moon, or dawn
         dark_variant = "main", -- main, moon, or dawn
         dim_inactive_windows = false,
@@ -372,7 +380,7 @@ return {
           --     highlight.fg = palette.foam
           -- end
         end,
-      })
+      }) ]]
 
       -- vim.cmd("colorscheme rose-pine")
       -- vim.cmd("colorscheme rose-pine-main")
@@ -392,6 +400,27 @@ return {
       require("github-theme").setup({})
 
       -- vim.cmd.colorscheme("github_dark")
+    end
+  },
+  {
+    "joshdick/onedark.vim",
+    config = function()
+      -- vim.cmd.colorscheme("onedark")
+    end
+  },
+  {
+    "sainnhe/sonokai",
+    config = function()
+      --  `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
+      -- vim.g.sonokai_style = "andromeda"
+      -- vim.g.sonokai_enable_italic = 1
+      -- vim.g.sonokai_diagnostic_text_highlight = 1
+      -- vim.g.sonokai_diagnostic_line_highlight = 1
+      -- vim.g.sonokai_diagnostic_virtual_text = 1
+      -- vim.g.sonokai_better_performance = 1
+      -- vim.g.sonokai_float_style = "dim"
+      -- vim.g.sonokai_dim_inactive_windows = 1
+      -- vim.cmd.colorscheme("sonokai")
     end
   }
 }

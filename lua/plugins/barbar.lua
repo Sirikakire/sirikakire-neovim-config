@@ -39,7 +39,7 @@ return {
       -- hide = {extensions = true, inactive = true},
 
       -- Disable highlighting alternate buffers
-      highlight_alternate = true,
+      highlight_alternate = false,
 
       -- Disable highlighting file icons in inactive buffers
       highlight_inactive_file_icons = true,

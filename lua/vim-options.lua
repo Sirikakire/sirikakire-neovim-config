@@ -12,8 +12,8 @@ local options = {
   "set autowrite",
   "set cursorline",
   "set showcmd",
-  "set fillchars+=vert:\\▏",
-  "set fillchars+=horiz:\\▁",
+  --[[ "set fillchars+=vert:\\▏",
+  "set fillchars+=horiz:\\▁", ]]
   "set cmdheight=0",
   "set completeopt=menuone,noinsert,noselect",
   "set backspace=start,eol,indent",
@@ -36,7 +36,6 @@ vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
-vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
 vim.cmd('highlight WinSeparator guibg=None')

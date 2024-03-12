@@ -28,6 +28,7 @@ local kind_icons = {
   TabNine = '󰂂  ',
   Copilot = '  '
 }
+
 --[[ local kind_icons = {
   Text = '  ',
   Method = '  ',
@@ -111,7 +112,19 @@ return {
     },
     config = function()
       require('copilot').setup({
-        suggestion = { enabled = false },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 100,
+          keymap = {
+            accept = "<tab>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-o>",
+          },
+        },
         panel = {
           enabled = true,
           auto_refresh = false,
@@ -123,7 +136,7 @@ return {
             open = "<M-CR>"
           },
           layout = {
-            position = "bottom", -- | top | left | right
+            position = "right", -- | top | left | right
             ratio = 0.4
           },
         },
@@ -220,6 +233,13 @@ return {
             }
           })
       })
+      --[[ cmp.event:on("menu_opened", function()
+        vim.b.copilot_suggestion_hidden = true
+      end)
+
+      cmp.event:on("menu_closed", function()
+        vim.b.copilot_suggestion_hidden = false
+      end) ]]
     end
   },
   { "neovim/nvim-lspconfig" },
