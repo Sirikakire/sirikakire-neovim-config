@@ -2,7 +2,7 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.high-contrast"))
+      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule1"))
       vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
