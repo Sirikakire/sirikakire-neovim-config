@@ -11,7 +11,7 @@ return {
         TRACE = "✎",
         WARN = ""
       },
-      level = 2,
+      -- level = 2,
       minimum_width = 50,
       render = "wrapped-compact",
       stages = "slide",
