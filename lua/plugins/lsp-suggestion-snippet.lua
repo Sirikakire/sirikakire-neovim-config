@@ -85,7 +85,8 @@ local lsp_servers = {
   "solargraph",
   "dockerls",
   "docker_compose_language_service",
-  "stimulus_ls"
+  "stimulus_ls",
+  "vuels"
   -- "ruby_ls@0.2.0",
   -- "standardrb"
   -- "sorbet"

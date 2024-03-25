@@ -31,7 +31,7 @@ return {
         },
         scope = { enabled = false },
         indent = {
-          -- highlight = highlight,
+          highlight = highlight,
           char = "▏",
         } 
       } ]]
