@@ -81,9 +81,16 @@ local lsp_servers = {
   "emmet_ls",
   "cssmodules_ls",
   "html",
+  "diagnosticls",
+  "solargraph",
+  "dockerls",
+  "docker_compose_language_service",
+  "stimulus_ls"
   -- "ruby_ls@0.2.0",
-  "solargraph"
+  -- "standardrb"
+  -- "sorbet"
   -- "angularls"
+  -- "rubocop"
 }
 
 return {

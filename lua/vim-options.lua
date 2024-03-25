@@ -37,8 +37,8 @@ local options = {
   "nowritebackup",
   "noruler"
 }
-vim.opt.fillchars = { eob = ' ' }
 for i, option in pairs(options) do vim.cmd("set "..option) end
+vim.opt.fillchars = { eob = ' ' }
 vim.g.mapleader = " "
 vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')

@@ -14,9 +14,18 @@ return {
       require('telescope').setup({
         extension = {
           ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          },
+            require("telescope.themes").get_ivy({}),
+            specific_opts = {
+              ["code-actions"] = {
+                theme = "ivy",
+                prompt_prefix = "  ",
+              },
+              ["term-select"] = {
+                theme = "ivy",
+                prompt_prefix = "  ",
+              }
+            },
+          }
         },
         defaults = {
           mappings = {
@@ -47,6 +56,10 @@ return {
             prompt_prefix = "  ",
           },
           lsp_references = {
+            theme = "ivy",
+            prompt_prefix = "  ",
+          },
+          toggle_term = {
             theme = "ivy",
             prompt_prefix = "  ",
           },
