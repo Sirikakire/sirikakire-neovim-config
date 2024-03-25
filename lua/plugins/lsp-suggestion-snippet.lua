@@ -1,5 +1,5 @@
 -- Icon for lsp diagnostics
-local kind_icons = {
+--[[ local kind_icons = {
   Text = "  ",
   Method = "󰆧  ",
   Function = "󰊕  ",
@@ -27,9 +27,9 @@ local kind_icons = {
   TypeParameter = "󰅲  ",
   TabNine = '󰂂  ',
   Copilot = '  '
-}
+} ]]
 
---[[ local kind_icons = {
+local kind_icons = {
   Text = '  ',
   Method = '  ',
   Function = '  ',
@@ -57,7 +57,8 @@ local kind_icons = {
   TypeParameter = '  ',
   TabNine = '󰂂  ',
   Copilot = '  '
-} ]]
+}
+
 -- Border configure for diagnostic float window
 local border = {
   { "┌", "Normal" },
