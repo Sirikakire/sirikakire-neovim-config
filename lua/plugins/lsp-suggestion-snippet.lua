@@ -71,22 +71,24 @@ local border = {
 }
 -- Lsp server list
 local lsp_servers = {
-  "tsserver",
-  "lua_ls",
-  "jdtls",
-  "cssls",
-  "bashls",
-  "jsonls",
-  "tailwindcss",
-  "emmet_ls",
-  "cssmodules_ls",
-  "html",
-  "diagnosticls",
-  "solargraph",
-  "dockerls",
-  "docker_compose_language_service",
-  "stimulus_ls",
-  "vuels"
+  "tsserver", -- typescript
+  "lua_ls", -- lua
+  "jdtls", -- java
+  "cssls", -- css
+  "bashls", -- bash
+  "jsonls", -- json
+  "tailwindcss", -- tailwindcss
+  "emmet_ls", -- emmet
+  "cssmodules_ls", -- css modules
+  "html", -- html
+  "solargraph", -- ruby
+  "dockerls", -- docker
+  "vuels", -- vue
+  "docker_compose_language_service", -- docker-compose
+  "stimulus_ls", -- more extra
+  "diagnosticls", -- extra
+
+
   -- "ruby_ls@0.2.0",
   -- "standardrb"
   -- "sorbet"

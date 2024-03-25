@@ -7,15 +7,12 @@ local options = {
   "smarttab",
   "breakindent",
   "shiftwidth=2",
-  -- "guicursor=n-ci:hor10-iCursor",
   "tabstop=2",
   "wrap",
   "autoread",
   "autowrite",
   "cursorline",
   "noshowcmd",
-  --[[ "fillchars+=vert:\\▏",
-  "fillchars+=horiz:\\▁", ]]
   "cmdheight=0",
   "completeopt=menuone,noinsert,noselect",
   "backspace=start,eol,indent",
@@ -30,12 +27,12 @@ local options = {
   "termguicolors",
   "scrolloff=5",
   "title",
-  -- "undofile",
   "pumheight=10",
   "noswapfile",
   "noshowmode",
   "nowritebackup",
-  "noruler"
+  "noruler",
+  "undofile",
 }
 for i, option in pairs(options) do vim.cmd("set "..option) end
 vim.opt.fillchars = { eob = ' ' }
@@ -44,6 +41,7 @@ vim.keymap.set('n', '<C-j>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
+vim.keymap.set('n', '<C-a>', 'gg<S-V><S-G>')
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
