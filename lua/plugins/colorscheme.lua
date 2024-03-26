@@ -138,7 +138,7 @@ return {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      --[[ require('nightfox').setup({
+      require('nightfox').setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -181,7 +181,7 @@ return {
       })
 
       -- setup must be called before loading
-      vim.cmd.colorscheme("duskfox") ]]
+      vim.cmd.colorscheme("duskfox")
     end
   },
   {
@@ -201,7 +201,7 @@ return {
   {
     "folke/tokyonight.nvim",
     config = function ()
-      require("tokyonight").setup({
+      --[[ require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -240,7 +240,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      vim.cmd.colorscheme("tokyonight-storm")
+      vim.cmd.colorscheme("tokyonight-storm") ]]
     end
   },
   {
