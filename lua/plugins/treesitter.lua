@@ -26,6 +26,8 @@ return {
         "vue",
         "xml",
         "yaml",
+        "markdown",
+        "markdown_inline"
       },
       sync_install = true,
       highlight = { enable = true },
@@ -35,7 +37,6 @@ return {
         enable_rename = true,
         enable_close = true,
         enable_close_on_slash = true,
-        filetypes = { "html" , "xml" },
       },
       --[[ query_linter = {
         enable = true,

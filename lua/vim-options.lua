@@ -1,4 +1,3 @@
--- Vim basic configuration options
 local options = {
   "autoindent",
   "incsearch",
@@ -32,22 +31,31 @@ local options = {
   "noshowmode",
   "nowritebackup",
   "noruler",
-  "undofile",
+  "foldexpr=nvim_treesitter#foldexpr()",
+  "foldmethod=expr",
+  "nofoldenable",
+  -- "undofile",
 }
 for i, option in pairs(options) do vim.cmd("set "..option) end
 vim.opt.fillchars = { eob = ' ' }
 vim.g.mapleader = " "
-vim.keymap.set('n', '<C-j>', "a<CR><esc>")
-vim.keymap.set('n', '<C-o>', '')
-vim.keymap.set('n', '<C-z>', '')
-vim.keymap.set('n', '<leader>nhl', ':nohlsearch<CR>')
-vim.keymap.set('n', '<C-a>', 'gg<S-V><S-G>')
 vim.cmd('autocmd FileType ruby setlocal indentkeys-=.')
 vim.cmd('autocmd BufNewFile,BufRead *.jbuilder set ft=ruby')
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('highlight WinSeparator guibg=None')
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function ()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 200
+    })
   end
 })
+vim.fn.sign_define(
+  {
+    { name = "DiagnosticSignError", text = "", texthl = "DiagnosticSignError", linehl = "ErrorLine" },
+    { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticSignWarn", linehl = "WarningLine" },
+    { name = "DiagnosticSignInfo", text = "", texthl = "DiagnosticSignInfo", linehl = "InfoLine" },
+    { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticSignHint", linehl = "HintLine" },
+  }
+)

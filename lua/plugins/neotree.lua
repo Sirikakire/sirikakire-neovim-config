@@ -7,24 +7,6 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    --[[ local function neotreeTrigger()
-      local currentBufNr = vim.api.nvim_get_current_buf()
-      local neotreeBuf = nil
-
-      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_get_option(buf, 'filetype') == 'neo-tree' then
-          neotreeBuf = buf
-          break
-        end
-      end
-
-      if neotreeBuf and currentBufNr == neotreeBuf then
-        vim.api.nvim_command('Neotree . close')
-      else
-        vim.api.nvim_command('Neotree . focus')
-      end
-    end ]]
-    vim.keymap.set('n', '<C-b>', ':Neotree . focus<CR>')
     vim.fn.sign_define("DiagnosticSignError",
       {text = " ", texthl = "DiagnosticSignError"})
     vim.fn.sign_define("DiagnosticSignWarn",

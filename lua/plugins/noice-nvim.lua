@@ -48,7 +48,7 @@ return {
       popupmenu = {
         enabled = true, -- enables the Noice popupmenu UI
         ---@type 'nui'|'cmp'
-        backend = "nui", -- backend to use to show regular cmdline completions
+        backend = "cmp", -- backend to use to show regular cmdline completions
         ---@type NoicePopupmenuItemKind|false
         -- Icons for completion item kinds (see defaults at noice.config.icons.kinds)
         kind_icons = {}, -- set to `false` to disable icons
@@ -107,7 +107,7 @@ return {
         -- event is always "notify" and kind can be any log level as a string
         -- The default routes will forward notifications to nvim-notify
         -- Benefit of using Noice for this is the routing and consistent history view
-        enabled = true,
+        enabled = false,
         view = "notify",
       },
       lsp = {
@@ -180,7 +180,7 @@ return {
         },
       },
       health = {
-        checker = true, -- Disable if you don't want health checks to run
+        checker = false, -- Disable if you don't want health checks to run
       },
       smart_move = {
         -- noice tries to move out of the way of existing floating windows.
@@ -191,7 +191,7 @@ return {
       ---@type NoicePresets
       throttle = 1000 / 30, -- how frequently does Noice need to check for ui updates? This has no effect when in blocking mode.
       ---@type NoiceConfigViews
-      views = {}, ---@see section on views
+      views = {},
       ---@type NoiceRouteConfig[]
       routes = {}, --- @see section on routes
       ---@type table<string, NoiceFilter>

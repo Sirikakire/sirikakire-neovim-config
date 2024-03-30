@@ -2,38 +2,38 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      -- require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule3"))
-      -- vim.cmd.colorscheme "catppuccin-mocha"
+      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule3"))
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      --[[ require("kanagawa").setup({
-        compile = true,             -- enable compiling the colorscheme
-        undercurl = true,            -- enable undercurls
-        commentStyle = { italic = true, bold = true },
-        functionStyle = { bold = true, italic = true },
-        keywordStyle = { italic = true},
-        statementStyle = { bold = true },
-        typeStyle = { bold = true },
-        transparent = false,         -- do not set background color
-        dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
-        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-        colors = {                   -- add/modify theme and palette colors
-          palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-        },
-        overrides = function(colors) -- add/modify highlights
-          return {}
-        end,
-        theme = "wave",              -- Load "wave" theme when 'background' option is not set
-        background = {               -- map the value of 'background' option to a theme
-          dark = "wave",           -- try "dragon" !
-          light = "lotus"
-        },
-      })
-      vim.cmd.colorscheme "kanagawa-dragon" ]]
+      -- require("kanagawa").setup({
+      --   compile = true,             -- enable compiling the colorscheme
+      --   undercurl = true,            -- enable undercurls
+      --   commentStyle = { italic = true, bold = true },
+      --   functionStyle = { bold = true, italic = true },
+      --   keywordStyle = { italic = true},
+      --   statementStyle = { bold = true },
+      --   typeStyle = { bold = true },
+      --   transparent = false,         -- do not set background color
+      --   dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+      --   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+      --   colors = {                   -- add/modify theme and palette colors
+      --     palette = {},
+      --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+      --   },
+      --   overrides = function(colors) -- add/modify highlights
+      --     return {}
+      --   end,
+      --   theme = "wave",              -- Load "wave" theme when 'background' option is not set
+      --   background = {               -- map the value of 'background' option to a theme
+      --     dark = "wave",           -- try "dragon" !
+      --     light = "lotus"
+      --   },
+      -- })
+      -- vim.cmd.colorscheme "kanagawa-dragon"
     end
   },
   {
@@ -138,7 +138,7 @@ return {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      require('nightfox').setup({
+      --[[ require('nightfox').setup({
         options = {
           -- Compiled file's destination location
           compile_path = vim.fn.stdpath("cache") .. "/nightfox",
@@ -181,21 +181,21 @@ return {
       })
 
       -- setup must be called before loading
-      vim.cmd.colorscheme("duskfox")
+      vim.cmd.colorscheme("nordfox") ]]
     end
   },
   {
     "sainnhe/everforest",
     config = function ()
-      --[[ vim.g.everforest_background = 'soft'
-      vim.g.everforest_better_performance = 1
-      vim.g.everforest_enable_italic = 1
-      vim.g.everforest_transparent_background = 1
-      vim.g.everforest_dim_inactive_windows = 1
-      vim.g.everforest_diagnostic_text_highlight = 1
-      vim.g.everforest_diagnostic_line_highlight = 1
-      vim.g.everforest_diagnostic_virtual_text = "highlighted"
-      vim.cmd.colorscheme("everforest") ]]
+      -- vim.g.everforest_background = 'soft'
+      -- vim.g.everforest_better_performance = 1
+      -- vim.g.everforest_enable_italic = 1
+      -- vim.g.everforest_transparent_background = 1
+      -- vim.g.everforest_dim_inactive_windows = 1
+      -- vim.g.everforest_diagnostic_text_highlight = 1
+      -- vim.g.everforest_diagnostic_line_highlight = 1
+      -- vim.g.everforest_diagnostic_virtual_text = "highlighted"
+      -- vim.cmd.colorscheme("everforest")
     end
   },
   {

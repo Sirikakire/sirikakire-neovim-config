@@ -6,9 +6,6 @@ return {
   init = function() vim.g.barbar_auto_setup = false end,
   opts = {
     insert_at_start = false,
-    vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>'),
-    vim.keymap.set('n', '<A-.>', ':BufferNext<CR>'),
-    vim.keymap.set('n', '<A-c>', ':BufferClose')
   },
   -- version = 'main',
   config = function()
@@ -107,7 +104,7 @@ return {
       minimum_padding = 0,
 
       -- Sets the maximum buffer name length.
-      maximum_length = 50,
+      maximum_length = 100,
 
       -- Sets the minimum buffer name length.
       minimum_length = 20,

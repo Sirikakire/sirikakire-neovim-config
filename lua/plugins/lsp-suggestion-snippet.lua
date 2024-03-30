@@ -88,8 +88,6 @@ local lsp_servers = {
   "docker_compose_language_service", -- docker-compose
   "stimulus_ls", -- more extra
   "diagnosticls", -- extra
-
-
   -- "ruby_ls@0.2.0",
   -- "standardrb"
   -- "sorbet"
@@ -99,9 +97,13 @@ local lsp_servers = {
 
 return {
   {
-   "nvimdev/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     config = function ()
-      require("lspsaga").setup({})
+      require("lspsaga").setup({
+        ui = {
+          border = border
+        }
+      })
     end
   },
   {
@@ -117,44 +119,7 @@ return {
     },
   },
   {
-    "zbirenbaum/copilot-cmp",
-    dependencies = {
-    "zbirenbaum/copilot.lua",
-    },
-    config = function()
-      require('copilot').setup({
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 100,
-          keymap = {
-            accept = "<tab>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-o>",
-          },
-        },
-        panel = {
-          enabled = true,
-          auto_refresh = false,
-          keymap = {
-            jump_prev = "[[",
-            jump_next = "]]",
-            accept = "<CR>",
-            refresh = "gr",
-            open = "<M-CR>"
-          },
-          layout = {
-            position = "right", -- | top | left | right
-            ratio = 0.4
-          },
-        },
-      })
-      vim.keymap.set('n', '<leader>cp', ':Copilot panel<CR>')
-      require('copilot_cmp').setup()
-    end
+    "github/copilot.vim",
   },
   {
     'hrsh7th/nvim-cmp',
@@ -257,7 +222,11 @@ return {
   {
     "williamboman/mason.nvim",
     config = function ()
-      require("mason").setup()
+      require("mason").setup({
+        ui = {
+          border = border
+        }
+      })
     end
   },
   {
@@ -276,18 +245,15 @@ return {
         },
         automatic_installation = true
       })
-      -- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local opts = { buffer = ev.buf }
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+          require(".plugins.catppuccin-colorscheme.thanhvule3")
+          require("keymap").setup(opts)
         end,
       })
-      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
