@@ -52,14 +52,14 @@ wk.register(
 
 -- Setup keymap for LSP
 local setup = function (opts)
-  vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-  vim.keymap.set('n', '<C-]>', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', '<C-]>', require('telescope.builtin').lsp_definitions, opts)
 
   opts.mode = { "n" }
   wk.register(
     {
-      ["<leader>n"] = { ':Lspsaga diagnostic_jump_next<CR>', 'Jump to next diagnostic' },
-      ["<leader>p"] = { ':Lspsaga diagnostic_jump_prev<CR>', 'Jump to previous diagnostic' },
+      ["<leader>n"] = { vim.diagnostic.goto_next, 'Jump to next diagnostic' },
+      ["<leader>p"] = { vim.diagnostic.goto_prev, 'Jump to previous diagnostic' },
       ["<leader>e"] = { vim.diagnostic.open_float, 'Open float vim diagnostic' }
     },
     opts

@@ -127,6 +127,9 @@ return {
         -- Or, specify both
         -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
       -- },
+      sidebar_filetypes = {
+        ['neo-tree'] = {},
+      },
 
       -- New buffer letters are assigned in this order. This order is
       -- optimal for the qwerty keyboard layout but might need adjustment

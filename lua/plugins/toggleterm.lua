@@ -12,7 +12,7 @@ return {
         auto_scroll = true,
         title_pos = "center",
         float_opts = {
-          border = "single",
+          border = require(".plugins.border"),
         },
       })
     end

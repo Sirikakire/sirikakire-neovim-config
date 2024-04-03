@@ -59,3 +59,5 @@ vim.fn.sign_define(
     { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticSignHint", linehl = "HintLine" },
   }
 )
+vim.cmd("set fillchars+=vert:\\▏")
+vim.cmd("set fillchars+=horiz:\\▁")

@@ -7,15 +7,6 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    vim.fn.sign_define("DiagnosticSignError",
-      {text = " ", texthl = "DiagnosticSignError"})
-    vim.fn.sign_define("DiagnosticSignWarn",
-      {text = " ", texthl = "DiagnosticSignWarn"})
-    vim.fn.sign_define("Diagnos}ticSignInfo",
-      {text = " ", texthl = "DiagnosticSignInfo"})
-    vim.fn.sign_define("DiagnosticSignHint",
-      {text = "󰌵", texthl = "DiagnosticSignHint"})
-
     local config = {
       -- If a user has a sources list it will replace this one.
       -- Only sources listed here will be loaded.
@@ -238,16 +229,26 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added     = "✚", -- NOTE: you can set any of these to an empty string to not show them
-            deleted   = "✖",
-            modified  = "",
-            renamed   = "󰁕",
+            -- added     = "✚", -- NOTE: you can set any of these to an empty string to not show them
+            -- deleted   = "✖",
+            -- modified  = "",
+            -- renamed   = "󰁕",
+            -- -- Status type
+            -- untracked = "",
+            -- ignored   = "",
+            -- unstaged  = "󰄱",
+            -- staged    = "",
+            -- conflict  = "",
+            added     = "", -- NOTE: you can set any of these to an empty string to not show them
+            deleted   = "󰅗",
+            modified  = "󱗜",
+            renamed   = "󰛂",
             -- Status type
-            untracked = "",
-            ignored   = "",
+            untracked = "󰞋",
+            ignored   = "󱎙",
             unstaged  = "󰄱",
-            staged    = "",
-            conflict  = "",
+            staged    = "",
+            conflict  = "",
           },
           align = "right",
         },

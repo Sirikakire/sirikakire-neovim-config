@@ -2,8 +2,8 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule3"))
-      vim.cmd.colorscheme "catppuccin-mocha"
+      -- require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule3"))
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
@@ -80,9 +80,13 @@ return {
   {
     'AlexvZyl/nordic.nvim',
     config = function()
-      --[[require 'nordic' .setup {
-         -- This callback can be used to override the colors used in the palette.
-        on_palette = function(palette) return palette end,
+      --[[ require 'nordic' .setup {
+        -- This callback can be used to override the colors used in the palette.
+        on_palette = function(palette)
+          -- print(vim.inspect(palette))
+          -- return palette
+          return palette
+        end,
         -- Enable bold keywords.
         bold_keywords = true,
         -- Enable italic comments.
@@ -96,21 +100,20 @@ return {
         -- Swap the dark background with the normal one.
         swap_backgrounds = false,
         -- Override the styling of any highlight group.
-        override = {},
         -- Cursorline options.  Also includes visual/selection.
         cursorline = {
           -- Bold font in cursorline.
           bold = false,
           -- Bold cursorline number.
           bold_number = true,
-          -- Avialable styles: 'dark', 'light'.
+          -- Avialable styles: 'dark','light'.
           theme = 'dark',
           -- Blending the cursorline bg with the buffer bg.
           blend = 0.85,
         },
         noice = {
           -- Available styles: `classic`, `flat`.
-          style = 'classic',
+          style = 'flat',
         },
         telescope = {
           -- Available styles: `classic`, `flat`.
@@ -123,7 +126,8 @@ return {
         ts_context = {
           -- Enables dark background for treesitter-context window
           dark_background = true,
-        }
+        },
+        override = {},
       }
       vim.cmd.colorscheme("nordic") ]]
     end
@@ -138,50 +142,50 @@ return {
     "EdenEast/nightfox.nvim",
     config = function ()
       -- Default options
-      --[[ require('nightfox').setup({
-        options = {
-          -- Compiled file's destination location
-          compile_path = vim.fn.stdpath("cache") .. "/nightfox",
-          compile_file_suffix = "_compiled", -- Compiled file suffix
-          transparent = false,     -- Disable setting background
-          terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-          dim_inactive = false,    -- Non focused panes set to alternative background
-          module_default = true,   -- Default enable value for modules
-          colorblind = {
-            enable = false,        -- Enable colorblind support
-            simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
-            severity = {
-              protan = 0,          -- Severity [0,1] for protan (red)
-              deutan = 0,          -- Severity [0,1] for deutan (green)
-              tritan = 0,          -- Severity [0,1] for tritan (blue)
-            },
-          },
-          styles = {               -- Style to be applied to different syntax groups
-            comments = "italic", -- Change the style of comments
-            conditionals = "italic,bold",
-            functions = "italic",
-            keywords = "bold",
-            strings = "NONE",
-            variables = "NONE",
-            numbers = "NONE",
-            booleans = "NONE",
-            properties = "italic",
-            types = "bold",
-            operators = "italic,bold",
-          },
-          inverse = {             -- Inverse highlight for different types
-            match_paren = false,
-            visual = false,
-            search = false,
-          },
-        },
-        palettes = {},
-        specs = {},
-        groups = {},
-      })
-
-      -- setup must be called before loading
-      vim.cmd.colorscheme("nordfox") ]]
+      -- require('nightfox').setup({
+      --   options = {
+      --     -- Compiled file's destination location
+      --     compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+      --     compile_file_suffix = "_compiled", -- Compiled file suffix
+      --     transparent = false,     -- Disable setting background
+      --     terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+      --     dim_inactive = false,    -- Non focused panes set to alternative background
+      --     module_default = true,   -- Default enable value for modules
+      --     colorblind = {
+      --       enable = false,        -- Enable colorblind support
+      --       simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
+      --       severity = {
+      --         protan = 0,          -- Severity [0,1] for protan (red)
+      --         deutan = 0,          -- Severity [0,1] for deutan (green)
+      --         tritan = 0,          -- Severity [0,1] for tritan (blue)
+      --       },
+      --     },
+      --     styles = {               -- Style to be applied to different syntax groups
+      --       comments = "italic", -- Change the style of comments
+      --       conditionals = "italic,bold",
+      --       functions = "italic",
+      --       keywords = "bold",
+      --       strings = "NONE",
+      --       variables = "NONE",
+      --       numbers = "NONE",
+      --       booleans = "NONE",
+      --       properties = "italic",
+      --       types = "bold",
+      --       operators = "italic,bold",
+      --     },
+      --     inverse = {             -- Inverse highlight for different types
+      --       match_paren = false,
+      --       visual = false,
+      --       search = false,
+      --     },
+      --   },
+      --   palettes = {},
+      --   specs = {},
+      --   groups = {},
+      -- })
+      --
+      -- -- setup must be called before loading
+      -- vim.cmd.colorscheme("nightfox")
     end
   },
   {
@@ -201,7 +205,7 @@ return {
   {
     "folke/tokyonight.nvim",
     config = function ()
-      --[[ require("tokyonight").setup({
+      require("tokyonight").setup({
         -- your configuration comes here
         -- or leave it empty to use the default settings
         style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -240,7 +244,7 @@ return {
         --- function will be called with a Highlights and ColorScheme table
         on_highlights = function(highlights, colors) end,
       })
-      vim.cmd.colorscheme("tokyonight-storm") ]]
+      vim.cmd.colorscheme("tokyonight-storm")
     end
   },
   {

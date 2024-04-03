@@ -59,17 +59,6 @@ local kind_icons = {
   Copilot = '  '
 }
 
--- Border configure for diagnostic float window
-local border = {
-  { "┌", "Normal" },
-  { "─", "Normal" },
-  { "┐", "Normal" },
-  { "│", "Normal" },
-  { "┘", "Normal" },
-  { "─", "Normal" },
-  { "└", "Normal" },
-  { "│", "Normal" },
-}
 -- Lsp server list
 local lsp_servers = {
   "tsserver", -- typescript
@@ -84,7 +73,8 @@ local lsp_servers = {
   "html", -- html
   "solargraph", -- ruby
   "dockerls", -- docker
-  "vuels", -- vue
+  -- "vuels", -- vue
+  "volar",
   "docker_compose_language_service", -- docker-compose
   "stimulus_ls", -- more extra
   "diagnosticls", -- extra
@@ -101,7 +91,7 @@ return {
     config = function ()
       require("lspsaga").setup({
         ui = {
-          border = border
+          border = require(".plugins.border")
         }
       })
     end
@@ -135,8 +125,16 @@ return {
       local cmp = require('cmp')
       cmp.setup {
         window = {
-          completion = cmp.config.window.bordered({ border = border }),
-          documentation = cmp.config.window.bordered({ border = border }),
+          completion = cmp.config.window.bordered({
+            border = require(".plugins.border"),
+            side_padding = 1,
+            col_offset = -3
+          }),
+          documentation = cmp.config.window.bordered({
+            border = require(".plugins.border"),
+            side_padding = 1,
+            col_offset = -3
+          }),
         },
         formatting = {
           format = function(entry, vim_item)
@@ -224,7 +222,7 @@ return {
     config = function ()
       require("mason").setup({
         ui = {
-          border = border
+          border = require(".plugins.border"),
         }
       })
     end
@@ -256,11 +254,11 @@ return {
       })
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = require(".plugins.border") })
       vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
-        config.border = border
+        config.border = require(".plugins.border")
         if not (result and result.contents) then
           return
         end
@@ -273,12 +271,15 @@ return {
       end
 
       vim.diagnostic.config({
-        virtual_text = true,
+        virtual_text = {
+          enabled = true,
+          prefix = ""
+        },
         signs = true,
         underline = false,
         update_in_insert = true,
         severity_sort = true,
-        float = { border = border },
+        float = { border = require(".plugins.border") },
       })
       --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
