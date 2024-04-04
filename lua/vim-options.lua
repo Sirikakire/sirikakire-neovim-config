@@ -61,3 +61,13 @@ vim.fn.sign_define(
 )
 vim.cmd("set fillchars+=vert:\\▏")
 vim.cmd("set fillchars+=horiz:\\▁")
+
+vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'FocusGained' }, {
+  desc = 'git branch',
+  callback = function()
+    if vim.fn.isdirectory '.git' ~= 0 then
+      local branch = vim.fn.system "git branch --show-current | tr -d '\n'"
+      vim.b.branch_name = branch
+    end
+  end,
+})

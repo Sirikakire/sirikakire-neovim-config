@@ -29,7 +29,10 @@ return {
           function() return "Sirikakire " end,
         },
         lualine_b = {
-          'branch',
+          function ()
+           return "󰊢 " .. vim.b.branch_name
+          end,
+          -- 'branch',
           'diff',
           'diagnostics'
         },
