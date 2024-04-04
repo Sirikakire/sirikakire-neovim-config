@@ -18,6 +18,7 @@ local wk = require("which-key")
 -- Keymap for only normal mode
 wk.register(
   {
+    ["<leader>hn"] = { ":lua require('notify').notify('Health check vim notify')<CR>", 'Health check vim notify' },
     ["<leader>hl"] = { ':nohlsearch<CR>', 'Clear search hightlight' },
     ["<leader>at"] = { ':lua require("alternate-toggler").toggleAlternate()<CR>', 'Toggle alternate' },
     ["<leader>hu"] = { package.loaded.gitsigns.undo_stage_hunk, 'Undo stage hunk' },
@@ -67,7 +68,7 @@ local setup = function (opts)
   opts.mode = { "n", "v" }
   wk.register(
     {
-      ["<leader>ca"] = { ':Lspsaga code_action<CR>', 'Open code action' },
+      ["<leader>ca"] = { vim.lsp.buf.code_action, 'Open code action' },
     },
     opts
   )

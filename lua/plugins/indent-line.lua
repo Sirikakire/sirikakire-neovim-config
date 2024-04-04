@@ -33,7 +33,7 @@ return {
         indent = {
           -- highlight = highlight,
           char = "▏",
-        } 
+        }
       }
     end
   },

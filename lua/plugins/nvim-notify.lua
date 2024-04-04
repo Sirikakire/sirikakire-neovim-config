@@ -5,15 +5,15 @@ return {
       background_colour = "Normal",
       fps = 60,
       icons = {
-        DEBUG = "",
-        ERROR = "",
-        INFO = "",
-        TRACE = "✎",
-        WARN = ""
+        DEBUG = " ",
+        ERROR = " ",
+        INFO = " ",
+        TRACE = " ✎",
+        WARN = " "
       },
       -- level = 2,
       minimum_width = 50,
-      render = "wrapped-compact",
+      render = "compact",
       stages = "fade",
       time_formats = {
         notification = "%T",

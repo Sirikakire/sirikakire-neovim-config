@@ -7,8 +7,10 @@ return {
         -- theme = 'nord',
         -- theme = "nightfox",
         theme = "auto",
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -24,7 +26,7 @@ return {
       },
       sections = {
         lualine_a = {
-          function() return "Hi Sirikakire :3" end,
+          function() return "Sirikakire " end,
         },
         lualine_b = {
           'branch',
@@ -55,7 +57,12 @@ return {
       tabline = {},
       winbar = {},
       inactive_winbar = {},
-      extensions = {}
+      extensions = {
+        "neo-tree",
+        "toggleterm",
+        "lazy",
+        "mason"
+      }
     }
     vim.cmd("set laststatus=3")
   end

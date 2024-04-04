@@ -1,10 +1,10 @@
 return {
-  { "╭", "Normal" },
-  { "─", "Normal" },
-  { "╮", "Normal" },
-  { "│", "Normal" },
-  { "╯", "Normal" },
-  { "─", "Normal" },
-  { "╰", "Normal" },
-  { "│", "Normal" },
+  { "╭", "DiagnosticSignInfo" },
+  { "─", "DiagnosticSignInfo" },
+  { "╮", "DiagnosticSignInfo" },
+  { "│", "DiagnosticSignInfo" },
+  { "╯", "DiagnosticSignInfo" },
+  { "─", "DiagnosticSignInfo" },
+  { "╰", "DiagnosticSignInfo" },
+  { "│", "DiagnosticSignInfo" },
 }
