@@ -1,8 +1,7 @@
 local K = {}
 
 -- Non leader keymap
-vim.keymap.set('n', '<C-p>', "a<CR><esc>")
-vim.keymap.set('n', '<C-o>', '')
+vim.keymap.set('n', '<C-o>', "a<CR><esc>")
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<C-a>', 'gg<S-V><S-G>')
 vim.keymap.set('n', 'j', [[v:count?'j':'gj']], { noremap = true, expr = true })
