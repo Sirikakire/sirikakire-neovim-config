@@ -53,10 +53,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 vim.fn.sign_define(
   {
-    { name = "DiagnosticSignError", text = "", texthl = "DiagnosticSignError", linehl = "ErrorLine" },
-    { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticSignWarn", linehl = "WarningLine" },
-    { name = "DiagnosticSignInfo", text = "", texthl = "DiagnosticSignInfo", linehl = "InfoLine" },
-    { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticSignHint", linehl = "HintLine" },
+    { name = "DiagnosticSignError", text = "", texthl = "DiagnosticSignError", linehl = "ErrorLine", numhl = "DiagnosticSignError"},
+    { name = "DiagnosticSignWarn", text = "", texthl = "DiagnosticSignWarn", linehl = "WarningLine", numhl = "DiagnosticSignWarn"},
+    { name = "DiagnosticSignInfo", text = "", texthl = "DiagnosticSignInfo", linehl = "InfoLine", numhl = "DiagnosticSignInfo"},
+    { name = "DiagnosticSignHint", text = "", texthl = "DiagnosticSignHint", linehl = "HintLine", numhl = "DiagnosticSignHint"},
   }
 )
 vim.cmd("set fillchars+=vert:\\▏")

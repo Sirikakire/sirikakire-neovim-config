@@ -91,10 +91,17 @@ return {
     config = function ()
       require("lspsaga").setup({
         ui = {
-          border = require(".plugins.border")
+          border = require(".plugins.border"),
+          code_action = ''
         }
       })
     end
+  },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
   },
   {
     'tzachar/cmp-tabnine',
@@ -273,16 +280,18 @@ return {
       end
 
       vim.diagnostic.config({
-        virtual_text = {
-          enabled = true,
-          prefix = ""
-        },
+        -- virtual_text = {
+        --   enable = false,
+        --   prefix = "",
+        -- },
+        virtual_text = false,
         signs = true,
         underline = false,
         update_in_insert = true,
         severity_sort = true,
         float = { border = require(".plugins.border") },
       })
+
       --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = true,
