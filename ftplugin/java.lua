@@ -1,2 +1,8 @@
-vim.cmd("set tabstop=4")
-vim.cmd("set shiftwidth=4")
+local options = {
+  "tabstop=4",
+  "shiftwidth=4"
+}
+
+for i, option in pairs(options) do
+  vim.cmd("set "..option)
+end

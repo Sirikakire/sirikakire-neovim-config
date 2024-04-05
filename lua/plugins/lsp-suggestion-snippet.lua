@@ -74,14 +74,14 @@ local lsp_servers = {
   "solargraph", -- ruby
   "dockerls", -- docker
   -- "vuels", -- vue
-  "volar",
+  "volar", -- vue
   "docker_compose_language_service", -- docker-compose
   "stimulus_ls", -- more extra
   "diagnosticls", -- extra
   -- "ruby_ls@0.2.0",
   -- "standardrb"
   -- "sorbet"
-  -- "angularls"
+  "angularls" -- angular
   -- "rubocop"
 }
 
@@ -96,12 +96,6 @@ return {
         }
       })
     end
-  },
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
   },
   {
     'tzachar/cmp-tabnine',
@@ -131,8 +125,8 @@ return {
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
       cmp.setup {
-        preselect = cmp.PreselectMode.Item,
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        -- preselect = cmp.PreselectMode.Item,
+        -- completion = { completeopt = 'menu,menuone,noinsert' },
         window = {
           completion = cmp.config.window.bordered({
             border = require(".plugins.border"),
@@ -172,10 +166,6 @@ return {
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete(),
-          -- ['<CR>'] = cmp.mapping.confirm {
-          --   behavior = cmp.ConfirmBehavior.Replace,
-          --   select = true,
-          -- },
         }),
         sources = cmp.config.sources(
           {
@@ -259,7 +249,6 @@ return {
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
           local opts = { buffer = ev.buf }
-          require(".plugins.catppuccin-colorscheme.thanhvule3")
           require("keymap").setup(opts)
         end,
       })
@@ -282,17 +271,49 @@ return {
       end
 
       vim.diagnostic.config({
-        -- virtual_text = {
-        --   enable = false,
-        --   prefix = "",
-        -- },
-        virtual_text = false,
+        virtual_text = {
+          enable = false,
+          prefix = "",
+        },
         signs = true,
         underline = false,
         update_in_insert = true,
         severity_sort = true,
         float = { border = require(".plugins.border") },
       })
+
+      -- Setup diagnostic hightlight and icon
+      vim.fn.sign_define({
+        {
+          name = "DiagnosticSignError",
+          text = "",
+          texthl = "DiagnosticSignError",
+          linehl = "ErrorLine",
+          numhl = "DiagnosticSignError"
+        },
+        {
+          name = "DiagnosticSignWarn",
+          text = "",
+          texthl = "DiagnosticSignWarn",
+          linehl = "WarningLine",
+          numhl = "DiagnosticSignWarn"
+        },
+        {
+          name = "DiagnosticSignInfo",
+          text = "",
+          texthl = "DiagnosticSignInfo",
+          linehl = "InfoLine",
+          numhl = "DiagnosticSignInfo"
+        },
+        {
+          name = "DiagnosticSignHint",
+          text = "",
+          texthl = "DiagnosticSignHint",
+          linehl = "HintLine",
+          numhl = "DiagnosticSignHint"
+        },
+      })
+
       --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = true,

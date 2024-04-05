@@ -1,7 +1,8 @@
 return {
   "echasnovski/mini.pairs",
   config = function ()
-    require("mini.pairs").setup(
+    local mini_pair = require("mini.pairs")
+    mini_pair.setup(
       -- No need to copy this inside `setup()`. Will be used automatically.
       {
         -- In which modes mappings from this `config` should be created

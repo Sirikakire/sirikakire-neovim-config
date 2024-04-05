@@ -1,7 +1,7 @@
 local K = {}
 
 -- Non leader keymap
-vim.keymap.set('n', '<C-j>', "a<CR><esc>")
+vim.keymap.set('n', '<C-p>', "a<CR><esc>")
 vim.keymap.set('n', '<C-o>', '')
 vim.keymap.set('n', '<C-z>', '')
 vim.keymap.set('n', '<C-a>', 'gg<S-V><S-G>')
@@ -12,7 +12,14 @@ vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
 vim.keymap.set('n', '<A-c>', ':BufferClose<CR>')
 vim.keymap.set('n', '<A-C>', ':BufferClose!<CR>')
 vim.keymap.set('n', '<C-b>', ':Neotree . focus<CR>')
-
+vim.keymap.set('n', '<A-9>', '<C-w>-')
+vim.keymap.set('n', '<A-0>', '<C-w>+')
+vim.keymap.set('n', '<A-7>', '<C-w><')
+vim.keymap.set('n', '<A-8>', '<C-w>>')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 -- Leader keymap
 local wk = require("which-key")
 
