@@ -13,7 +13,6 @@ local options = {
   "cursorline",
   "noshowcmd",
   "cmdheight=0",
-  "completeopt=menuone,noinsert,noselect",
   "backspace=start,eol,indent",
   "shiftround",
   "nobackup",

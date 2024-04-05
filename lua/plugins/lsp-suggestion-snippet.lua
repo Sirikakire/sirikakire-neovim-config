@@ -131,6 +131,8 @@ return {
       require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
       cmp.setup {
+        preselect = cmp.PreselectMode.Item,
+        completion = { completeopt = 'menu,menuone,noinsert' },
         window = {
           completion = cmp.config.window.bordered({
             border = require(".plugins.border"),
@@ -170,10 +172,10 @@ return {
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
+          -- ['<CR>'] = cmp.mapping.confirm {
+          --   behavior = cmp.ConfirmBehavior.Replace,
+          --   select = true,
+          -- },
         }),
         sources = cmp.config.sources(
           {
@@ -291,7 +293,6 @@ return {
         severity_sort = true,
         float = { border = require(".plugins.border") },
       })
-
       --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
           virtual_text = true,

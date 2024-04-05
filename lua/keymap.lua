@@ -9,7 +9,8 @@ vim.keymap.set('n', 'j', [[v:count?'j':'gj']], { noremap = true, expr = true })
 vim.keymap.set('n', 'k', [[v:count?'k':'gk']], { noremap = true, expr = true })
 vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
-vim.keymap.set('n', '<A-c>', ':BufferClose')
+vim.keymap.set('n', '<A-c>', ':BufferClose<CR>')
+vim.keymap.set('n', '<A-C>', ':BufferClose!<CR>')
 vim.keymap.set('n', '<C-b>', ':Neotree . focus<CR>')
 
 -- Leader keymap
