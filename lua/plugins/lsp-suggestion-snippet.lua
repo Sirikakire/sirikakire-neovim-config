@@ -71,7 +71,7 @@ local lsp_servers = {
   "emmet_ls", -- emmet
   "cssmodules_ls", -- css modules
   "html", -- html
-  "solargraph", -- ruby
+  -- "solargraph", -- ruby
   "dockerls", -- docker
   -- "vuels", -- vue
   "volar", -- vue
@@ -86,6 +86,12 @@ local lsp_servers = {
 }
 
 return {
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
   {
     "nvimdev/lspsaga.nvim",
     config = function ()
@@ -271,10 +277,11 @@ return {
       end
 
       vim.diagnostic.config({
-        virtual_text = {
+        --[[ virtual_text = {
           enable = false,
           prefix = "",
-        },
+        }, ]]
+        virtual_lines = { only_current_line = true },
         signs = true,
         underline = false,
         update_in_insert = true,
