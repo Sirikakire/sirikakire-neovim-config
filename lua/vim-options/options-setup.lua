@@ -10,7 +10,7 @@ local options = {
   "wrap",
   "autoread",
   "autowrite",
-  "cursorline",
+  -- "cursorline",
   "noshowcmd",
   "cmdheight=0",
   "backspace=start,eol,indent",

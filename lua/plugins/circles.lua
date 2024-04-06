@@ -1,6 +1,6 @@
 return {
-  -- "projekt0n/circles.nvim",
-  -- config = function ()
-    -- local circles = require("circles").setup()
-  -- end
+  "projekt0n/circles.nvim",
+  config = function ()
+    -- require("circles").setup()
+  end
 }

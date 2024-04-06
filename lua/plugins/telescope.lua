@@ -23,7 +23,6 @@ return {
               ["<esc>"] = actions.close
             },
           },
-          border = "borderless",
           dynamic_preview_title = true,
           path_display = { "smart " }
         },
@@ -53,7 +52,7 @@ return {
             theme = "ivy",
             prompt_prefix = "  ",
           },
-          toggle_term = {
+          highlights = {
             theme = "ivy",
             prompt_prefix = "  ",
           },

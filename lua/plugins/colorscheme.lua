@@ -2,13 +2,14 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      -- require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule3"))
-      -- vim.cmd.colorscheme "catppuccin-mocha"
+      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule"))
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
+      -- vim.o.background = ""
       -- require("kanagawa").setup({
       --   compile = true,             -- enable compiling the colorscheme
       --   undercurl = true,            -- enable undercurls
@@ -17,21 +18,30 @@ return {
       --   keywordStyle = { italic = true},
       --   statementStyle = { bold = true },
       --   typeStyle = { bold = true },
-      --   transparent = false,         -- do not set background color
+      --   transparent = true,         -- do not set background color
       --   dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
       --   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
       --   colors = {                   -- add/modify theme and palette colors
       --     palette = {},
       --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
       --   },
-      --   overrides = function(colors) -- add/modify highlights
-      --     return {}
+      --   overrides = function(colors)
+      --     local theme = colors.theme
+      --     return {
+      --       TelescopeTitle = { fg = theme.ui.special, bold = true },
+      --       TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+      --       TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+      --       TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+      --       TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+      --       TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+      --       TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+      --     }
       --   end,
       --   theme = "wave",              -- Load "wave" theme when 'background' option is not set
-      --   background = {               -- map the value of 'background' option to a theme
-      --     dark = "wave",           -- try "dragon" !
-      --     light = "lotus"
-      --   },
+      --   -- background = {               -- map the value of 'background' option to a theme
+      --   --   dark = "wave",           -- try "dragon" !
+      --   --   light = "lotus"
+      --   -- },
       -- })
       -- vim.cmd.colorscheme "kanagawa-dragon"
     end
@@ -80,56 +90,56 @@ return {
   {
     'AlexvZyl/nordic.nvim',
     config = function()
-      --[[ require 'nordic' .setup {
-        -- This callback can be used to override the colors used in the palette.
-        on_palette = function(palette)
-          -- print(vim.inspect(palette))
-          -- return palette
-          return palette
-        end,
-        -- Enable bold keywords.
-        bold_keywords = true,
-        -- Enable italic comments.
-        italic_comments = true,
-        -- Enable general editor background transparency.
-        transparent_bg = false,
-        -- Enable brighter float border.
-        bright_border = false,
-        -- Reduce the overall amount of blue in the theme (diverges from base Nord).
-        reduced_blue = true,
-        -- Swap the dark background with the normal one.
-        swap_backgrounds = false,
-        -- Override the styling of any highlight group.
-        -- Cursorline options.  Also includes visual/selection.
-        cursorline = {
-          -- Bold font in cursorline.
-          bold = false,
-          -- Bold cursorline number.
-          bold_number = true,
-          -- Avialable styles: 'dark','light'.
-          theme = 'dark',
-          -- Blending the cursorline bg with the buffer bg.
-          blend = 0.85,
-        },
-        noice = {
-          -- Available styles: `classic`, `flat`.
-          style = 'flat',
-        },
-        telescope = {
-          -- Available styles: `classic`, `flat`.
-          style = 'flat',
-        },
-        leap = {
-          -- Dims the backdrop when using leap.
-          dim_backdrop = false,
-        },
-        ts_context = {
-          -- Enables dark background for treesitter-context window
-          dark_background = true,
-        },
-        override = {},
-      }
-      vim.cmd.colorscheme("nordic") ]]
+      -- require 'nordic' .setup {
+      --   -- This callback can be used to override the colors used in the palette.
+      --   on_palette = function(palette)
+      --     -- print(vim.inspect(palette))
+      --     -- return palette
+      --     return palette
+      --   end,
+      --   -- Enable bold keywords.
+      --   bold_keywords = true,
+      --   -- Enable italic comments.
+      --   italic_comments = true,
+      --   -- Enable general editor background transparency.
+      --   transparent_bg = false,
+      --   -- Enable brighter float border.
+      --   bright_border = false,
+      --   -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+      --   reduced_blue = true,
+      --   -- Swap the dark background with the normal one.
+      --   swap_backgrounds = false,
+      --   -- Override the styling of any highlight group.
+      --   -- Cursorline options.  Also includes visual/selection.
+      --   cursorline = {
+      --     -- Bold font in cursorline.
+      --     bold = false,
+      --     -- Bold cursorline number.
+      --     bold_number = true,
+      --     -- Avialable styles: 'dark','light'.
+      --     theme = 'dark',
+      --     -- Blending the cursorline bg with the buffer bg.
+      --     blend = 0.85,
+      --   },
+      --   noice = {
+      --     -- Available styles: `classic`, `flat`.
+      --     style = 'flat',
+      --   },
+      --   telescope = {
+      --     -- Available styles: `classic`, `flat`.
+      --     style = 'flat',
+      --   },
+      --   leap = {
+      --     -- Dims the backdrop when using leap.
+      --     dim_backdrop = false,
+      --   },
+      --   ts_context = {
+      --     -- Enables dark background for treesitter-context window
+      --     dark_background = true,
+      --   },
+      --   override = {},
+      -- }
+      -- vim.cmd.colorscheme("nordic")
     end
   },
   {
@@ -194,7 +204,7 @@ return {
       -- vim.g.everforest_background = 'soft'
       -- vim.g.everforest_better_performance = 1
       -- vim.g.everforest_enable_italic = 1
-      -- vim.g.everforest_transparent_background = 1
+      -- vim.g.everforest_transparent_background = 0
       -- vim.g.everforest_dim_inactive_windows = 1
       -- vim.g.everforest_diagnostic_text_highlight = 1
       -- vim.g.everforest_diagnostic_line_highlight = 1
@@ -355,16 +365,16 @@ return {
   {
     "sainnhe/sonokai",
     config = function()
-       -- `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
-      vim.g.sonokai_style = "andromeda"
-      vim.g.sonokai_enable_italic = 1
-      vim.g.sonokai_diagnostic_text_highlight = 1
-      vim.g.sonokai_diagnostic_line_highlight = 1
-      vim.g.sonokai_diagnostic_virtual_text = 1
-      vim.g.sonokai_better_performance = 1
-      vim.g.sonokai_float_style = "dim"
-      vim.g.sonokai_dim_inactive_windows = 1
-      vim.cmd.colorscheme("sonokai")
+      -- `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
+      -- vim.g.sonokai_style = "andromeda"
+      -- vim.g.sonokai_enable_italic = 1
+      -- vim.g.sonokai_diagnostic_text_highlight = 1
+      -- vim.g.sonokai_diagnostic_line_highlight = 1
+      -- vim.g.sonokai_diagnostic_virtual_text = 1
+      -- vim.g.sonokai_better_performance = 1
+      -- vim.g.sonokai_float_style = "dim"
+      -- vim.g.sonokai_dim_inactive_windows = 1
+      -- vim.cmd.colorscheme("sonokai")
     end
   },
   --[[ {

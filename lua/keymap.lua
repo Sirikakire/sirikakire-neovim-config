@@ -33,6 +33,7 @@ wk.register(
     ["<leader>hp"] = { function() package.loaded.gitsigns.blame_line{full=true} end, 'Preview git blame' },
     ["<leader>hD"] = { function() package.loaded.gitsigns.diffthis('~') end, 'Preview git different' },
     ["<leader>cp"] = { ':Copilot panel<CR>', 'Open copilot panel' },
+    ["<leader>fh"] = { require('telescope.builtin').highlights, 'Find highlights' },
     ["<leader>ff"] = { require('telescope.builtin').find_files, 'Find files' },
     ["<leader>fg"] = { require('telescope.builtin').live_grep, 'Live grep' },
     ["<leader>fd"] = { require('telescope.builtin').diagnostics, 'Open workspace diagnostics' },
