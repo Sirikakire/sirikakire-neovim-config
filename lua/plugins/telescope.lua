@@ -6,9 +6,6 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
-      -- local Layout = require("nui.layout")
-      -- local Popup = require("nui.popup")
-      -- local TSLayout = require("telescope.pickers.layout")
       local actions = require("telescope.actions")
 
       require('telescope').setup({
@@ -23,8 +20,13 @@ return {
               ["<esc>"] = actions.close
             },
           },
+          layout_config = {
+            vertical = { width = 0.5 }
+          },
+          borderchars = require(".plugins.border"),
+          wrap_results = true,
           dynamic_preview_title = true,
-          path_display = { "smart " }
+          path_display = { "smart" },
         },
         pickers = {
           find_files = {

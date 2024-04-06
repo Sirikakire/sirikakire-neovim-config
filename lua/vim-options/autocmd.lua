@@ -18,17 +18,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Setup synchronized WinSeparator background
 vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
-  desc = 'Remove WinSeparator',
+  desc = 'Synchronized WinSeparator',
   callback = function()
     vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "WinSeparator" })
   end,
 })
 
 vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
   desc = 'Set transparent background',
   callback = function()
-    -- vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE")
+    -- Optional transparent WinSeparator
+    vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsAdd ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsChange ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsDelete ctermbg=NONE guibg=NONE")
@@ -50,15 +54,12 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
     vim.cmd("highlight NvimTreeEndOfBuffer ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NvimTreeSignColumn ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopeNormal ctermbg=NONE guibg=NONE")
-    vim.cmd("highlight TelescopePreviewBorder ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePreviewNormal ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePreviewTitle ctermbg=NONE guibg=NONE")
-    vim.cmd("highlight TelescopePromptBorder ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePromptCounter ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePromptNormal ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePromptPrefix ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopePromptTitle ctermbg=NONE guibg=NONE")
-    vim.cmd("highlight TelescopeResultsBorder ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopeResultsNormal ctermbg=NONE guibg=NONE")
     vim.cmd("highlight TelescopeResultsTitle ctermbg=NONE guibg=NONE")
   end,
