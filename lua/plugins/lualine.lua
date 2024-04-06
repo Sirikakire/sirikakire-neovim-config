@@ -4,8 +4,6 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        -- theme = 'nord',
-        -- theme = "nightfox",
         theme = "auto",
         -- component_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = ''},
@@ -29,9 +27,10 @@ return {
           function() return "Sirikakire " end,
         },
         lualine_b = {
-          function ()
-           return "󰊢 " .. vim.b.branch_name
-          end,
+          {
+            'branch',
+            icon = "󰊢"
+          },
           -- 'branch',
           'diff',
           'diagnostics'

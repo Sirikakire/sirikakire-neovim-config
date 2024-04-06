@@ -71,7 +71,7 @@ local lsp_servers = {
   "emmet_ls", -- emmet
   "cssmodules_ls", -- css modules
   "html", -- html
-  -- "solargraph", -- ruby
+  "solargraph", -- ruby
   "dockerls", -- docker
   -- "vuels", -- vue
   "volar", -- vue

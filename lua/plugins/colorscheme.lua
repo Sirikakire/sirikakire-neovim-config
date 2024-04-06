@@ -2,8 +2,8 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule"))
-      vim.cmd.colorscheme "catppuccin-mocha"
+      -- require("catppuccin").setup(require(".plugins.catppuccin-colorscheme.thanhvule"))
+      -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
@@ -359,7 +359,7 @@ return {
   {
     "joshdick/onedark.vim",
     config = function()
-      -- vim.cmd.colorscheme("onedark")
+      vim.cmd.colorscheme("onedark")
     end
   },
   {

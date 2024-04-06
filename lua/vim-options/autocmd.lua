@@ -16,36 +16,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end
 })
 
--- Setup autocmd auto update git branch name to vim.b.branch_name
-vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'FocusGained' }, {
-  desc = 'git branch',
+-- Setup synchronized WinSeparator background
+vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
+  desc = 'Remove WinSeparator',
   callback = function()
-    if vim.fn.isdirectory '.git' ~= 0 then
-      local branch = vim.fn.system "git branch --show-current | tr -d '\n'"
-      vim.b.branch_name = branch
-    end
+    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
   end,
 })
 
--- Setup WinSeparator background
-vim.api.nvim_create_autocmd({ 'ColorScheme'}, {
-  desc = 'Remove WinSeparator',
-  callback = function()
-    vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE")
-  end,
-})
--- Setup transparent background
-vim.api.nvim_create_autocmd({ 'ColorScheme'}, {
+vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
   desc = 'Set transparent background',
   callback = function()
-    -- vim.cmd("highlight BufferInactive ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight BufferInactiveIndex ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight BufferInactiveMod ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight BufferInactiveSign ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight BufferInactiveTarget ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight VertSplit ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight DiagnosticShowNormal ctermbg=NONE guibg=NONE")
-    -- vim.cmd("highlight DiagnosticNormal ctermbg=NONE guibg=NONE")
+    -- vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsAdd ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsChange ctermbg=NONE guibg=NONE")
     vim.cmd("highlight GitSignsDelete ctermbg=NONE guibg=NONE")
@@ -61,7 +44,6 @@ vim.api.nvim_create_autocmd({ 'ColorScheme'}, {
     vim.cmd("highlight NeoTreeNormalNC ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NeoTreeEndOfBuffer ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NeoTreeSignColumn ctermbg=NONE guibg=NONE")
-    vim.cmd("highlight NeoTreeWinSeparator ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NeoTreeTabInactive ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NvimTreeNormal ctermbg=NONE guibg=NONE")
     vim.cmd("highlight NvimTreeNormalNC ctermbg=NONE guibg=NONE")
