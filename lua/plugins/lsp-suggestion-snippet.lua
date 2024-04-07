@@ -127,7 +127,7 @@ return {
       local cmp = require('cmp')
       cmp.setup {
         -- preselect = cmp.PreselectMode.Item,
-        -- completion = { completeopt = 'menu,menuone,noinsert' },
+        -- completion = { completeopt = 'menu,menuone,noinsert,preview' },
         window = {
           completion = cmp.config.window.bordered({
             border = require(".plugins.border"),
@@ -158,7 +158,6 @@ return {
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
-            vim.snippet.expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -295,7 +294,7 @@ return {
       vim.diagnostic.config({
         virtual_text =  {
           prefix = "",
-        }, 
+        },
         virtual_lines = {
           only_current_line = true
         },
