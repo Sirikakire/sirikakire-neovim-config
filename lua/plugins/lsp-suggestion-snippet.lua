@@ -63,7 +63,6 @@ local kind_icons = {
 local lsp_servers = {
   "tsserver", -- typescript
   "lua_ls", -- lua
-  "jdtls", -- java
   "cssls", -- css
   "bashls", -- bash
   "jsonls", -- json
@@ -73,16 +72,9 @@ local lsp_servers = {
   "html", -- html
   "solargraph", -- ruby
   "dockerls", -- docker
-  -- "vuels", -- vue
   "volar", -- vue
   "docker_compose_language_service", -- docker-compose
-  "stimulus_ls", -- more extra
-  "diagnosticls", -- extra
-  -- "ruby_ls@0.2.0",
-  -- "standardrb"
-  -- "sorbet"
   "angularls" -- angular
-  -- "rubocop"
 }
 
 return {
@@ -114,6 +106,10 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets"
     },
+    config = function()
+      require('luasnip').filetype_extend("ruby", {"rails"})
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end
   },
   {
     "github/copilot.vim",
@@ -128,7 +124,6 @@ return {
       "hrsh7th/cmp-cmdline",
     },
     config = function ()
-      require('luasnip.loaders.from_vscode').lazy_load()
       local cmp = require('cmp')
       cmp.setup {
         -- preselect = cmp.PreselectMode.Item,
@@ -154,7 +149,7 @@ return {
               buffer = "[Buffer]",
               cmdline = "[CMDLine]",
               path = "[Path]",
-              copilot = "[Copilot]"
+              -- copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -163,6 +158,7 @@ return {
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -190,7 +186,7 @@ return {
                 end
               }
             },
-            { name = 'copilot' }
+            -- { name = 'copilot' }
           }
         ),
       }
@@ -198,7 +194,18 @@ return {
       cmp.setup.cmdline('/', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          { name = 'buffer' },
+          {
+            name = 'buffer',
+            option = {
+              get_bufnrs = function()
+                local bufs = {}
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                  bufs[vim.api.nvim_win_get_buf(win)] = true
+                end
+                return vim.tbl_keys(bufs)
+              end
+            }
+          },
         }
       })    -- `:` cmdline setup.
       cmp.setup.cmdline(':', {
@@ -243,6 +250,7 @@ return {
           capabilities = capabilities
         })
       end
+
       require('mason-lspconfig').setup({
         ensure_installed = lsp_servers,
         handlers = {
@@ -250,6 +258,8 @@ return {
         },
         automatic_installation = true
       })
+
+      -- Mapping keymap for lsp
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
@@ -258,9 +268,15 @@ return {
           require("keymap").setup(opts)
         end,
       })
-      -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = require(".plugins.border") })
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        {
+          border = require(".plugins.border")
+        }
+      )
+
+      -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
       vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
@@ -277,16 +293,17 @@ return {
       end
 
       vim.diagnostic.config({
-        --[[ virtual_text = {
-          enable = false,
+        virtual_text =  {
           prefix = "",
-        }, ]]
-        virtual_lines = { only_current_line = true },
+        }, 
+        virtual_lines = {
+          only_current_line = true
+        },
         signs = true,
         underline = false,
-        update_in_insert = true,
+        update_in_insert = false,
         severity_sort = true,
-        float = { border = require(".plugins.border") },
+        float = { border = require(".plugins.border"), source = 'always' },
       })
 
       -- Setup diagnostic hightlight and icon
@@ -320,16 +337,6 @@ return {
           numhl = "DiagnosticSignHint"
         },
       })
-
-      --[[ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-          virtual_text = true,
-          signs = true,
-          underline = true,
-          update_in_insert = true,
-          severity_sort = true,
-        }
-      ) ]]
     end
   },
 }

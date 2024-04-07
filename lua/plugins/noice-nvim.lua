@@ -16,7 +16,7 @@ return {
       },
       cmdline = {
         enabled = true, -- enables the Noice cmdline UI
-        view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+        view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
         opts = {}, -- global options for the cmdline. See section on views
         ---@type table<string, CmdlineFormat>
         format = {
@@ -128,14 +128,14 @@ return {
           view = "mini",
         },
         hover = {
-          enabled = true,
+          enabled = false,
           silent = true, -- set to true to not show a message if hover is not available
           view = nil, -- when nil, use defaults from documentation
           ---@type NoiceViewOptions
           opts = {}, -- merged with defaults from documentation
         },
         signature = {
-          enabled = true,
+          enabled = false,
           auto_open = {
             enabled = true,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP

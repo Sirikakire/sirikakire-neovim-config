@@ -23,7 +23,6 @@ return {
           layout_config = {
             vertical = { width = 0.5 }
           },
-          borderchars = require(".plugins.border"),
           wrap_results = true,
           dynamic_preview_title = true,
           path_display = { "smart" },
@@ -58,9 +57,13 @@ return {
             theme = "ivy",
             prompt_prefix = "  ",
           },
+          autocommands = {
+            theme = "ivy",
+            prompt_prefix = "  ",
+          },
         },
       })
-      require("telescope").load_extension("noice")
+      -- require("telescope").load_extension("noice")
       require("telescope").load_extension("ui-select")
     end
   }
