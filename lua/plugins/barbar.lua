@@ -101,13 +101,13 @@ return {
       maximum_padding = 0,
 
       -- Sets the minimum padding width with which to surround each tab
-      minimum_padding = 0,
+      minimum_padding = 1,
 
       -- Sets the maximum buffer name length.
       maximum_length = 200,
 
       -- Sets the minimum buffer name length.
-      minimum_length = 20,
+      minimum_length = 0,
 
       -- If set, the letters for each buffer in buffer-pick mode will be
       -- assigned based on their name. Otherwise or in case all letters are

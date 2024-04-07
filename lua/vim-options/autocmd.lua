@@ -57,6 +57,7 @@ local setup_transparent_background = function()
   vim.cmd("highlight TelescopePromptTitle ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TelescopeResultsNormal ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TelescopeResultsTitle ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight TreesitterContext ctermbg=NONE guibg=NONE")
 end
 
 vim.api.nvim_create_autocmd({ 'ColorScheme' }, {

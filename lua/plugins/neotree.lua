@@ -95,78 +95,86 @@ return {
         highlight_separator_active = "NeoTreeTabSeparatorActive",
       },
       --
-      --event_handlers = {
-      --  {
-      --    event = "before_render",
-      --    handler = function (state)
-      --      -- add something to the state that can be used by custom components
-      --    end
-      --  },
-      --  {
-      --    event = "file_opened",
-      --    handler = function(file_path)
-      --      --auto close
-      --      require("neo-tree.command").execute({ action = "close" })
-      --    end
-      --  },
-      --  {
-      --    event = "file_opened",
-      --    handler = function(file_path)
-      --      --clear search after opening a file
-      --      require("neo-tree.sources.filesystem").reset_search()
-      --    end
-      --  },
-      --  {
-      --    event = "file_renamed",
-      --    handler = function(args)
-      --      -- fix references to file
-      --      print(args.source, " renamed to ", args.destination)
-      --    end
-      --  },
-      --  {
-      --    event = "file_moved",
-      --    handler = function(args)
-      --      -- fix references to file
-      --      print(args.source, " moved to ", args.destination)
-      --    end
-      --  },
-      --  {
-      --    event = "neo_tree_buffer_enter",
-      --    handler = function()
-      --      vim.cmd 'highlight! Cursor blend=100'
-      --    end
-      --  },
-      --  {
-      --    event = "neo_tree_buffer_leave",
-      --    handler = function()
-      --      vim.cmd 'highlight! Cursor guibg=#5f87af blend=0'
-      --    end
-      --  },
-      -- {
-      --   event = "neo_tree_window_before_open",
-      --   handler = function(args)
-      --     print("neo_tree_window_before_open", vim.inspect(args))
-      --   end
-      -- },
-      -- {
-      --   event = "neo_tree_window_after_open",
-      --   handler = function(args)
-      --     vim.cmd("wincmd =")
-      --   end
-      -- },
-      -- {
-      --   event = "neo_tree_window_before_close",
-      --   handler = function(args)
-      --     print("neo_tree_window_before_close", vim.inspect(args))
-      --   end
-      -- },
-      -- {
-      --   event = "neo_tree_window_after_close",
-      --   handler = function(args)
-      --     vim.cmd("wincmd =")
-      --   end
-      -- }
-      --},
+      event_handlers = {
+        --  {
+        --    event = "before_render",
+        --    handler = function (state)
+        --      -- add something to the state that can be used by custom components
+        --    end
+        --  },
+        --  {
+        --    event = "file_opened",
+        --    handler = function(file_path)
+        --      --auto close
+        --      require("neo-tree.command").execute({ action = "close" })
+        --    end
+        --  },
+        --  {
+        --    event = "file_opened",
+        --    handler = function(file_path)
+        --      --clear search after opening a file
+        --      require("neo-tree.sources.filesystem").reset_search()
+        --    end
+        --  },
+        --  {
+        --    event = "file_renamed",
+        --    handler = function(args)
+        --      -- fix references to file
+        --      print(args.source, " renamed to ", args.destination)
+        --    end
+        --  },
+        --  {
+        --    event = "file_moved",
+        --    handler = function(args)
+        --      -- fix references to file
+        --      print(args.source, " moved to ", args.destination)
+        --    end
+        --  },
+        --  {
+        --    event = "neo_tree_buffer_enter",
+        --    handler = function()
+        --      vim.cmd 'highlight! Cursor blend=100'
+        --    end
+        --  },
+        {
+          event = 'neo_tree_buffer_leave',
+          handler = function()
+            local shown_buffers = {}
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+              shown_buffers[vim.api.nvim_win_get_buf(win)] = true
+            end
+            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+              if not shown_buffers[buf] and vim.api.nvim_buf_get_option(buf, 'buftype') == 'nofile' and vim.api.nvim_buf_get_option(buf, 'filetype') == 'neo-tree' then
+                vim.api.nvim_buf_delete(buf, {})
+              end
+            end
+          end,
+        },
+        -- {
+        --   event = "neo_tree_window_before_open",
+        --   handler = function(args)
+        --     print("neo_tree_window_before_open", vim.inspect(args))
+        --   end
+        -- },
+        -- {
+        --   event = "neo_tree_window_after_open",
+        --   handler = function(args)
+        --     vim.cmd("wincmd =")
+        --   end
+        -- },
+        -- {
+        --   event = "neo_tree_window_before_close",
+        --   handler = function(args)
+        --     print("neo_tree_window_before_close", vim.inspect(args))
+        --   end
+        -- },
+        -- {
+        --   event = "neo_tree_window_after_close",
+        --   handler = function(args)
+        --     vim.cmd("wincmd =")
+        --   end
+        -- }
+      },
       default_component_configs = {
         container = {
           enable_character_fade = true,
