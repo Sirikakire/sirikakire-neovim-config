@@ -20,7 +20,7 @@ local options = {
   "signcolumn=yes",
   "linebreak",
   "number relativenumber",
-  "clipboard+=",
+  "clipboard+=unnamedplus",
   "laststatus=3",
   "termguicolors",
   "scrolloff=5",

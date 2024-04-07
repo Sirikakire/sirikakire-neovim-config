@@ -167,7 +167,7 @@ return {
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-a>'] = cmp.mapping.complete(),
         }),
         sources = cmp.config.sources(
           {
