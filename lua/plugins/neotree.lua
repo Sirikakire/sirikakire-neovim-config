@@ -19,7 +19,7 @@ return {
       add_blank_line_at_top = true, -- Add a blank line at the top of the tree.
       auto_clean_after_session_restore = true, -- Automatically clean up broken neo-tree buffers saved in sessions
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-      popup_border_style = require(".plugins.border"),
+      popup_border_style = require(".vim-options.utils").border,
       -- popup_border_style is for input and confirmation dialogs.
       -- Configurtaion of floating window is done in the individual source sections.
       -- "NC" is a special style that works well with NormalNC set

@@ -12,7 +12,7 @@ return {
         auto_scroll = true,
         title_pos = "center",
         float_opts = {
-          border = require(".plugins.border"),
+          border = require(".vim-options.utils").border,
         },
       })
     end

@@ -29,6 +29,7 @@ return {
         "markdown",
         "markdown_inline"
       },
+      auto_install = true,
       sync_install = true,
       highlight = {
         enable = true,

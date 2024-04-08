@@ -7,11 +7,14 @@ return {
     },
     config = function()
       local actions = require("telescope.actions")
-
+      local common_setting = {
+        theme = "dropdown",
+        prompt_prefix = "  ",
+      }
       require('telescope').setup({
         extensions = {
           ["ui-select"] = {
-            require("telescope.themes").get_ivy({}),
+            require("telescope.themes").get_dropdown({}),
           }
         },
         defaults = {
@@ -28,39 +31,20 @@ return {
           path_display = { "smart" },
         },
         pickers = {
-          find_files = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-            hidden = true
-          },
-          live_grep = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          buffers = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          diagnostics = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          git_bcommits = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          lsp_references = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          highlights = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
-          autocommands = {
-            theme = "ivy",
-            prompt_prefix = "  ",
-          },
+          find_files = vim.list_extend(common_setting, {
+            hidden = true,
+            no_ignore = true,
+          }),
+          live_grep = vim.list_extend(common_setting, {
+            hidden = true,
+            no_ignore = true,
+          }),
+          buffers = vim.list_extend(common_setting, {}),
+          diagnostics = vim.list_extend(common_setting, {}),
+          git_bcommits = vim.list_extend(common_setting, {}),
+          lsp_references = vim.list_extend(common_setting, {}),
+          highlights = vim.list_extend(common_setting, {}),
+          autocommands = vim.list_extend(common_setting, {}),
         },
       })
       require("telescope").load_extension("noice")

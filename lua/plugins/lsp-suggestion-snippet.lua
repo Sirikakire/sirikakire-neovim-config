@@ -1,95 +1,10 @@
--- Icon for lsp diagnostics
---[[ local kind_icons = {
-  Text = "  ",
-  Method = "󰆧  ",
-  Function = "󰊕  ",
-  Constructor = "  ",
-  Field = "󰇽  ",
-  Variable = "󰂡  ",
-  Class = "󰠱  ",
-  Interface = "  ",
-  Module = "  ",
-  Property = "󰜢  ",
-  Unit = "  ",
-  Value = "󰎠  ",
-  Enum = "  ",
-  Keyword = "󰌋  ",
-  Snippet = "  ",
-  Color = "󰏘  ",
-  File = "󰈙  ",
-  Reference = "  ",
-  Folder = "󰉋  ",
-  EnumMember = "  ",
-  Constant = "󰏿  ",
-  Struct = "  ",
-  Event = "  ",
-  Operator = "󰆕  ",
-  TypeParameter = "󰅲  ",
-  TabNine = '󰂂  ',
-  Copilot = '  '
-} ]]
-
-local kind_icons = {
-  Text = '  ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = '  ',
-  Variable = '  ',
-  Class = '  ',
-  Interface = '  ',
-  Module = '  ',
-  Property = '  ',
-  Unit = '  ',
-  Value = '  ',
-  Enum = '  ',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = '  ',
-  Struct = '  ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
-  TabNine = '󰂂  ',
-  Copilot = '  '
-}
-
--- Lsp server list
-local lsp_servers = {
-  "tsserver", -- typescript
-  "lua_ls", -- lua
-  "cssls", -- css
-  "bashls", -- bash
-  "jsonls", -- json
-  "tailwindcss", -- tailwindcss
-  "emmet_ls", -- emmet
-  "cssmodules_ls", -- css modules
-  "html", -- html
-  "solargraph", -- ruby
-  "dockerls", -- docker
-  "volar", -- vue
-  "docker_compose_language_service", -- docker-compose
-  "angularls" -- angular
-}
-
 return {
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-    end,
-  },
   {
     "nvimdev/lspsaga.nvim",
     config = function ()
       require("lspsaga").setup({
         ui = {
-          border = require(".plugins.border"),
+          border = require(".vim-options.utils").border,
           code_action = ''
         }
       })
@@ -130,12 +45,12 @@ return {
         -- completion = { completeopt = 'menu,menuone,noinsert,preview' },
         window = {
           completion = cmp.config.window.bordered({
-            border = require(".plugins.border"),
+            border = require(".vim-options.utils").border,
             side_padding = 1,
             col_offset = -3
           }),
           documentation = cmp.config.window.bordered({
-            border = require(".plugins.border"),
+            border = require(".vim-options.utils").border,
             side_padding = 1,
             col_offset = -3
           }),
@@ -151,7 +66,7 @@ return {
               path = "[Path]",
               -- copilot = "[Copilot]"
             })[entry.source.name]
-            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.kind = string.format('%s %s', require(".vim-options.utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end
         },
@@ -161,12 +76,12 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<C-d>'] = cmp.mapping.scroll_docs(4),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<C-a>'] = cmp.mapping.complete(),
+          ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), {'i'}),
+          ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), {'i'}),
+          ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i'}),
+          ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i'}),
+          ['<C-e>'] = cmp.mapping(cmp.mapping.abort(), {'i'}),
+          ['<C-a>'] = cmp.mapping(cmp.mapping.complete(), {'i'}),
         }),
         sources = cmp.config.sources(
           {
@@ -220,22 +135,20 @@ return {
             }
           })
       })
-      --[[ cmp.event:on("menu_opened", function()
-        vim.b.copilot_suggestion_hidden = true
-      end)
-
-      cmp.event:on("menu_closed", function()
-        vim.b.copilot_suggestion_hidden = false
-      end) ]]
     end
   },
-  { "neovim/nvim-lspconfig" },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require('lspconfig.ui.windows').default_options.border = require(".vim-options.utils").border
+    end
+  },
   {
     "williamboman/mason.nvim",
     config = function ()
       require("mason").setup({
         ui = {
-          border = require(".plugins.border"),
+          border = require(".vim-options.utils").border,
         }
       })
     end
@@ -251,7 +164,7 @@ return {
       end
 
       require('mason-lspconfig').setup({
-        ensure_installed = lsp_servers,
+        ensure_installed = require(".vim-options.utils").lsp_servers,
         handlers = {
           setupLSP
         },
@@ -271,7 +184,7 @@ return {
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
         vim.lsp.handlers.signature_help,
         {
-          border = require(".plugins.border")
+          border = require(".vim-options.utils").border
         }
       )
 
@@ -279,7 +192,7 @@ return {
       vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
-        config.border = require(".plugins.border")
+        config.border = require(".vim-options.utils").border
         if not (result and result.contents) then
           return
         end
@@ -302,10 +215,10 @@ return {
         underline = false,
         update_in_insert = false,
         severity_sort = true,
-        float = { border = require(".plugins.border"), source = 'always' },
+        float = { border = require(".vim-options.utils").border, source = 'always' },
       })
 
-      -- Setup diagnostic hightlight and icon
+      -- Setup diagnostic highlight and icon
       vim.fn.sign_define({
         {
           name = "DiagnosticSignError",

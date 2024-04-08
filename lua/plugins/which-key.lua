@@ -50,7 +50,7 @@ return {
         scroll_up = "<c-u>", -- binding to scroll up inside the popup
       },
       window = {
-        border = require(".plugins.border"), -- none, single, double, shadow
+        border = require(".vim-options.utils").border, -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
         padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
