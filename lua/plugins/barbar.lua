@@ -39,7 +39,7 @@ return {
       highlight_alternate = false,
 
       -- Disable highlighting file icons in inactive buffers
-      highlight_inactive_file_icons = true,
+      highlight_inactive_file_icons = false,
 
       -- Enable highlighting visible buffers
       highlight_visible = true,
@@ -70,11 +70,13 @@ return {
           -- Requires `nvim-web-devicons` if `true`
           enabled = true,
         },
-        separator = {left = '▎', right = ''},
+        -- separator = {left = '▎', right = ''},
         -- separator = {left = '|', right = '|'},
+        -- separator = {left = '', right = ''},
+        separator = {left = '▎', right = ''},
 
         -- If true, add an additional separator at the end of the buffer list
-        -- separator_at_end = true,
+        separator_at_end = false,
 
         -- Configure the icons on the bufferline when modified or pinned.
         -- Supports all the base icon options.
@@ -101,7 +103,7 @@ return {
       maximum_padding = 0,
 
       -- Sets the minimum padding width with which to surround each tab
-      minimum_padding = 1,
+      minimum_padding = 2,
 
       -- Sets the maximum buffer name length.
       maximum_length = 200,
@@ -117,20 +119,16 @@ return {
 
       -- Set the filetypes which barbar will offset itself for
       -- sidebar_filetypes = {
-        -- Use the default values: {event = 'BufWinLeave', text = nil}
-        -- NvimTree = true,
-        -- NeoTree = true
-        -- Or, specify the text used for the offset:
-        -- undotree = {text = 'undotree'},
-        -- Or, specify the event which the sidebar executes when leaving:
-        -- ['neo-tree'] = {event = {'BufWipeout', 'BufEnter'},
-        -- Or, specify both
-        -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+      -- Use the default values: {event = 'BufWinLeave', text = nil}
+      -- NvimTree = true,
+      -- NeoTree = true
+      -- Or, specify the text used for the offset:
+      -- undotree = {text = 'undotree'},
+      -- Or, specify the event which the sidebar executes when leaving:
+      -- ['neo-tree'] = {event = {'BufWipeout', 'BufEnter'},
+      -- Or, specify both
+      -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
       -- },
-      -- sidebar_filetypes = {
-      --   ['neo-tree'] = true
-      -- },
-
       -- New buffer letters are assigned in this order. This order is
       -- optimal for the qwerty keyboard layout but might need adjustment
       -- for other layouts.

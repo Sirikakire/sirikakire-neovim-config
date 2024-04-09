@@ -40,9 +40,10 @@ return {
     },
     config = function()
       local cmp = require("cmp")
+
       cmp.setup({
         -- preselect = cmp.PreselectMode.Item,
-        -- completion = { completeopt = 'menu,menuone,noinsert,preview' },
+        completion = { completeopt = 'noselect, menu, menuone, noinsert, preview' },
         window = {
           completion = cmp.config.window.bordered({
             border = require(".vim-options.utils").border,
@@ -96,15 +97,22 @@ return {
           ["<CR>"] = cmp.mapping({
             i = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                cmp.confirm()
               else
                 fallback()
               end
             end,
-            s = cmp.mapping.confirm({ select = true }),
-            c = function(fallback)
+            s = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+                cmp.confirm()
+              else
+                fallback()
+              end
+            end,
+            c = function(fallback)
+              -- cmp.SelectBehavior.Replace()
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm()
               else
                 fallback()
               end

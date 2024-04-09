@@ -33,16 +33,31 @@ local options = {
   "foldexpr=nvim_treesitter#foldexpr()",
   "foldmethod=expr",
   "nofoldenable",
-  "fillchars+=horiz:\\━",
-  "fillchars+=horizup:\\┻",
-  "fillchars+=horizdown:\\┳",
-  "fillchars+=vert:\\┃",
-  "fillchars+=vertleft:\\┫",
-  "fillchars+=vertright:\\┣",
-  "fillchars+=verthoriz:\\╋",
   "fillchars+=eob:\\ "
   -- "undofile",
 }
+
+if(vim.b.win_separator) then
+  options = vim.list_extend(options, {
+    "fillchars+=horiz:\\━",
+    "fillchars+=horizup:\\┻",
+    "fillchars+=horizdown:\\┳",
+    "fillchars+=vert:\\┃",
+    "fillchars+=vertleft:\\┫",
+    "fillchars+=vertright:\\┣",
+    "fillchars+=verthoriz:\\╋",
+  })
+else
+  options = vim.list_extend(options, {
+    "fillchars+=horiz:\\ ",
+    "fillchars+=horizup:\\ ",
+    "fillchars+=horizdown:\\ ",
+    "fillchars+=vert:\\ ",
+    "fillchars+=vertleft:\\ ",
+    "fillchars+=vertright:\\ ",
+    "fillchars+=verthoriz:\\ ",
+  })
+end
 
 for i, option in pairs(options) do
   vim.cmd("set "..option)
