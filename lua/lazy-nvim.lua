@@ -14,7 +14,7 @@ require("lazy").setup(
   { import = "plugins" },
   {
     ui = {
-      border = "rounded"
+      border = require("vim-options.utils").border,
     }
   }
 )

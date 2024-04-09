@@ -72,7 +72,7 @@ wk.register({
 }, { mode = { "n" } })
 
 -- Setup keymap for LSP
-local setup = function(opts)
+K.setup = function(opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<C-]>", require("telescope.builtin").lsp_definitions, opts)
 
@@ -88,5 +88,4 @@ local setup = function(opts)
 	}, opts)
 end
 
-K.setup = setup
 return K
