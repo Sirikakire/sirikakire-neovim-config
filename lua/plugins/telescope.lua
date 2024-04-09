@@ -8,7 +8,7 @@ return {
     config = function()
       local actions = require("telescope.actions")
       local common_setting = {
-        theme = "ivy",
+        -- theme = "ivy",
         prompt_prefix = "  ",
       }
       require('telescope').setup({
