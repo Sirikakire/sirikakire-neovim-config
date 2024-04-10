@@ -19,6 +19,7 @@ vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+
 -- Leader keymap
 local wk = require("which-key")
 
@@ -26,7 +27,7 @@ local wk = require("which-key")
 wk.register({
 	["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
 	["<leader>hn"] = { ":lua require('notify').notify('Health check vim notify')<CR>", "Health check vim notify" },
-	["<leader>hl"] = { ":nohlsearch<CR>", "Clear search hightlight" },
+	["<leader>hl"] = { ":nohlsearch<CR>", "Clear search highlight" },
 	["<leader>at"] = { ':lua require("alternate-toggler").toggleAlternate()<CR>', "Toggle alternate" },
 	["<leader>hu"] = { package.loaded.gitsigns.undo_stage_hunk, "Undo stage hunk" },
 	["<leader>hb"] = { package.loaded.gitsigns.preview_hunk, "Preview hunk" },

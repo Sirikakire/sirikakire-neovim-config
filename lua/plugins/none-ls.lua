@@ -22,7 +22,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     config = function()
       require("mason-null-ls").setup({
-        ensure_installed = require(".vim-options.utils").null_ls_formatters,
+        ensure_installed = require("utils").null_ls_formatters,
       })
     end,
   },

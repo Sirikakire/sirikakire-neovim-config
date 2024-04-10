@@ -4,7 +4,7 @@ return {
     config = function()
       require("lspsaga").setup({
         ui = {
-          border = require(".vim-options.utils").border,
+          border = require("utils").border,
           code_action = "",
         },
       })
@@ -46,12 +46,12 @@ return {
         completion = { completeopt = 'noselect, menu, menuone, noinsert, preview' },
         window = {
           completion = cmp.config.window.bordered({
-            border = require(".vim-options.utils").border,
+            border = require("utils").border,
             side_padding = 1,
             col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
-            border = require(".vim-options.utils").border,
+            border = require("utils").border,
             side_padding = 1,
             col_offset = -3,
           }),
@@ -69,7 +69,7 @@ return {
             })[entry.source.name]
             vim_item.kind = string.format(
               "%s %s",
-              require(".vim-options.utils").kind_icons[vim_item.kind],
+              require("utils").kind_icons[vim_item.kind],
               vim_item.kind
             )
             return vim_item
@@ -174,7 +174,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig.ui.windows").default_options.border = require(".vim-options.utils").border
+      require("lspconfig.ui.windows").default_options.border = require("utils").border
     end,
   },
   {
@@ -182,7 +182,7 @@ return {
     config = function()
       require("mason").setup({
         ui = {
-          border = require(".vim-options.utils").border,
+          border = require("utils").border,
         },
       })
     end,
@@ -198,7 +198,7 @@ return {
       end
 
       require("mason-lspconfig").setup({
-        ensure_installed = require(".vim-options.utils").lsp_servers,
+        ensure_installed = require("utils").lsp_servers,
         handlers = {
           setupLSP,
         },
@@ -216,14 +216,14 @@ return {
       })
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = require(".vim-options.utils").border,
+        border = require("utils").border,
       })
 
       -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
       vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
-        config.border = require(".vim-options.utils").border
+        config.border = require("utils").border
         if not (result and result.contents) then
           return
         end
@@ -246,7 +246,7 @@ return {
         underline = false,
         update_in_insert = false,
         severity_sort = true,
-        float = { border = require(".vim-options.utils").border, source = "always" },
+        float = { border = require("utils").border, source = "always" },
       })
 
       -- Setup diagnostic highlight and icon

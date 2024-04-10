@@ -26,7 +26,7 @@ return {
 						action = "Telescope find_files cwd=",
 					},
 					mru = { limit = 10, icon = "󰏓 ", label = "Recent files", cwd_only = false },
-					footer = { '', '♥  Hello Sirikakire ♥', 'Hope you will have a wonderful day ' },
+					footer = { '', '♥  Hello Sirikakire ♥ ', 'Hope you will have a wonderful day  ' },
 					shortcut = {
 						{ icon = "󰊳 ", desc = "Update", action = "Lazy update", key = "u" },
 						{
