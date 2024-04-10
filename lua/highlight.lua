@@ -1,12 +1,18 @@
+-- Setup synchronized Telescope border
+local setup_synchronized_telescope = function ()
+  vim.cmd("highlight TelescopeTitle ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
+  vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { link = "TelescopeTitle" })
+  vim.api.nvim_set_hl(0, "TelescopePromptTitle", { link = "TelescopeTitle" })
+  vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { link = "TelescopeTitle" })
+  vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "WinSeparator" })
+  vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
+  vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "WinSeparator" })
+end
+
 -- Setup synchronized WinSeparator background
 local setup_synchronized_winseparator = function()
   vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
   vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
-  if vim.b.syn_all_telescope_border then
-    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "WinSeparator" })
-    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
-    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "WinSeparator" })
-  end
   vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
 end
 
@@ -47,7 +53,9 @@ local setup_transparent_background = function()
   vim.cmd("highlight TelescopeResultsNormal ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TelescopeResultsTitle ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TreesitterContext ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE")
 end
 
 if vim.b.transparent_background then setup_transparent_background() end
 if vim.b.syn_all_border_color then setup_synchronized_winseparator() end
+if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
