@@ -57,14 +57,15 @@ return {
           }),
         },
         formatting = {
+          fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
             vim_item.menu = ({
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              cmp_tabnine = "[TabNine]",
-              buffer = "[Buffer]",
-              cmdline = "[CMDLine]",
-              path = "[Path]",
+              nvim_lsp = "(LSP)",
+              luasnip = "(LuaSnip)",
+              cmp_tabnine = "(TabNine)",
+              buffer = "(Buffer)",
+              cmdline = "(CMDLine)",
+              path = "(Path)",
               -- copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format(

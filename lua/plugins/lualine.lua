@@ -5,10 +5,10 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        -- component_separators = { left = '', right = ''},
-        -- section_separators = { left = '', right = ''},
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
+        component_separators = { left = '┃', right = '┃'},
+        section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -32,22 +32,49 @@ return {
             icon = "󰊢"
           },
           -- 'branch',
-          'diff',
-          'diagnostics'
+          {
+            'diff',
+            symbols = {
+              added = " ",
+              modified = "󰈚 ",
+              removed = ' '
+            },
+          },
+          {
+            'diagnostics',
+            symbols = {
+              error = " ",
+              warn = " ",
+              info = " ",
+              hint = " "
+            },
+          }
         },
         lualine_c = {},
         lualine_x = {
-          'filetype',
-          'filesize',
+          -- 'filesize',
         },
+        -- lualine_y = {
+        --   {
+        --     'datetime',
+        --     style = '%H:%M:%S %d/%m/%Y',
+        --   }
+        -- },
+        -- lualine_z = {'location'}
         lualine_y = {
+          'filetype',
+          {
+            'progress',
+            color = {gui = "bold"}
+          }
+        },
+        lualine_z = {
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
+            icon = ""
           }
-        },
-        -- lualine_z = {'location'}
-        lualine_z = {}
+        }
       },
       inactive_sections = {
         lualine_a = {},

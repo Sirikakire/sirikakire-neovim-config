@@ -1,3 +1,9 @@
+-- Setup highlight
+local setup_highlight = function()
+  vim.api.nvim_set_hl(0, "TreesitterContext", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
+end
+
 -- Setup synchronized Telescope border
 local setup_synchronized_telescope = function ()
   vim.cmd("highlight TelescopeTitle ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
@@ -58,6 +64,7 @@ local setup_transparent_background = function()
   vim.cmd("highlight TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE")
 end
 
+setup_highlight()
 if vim.b.transparent_background then setup_transparent_background() end
 if vim.b.syn_all_border_color then setup_synchronized_winseparator() end
 if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
