@@ -43,18 +43,22 @@ return {
 
       cmp.setup({
         -- preselect = cmp.PreselectMode.Item,
-        completion = { completeopt = 'noselect, menu, menuone, noinsert, preview' },
+        completion = {
+          completeopt = "noselect, menu, menuone, noinsert, preview",
+        },
         window = {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
+            winhighlight = "Normal:Pmenu,None:None,Search:None",
             side_padding = 1,
             col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
+            winhighlight = "Normal:Pmenu,None:None,Search:None",
             side_padding = 1,
             col_offset = -3,
-          }),
+          })
         },
         formatting = {
           fields = { "kind", "abbr", "menu" },
@@ -68,11 +72,8 @@ return {
               path = "(Path)",
               -- copilot = "[Copilot]"
             })[entry.source.name]
-            vim_item.kind = string.format(
-              "%s %s",
-              require("utils").kind_icons[vim_item.kind],
-              vim_item.kind
-            )
+            vim_item.kind =
+                string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,
         },
@@ -117,7 +118,7 @@ return {
               else
                 fallback()
               end
-            end
+            end,
           }),
         }),
         sources = cmp.config.sources({

@@ -1,7 +1,11 @@
 -- Setup highlight
 local setup_highlight = function()
+  -- sync treesitter context with normal
   vim.api.nvim_set_hl(0, "TreesitterContext", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
+
+  -- remove FloatBorder bg but keep the fg and ctermbg
+  vim.cmd("highlight FloatBorder ctermbg=NONE guibg=NONE")
 end
 
 -- Setup synchronized Telescope border

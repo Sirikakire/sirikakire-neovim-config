@@ -71,7 +71,7 @@ U.lsp_servers = {
   "emmet_ls", -- emmet
   "cssmodules_ls", -- css modules
   "html", -- html
-  "solargraph", -- ruby
+  -- "solargraph", -- ruby
   "dockerls", -- docker
   "volar", -- vue
   "docker_compose_language_service", -- docker-compose
@@ -81,30 +81,30 @@ U.lsp_servers = {
 
 U.null_ls_formatters = {
   "stylua",
-  "rubocop",
+  -- "rubocop",
   "prettierd",
   "codespell",
 }
 
--- U.border = {
---   { "╭", "FloatBorder" },
---   { "─", "FloatBorder" },
---   { "╮", "FloatBorder" },
---   { "│", "FloatBorder" },
---   { "╯", "FloatBorder" },
---   { "─", "FloatBorder" },
---   { "╰", "FloatBorder" },
---   { "│", "FloatBorder" },
--- }
-
 U.border = {
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
 }
+
+-- U.border = {
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+-- }
 return U

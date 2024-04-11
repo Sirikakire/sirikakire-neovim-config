@@ -1,6 +1,6 @@
 return {
   "rmagatti/alternate-toggler",
-  event = "BufRead",
+  event = { "BufRead", "BufEnter" },
   config = function ()
     require("alternate-toggler").setup {
       alternates = {

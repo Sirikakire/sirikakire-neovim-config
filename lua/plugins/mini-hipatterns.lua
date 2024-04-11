@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.hipatterns",
+  event = { "BufRead", "BufEnter" },
   config = function()
     local hipatterns = require('mini.hipatterns')
     hipatterns.setup({

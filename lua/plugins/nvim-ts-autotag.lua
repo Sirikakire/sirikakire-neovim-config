@@ -1,6 +1,6 @@
 return {
   "windwp/nvim-ts-autotag",
-  event = "BufEnter",
+  event = { "BufRead", "BufEnter" },
   config = function ()
     require('nvim-treesitter.configs').setup({
       autotag = {
