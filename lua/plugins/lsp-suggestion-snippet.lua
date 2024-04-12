@@ -69,7 +69,7 @@ return {
               buffer = "(Buffer)",
               cmdline = "(CMDLine)",
               path = "(Path)",
-              copilot = "[Copilot]"
+              -- copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -87,7 +87,6 @@ return {
           ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
           ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i" }),
           ["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
-          -- ["<CR>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }, { 'c' }))
           ["<CR>"] = cmp.mapping({
             i = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
