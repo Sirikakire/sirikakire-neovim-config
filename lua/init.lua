@@ -5,6 +5,7 @@ vim.b.border_color = "#ffffff"
 vim.b.transparent_background = false
 vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
+vim.b.float_window_brightness = 0
 vim.g.mapleader = " "
 
 M.setup = function (params)
@@ -30,6 +31,10 @@ M.setup = function (params)
 
   if params.mapleader ~= nil then
     vim.g.mapleader = params.mapleader
+  end
+
+  if params.float_window_brightness ~= nil then
+    vim.b.float_window_brightness = params.float_window_brightness
   end
 end
 

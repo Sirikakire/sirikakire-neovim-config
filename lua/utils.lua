@@ -86,25 +86,25 @@ U.null_ls_formatters = {
   "codespell",
 }
 
--- U.border = {
---   { "╭", "FloatBorder" },
---   { "─", "FloatBorder" },
---   { "╮", "FloatBorder" },
---   { "│", "FloatBorder" },
---   { "╯", "FloatBorder" },
---   { "─", "FloatBorder" },
---   { "╰", "FloatBorder" },
---   { "│", "FloatBorder" },
--- }
-
 U.border = {
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
-  { "", "" },
+  { "╭", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╮", "FloatBorder" },
+  { "│", "FloatBorder" },
+  { "╯", "FloatBorder" },
+  { "─", "FloatBorder" },
+  { "╰", "FloatBorder" },
+  { "│", "FloatBorder" },
 }
+
+-- U.border = {
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+--   { "", "" },
+-- }
 return U

@@ -49,18 +49,18 @@ return {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
             winhighlight = "Normal:NormalFloat",
-            side_padding = 1,
-            col_offset = -3,
+            -- side_padding = 1,
+            -- col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
             winhighlight = "Normal:NormalFloat",
-            side_padding = 1,
-            col_offset = -3,
+            -- side_padding = 1,
+            -- col_offset = -3,
           })
         },
         formatting = {
-          fields = { "kind", "abbr", "menu" },
+          -- fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "(LSP)",
@@ -69,7 +69,7 @@ return {
               buffer = "(Buffer)",
               cmdline = "(CMDLine)",
               path = "(Path)",
-              -- copilot = "[Copilot]"
+              copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -118,6 +118,7 @@ return {
           { name = "luasnip" },
           { name = "cmp_tabnine" },
           { name = "path" },
+          -- { name = "copilot" },
           {
             name = "buffer",
             option = {
@@ -130,7 +131,6 @@ return {
               end,
             },
           },
-          -- { name = 'copilot' }
         }),
       })
       -- `/` cmdline setup.
@@ -236,6 +236,7 @@ return {
       vim.diagnostic.config({
         virtual_text = {
           prefix = "",
+          source = "always",
         },
         signs = true,
         underline = false,

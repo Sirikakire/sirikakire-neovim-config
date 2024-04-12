@@ -57,88 +57,88 @@ return {
   {
     "rmehri01/onenord.nvim",
     config = function()
-      -- require('onenord').setup({
-      --   theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
-      --   borders = false, -- Split window borders
-      --   fade_nc = false, -- Fade non-current windows, making them more distinguishable
-      --   -- Style that is applied to various groups: see `highlight-args` for options
-      --   -- styles = {
-      --     comments = "italic",
-      --     strings = "NONE",
-      --     keywords = "bold",
-      --     functions = "bold",
-      --     variables = "NONE",
-      --     diagnostics = "underline",
-      --   -- },
-      --   disable = {
-      --     background = false, -- Disable setting the background color
-      --     float_background = false, -- Disable setting the background color for floating windows
-      --     cursorline = false, -- Disable the cursorline
-      --     eob_lines = true, -- Hide the end-of-buffer lines
-      --   },
-      --   -- Inverse highlight for different groups
-      --   inverse = {
-      --     match_paren = false,
-      --   },
-      --   custom_highlights = {}, -- Overwrite default highlight groups
-      --   custom_colors = {}, -- Overwrite default colors
-      -- })
-      -- vim.cmd.colorscheme "onenord"
+      require('onenord').setup({
+        theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+        borders = false, -- Split window borders
+        fade_nc = false, -- Fade non-current windows, making them more distinguishable
+        -- Style that is applied to various groups: see `highlight-args` for options
+        -- styles = {
+          comments = "italic",
+          strings = "NONE",
+          keywords = "bold",
+          functions = "bold",
+          variables = "NONE",
+          diagnostics = "underline",
+        -- },
+        disable = {
+          background = false, -- Disable setting the background color
+          float_background = false, -- Disable setting the background color for floating windows
+          cursorline = false, -- Disable the cursorline
+          eob_lines = true, -- Hide the end-of-buffer lines
+        },
+        -- Inverse highlight for different groups
+        inverse = {
+          match_paren = false,
+        },
+        custom_highlights = {}, -- Overwrite default highlight groups
+        custom_colors = {}, -- Overwrite default colors
+      })
+      vim.cmd.colorscheme "onenord"
     end
   },
   {
     'AlexvZyl/nordic.nvim',
     config = function()
-      require 'nordic' .setup {
-        -- This callback can be used to override the colors used in the palette.
-        on_palette = function(palette)
-          -- print(vim.inspect(palette))
-          -- return palette
-          return palette
-        end,
-        -- Enable bold keywords.
-        bold_keywords = true,
-        -- Enable italic comments.
-        italic_comments = true,
-        -- Enable general editor background transparency.
-        transparent_bg = false,
-        -- Enable brighter float border.
-        bright_border = false,
-        -- Reduce the overall amount of blue in the theme (diverges from base Nord).
-        reduced_blue = true,
-        -- Swap the dark background with the normal one.
-        swap_backgrounds = false,
-        -- Override the styling of any highlight group.
-        -- Cursorline options.  Also includes visual/selection.
-        cursorline = {
-          -- Bold font in cursorline.
-          bold = false,
-          -- Bold cursorline number.
-          bold_number = true,
-          -- Avialable styles: 'dark','light'.
-          theme = 'dark',
-          -- Blending the cursorline bg with the buffer bg.
-          blend = 0.85,
-        },
-        noice = {
-          -- Available styles: `classic`, `flat`.
-          style = 'flat',
-        },
-        telescope = {
-          -- Available styles: `classic`, `flat`.
-          style = 'flat',
-        },
-        leap = {
-          -- Dims the backdrop when using leap.
-          dim_backdrop = false,
-        },
-        ts_context = {
-          -- Enables dark background for treesitter-context window
-          dark_background = true,
-        },
-        override = {},
-      }
-      vim.cmd.colorscheme("nordic")
+      -- require 'nordic' .setup {
+      --   -- This callback can be used to override the colors used in the palette.
+      --   on_palette = function(palette)
+      --     -- print(vim.inspect(palette))
+      --     -- return palette
+      --     return palette
+      --   end,
+      --   -- Enable bold keywords.
+      --   bold_keywords = true,
+      --   -- Enable italic comments.
+      --   italic_comments = true,
+      --   -- Enable general editor background transparency.
+      --   transparent_bg = false,
+      --   -- Enable brighter float border.
+      --   bright_border = false,
+      --   -- Reduce the overall amount of blue in the theme (diverges from base Nord).
+      --   reduced_blue = true,
+      --   -- Swap the dark background with the normal one.
+      --   swap_backgrounds = false,
+      --   -- Override the styling of any highlight group.
+      --   -- Cursorline options.  Also includes visual/selection.
+      --   cursorline = {
+      --     -- Bold font in cursorline.
+      --     bold = false,
+      --     -- Bold cursorline number.
+      --     bold_number = true,
+      --     -- Avialable styles: 'dark','light'.
+      --     theme = 'dark',
+      --     -- Blending the cursorline bg with the buffer bg.
+      --     blend = 0.85,
+      --   },
+      --   noice = {
+      --     -- Available styles: `classic`, `flat`.
+      --     style = 'flat',
+      --   },
+      --   telescope = {
+      --     -- Available styles: `classic`, `flat`.
+      --     style = 'flat',
+      --   },
+      --   leap = {
+      --     -- Dims the backdrop when using leap.
+      --     dim_backdrop = false,
+      --   },
+      --   ts_context = {
+      --     -- Enables dark background for treesitter-context window
+      --     dark_background = true,
+      --   },
+      --   override = {},
+      -- }
+      -- vim.cmd.colorscheme("nordic")
     end
   },
   {

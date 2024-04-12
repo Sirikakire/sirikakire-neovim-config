@@ -36,7 +36,7 @@ local setup_highlight = function()
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
 
   -- Make NormalFloat brighter
-  local normalFloatBackground = addBrightnessToHexColor(getHexColor("NormalFloat").background, 70)
+  local normalFloatBackground = addBrightnessToHexColor(getHexColor("NormalFloat").background, vim.b.float_window_brightness)
   vim.cmd("highlight NormalFloat guibg="..normalFloatBackground)
 
   -- remove FloatBorder bg but keep the fg and ctermbg

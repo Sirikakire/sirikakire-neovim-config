@@ -6,6 +6,7 @@ require("init").setup({
   syn_all_border_color = true,
   syn_all_telescope_border = false,
   transparent_background = false,
+  float_window_brightness = 15,
 })
 
 require("autocmd") -- Autocmd
