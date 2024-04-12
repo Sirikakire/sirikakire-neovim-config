@@ -42,20 +42,19 @@ return {
       local cmp = require("cmp")
 
       cmp.setup({
-        -- preselect = cmp.PreselectMode.Item,
         completion = {
           completeopt = "noselect, menu, menuone, noinsert, preview",
         },
         window = {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:Pmenu,None:None,Search:None",
+            winhighlight = "Normal:NormalFloat",
             side_padding = 1,
             col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:Pmenu,None:None,Search:None",
+            winhighlight = "Normal:NormalFloat",
             side_padding = 1,
             col_offset = -3,
           })
@@ -72,8 +71,7 @@ return {
               path = "(Path)",
               -- copilot = "[Copilot]"
             })[entry.source.name]
-            vim_item.kind =
-                string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.kind = string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,
         },
@@ -83,14 +81,8 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<C-n>"] = cmp.mapping(
-            cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-            { "i" }
-          ),
-          ["<C-p>"] = cmp.mapping(
-            cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-            { "i" }
-          ),
+          ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
+          ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
           ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
           ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
           ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i" }),
@@ -125,6 +117,7 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "cmp_tabnine" },
+          { name = "path" },
           {
             name = "buffer",
             option = {
@@ -160,16 +153,19 @@ return {
       }) -- `:` cmdline setup.
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
+        sources = cmp.config.sources(
           {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
+            { name = "path" },
           },
-        }),
+          {
+            {
+              name = "cmdline",
+              option = {
+                ignore_cmds = { "Man", "!" },
+              },
+            },
+          }
+        ),
       })
     end,
   },
@@ -240,9 +236,6 @@ return {
       vim.diagnostic.config({
         virtual_text = {
           prefix = "",
-        },
-        virtual_lines = {
-          only_current_line = true,
         },
         signs = true,
         underline = false,

@@ -39,7 +39,7 @@ return {
       highlight_alternate = false,
 
       -- Disable highlighting file icons in inactive buffers
-      highlight_inactive_file_icons = false,
+      highlight_inactive_file_icons = true,
 
       -- Enable highlighting visible buffers
       highlight_visible = true,

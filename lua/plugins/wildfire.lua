@@ -1,4 +1,4 @@
 return {
   "gcmt/wildfire.vim",
-  lazy = true,
+  -- lazy = true,
 }
