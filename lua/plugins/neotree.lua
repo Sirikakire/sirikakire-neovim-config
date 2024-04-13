@@ -364,7 +364,7 @@ return {
         position = position, -- left, right, top, bottom, float, current
         width = 40, -- applies to left and right positions
         height = 15, -- applies to top and bottom positions
-        auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
+        auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
         popup = { -- settings that apply to float position only
           size = {
             height = "80%",
@@ -393,7 +393,7 @@ return {
           ["<cr>"] = "open",
           -- ["<cr>"] = { "open", config = { expand_nested_files = true } }, -- expand nested file takes precedence
           ["<esc>"] = "cancel", -- close preview or floating neo-tree window
-          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+          ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
           ["l"] = "focus_preview",
           ["S"] = "open_split",
           -- ["S"] = "split_with_window_picker",
@@ -555,7 +555,7 @@ return {
         -- "open_current",-- netrw disabled, opening a directory opens within the
         -- window like netrw would, regardless of window.position
         -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-        use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+        use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
         -- instead of relying on nvim autocmd events.
       },
       buffers = {

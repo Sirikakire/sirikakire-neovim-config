@@ -3,7 +3,7 @@ return {
   config = function()
 		require("notify").setup({
 			-- background_colour = "Normal",
-			background_colour = "#000000",
+			background_colour = vim.b.transparent_background and "#000000" or "Normal",
 			fps = 60,
 			icons = {
 				DEBUG = " ",
