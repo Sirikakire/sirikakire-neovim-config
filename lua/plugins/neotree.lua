@@ -364,7 +364,7 @@ return {
         position = position, -- left, right, top, bottom, float, current
         width = 40, -- applies to left and right positions
         height = 15, -- applies to top and bottom positions
-        auto_expand_width = true, -- expand the window when file exceeds the window width. does not work with position = "float"
+        auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
         popup = { -- settings that apply to float position only
           size = {
             height = "80%",
@@ -481,12 +481,12 @@ return {
         --         The first field in each component is the name of the function to call.
         --         The rest of the fields are passed to the function as the "config" argument.
         filtered_items = {
-          visible = true, -- when true, they will just be displayed differently than normal items
-          force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
+          visible = false, -- when true, they will just be displayed differently than normal items
+          force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
           show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
-          hide_dotfiles = false,
-          hide_gitignored = false,
-          hide_hidden = false, -- only works on Windows for hidden files/directories
+          hide_dotfiles = true,
+          hide_gitignored = true,
+          hide_hidden = true, -- only works on Windows for hidden files/directories
           hide_by_name = {
             -- ".DS_Store",
             -- "thumbs.db"
