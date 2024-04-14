@@ -484,9 +484,9 @@ return {
           visible = true, -- when true, they will just be displayed differently than normal items
           force_visible_in_empty_folder = true, -- when true, hidden files will be shown if the root folder is otherwise empty
           show_hidden_count = true, -- when true, the number of hidden items in each folder will be shown as the last entry
-          hide_dotfiles = true,
-          hide_gitignored = true,
-          hide_hidden = true, -- only works on Windows for hidden files/directories
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_hidden = false, -- only works on Windows for hidden files/directories
           hide_by_name = {
             -- ".DS_Store",
             -- "thumbs.db"
@@ -541,7 +541,7 @@ return {
         --  return args
         --end,
         group_empty_dirs = false, -- when true, empty folders will be grouped together
-        search_limit = 50, -- max number of search results when using filters
+        search_limit = 500, -- max number of search results when using filters
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.

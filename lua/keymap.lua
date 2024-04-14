@@ -44,13 +44,13 @@ wk.register({
 		"Preview git different",
 	},
 	["<leader>cp"] = { ":Copilot panel<CR>", "Open copilot panel" },
-	["<leader>fa"] = { require("telescope.builtin").autocommands, "List all auto commands" },
-	["<leader>fh"] = { require("telescope.builtin").highlights, "List all highlights" },
-	["<leader>ff"] = { require("telescope.builtin").find_files, "Find files" },
-	["<leader>fg"] = { require("telescope.builtin").live_grep, "Live grep" },
-	["<leader>fd"] = { require("telescope.builtin").diagnostics, "Open workspace diagnostics" },
-	["<leader>fp"] = { require("telescope.builtin").git_bcommits, "Open buffer git commit list" },
-	["<leader>fr"] = { require("telescope.builtin").lsp_references, "Open references" },
+	["<leader>fa"] = { ":lua require('telescope.builtin').autocommands()<CR>", "List all auto commands" },
+	["<leader>fh"] = { ":lua require('telescope.builtin').highlights()<CR>", "List all highlights" },
+	["<leader>ff"] = { ":lua require('telescope.builtin').find_files({ hidden = true })<CR>", "Find files" },
+	["<leader>fg"] = { ":lua require('telescope.builtin').live_grep({ hidden = true })<CR>", "Live grep" },
+	["<leader>fd"] = { ":lua require('telescope.builtin').diagnostics()<CR>", "Open workspace diagnostics" },
+	["<leader>fp"] = { ":lua require('telescope.builtin').git_bcommits()<CR>", "Open buffer git commit list" },
+	["<leader>fr"] = { ":lua require('telescope.builtin').lsp_references()<CR>", "Open references" },
 	["<leader>ts"] = { ":TermSelect<CR>", "Open terminal selection" },
 	["<leader>tt"] = { ":ToggleTerm<CR>", "Open terminal" },
 	["<leader>ti"] = {
@@ -75,7 +75,7 @@ wk.register({
 -- Setup keymap for LSP
 K.setup = function(opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "<C-]>", require("telescope.builtin").lsp_definitions, opts)
+	vim.keymap.set("n", "<C-]>", ":lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
 	opts.mode = { "n" }
 	wk.register({

@@ -32,13 +32,9 @@ return {
         },
         pickers = {
           find_files = vim.list_extend(common_setting, {
-            hidden = true,
-            no_ignore = true,
+            find_command = "rg,--ignore,--hidden,--files"
           }),
-          live_grep = vim.list_extend(common_setting, {
-            hidden = true,
-            no_ignore = true,
-          }),
+          live_grep = vim.list_extend(common_setting, {}),
           buffers = vim.list_extend(common_setting, {}),
           diagnostics = vim.list_extend(common_setting, {}),
           git_bcommits = vim.list_extend(common_setting, {}),
