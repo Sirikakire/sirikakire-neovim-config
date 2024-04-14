@@ -2,47 +2,47 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      -- require("catppuccin").setup(require("lua.plugins.catppuccin-colorscheme.thanhvule"))
+      -- require("catppuccin").setup(require("lua.plugins.catppuccin-colorscheme.high-contrast"))
       -- vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      -- require("kanagawa").setup({
-      --   compile = true,             -- enable compiling the colorscheme
-      --   undercurl = true,            -- enable undercurls
-      --   commentStyle = { italic = true, bold = true },
-      --   functionStyle = { bold = true, italic = true },
-      --   keywordStyle = { italic = true},
-      --   statementStyle = { bold = true },
-      --   typeStyle = { bold = true },
-      --   transparent = false,         -- do not set background color
-      --   dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
-      --   terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-      --   colors = {                   -- add/modify theme and palette colors
-      --     palette = {},
-      --     theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-      --   },
-      --   overrides = function(colors)
-      --     local theme = colors.theme
-      --     return {
-      --       -- TelescopeTitle = { fg = theme.ui.special, bold = true },
-      --       -- TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-      --       -- TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-      --       -- TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-      --       -- TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-      --       -- TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-      --       -- TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-      --     }
-      --   end,
-      --   theme = "wave",              -- Load "wave" theme when 'background' option is not set
-      --   -- background = {               -- map the value of 'background' option to a theme
-      --   --   dark = "wave",           -- try "dragon" !
-      --   --   light = "lotus"
-      --   -- },
-      -- })
-      -- vim.cmd.colorscheme "kanagawa-dragon"
+      require("kanagawa").setup({
+        compile = true,             -- enable compiling the colorscheme
+        undercurl = true,            -- enable undercurls
+        commentStyle = { italic = true, bold = true },
+        functionStyle = { bold = true, italic = true },
+        keywordStyle = { italic = true},
+        statementStyle = { bold = true },
+        typeStyle = { bold = true },
+        transparent = false,         -- do not set background color
+        dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+        colors = {                   -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            -- TelescopeTitle = { fg = theme.ui.special, bold = true },
+            -- TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+            -- TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+            -- TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+            -- TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+            -- TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+            -- TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          }
+        end,
+        theme = "wave",              -- Load "wave" theme when 'background' option is not set
+        -- background = {               -- map the value of 'background' option to a theme
+        --   dark = "wave",           -- try "dragon" !
+        --   light = "lotus"
+        -- },
+      })
+      vim.cmd.colorscheme "kanagawa-wave"
     end
   },
   {
@@ -57,33 +57,33 @@ return {
   {
     "rmehri01/onenord.nvim",
     config = function()
-      require('onenord').setup({
-        theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
-        borders = false, -- Split window borders
-        fade_nc = false, -- Fade non-current windows, making them more distinguishable
-        -- Style that is applied to various groups: see `highlight-args` for options
-        -- styles = {
-          comments = "italic",
-          strings = "NONE",
-          keywords = "bold",
-          functions = "bold",
-          variables = "NONE",
-          diagnostics = "underline",
-        -- },
-        disable = {
-          background = false, -- Disable setting the background color
-          float_background = false, -- Disable setting the background color for floating windows
-          cursorline = false, -- Disable the cursorline
-          eob_lines = true, -- Hide the end-of-buffer lines
-        },
-        -- Inverse highlight for different groups
-        inverse = {
-          match_paren = false,
-        },
-        custom_highlights = {}, -- Overwrite default highlight groups
-        custom_colors = {}, -- Overwrite default colors
-      })
-      vim.cmd.colorscheme "onenord"
+      -- require('onenord').setup({
+      --   theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
+      --   borders = false, -- Split window borders
+      --   fade_nc = false, -- Fade non-current windows, making them more distinguishable
+      --   -- Style that is applied to various groups: see `highlight-args` for options
+      --   -- styles = {
+      --     comments = "italic",
+      --     strings = "NONE",
+      --     keywords = "bold",
+      --     functions = "bold",
+      --     variables = "NONE",
+      --     diagnostics = "underline",
+      --   -- },
+      --   disable = {
+      --     background = false, -- Disable setting the background color
+      --     float_background = false, -- Disable setting the background color for floating windows
+      --     cursorline = false, -- Disable the cursorline
+      --     eob_lines = true, -- Hide the end-of-buffer lines
+      --   },
+      --   -- Inverse highlight for different groups
+      --   inverse = {
+      --     match_paren = false,
+      --   },
+      --   custom_highlights = {}, -- Overwrite default highlight groups
+      --   custom_colors = {}, -- Overwrite default colors
+      -- })
+      -- vim.cmd.colorscheme "onenord"
     end
   },
   {
@@ -253,7 +253,7 @@ return {
       --   --- function will be called with a Highlights and ColorScheme table
       --   on_highlights = function(highlights, colors) end,
       -- })
-      -- vim.cmd.colorscheme("tokyonight-storm")
+      -- vim.cmd.colorscheme("tokyonight-moon")
     end
   },
   {

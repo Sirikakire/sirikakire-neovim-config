@@ -38,4 +38,34 @@ M.setup = function (params)
   end
 end
 
+M.getHexColor = function (highlight)
+  local color = vim.api.nvim_get_hl_by_name(highlight, true)
+  return {
+    background = color.background and string.format("%06x", color.background) or "NONE",
+    foreground = color.foreground and string.format("%06x", color.foreground) or "NONE",
+  }
+end
+
+M.addBrightnessToHexColor = function (hexColor, brightness)
+  -- Remove the hash symbol if present
+  local hex = hexColor:gsub("#", "")
+
+  -- Extract red, green, blue components from the hex string
+  local r = tonumber(hex:sub(1, 2), 16)
+  local g = tonumber(hex:sub(3, 4), 16)
+  local b = tonumber(hex:sub(5, 6), 16)
+
+  -- Calculate the adjustment factor
+  local factor = (100 + brightness) / 100
+
+  -- Adjust the brightness
+  r = math.min(255, math.floor(r * factor))
+  g = math.min(255, math.floor(g * factor))
+  b = math.min(255, math.floor(b * factor))
+
+  -- Reassemble into a hex string and return
+  local adjustedHex = string.format("#%02X%02X%02X", r, g, b)
+  return adjustedHex
+end
+
 return M

@@ -48,13 +48,13 @@ return {
         window = {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:NormalFloat",
+            winhighlight = "Normal:NormalFloat,Search:None",
             -- side_padding = 1,
             -- col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:NormalFloat",
+            winhighlight = "Normal:NormalFloat,Search:None",
             -- side_padding = 1,
             -- col_offset = -3,
           })

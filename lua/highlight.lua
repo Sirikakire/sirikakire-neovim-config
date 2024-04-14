@@ -1,33 +1,3 @@
-local getHexColor = function (highlight)
-  local color = vim.api.nvim_get_hl_by_name(highlight, true)
-  return {
-    background = string.format("%06x", color.background),
-    foreground = string.format("%06x", color.foreground),
-  }
-end
-
-local addBrightnessToHexColor = function (hexColor, brightness)
-    -- Remove the hash symbol if present
-    local hex = hexColor:gsub("#", "")
-
-    -- Extract red, green, blue components from the hex string
-    local r = tonumber(hex:sub(1, 2), 16)
-    local g = tonumber(hex:sub(3, 4), 16)
-    local b = tonumber(hex:sub(5, 6), 16)
-
-    -- Calculate the adjustment factor
-    local factor = (100 + brightness) / 100
-
-    -- Adjust the brightness
-    r = math.min(255, math.floor(r * factor))
-    g = math.min(255, math.floor(g * factor))
-    b = math.min(255, math.floor(b * factor))
-
-    -- Reassemble into a hex string and return
-    local adjustedHex = string.format("#%02X%02X%02X", r, g, b)
-    return adjustedHex
-end
-
 -- Setup highlight
 local setup_highlight = function()
   -- sync treesitter context with normal
@@ -36,11 +6,26 @@ local setup_highlight = function()
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
 
   -- Make NormalFloat brighter
-  local normalFloatBackground = addBrightnessToHexColor(getHexColor("NormalFloat").background, vim.b.float_window_brightness)
-  vim.cmd("highlight NormalFloat guibg="..normalFloatBackground)
+  if vim.b.float_window_brightness ~= 0 then
+    local normalFloatBackground = require("init").addBrightnessToHexColor(
+      require("init").getHexColor("NormalFloat").background, vim.b.float_window_brightness
+    )
+    vim.cmd("highlight NormalFloat guibg="..normalFloatBackground)
+  end
 
-  -- remove FloatBorder bg but keep the fg and ctermbg
-  vim.cmd("highlight FloatBorder ctermbg=NONE guibg=NONE")
+
+  -- Hide win_separator
+  if vim.b.win_separator ~= true then
+    -- Get rid of dim background
+    vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
+    -- Sync WinSeparator with Normal to hide win separator
+    vim.api.nvim_set_hl(0, "WinSeparator", { link = "Normal" })
+  end
+
+  -- Remove FloatBorder bg but keep the fg and ctermbg
+  local floatBorderForeground = vim.b.syn_all_border_color and vim.b.border_color or require("init").getHexColor("FloatBorder").foreground
+  vim.cmd("highlight FloatBorder ctermbg=NONE guibg=NONE guifg="..floatBorderForeground)
+
 end
 
 -- Setup synchronized Telescope border
@@ -101,6 +86,11 @@ local setup_transparent_background = function()
   vim.cmd("highlight TelescopeResultsTitle ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TreesitterContext ctermbg=NONE guibg=NONE")
   vim.cmd("highlight TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE")
+  vim.cmd("highlight DiagnosticSignError ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticSignWarn ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticSignInfo ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticSignHint ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticSignOk ctermbg=NONE guibg=NONE")
 end
 
 setup_highlight()
