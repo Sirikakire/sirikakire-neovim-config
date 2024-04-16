@@ -84,7 +84,7 @@ U.null_ls_formatters = {
   "codespell",
 }
 
-U.border = {
+U.border = vim.b.win_separator and {
   { "╭", "FloatBorder" },
   { "─", "FloatBorder" },
   { "╮", "FloatBorder" },
@@ -93,8 +93,18 @@ U.border = {
   { "─", "FloatBorder" },
   { "╰", "FloatBorder" },
   { "│", "FloatBorder" },
+} or {
+  { "", "" },
+  { "", "" },
+  { "", "" },
+  { "", "" },
+  { "", "" },
+  { "", "" },
+  { "", "" },
+  { "", "" },
 }
 
+--
 -- U.border = {
 --   { "", "" },
 --   { "", "" },

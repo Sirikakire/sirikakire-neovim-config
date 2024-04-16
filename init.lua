@@ -1,11 +1,11 @@
 -- Loading Neovim global variable
 require("init").setup({
-  transparent_background = true,
+  transparent_background = false,
   mapleader = " ",
   border_color = "#cbc398",
-  win_separator = true,
+  win_separator = false,
   syn_all_border_color = true,
-  syn_all_telescope_border = false,
+  syn_all_telescope_border = true,
   float_window_brightness = 0,
 })
 
