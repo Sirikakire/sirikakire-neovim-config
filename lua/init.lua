@@ -47,6 +47,9 @@ M.getHexColor = function (highlight)
 end
 
 M.addBrightnessToHexColor = function (hexColor, brightness)
+  if brightness == nil then
+    brightness = 0
+  end
   -- Remove the hash symbol if present
   local hex = hexColor:gsub("#", "")
 

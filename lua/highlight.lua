@@ -7,10 +7,11 @@ local setup_highlight = function()
 
   -- Make NormalFloat brighter
   if vim.b.float_window_brightness ~= 0 then
-    local normalFloatBackground = require("init").addBrightnessToHexColor(
-      require("init").getHexColor("NormalFloat").background, vim.b.float_window_brightness
-    )
-    vim.cmd("highlight NormalFloat guibg="..normalFloatBackground)
+    local normalFloatBackground = require("init").getHexColor("NormalFloat").background
+    if normalFloatBackground ~= "NONE" then
+      local normalFloatBackgroundAfterAddBrightness = require("init").addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
+      vim.cmd("highlight NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness)
+    end
   end
 
 

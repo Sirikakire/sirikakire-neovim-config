@@ -172,6 +172,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("lspconfig.ui.windows").default_options.border = require("utils").border
+      vim.lsp.set_log_level("off")
     end,
   },
   {
