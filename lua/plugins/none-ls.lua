@@ -9,12 +9,10 @@ return {
           -- Formatting
           builtins.formatting.stylua,
           builtins.formatting.prettierd,
-          -- builtins.formatting.rubocop,
           builtins.formatting.codespell,
 
           -- Diagnostic
           builtins.diagnostics.codespell,
-          -- builtins.diagnostics.rubocop,
         },
       })
     end,

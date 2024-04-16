@@ -25,6 +25,7 @@ local wk = require("which-key")
 
 -- Keymap for only normal mode
 wk.register({
+	["<leader>rb"] = { ":%bd|e#<cr>", "Global delete all buffer" },
 	["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
 	["<leader>hn"] = { ":lua require('notify').notify('Health check vim notify')<CR>", "Health check vim notify" },
 	["<leader>hl"] = { ":nohlsearch<CR>", "Clear search highlight" },

@@ -73,7 +73,6 @@ U.lsp_servers = {
   "html", -- html
   "solargraph", -- ruby
   "dockerls", -- docker
-  "volar", -- vue
   "docker_compose_language_service", -- docker-compose
   "angularls", -- angular
   "eslint"
@@ -81,7 +80,6 @@ U.lsp_servers = {
 
 U.null_ls_formatters = {
   "stylua",
-  "rubocop",
   "prettierd",
   "codespell",
 }
