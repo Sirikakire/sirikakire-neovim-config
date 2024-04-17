@@ -9,7 +9,7 @@ return {
         persist_size = true,
         persist_mode = false,
         start_in_insert = false,
-        direction = "float",
+        direction = "horizontal",
         auto_scroll = true,
         title_pos = "center",
         float_opts = {
