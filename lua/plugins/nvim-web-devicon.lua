@@ -19,10 +19,11 @@ return {
         json = si("", "#f7cd6d", "JSON"),
         ts = si("󰛦", "#87b2e2", "TypeScript"),
         html = si("", "#de7558", "HTML"),
-        rb = si("", "#ef757c", "Ruby"),
-        rake = si("", "#ef757c", "Rake"),
+        rb = si("", "#ef757c", "Ruby"),
+        rake = si("", "#ef757c", "Rake"),
         rakefile = si("", "#ef757c", "RakeFile"),
         jbuilder = si("", "#f7cd6d", "Jbuilder"),
+        lua = si("󰢱", "#20c2e3", "Lua"),
       };
     })
   end

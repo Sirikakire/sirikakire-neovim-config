@@ -14,7 +14,6 @@ local setup_highlight = function()
     end
   end
 
-
   -- Hide win_separator
   if vim.b.win_separator ~= true then
     -- Get rid of dim background
