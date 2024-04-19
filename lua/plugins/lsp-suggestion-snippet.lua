@@ -1,6 +1,7 @@
 return {
   {
     "nvimdev/lspsaga.nvim",
+    event = { "BufEnter", "BufRead" },
     config = function()
       require("lspsaga").setup({
         ui = {
@@ -11,13 +12,30 @@ return {
     end,
   },
   {
+    "hinell/lsp-timeout.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.g.lspTimeoutConfig = {
+        stopTimeout  = 1000 * 60 * 2, -- ms, timeout before stopping all LSPs 
+        startTimeout = 1000 * 10,     -- ms, timeout before restart
+        silent       = false,          -- true to suppress notifications
+        filetypes    = {
+          ignore = {                -- filetypes to ignore; empty by default
+            -- lsp-timeout is disabled completely
+          }                         -- for these filetypes
+        }
+      }
+    end
+  },
+  {
     "VidocqH/lsp-lens.nvim",
-    config = function ()
+    event = { "BufEnter", "BufRead" },
+    config = function()
       local SymbolKind = vim.lsp.protocol.SymbolKind
 
-      require'lsp-lens'.setup({
+      require 'lsp-lens'.setup({
         enable = true,
-        include_declaration = false,      -- Reference include declaration
+        include_declaration = false, -- Reference include declaration
         sections = {
           definition = function(count)
             return "Definitions: " .. count
@@ -29,11 +47,14 @@ return {
             return "Implements: " .. count
           end,
           git_authors = function(latest_author, count)
-            return "  " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
+            return " " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
           end,
         },
         ignore_filetype = {
           "prisma",
+          "neo-tree",
+          "dashboard",
+          "toggleterm"
         },
         -- Target Symbol Kinds to show lens information
         target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
@@ -45,10 +66,12 @@ return {
   {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
+    event = "InsertEnter",
     dependencies = "hrsh7th/nvim-cmp",
   },
   {
     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -60,6 +83,7 @@ return {
   },
   {
     "github/copilot.vim",
+    event = "InsertEnter",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -75,6 +99,9 @@ return {
       local cmp = require("cmp")
 
       cmp.setup({
+        -- performance = {
+        --   max_view_entries = 10,
+        -- },
         completion = {
           completeopt = "noselect, menu, menuone, noinsert, preview",
         },
@@ -226,8 +253,6 @@ return {
       local function setupLSP(lsp_server)
         require("lspconfig")[lsp_server].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
-          end,
         })
       end
 

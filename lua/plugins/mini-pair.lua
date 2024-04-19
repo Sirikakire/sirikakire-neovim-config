@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.pairs",
-  event = { "BufRead", "BufEnter" },
+  event = "InsertEnter",
   config = function ()
     local mini_pair = require("mini.pairs")
     mini_pair.setup(

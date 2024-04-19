@@ -1,5 +1,6 @@
 return {
   "petertriho/nvim-scrollbar",
+  event = { "BufRead", "BufEnter" },
   config = function ()
     require("scrollbar").setup({
       show = true,
@@ -116,6 +117,9 @@ return {
         "cmp_docs",
         "cmp_menu",
         "noice",
+        "lazy",
+        "mason",
+        "dashboard",
         "prompt",
         "TelescopePrompt",
         "neo-tree"
