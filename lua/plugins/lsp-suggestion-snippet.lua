@@ -235,7 +235,7 @@ return {
 
       vim.diagnostic.config({
         virtual_text = {
-          prefix = "",
+          prefix = " ",
           source = "always",
         },
         signs = true,
