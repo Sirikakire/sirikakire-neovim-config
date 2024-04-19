@@ -39,7 +39,7 @@ return {
       highlight_alternate = false,
 
       -- Disable highlighting file icons in inactive buffers
-      highlight_inactive_file_icons = true,
+      highlight_inactive_file_icons = false,
 
       -- Enable highlighting visible buffers
       highlight_visible = true,
@@ -49,7 +49,7 @@ return {
         -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
         buffer_index = false,
         buffer_number = false,
-        button = '',
+        button = ' ',
         ---- Enables / disables diagnostic symbols
         diagnostics = {
           [vim.diagnostic.severity.ERROR] = {enabled = false},
@@ -72,15 +72,15 @@ return {
         },
         -- separator = {left = '▎', right = ''},
         -- separator = {left = '|', right = '|'},
-        -- separator = {left = '', right = ''},
+        separator = {left = '', right = ''},
         separator = {left = '▎', right = ''},
 
         -- If true, add an additional separator at the end of the buffer list
-        separator_at_end = false,
+        separator_at_end = true,
 
         -- Configure the icons on the bufferline when modified or pinned.
         -- Supports all the base icon options.
-        modified = {button = '●'},
+        modified = {button = '● '},
         pinned = {button = '', filename = true},
 
         -- Use a preconfigured buffer appearance— can be 'default', 'powerline', or 'slanted'

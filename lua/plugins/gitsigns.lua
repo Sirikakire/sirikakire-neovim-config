@@ -13,14 +13,14 @@ return {
       --   untracked    = { text = '┆' },
       -- },
       signs = {
-        add          = { text = '' },
-        change       = { text = '󰈚' },
+        add          = { text = ' ' },
+        change       = { text = '󰈚 ' },
         -- add          = { text = '▎' },
         -- change       = { text = '▎' },
-        delete       = { text = '' },
-        topdelete    = { text = '' },
-        changedelete = { text = '󰇽' },
-        untracked    = { text = '' },
+        delete       = { text = ' ' },
+        topdelete    = { text = ' ' },
+        changedelete = { text = '󰇽 ' },
+        untracked    = { text = ' ' },
       },
       signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
       numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`

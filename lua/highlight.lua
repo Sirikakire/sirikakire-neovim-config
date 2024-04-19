@@ -12,6 +12,25 @@ local setup_highlight = function()
       local normalFloatBackgroundAfterAddBrightness = require("init").addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
       vim.cmd("highlight NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness)
     end
+
+  end
+
+  if vim.b.better_cmp_cursor_line then
+    local cmpColorAfter = {}
+
+    if vim.b.transparent_background then
+      cmpColorAfter = {
+        background = vim.b.border_color,
+        foreground = require("init").complementaryColor(vim.b.border_color)
+      }
+    else
+      local cmpColor = require("init").getHexColor("NormalFloat")
+      cmpColorAfter = {
+        background = require("init").complementaryColor(cmpColor.background),
+        foreground = cmpColor.foreground == "NONE" and cmpColor.background or require("init").complementaryColor(cmpColor.foreground),
+      }
+    end
+    vim.cmd("highlight PmenuSel guibg="..cmpColorAfter.background.." guifg="..cmpColorAfter.foreground)
   end
 
   -- Hide win_separator
@@ -25,7 +44,6 @@ local setup_highlight = function()
   -- Remove FloatBorder bg but keep the fg and ctermbg
   local floatBorderForeground = vim.b.syn_all_border_color and vim.b.border_color or require("init").getHexColor("FloatBorder").foreground
   vim.cmd("highlight FloatBorder ctermbg=NONE guibg=NONE guifg="..floatBorderForeground)
-
 end
 
 -- Setup synchronized Telescope border
@@ -48,6 +66,10 @@ end
 
 -- Optional transparent WinSeparator
 local setup_transparent_background = function()
+  vim.cmd("highlight GitGutterDelete ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight GitGutterChangeDelete ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight GitGutterChange ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight GitGutterAdd ctermbg=NONE guibg=NONE")
   vim.cmd("highlight GitSignsAdd ctermbg=NONE guibg=NONE")
   vim.cmd("highlight GitSignsChange ctermbg=NONE guibg=NONE")
   vim.cmd("highlight GitSignsDelete ctermbg=NONE guibg=NONE")
@@ -91,6 +113,11 @@ local setup_transparent_background = function()
   vim.cmd("highlight DiagnosticSignInfo ctermbg=NONE guibg=NONE")
   vim.cmd("highlight DiagnosticSignHint ctermbg=NONE guibg=NONE")
   vim.cmd("highlight DiagnosticSignOk ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticError ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticWarn ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticInfo ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticHint ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight DiagnosticOk ctermbg=NONE guibg=NONE")
 end
 
 setup_highlight()

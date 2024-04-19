@@ -1,5 +1,6 @@
 local M = {}
 
+vim.g.mapleader = " "
 vim.b.win_separator = true
 vim.b.border_color = "#ffffff"
 vim.b.transparent_background = false
@@ -7,8 +8,12 @@ vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
 vim.b.float_window_brightness = 0
 vim.b.doc_border = false
-vim.g.mapleader = " "
+vim.b.better_cmp_cursor_line = false
+vim.b.colorscheme = ""
 
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 M.setup = function (params)
   if params.win_separator ~= nil then
     vim.b.win_separator = params.win_separator
@@ -41,13 +46,21 @@ M.setup = function (params)
   if params.doc_border ~= nil then
     vim.b.doc_border = params.doc_border
   end
+
+  if params.better_cmp_cursor_line ~= nil then
+    vim.b.better_cmp_cursor_line = params.better_cmp_cursor_line
+  end
+
+  if params.colorscheme ~= nil then
+    vim.b.colorscheme = params.colorscheme
+  end
 end
 
 M.getHexColor = function (highlight)
   local color = vim.api.nvim_get_hl_by_name(highlight, true)
   return {
-    background = color.background and string.format("%06x", color.background) or "NONE",
-    foreground = color.foreground and string.format("%06x", color.foreground) or "NONE",
+    background = color.background and ("#"..string.format("%06x", color.background)) or "NONE",
+    foreground = color.foreground and ("#"..string.format("%06x", color.foreground)) or "NONE",
   }
 end
 
@@ -76,4 +89,28 @@ M.addBrightnessToHexColor = function (hexColor, brightness)
   return adjustedHex
 end
 
+M.complementaryColor = function (hexColor)
+    -- Kiểm tra xem mã màu có dấu # không, nếu không có, thêm dấu #
+    if string.sub(hexColor, 1, 1) ~= "#" then
+        hexColor = "#" .. hexColor
+    end
+
+    -- Loại bỏ dấu # từ mã màu
+    hexColor = string.sub(hexColor, 2)
+
+    -- Chuyển đổi mã màu từ hex sang RGB
+    local r = tonumber(string.sub(hexColor, 1, 2), 16)
+    local g = tonumber(string.sub(hexColor, 3, 4), 16)
+    local b = tonumber(string.sub(hexColor, 5, 6), 16)
+
+    -- Tính toán màu bổ sung (complementary)
+    local comp_r = 255 - r
+    local comp_g = 255 - g
+    local comp_b = 255 - b
+
+    -- Chuyển đổi màu bổ sung (complementary) từ RGB sang hex
+    local comp_hexColor = string.format("#%02X%02X%02X", comp_r, comp_g, comp_b)
+
+    return comp_hexColor
+end
 return M

@@ -37,7 +37,7 @@ return {
             symbols = {
               added = " ",
               modified = "󰈚 ",
-              removed = ' '
+              removed = " "
             },
           },
           {
@@ -72,7 +72,7 @@ return {
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
-            icon = ""
+            icon = " "
           }
         }
       },

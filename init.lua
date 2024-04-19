@@ -5,9 +5,11 @@ require("init").setup({
   border_color = "#cbc398",
   doc_border = true,
   win_separator = false,
-  syn_all_border_color = true,
-  syn_all_telescope_border = true,
-  float_window_brightness = 0,
+  syn_all_border_color = false,
+  syn_all_telescope_border = false,
+  float_window_brightness = 50,
+  better_cmp_cursor_line = true,
+  colorscheme = "fluoromachine"
 })
 
 require("autocmd") -- Autocmd

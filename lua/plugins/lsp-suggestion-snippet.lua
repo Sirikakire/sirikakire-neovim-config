@@ -11,6 +11,38 @@ return {
     end,
   },
   {
+    "VidocqH/lsp-lens.nvim",
+    config = function ()
+      local SymbolKind = vim.lsp.protocol.SymbolKind
+
+      require'lsp-lens'.setup({
+        enable = true,
+        include_declaration = false,      -- Reference include declaration
+        sections = {
+          definition = function(count)
+            return "Definitions: " .. count
+          end,
+          references = function(count)
+            return "References: " .. count
+          end,
+          implements = function(count)
+            return "Implements: " .. count
+          end,
+          git_authors = function(latest_author, count)
+            return "  " .. latest_author .. (count - 1 == 0 and "" or (" + " .. count - 1))
+          end,
+        },
+        ignore_filetype = {
+          "prisma",
+        },
+        -- Target Symbol Kinds to show lens information
+        target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
+        -- Symbol Kinds that may have target symbol kinds as children
+        wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
+      })
+    end
+  },
+  {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     dependencies = "hrsh7th/nvim-cmp",
@@ -37,6 +69,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-nvim-lsp-signature-help"
     },
     config = function()
       local cmp = require("cmp")
@@ -48,13 +81,13 @@ return {
         window = {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:NormalFloat,Search:None",
+            winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
             -- side_padding = 1,
             -- col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
-            winhighlight = "Normal:NormalFloat,Search:None",
+            winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
             -- side_padding = 1,
             -- col_offset = -3,
           })
@@ -113,6 +146,7 @@ return {
           }),
         }),
         sources = cmp.config.sources({
+          { name = 'nvim_lsp_signature_help' },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "cmp_tabnine" },
@@ -192,6 +226,8 @@ return {
       local function setupLSP(lsp_server)
         require("lspconfig")[lsp_server].setup({
           capabilities = capabilities,
+          on_attach = function(client, bufnr)
+          end,
         })
       end
 
@@ -249,28 +285,28 @@ return {
       vim.fn.sign_define({
         {
           name = "DiagnosticSignError",
-          text = "",
+          text = " ",
           texthl = "DiagnosticSignError",
           linehl = "ErrorLine",
           numhl = "DiagnosticSignError",
         },
         {
           name = "DiagnosticSignWarn",
-          text = "",
+          text = " ",
           texthl = "DiagnosticSignWarn",
           linehl = "WarningLine",
           numhl = "DiagnosticSignWarn",
         },
         {
           name = "DiagnosticSignInfo",
-          text = "",
+          text = " ",
           texthl = "DiagnosticSignInfo",
           linehl = "InfoLine",
           numhl = "DiagnosticSignInfo",
         },
         {
           name = "DiagnosticSignHint",
-          text = "",
+          text = " ",
           texthl = "DiagnosticSignHint",
           linehl = "HintLine",
           numhl = "DiagnosticSignHint",
