@@ -9,7 +9,7 @@ require("init").setup({
   syn_all_telescope_border = false,
   float_window_brightness = 50,
   better_cmp_cursor_line = true,
-  colorscheme = "fluoromachine"
+  colorscheme = "mellow"
 })
 
 require("autocmd") -- Autocmd
