@@ -4,12 +4,12 @@ require("init").setup({
   mapleader = " ",
   border_color = "#cbc398",
   doc_border = true,
-  win_separator = false,
-  syn_all_border_color = false,
+  win_separator = true,
+  syn_all_border_color = true,
   syn_all_telescope_border = false,
   float_window_brightness = 50,
   better_cmp_cursor_line = true,
-  colorscheme = "palenight"
+  colorscheme = "night-owl"
 })
 
 require("autocmd") -- Autocmd

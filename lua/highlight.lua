@@ -126,7 +126,7 @@ local setup_transparent_background = function()
 end
 
 setup_highlight()
-if vim.b.win_separator ~= true then remove_win_separator() end
+if vim.b.win_separator == false then remove_win_separator() end
 if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
 if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
 if vim.b.transparent_background then setup_transparent_background() end
