@@ -8,10 +8,6 @@ return {
   },
   config = function()
     local config = {
-      -- If a user has a sources list it will replace this one.
-      -- Only sources listed here will be loaded.
-      -- You can also add an external source by adding it's name to this list.
-      -- The name used here must be the same name you would use in a require() call.
       sources = {
         "filesystem",
         "git_status",
@@ -137,6 +133,7 @@ return {
         --    end
         --  },
         {
+          -- FIX: fixing neotree buffer not closing when leaving the buffer
           event = 'neo_tree_buffer_leave',
           handler = function()
             local shown_buffers = {}

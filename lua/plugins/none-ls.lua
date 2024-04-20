@@ -6,12 +6,12 @@ return {
       local builtins = null_ls.builtins
       null_ls.setup({
         sources = {
-          -- Formatting
+          -- NOTE: Formatting
           builtins.formatting.stylua,
           builtins.formatting.prettierd,
           builtins.formatting.codespell,
 
-          -- Diagnostic
+          -- NOTE: Diagnostic
           builtins.diagnostics.codespell,
         },
       })

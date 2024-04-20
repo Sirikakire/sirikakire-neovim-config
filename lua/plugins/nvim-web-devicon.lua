@@ -12,6 +12,7 @@ return {
     require("nvim-web-devicons").setup({
       color_icons = true;
       strict = true;
+      -- NOTE: override the icon by extension
       override_by_extension = {
         java = si("", "#e46368", "java"),
         gitignore = si("", "#428850", "GitIgnore"),

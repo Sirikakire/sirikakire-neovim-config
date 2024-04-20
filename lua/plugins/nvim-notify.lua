@@ -2,7 +2,6 @@ return {
   'rcarriga/nvim-notify',
   config = function()
 		require("notify").setup({
-			-- background_colour = "Normal",
 			background_colour = vim.b.transparent_background and "#000000" or "Normal",
 			fps = 60,
 			icons = {
@@ -12,7 +11,6 @@ return {
 				TRACE = " ✎",
 				WARN = " "
 			},
-			-- level = 0,
 			minimum_width = 50,
 			render = "compact",
 			stages = "fade",

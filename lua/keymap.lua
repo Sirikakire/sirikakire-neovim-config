@@ -4,10 +4,6 @@ local K = {}
 vim.keymap.set("n", "<C-o>", "a<CR><esc>")
 vim.keymap.set("n", "<C-z>", "")
 vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>")
-vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>")
-vim.keymap.set("n", "<A-.>", ":BufferNext<CR>")
-vim.keymap.set("n", "<A-c>", ":BufferClose<CR>")
-vim.keymap.set("n", "<A-C>", ":BufferClose!<CR>")
 vim.keymap.set("n", "<C-b>", ":Neotree . focus<CR>")
 vim.keymap.set("n", "<A-9>", "<C-w>-")
 vim.keymap.set("n", "<A-0>", "<C-w>+")
@@ -18,12 +14,25 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
+vim.keymap.set("n", "<A-c>", function()
+  local buffer_id = vim.fn.bufnr()
+
+  if buffer_id then
+    vim.cmd(":BufferLineCyclePrev")
+    vim.cmd(":bdelete "..buffer_id)
+  end
+end)
+vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<A-H>", ":BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<A-L>", ":BufferLineMoveNext<CR>")
+
 -- Leader keymap
 local wk = require("which-key")
 
 -- Keymap for only normal mode
 wk.register({
-	["<leader>rb"] = { ":%bd|e#<cr>", "Global delete all buffer" },
+	["<leader>gd"] = { ":%bd|e#<cr>", "Global delete all buffer" },
 	["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
 	["<leader>hn"] = { ":lua require('notify').notify('Health check vim notify')<CR>", "Health check vim notify" },
 	["<leader>hl"] = { ":nohlsearch<CR>", "Clear search highlight" },

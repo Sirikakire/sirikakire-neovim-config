@@ -60,7 +60,7 @@ U.kind_icons = {
   Copilot = '  '
 }
 
--- Lsp server list
+-- NOTE: Lsp server list
 U.lsp_servers = {
   "tsserver", -- typescript
   "lua_ls", -- lua
@@ -79,6 +79,7 @@ U.lsp_servers = {
   "volar" -- vue
 }
 
+-- NOTE: formatter and linters
 U.null_ls_formatters = {
   "stylua",
   "prettierd",

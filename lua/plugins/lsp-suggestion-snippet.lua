@@ -56,9 +56,7 @@ return {
           "dashboard",
           "toggleterm"
         },
-        -- Target Symbol Kinds to show lens information
         target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
-        -- Symbol Kinds that may have target symbol kinds as children
         wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
       })
     end
@@ -99,9 +97,6 @@ return {
       local cmp = require("cmp")
 
       cmp.setup({
-        -- performance = {
-        --   max_view_entries = 10,
-        -- },
         completion = {
           completeopt = "noselect, menu, menuone, noinsert, preview",
         },
@@ -109,18 +104,13 @@ return {
           completion = cmp.config.window.bordered({
             border = require("utils").border,
             winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
-            -- side_padding = 1,
-            -- col_offset = -3,
           }),
           documentation = cmp.config.window.bordered({
             border = require("utils").border,
             winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
-            -- side_padding = 1,
-            -- col_offset = -3,
           })
         },
         formatting = {
-          -- fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "(LSP)",
@@ -129,7 +119,6 @@ return {
               buffer = "(Buffer)",
               cmdline = "(CMDLine)",
               path = "(Path)",
-              -- copilot = "[Copilot]"
             })[entry.source.name]
             vim_item.kind = string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -178,7 +167,6 @@ return {
           { name = "luasnip" },
           { name = "cmp_tabnine" },
           { name = "path" },
-          -- { name = "copilot" },
           {
             name = "buffer",
             option = {
@@ -193,7 +181,7 @@ return {
           },
         }),
       })
-      -- `/` cmdline setup.
+      -- NOTE: `/` cmdline setup.
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
@@ -210,7 +198,8 @@ return {
             },
           },
         },
-      }) -- `:` cmdline setup.
+      })
+      -- NOTE:  `:` cmdline setup.
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources(
@@ -264,7 +253,7 @@ return {
         automatic_installation = true,
       })
 
-      -- Mapping keymap for lsp
+      -- NOTE: Mapping keymap for lsp
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
@@ -278,7 +267,7 @@ return {
         border = require("utils").border,
       })
 
-      -- Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
+      -- FIX: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
       vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method
@@ -306,7 +295,7 @@ return {
         float = { border = require("utils").border, source = "always" },
       })
 
-      -- Setup diagnostic highlight and icon
+      -- NOTE: Setup diagnostic highlight and icon
       vim.fn.sign_define({
         {
           name = "DiagnosticSignError",
