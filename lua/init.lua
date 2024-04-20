@@ -110,7 +110,5 @@ M.complementaryColor = function (hexColor)
 
     -- Chuyển đổi màu bổ sung (complementary) từ RGB sang hex
     local comp_hexColor = string.format("#%02X%02X%02X", comp_r, comp_g, comp_b)
-
-    return comp_hexColor
-end
+return comp_hexColor end
 return M
