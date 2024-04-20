@@ -1,51 +1,56 @@
 -- Setup highlight
 local setup_highlight = function()
-  -- sync treesitter context with normal
+  -- sync treesitter context
   vim.api.nvim_set_hl(0, "TreesitterContext", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
 
-  -- async indent line scope
+  -- sync neotree and nvim tree separator
+  vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
+  vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
+
+  -- sync indent line scope
   vim.api.nvim_set_hl(0, "IblScope", { link = "Comment" })
-
-  -- Make NormalFloat brighter
-  if vim.b.float_window_brightness ~= 0 then
-    local normalFloatBackground = require("init").getHexColor("NormalFloat").background
-    if normalFloatBackground ~= "NONE" then
-      local normalFloatBackgroundAfterAddBrightness = require("init").addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
-      vim.cmd("highlight NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness)
-    end
-  end
-
-  if vim.b.better_cmp_cursor_line then
-    local cmpColorAfter = {}
-
-    if vim.b.transparent_background then
-      cmpColorAfter = {
-        background = vim.b.border_color,
-        foreground = require("init").complementaryColor(vim.b.border_color)
-      }
-    else
-      local cmpColor = require("init").getHexColor("NormalFloat")
-      cmpColorAfter = {
-        background = require("init").complementaryColor(cmpColor.background),
-        foreground = cmpColor.foreground == "NONE" and cmpColor.background or require("init").complementaryColor(cmpColor.foreground),
-      }
-    end
-    vim.cmd("highlight PmenuSel guibg="..cmpColorAfter.background.." guifg="..cmpColorAfter.foreground)
-  end
-
-  -- Hide win_separator
-  if vim.b.win_separator ~= true then
-    -- Get rid of dim background
-    vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
-    -- Sync WinSeparator with Normal to hide win separator
-    vim.api.nvim_set_hl(0, "WinSeparator", { link = "Normal" })
-  end
 
   -- Remove FloatBorder bg but keep the fg and ctermbg
   local floatBorderForeground = vim.b.syn_all_border_color and vim.b.border_color or require("init").getHexColor("FloatBorder").foreground
   vim.cmd("highlight FloatBorder ctermbg=NONE guibg=NONE guifg="..floatBorderForeground)
+end
+
+-- Setup better cmp cursor line
+local setup_better_cmp_cursor_line = function()
+  local cmpColorAfter = {}
+
+  if vim.b.transparent_background then
+    cmpColorAfter = {
+      background = vim.b.border_color,
+      foreground = require("init").complementaryColor(vim.b.border_color)
+    }
+  else
+    local cmpColor = require("init").getHexColor("NormalFloat")
+    cmpColorAfter = {
+      background = require("init").complementaryColor(cmpColor.background),
+      foreground = cmpColor.foreground == "NONE" and cmpColor.background or require("init").complementaryColor(cmpColor.foreground),
+    }
+  end
+  vim.cmd("highlight PmenuSel guibg="..cmpColorAfter.background.." guifg="..cmpColorAfter.foreground)
+end
+
+-- Remove WinSepartor
+local remove_win_separator = function()
+    -- Get rid of dim background
+    vim.api.nvim_set_hl(0, "NormalNC", { link = "Normal" })
+    -- Sync WinSeparator with Normal to hide win separator
+    vim.api.nvim_set_hl(0, "WinSeparator", { link = "Normal" })
+end
+
+-- Setup add brightness to float window
+local setup_add_brightness_to_float_window = function()
+  local normalFloatBackground = require("init").getHexColor("NormalFloat").background
+  if normalFloatBackground ~= "NONE" then
+    local normalFloatBackgroundAfterAddBrightness = require("init").addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
+    vim.cmd("highlight NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness)
+  end
 end
 
 -- Setup synchronized Telescope border
@@ -61,8 +66,6 @@ end
 
 -- Setup synchronized WinSeparator background
 local setup_synchronized_winseparator = function()
-  vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
-  vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
   vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
 end
 
@@ -123,6 +126,9 @@ local setup_transparent_background = function()
 end
 
 setup_highlight()
+if vim.b.win_separator ~= true then remove_win_separator() end
+if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
+if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
 if vim.b.transparent_background then setup_transparent_background() end
 if vim.b.syn_all_border_color then setup_synchronized_winseparator() end
 if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
