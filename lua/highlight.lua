@@ -5,6 +5,9 @@ local setup_highlight = function()
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
 
+  -- async indent line scope
+  vim.api.nvim_set_hl(0, "IblScope", { link = "Comment" })
+
   -- Make NormalFloat brighter
   if vim.b.float_window_brightness ~= 0 then
     local normalFloatBackground = require("init").getHexColor("NormalFloat").background
@@ -12,7 +15,6 @@ local setup_highlight = function()
       local normalFloatBackgroundAfterAddBrightness = require("init").addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
       vim.cmd("highlight NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness)
     end
-
   end
 
   if vim.b.better_cmp_cursor_line then
