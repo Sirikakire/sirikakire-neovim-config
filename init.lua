@@ -7,7 +7,7 @@ require("init").setup({
   win_separator = false,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
-  float_window_brightness = 50,
+  float_window_brightness = 20,
   better_cmp_cursor_line = true,
   colorscheme = "nord"
 })

@@ -21,6 +21,10 @@ return {
         'dirbuf',
         'dirvish',
         'fugitive',
+        'neo-tree',
+        'toggleterm',
+        'dashboard',
+        'TelescopePrompt'
       },
       -- filetypes_allowlist: filetypes to illuminate, this is overridden by filetypes_denylist
       -- You must set filetypes_denylist = {} to override the defaults to allow filetypes_allowlist to take effect
@@ -30,7 +34,7 @@ return {
       modes_denylist = {},
       -- modes_allowlist: modes to illuminate, this is overridden by modes_denylist
       -- See `:help mode()` for possible values
-      modes_allowlist = {},
+      modes_allowlist = { "n" },
       -- providers_regex_syntax_denylist: syntax to not illuminate, this overrides providers_regex_syntax_allowlist
       -- Only applies to the 'regex' provider
       -- Use :echom synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name')
