@@ -4,7 +4,7 @@ require("init").setup({
   mapleader = " ",
   border_color = "#cbc398",
   doc_border = false,
-  win_separator = true,
+  win_separator = false,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   float_window_brightness = 0,
