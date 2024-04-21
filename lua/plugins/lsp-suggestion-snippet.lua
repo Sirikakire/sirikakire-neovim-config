@@ -68,31 +68,48 @@ return {
     dependencies = "hrsh7th/nvim-cmp",
   },
   {
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
-    dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require("luasnip").filetype_extend("ruby", { "rails" })
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
+    "saadparwaiz1/cmp_luasnip",
+    event = "InsertEnter"
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    event = "InsertEnter"
   },
   {
     "github/copilot.vim",
     event = "InsertEnter",
   },
   {
+    "hrsh7th/cmp-nvim-lsp",
+    event = "InsertEnter"
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    event = "InsertEnter"
+  },
+  {
+    "hrsh7th/cmp-buffer",
+    event = { "InsertEnter", "CmdlineEnter" },
+  },
+  {
+    "hrsh7th/cmp-path",
+    event = { "InsertEnter", "CmdlineEnter" },
+  },
+  {
+    "hrsh7th/cmp-cmdline",
+    event = { "InsertEnter", "CmdlineEnter" },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
+    config = function()
+      require("luasnip").filetype_extend("ruby", { "rails" })
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lsp-signature-help"
-    },
     config = function()
       local cmp = require("cmp")
 
@@ -220,6 +237,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     config = function()
       require("lspconfig.ui.windows").default_options.border = require("utils").border
       vim.lsp.set_log_level("off")
@@ -227,6 +245,7 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    event = "VeryLazy",
     config = function()
       require("mason").setup({
         ui = {
@@ -237,6 +256,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local function setupLSP(lsp_server)
@@ -259,7 +279,7 @@ return {
         callback = function(ev)
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
           local opts = { buffer = ev.buf }
-          require("keymap").setup(opts)
+          require("keymap").setup_lsp_keymap(opts)
         end,
       })
 

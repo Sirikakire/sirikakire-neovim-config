@@ -1,6 +1,6 @@
 return {
   "rmagatti/alternate-toggler",
-  event = { "BufRead", "BufEnter" },
+  keys = require("keymap").setup_alternate_toggle,
   config = function ()
     require("alternate-toggler").setup {
       alternates = {

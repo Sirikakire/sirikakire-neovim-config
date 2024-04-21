@@ -6,7 +6,7 @@ return {
     "3rd/image.nvim",
     "MunifTanjim/nui.nvim",
   },
-  event = "VeryLazy",
+  keys = require("keymap").setup_neotree,
   config = function()
     local config = {
       sources = {
