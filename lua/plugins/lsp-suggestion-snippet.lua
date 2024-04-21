@@ -68,14 +68,6 @@ return {
     dependencies = "hrsh7th/nvim-cmp",
   },
   {
-    "saadparwaiz1/cmp_luasnip",
-    event = "InsertEnter"
-  },
-  {
-    "rafamadriz/friendly-snippets",
-    event = "InsertEnter"
-  },
-  {
     "github/copilot.vim",
     event = "InsertEnter",
   },
@@ -102,6 +94,10 @@ return {
   {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+    },
     config = function()
       require("luasnip").filetype_extend("ruby", { "rails" })
       require("luasnip.loaders.from_vscode").lazy_load()
