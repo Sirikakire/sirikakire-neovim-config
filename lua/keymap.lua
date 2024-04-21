@@ -39,11 +39,11 @@ vim.keymap.set("n", "<A-H>", ":BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<A-L>", ":BufferLineMoveNext<CR>")
 
 -- NOTE: keymap for barbar plugin
--- vim.keymap.set("n", "<A-c>", ":BufferClose<CR>")
--- vim.keymap.set("n", "<A-h>", ":BufferPrevious<CR>")
--- vim.keymap.set("n", "<A-l>", ":BufferNext<CR>")
--- vim.keymap.set("n", "<A-H>", ":BufferMovePrevious<CR>")
--- vim.keymap.set("n", "<A-L>", ":BufferMoveNext<CR>")
+--[[ vim.keymap.set("n", "<A-c>", ":BufferClose<CR>")
+vim.keymap.set("n", "<A-h>", ":BufferPrevious<CR>")
+vim.keymap.set("n", "<A-l>", ":BufferNext<CR>")
+vim.keymap.set("n", "<A-H>", ":BufferMovePrevious<CR>")
+vim.keymap.set("n", "<A-L>", ":BufferMoveNext<CR>") ]]
 
 -- NOTE: Leader keymap
 local wk = require("which-key")
