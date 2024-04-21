@@ -1,6 +1,6 @@
 local K = {}
 
--- Non leader keymap
+-- NOTE: Non leader keymap
 vim.keymap.set("n", "<C-o>", "a<CR><esc>")
 vim.keymap.set("n", "<C-z>", "")
 vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>")
@@ -14,6 +14,8 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
+
+-- NOTE: keymap for bufferline plugin
 vim.keymap.set("n", "<A-c>", function()
   local buffer_id = vim.fn.bufnr()
 
@@ -22,15 +24,31 @@ vim.keymap.set("n", "<A-c>", function()
     vim.cmd(":bdelete "..buffer_id)
   end
 end)
+
+vim.keymap.set("n", "<A-C>", function()
+  local buffer_id = vim.fn.bufnr()
+
+  if buffer_id then
+    vim.cmd(":BufferLineCycleNext")
+    vim.cmd(":bdelete "..buffer_id)
+  end
+end)
 vim.keymap.set("n", "<A-h>", ":BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<A-l>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<A-H>", ":BufferLineMovePrev<CR>")
 vim.keymap.set("n", "<A-L>", ":BufferLineMoveNext<CR>")
 
--- Leader keymap
+-- NOTE: keymap for barbar plugin
+-- vim.keymap.set("n", "<A-c>", ":BufferClose<CR>")
+-- vim.keymap.set("n", "<A-h>", ":BufferPrevious<CR>")
+-- vim.keymap.set("n", "<A-l>", ":BufferNext<CR>")
+-- vim.keymap.set("n", "<A-H>", ":BufferMovePrevious<CR>")
+-- vim.keymap.set("n", "<A-L>", ":BufferMoveNext<CR>")
+
+-- NOTE: Leader keymap
 local wk = require("which-key")
 
--- Keymap for only normal mode
+-- NOTE: Keymap for only normal mode
 wk.register({
 	["<leader>gd"] = { ":%bd|e#<cr>", "Global delete all buffer" },
 	["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
@@ -80,7 +98,7 @@ wk.register({
 	},
 }, { mode = { "n" } })
 
--- Setup keymap for LSP
+-- NOTE: Setup keymap for LSP
 K.setup = function(opts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	vim.keymap.set("n", "<C-]>", ":lua require('telescope.builtin').lsp_definitions()<CR>", opts)

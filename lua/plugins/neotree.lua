@@ -132,21 +132,21 @@ return {
         --      vim.cmd 'highlight! Cursor blend=100'
         --    end
         --  },
-        {
-          -- FIX: fixing neotree buffer not closing when leaving the buffer
-          event = 'neo_tree_buffer_leave',
-          handler = function()
-            local shown_buffers = {}
-            for _, win in ipairs(vim.api.nvim_list_wins()) do
-              shown_buffers[vim.api.nvim_win_get_buf(win)] = true
-            end
-            for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-              if not shown_buffers[buf] and vim.api.nvim_buf_get_option(buf, 'buftype') == 'nofile' and vim.api.nvim_buf_get_option(buf, 'filetype') == 'neo-tree' then
-                vim.api.nvim_buf_delete(buf, {})
-              end
-            end
-          end,
-        },
+        -- {
+        --   -- FIX: fixing neotree buffer not closing when leaving the buffer
+        --   event = 'neo_tree_buffer_leave',
+        --   handler = function()
+        --     local shown_buffers = {}
+        --     for _, win in ipairs(vim.api.nvim_list_wins()) do
+        --       shown_buffers[vim.api.nvim_win_get_buf(win)] = true
+        --     end
+        --     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        --       if not shown_buffers[buf] and vim.api.nvim_buf_get_option(buf, 'buftype') == 'nofile' and vim.api.nvim_buf_get_option(buf, 'filetype') == 'neo-tree' then
+        --         vim.api.nvim_buf_delete(buf, {})
+        --       end
+        --     end
+        --   end,
+        -- },
         -- {
         --   event = "neo_tree_window_before_open",
         --   handler = function(args)
