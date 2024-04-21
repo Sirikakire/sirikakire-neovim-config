@@ -6,6 +6,7 @@ return {
     "3rd/image.nvim",
     "MunifTanjim/nui.nvim",
   },
+  event = "VeryLazy",
   config = function()
     local config = {
       sources = {

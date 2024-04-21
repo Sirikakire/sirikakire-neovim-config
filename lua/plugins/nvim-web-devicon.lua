@@ -6,8 +6,8 @@ local function si(icon, color, name)
   }
 end
 return {
-  lazy = true,
   "nvim-tree/nvim-web-devicons",
+  event = "VeryLazy",
   config = function ()
     require("nvim-web-devicons").setup({
       color_icons = true;

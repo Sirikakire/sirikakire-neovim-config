@@ -151,13 +151,13 @@ return {
           }
         },
         color_icons = true, -- true | false, -- whether or not to add the filetype icon highlights
-        get_element_icon = function(element)
-          local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
-          return icon, hl
-          -- or
-          -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
-          -- return custom_map[element.filetype]
-        end,
+        -- get_element_icon = function(element)
+        --   local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+        --   return icon, hl
+        --   -- or
+        --   -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
+        --   -- return custom_map[element.filetype]
+        -- end,
         show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
         show_buffer_close_icons = false, -- true | false,
         show_close_icon = false, -- true | false,
@@ -169,7 +169,7 @@ return {
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
         separator_style = { '', '' }, -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = true, -- false | true,
+        enforce_regular_tabs = false, -- false | true,
         always_show_bufferline = true, -- true | false,
         auto_toggle_bufferline = true, -- true | false,
         hover = {

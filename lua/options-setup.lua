@@ -38,6 +38,16 @@ local options = {
 }
 
 if(vim.b.win_separator) then
+  -- options = vim.list_extend(options, {
+  --  "fillchars+=horiz:\\─",
+  --  "fillchars+=horizup:\\┴",
+  --  "fillchars+=horizdown:\\┬",
+  --  "fillchars+=vert:\\│",
+  --  "fillchars+=vertleft:\\┤ ",
+  --  "fillchars+=vertright:\\├",
+  --  "fillchars+=verthoriz:\\┼",
+  -- })
+
   options = vim.list_extend(options, {
     "fillchars+=horiz:\\━",
     "fillchars+=horizup:\\┻",

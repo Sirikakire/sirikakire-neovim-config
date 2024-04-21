@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "mellow" and {} or {
   "mellow-theme/mellow.nvim",
+  priority = 100,
   config = function ()
     vim.g.mellow_italic_comments = true	-- Make comments italic
     vim.g.mellow_italic_keywords = false	-- Make keywords italic

@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "kanagawa" and {} or {
   "rebelot/kanagawa.nvim",
+  priority = 100,
   config = function()
     require("kanagawa").setup({
       compile = true,             -- enable compiling the colorscheme

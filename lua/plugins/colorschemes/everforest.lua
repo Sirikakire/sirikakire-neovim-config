@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "everforest" and {} or {
   "sainnhe/everforest",
+  priority = 100,
   config = function ()
     vim.g.everforest_background = 'hard'
     vim.g.everforest_better_performance = 1

@@ -10,9 +10,6 @@ local setup_highlight = function()
   -- NOTE: sync neotree and nvim tree separator
   vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
   vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "WinSeparator" })
-  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { link = "WinSeparator" })
-  vim.api.nvim_set_hl(0, "BufferInactiveSign", { link = "WinSeparator" })
-  vim.api.nvim_set_hl(0, "BufferInactiveSignRight", { link = "WinSeparator" })
 
   -- NOTE: sync indent line scope
   vim.api.nvim_set_hl(0, "IblScope", { link = "Comment" })

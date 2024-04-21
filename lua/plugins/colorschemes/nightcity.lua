@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "nightcity" and {} or {
   "cryptomilk/nightcity.nvim",
+  priority = 100,
   config = function ()
     require('nightcity').setup({
       -- kabuki or afterlife

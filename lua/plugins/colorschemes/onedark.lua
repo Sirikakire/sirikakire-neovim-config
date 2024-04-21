@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "onedark" and {} or {
   "olimorris/onedarkpro.nvim",
+  priority = 100,
   config = function()
     require("onedarkpro").setup({
       colors = {}, -- Override default colors or create your own

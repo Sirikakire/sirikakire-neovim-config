@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "nordic" and {} or {
   'AlexvZyl/nordic.nvim',
+  priority = 100,
   config = function()
     require 'nordic' .setup {
       -- This callback can be used to override the colors used in the palette.

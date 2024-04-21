@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "sonokai" and {} or {
   "sainnhe/sonokai",
+  priority = 100,
   config = function()
     -- `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
     vim.g.sonokai_style = "andromeda"

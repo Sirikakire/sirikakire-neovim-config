@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "onenord" and {} or {
   "rmehri01/onenord.nvim",
+  priority = 100,
   config = function()
     require('onenord').setup({
       theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead

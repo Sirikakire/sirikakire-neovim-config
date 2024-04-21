@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "nord" and {} or {
   "shaunsingh/nord.nvim",
+  priority = 100,
   config = function ()
     vim.g.nord_contrast = false
     vim.g.nord_borders = false

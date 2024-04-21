@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "tokyonight" and {} or {
   "folke/tokyonight.nvim",
+  priority = 100,
   config = function ()
     require("tokyonight").setup({
       -- your configuration comes here

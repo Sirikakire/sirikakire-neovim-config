@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "nightfox" and {} or {
   "EdenEast/nightfox.nvim",
+  priority = 100,
   config = function ()
     -- Default options
     require('nightfox').setup({

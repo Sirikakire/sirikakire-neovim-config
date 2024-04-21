@@ -1,5 +1,6 @@
 return vim.b.colorscheme ~= "poimandres" and {} or {
   "olivercederborg/poimandres.nvim",
+  priority = 100,
   config = function ()
     require("poimandres").setup({
       bold_vert_split = false, -- use bold vertical separators
