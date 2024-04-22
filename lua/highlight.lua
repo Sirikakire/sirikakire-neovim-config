@@ -6,6 +6,7 @@ local setup_highlight = function()
   vim.api.nvim_set_hl(0, "TreesitterContext", { link = "Normal" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
   vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { link = "LineNr" })
+  vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE")
 
   -- NOTE: sync neotree and nvim tree separator
   vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { link = "WinSeparator" })
@@ -71,7 +72,7 @@ local setup_synchronized_winseparator = function()
   vim.cmd("highlight WinSeparator ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
 end
 
--- NOTE: Optional transparent WinSeparator
+-- NOTE: Optional transparent 
 local setup_transparent_background = function()
   vim.cmd("highlight GitGutterDelete ctermbg=NONE guibg=NONE")
   vim.cmd("highlight GitGutterChangeDelete ctermbg=NONE guibg=NONE")

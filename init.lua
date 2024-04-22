@@ -1,15 +1,15 @@
 -- NOTE: Loading Neovim global variable
 require("init").setup({
-  transparent_background = false,
+  transparent_background = true,
   mapleader = " ",
   border_color = "#cbc398",
-  doc_border = false,
+  doc_border = true,
   win_separator = true,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  colorscheme = "rose-pine"
+  colorscheme = "onedark"
 })
 
 require("autocmd") -- NOTE: Autocmd
