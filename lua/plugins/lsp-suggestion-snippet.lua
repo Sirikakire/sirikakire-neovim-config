@@ -112,7 +112,7 @@ return {
       cmp.setup({
         completion = {
           -- noselect, 
-          completeopt = "menu, menuone, noinsert, preview",
+          completeopt = "noselect, menu, menuone, noinsert, preview",
         },
         window = {
           completion = cmp.config.window.bordered({
