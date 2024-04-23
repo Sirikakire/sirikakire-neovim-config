@@ -71,7 +71,7 @@ U.lsp_servers = {
   "emmet_ls", -- emmet
   "cssmodules_ls", -- css modules
   "html", -- html
-  -- "solargraph", -- ruby
+  "solargraph", -- ruby
   "dockerls", -- docker
   "docker_compose_language_service", -- docker-compose
   "angularls", -- angular
