@@ -134,7 +134,7 @@ return {
               cmdline = "(CMDLine)",
               path = "(Path)",
             })[entry.source.name]
-            vim_item.kind = string.format("%s %s", require("utils").kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.kind = string.format("%s %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,
         },

@@ -17,7 +17,7 @@ local options = {
   "shiftround",
   "nobackup",
   "ignorecase",
-  "signcolumn=yes",
+  "signcolumn=yes:2",
   "linebreak",
   "number relativenumber",
   "clipboard+=unnamedplus",
@@ -38,25 +38,27 @@ local options = {
 }
 
 if(vim.b.win_separator) then
-  -- options = vim.list_extend(options, {
-  --  "fillchars+=horiz:\\─",
-  --  "fillchars+=horizup:\\┴",
-  --  "fillchars+=horizdown:\\┬",
-  --  "fillchars+=vert:\\│",
-  --  "fillchars+=vertleft:\\┤ ",
-  --  "fillchars+=vertright:\\├",
-  --  "fillchars+=verthoriz:\\┼",
-  -- })
-
-  options = vim.list_extend(options, {
-    "fillchars+=horiz:\\━",
-    "fillchars+=horizup:\\┻",
-    "fillchars+=horizdown:\\┳",
-    "fillchars+=vert:\\┃",
-    "fillchars+=vertleft:\\┫",
-    "fillchars+=vertright:\\┣",
-    "fillchars+=verthoriz:\\╋",
-  })
+  options = vim.b.thick_win_separator
+  and
+    vim.list_extend(options, {
+      "fillchars+=horiz:\\━",
+      "fillchars+=horizup:\\┻",
+      "fillchars+=horizdown:\\┳",
+      "fillchars+=vert:\\┃",
+      "fillchars+=vertleft:\\┫",
+      "fillchars+=vertright:\\┣",
+      "fillchars+=verthoriz:\\╋",
+    })
+  or
+    vim.list_extend(options, {
+    "fillchars+=horiz:\\─",
+    "fillchars+=horizup:\\┴",
+    "fillchars+=horizdown:\\┬",
+    "fillchars+=vert:\\│",
+    "fillchars+=vertleft:\\┤ ",
+    "fillchars+=vertright:\\├",
+    "fillchars+=verthoriz:\\┼",
+    })
 else
   options = vim.list_extend(options, {
     "fillchars+=horiz:\\ ",

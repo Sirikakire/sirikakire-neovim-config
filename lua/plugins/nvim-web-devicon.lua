@@ -1,31 +1,19 @@
-local function si(icon, color, name)
-  return {
-    icon = icon,
-    color = color,
-    name = name
-  }
-end
+-- local function si(icon, color, name)
+--   return {
+--     icon = icon,
+--     color = color,
+--     name = name
+--   }
+-- end
 return {
   "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
   config = function ()
     require("nvim-web-devicons").setup({
+      -- NOTE: override the icon
+      override_by_extension = require("utils").icons,
       color_icons = true;
       strict = true;
-      -- NOTE: override the icon by extension
-      override_by_extension = {
-        java = si("", "#e46368", "java"),
-        gitignore = si("", "#428850", "GitIgnore"),
-        js = si("", "#f7cd6d", "JavaScript"),
-        json = si("", "#f7cd6d", "JSON"),
-        ts = si("󰛦", "#87b2e2", "TypeScript"),
-        html = si("", "#de7558", "HTML"),
-        rb = si("", "#ef757c", "Ruby"),
-        rake = si("", "#ef757c", "Rake"),
-        rakefile = si("", "#ef757c", "RakeFile"),
-        jbuilder = si("", "#f7cd6d", "Jbuilder"),
-        lua = si("󰢱", "#20c2e3", "Lua"),
-      };
     })
   end
 }
