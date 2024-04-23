@@ -20,8 +20,8 @@ K.setup_keymap = function()
     local buffer_id = vim.fn.bufnr()
 
     if buffer_id then
-      vim.cmd("<cmd>BufferLineCyclePrev")
-      vim.cmd("<cmd>bdelete "..buffer_id)
+      vim.cmd("BufferLineCyclePrev")
+      vim.cmd("bdelete "..buffer_id)
     end
   end)
 
@@ -29,8 +29,8 @@ K.setup_keymap = function()
     local buffer_id = vim.fn.bufnr()
 
     if buffer_id then
-      vim.cmd("<cmd>BufferLineCycleNext")
-      vim.cmd("<cmd>bdelete "..buffer_id)
+      vim.cmd("BufferLineCycleNext")
+      vim.cmd("bdelete "..buffer_id)
     end
   end)
   vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>")
@@ -116,7 +116,7 @@ K.setup_toggle_term = {
         return
       end
 
-      vim.cmd(user_input .. "ToggleTerm<CR>")
+      vim.cmd(user_input .. "ToggleTerm")
     end,
     "Open or create terminal by number",
   },
