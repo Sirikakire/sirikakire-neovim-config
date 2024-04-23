@@ -43,9 +43,14 @@ local setup_better_cmp_cursor_line = function()
 end
 
 -- NOTE: Remove WinSepartor
-local remove_win_separator = function()
-  -- NOTE: Sync WinSeparator with Normal to hide win separator
-  vim.cmd("highlight! link WinSeparator Normal")
+local win_separator = function()
+  if vim.b.win_separator then
+    -- NOTE: sync win_separator with comment
+    vim.cmd("highlight! link WinSeparator Comment")
+  else
+    -- NOTE: Sync WinSeparator with Normal to hide win_separator
+    vim.cmd("highlight! link WinSeparator Normal")
+  end
 end
 
 -- NOTE: Setup add brightness to float window
@@ -131,7 +136,7 @@ end
 
 local init_highlight = function()
   setup_highlight()
-  if not vim.b.win_separator then remove_win_separator() end
+  win_separator()
   if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
   if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
   if vim.b.transparent_background then setup_transparent_background() end
