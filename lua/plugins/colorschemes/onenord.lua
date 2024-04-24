@@ -5,7 +5,7 @@ return vim.b.colorscheme ~= "onenord" and {} or {
     require('onenord').setup({
       theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
       borders = false, -- Split window borders
-      fade_nc = false, -- Fade non-current windows, making them more distinguishable
+      fade_nc = true, -- Fade non-current windows, making them more distinguishable
       -- Style that is applied to various groups: see `highlight-args` for options
       -- styles = {
         comments = "italic",

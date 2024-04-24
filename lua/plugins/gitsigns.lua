@@ -1,6 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function ()
+    local sign_icon = require('utils').sign_icons
     require('gitsigns').setup {
       -- signs = {
       --   add          = { text = '│' },
@@ -8,17 +9,17 @@ return {
       --   -- add          = { text = '▎' },
       --   -- change       = { text = '▎' },
       --   delete       = { text = '_' },
-      --   topdelete    = { text = '‾' },
-      --   changedelete = { text = '~' },
-      --   untracked    = { text = '┆' },
-      -- },
+      --   topdelete    = { text = '‾' }, 
+      --   changedelete = { text = '~' }, 
+      --   untracked    = { text = '┆' }, 
+      -- }, 
       signs = {
-        add          = { text = ' ' },
-        change       = { text = '󰈚 ' },
-        delete       = { text = ' ' },
-        topdelete    = { text = ' ' },
-        changedelete = { text = '󰇽 ' },
-        untracked    = { text = ' ' },
+        add          = { text = sign_icon.add },
+        change       = { text = sign_icon.change },
+        delete       = { text = sign_icon.delete },
+        topdelete    = { text = sign_icon.topdelete },
+        changedelete = { text = sign_icon.changedelete },
+        untracked    = { text = sign_icon.untracked },
       },
       signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
       numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`

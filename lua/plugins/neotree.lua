@@ -181,10 +181,10 @@ return {
         },
         diagnostics = {
           symbols = {
-            hint = "H",
-            info = "I",
-            warn = "!",
-            error = "X",
+            hint = require("utils").sign_icons.hint,
+            info = require("utils").sign_icons.info,
+            warn = require("utils").sign_icons.warning,
+            error = require("utils").sign_icons.error,
           },
           highlights = {
             hint = "DiagnosticSignHint",
@@ -207,8 +207,10 @@ return {
           with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
           -- expander_collapsed = "",
           -- expander_expanded = "",
-          expander_collapsed = "",
-          expander_expanded = "",
+          -- expander_collapsed = "",
+          -- expander_expanded = "",
+          expander_collapsed = "󰁙",
+          expander_expanded = "󰁊",
           expander_highlight = "NeoTreeExpander",
         },
         icon = {
@@ -359,7 +361,7 @@ return {
 
       window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
         -- possible options. These can also be functions that return these options.
-        position = position, -- left, right, top, bottom, float, current
+        position = "left", -- left, right, top, bottom, float, current
         width = 40, -- applies to left and right positions
         height = 15, -- applies to top and bottom positions
         auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"

@@ -11,6 +11,7 @@ vim.b.float_window_brightness = 0
 vim.b.doc_border = false
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
+vim.b.syn_neotree_with_normal = false
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
@@ -58,6 +59,10 @@ M.setup = function (params)
 
   if params.thick_win_separator ~= nil then
     vim.b.thick_win_separator = params.thick_win_separator
+  end
+
+  if params.syn_neotree_with_normal ~= nil then
+    vim.b.syn_neotree_with_normal = params.syn_neotree_with_normal
   end
 end
 

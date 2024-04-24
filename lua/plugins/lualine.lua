@@ -8,8 +8,8 @@ return {
         theme = "auto",
         -- component_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = ''},
-        component_separators = { left = '┃', right = '┃'},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '┃', right = '┃' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -33,25 +33,32 @@ return {
             icon = "󰊢"
           },
           -- 'branch',
+          -- {
+          --   'diff',
+          --   symbols = {
+          --     added = " ",
+          --     modified = "󰈚 ",
+          --     removed = " "
+          --   },
+          -- },
+          -- {
+          --   'diagnostics',
+          --   symbols = {
+          --     error = " ",
+          --     warn = " ",
+          --     info = " ",
+          --     hint = " "
+          --   },
+          -- }
+        },
+        lualine_c = {
           {
-            'diff',
-            symbols = {
-              added = " ",
-              modified = "󰈚 ",
-              removed = " "
-            },
-          },
-          {
-            'diagnostics',
-            symbols = {
-              error = " ",
-              warn = " ",
-              info = " ",
-              hint = " "
-            },
+            function ()
+              return require'nvim-navic'.get_location()
+            end,
+            color = "NavicText",
           }
         },
-        lualine_c = {},
         lualine_x = {
           -- 'filesize',
         },

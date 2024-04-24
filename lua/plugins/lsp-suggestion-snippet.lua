@@ -1,15 +1,26 @@
 return {
   {
-    "nvimdev/lspsaga.nvim",
-    event = { "BufEnter", "BufRead" },
+    "SmiteshP/nvim-navic",
+    -- event = { "BufEnter", "BufRead" },
     config = function()
-      require("lspsaga").setup({
-        ui = {
-          border = require("utils").border,
-          code_action = "",
+      require("nvim-navic").setup({
+        icons = require("utils").nv_chad_icons,
+        lsp = {
+          auto_attach = true,
+          preference = nil,
         },
+        highlight = false,
+        separator = " 󰁕 ",
+        depth_limit = 2,
+        depth_limit_indicator = "..",
+        safe_output = true,
+        lazy_update_context = true,
+        click = true,
+        format_text = function(text)
+          return text
+        end,
       })
-    end,
+    end
   },
   {
     "hinell/lsp-timeout.nvim",
@@ -316,36 +327,18 @@ return {
       })
 
       -- NOTE: Setup diagnostic highlight and icon
-      vim.fn.sign_define({
-        {
-          name = "DiagnosticSignError",
-          text = " ",
-          texthl = "DiagnosticSignError",
-          linehl = "ErrorLine",
-          numhl = "DiagnosticSignError",
-        },
-        {
-          name = "DiagnosticSignWarn",
-          text = " ",
-          texthl = "DiagnosticSignWarn",
-          linehl = "WarningLine",
-          numhl = "DiagnosticSignWarn",
-        },
-        {
-          name = "DiagnosticSignInfo",
-          text = " ",
-          texthl = "DiagnosticSignInfo",
-          linehl = "InfoLine",
-          numhl = "DiagnosticSignInfo",
-        },
-        {
-          name = "DiagnosticSignHint",
-          text = " ",
-          texthl = "DiagnosticSignHint",
-          linehl = "HintLine",
-          numhl = "DiagnosticSignHint",
-        },
-      })
+      local sign_icon = require("utils").sign_icons
+      local signs = {
+        Error = sign_icon.error,
+        Warn = sign_icon.warning,
+        Hint = sign_icon.hint,
+        Info = sign_icon.info,
+      }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        local linehl = "DiagnosticVirtualText" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, linehl = linehl })
+      end
     end,
   },
 }

@@ -43,6 +43,51 @@ U.icons = {
   lua = { icon = "󰢱", color = "#20c2e3", name = "Lua" },
 }
 
+U.sign_icons = {
+  add = ' ',
+  change = '󱗜 ',
+  delete = '󰅗 ',
+  topdelete = ' ',
+  changedelete = '󰇽 ',
+  untracked = ' ',
+
+  info = ' ',
+  -- warning = " ",
+  warning = ' ',
+  error = ' ',
+  hint = ' ',
+}
+
+U.navic_icon = {
+  File          = "󰈙 ",
+  Module        = " ",
+  Namespace     = "󰌗 ",
+  Package       = " ",
+  Class         = "󰌗 ",
+  Method        = "󰆧 ",
+  Property      = " ",
+  Field         = " ",
+  Constructor   = " ",
+  Enum          = "󰕘",
+  Interface     = "󰕘",
+  Function      = "󰊕 ",
+  Variable      = "󰆧 ",
+  Constant      = "󰏿 ",
+  String        = "󰀬 ",
+  Number        = "󰎠 ",
+  Boolean       = "◩ ",
+  Array         = "󰅪 ",
+  Object        = "󰅩 ",
+  Key           = "󰌋 ",
+  Null          = "󰟢 ",
+  EnumMember    = " ",
+  Struct        = "󰌗 ",
+  Event         = " ",
+  Operator      = "󰆕 ",
+  TypeParameter = "󰊄 ",
+
+}
+
 U.nv_chad_icons = {
   Namespace = "󰌗 ",
   Text = "󰉿 ",
@@ -108,6 +153,7 @@ U.local_icons = {
   Folder = "󰉋  ",
   EnumMember = "  ",
   Constant = "󰏿  ",
+  Array = "[] ",
   Struct = "  ",
   Event = "  ",
   Operator = "󰆕  ",
@@ -139,6 +185,7 @@ U.kind_icons = {
   EnumMember = '  ',
   Constant = '  ',
   Struct = '  ',
+  Array = "[] ",
   Event = '  ',
   Operator = '  ',
   TypeParameter = '  ',

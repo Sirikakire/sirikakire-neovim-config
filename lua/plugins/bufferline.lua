@@ -102,8 +102,8 @@ return {
         max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
         truncate_names = true, -- whether or not tab names should be truncated
         tab_size = 18,
-        diagnostics = "nvim_lsp", -- false | "nvim_lsp" | "coc",
-        diagnostics_update_in_insert = true,
+        diagnostics = "flase", -- false | "nvim_lsp" | "coc",
+        diagnostics_update_in_insert = false,
         -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           local s = " "
@@ -112,7 +112,7 @@ return {
             if e == "error" then
               sym = "  "
             elseif e == "warning" then
-              sym = "  "
+              sym = "  "
             elseif e == "info" then
               sym = "  "
             elseif e == "hint" then
