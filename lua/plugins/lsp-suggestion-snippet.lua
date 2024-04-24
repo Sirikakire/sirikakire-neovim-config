@@ -1,7 +1,7 @@
 return {
   {
     "SmiteshP/nvim-navic",
-    -- event = { "BufEnter", "BufRead" },
+    event = { "BufEnter", "BufRead" },
     config = function()
       require("nvim-navic").setup({
         icons = require("utils").nv_chad_icons,
@@ -14,7 +14,7 @@ return {
         depth_limit = 2,
         depth_limit_indicator = "..",
         safe_output = true,
-        lazy_update_context = true,
+        lazy_update_context = false,
         click = true,
         format_text = function(text)
           return text
