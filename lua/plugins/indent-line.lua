@@ -4,7 +4,7 @@ return {
   config = function ()
     require("ibl").setup {
       exclude = {
-        filetypes = { "dashboard" }
+        filetypes = { "dashboard", "mason", "neo-tree", "lazy", "toggleterm", "TelescopePrompt" }
       },
       scope = { enabled = false },
       indent = {

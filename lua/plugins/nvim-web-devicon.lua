@@ -1,10 +1,3 @@
--- local function si(icon, color, name)
---   return {
---     icon = icon,
---     color = color,
---     name = name
---   }
--- end
 return {
   "nvim-tree/nvim-web-devicons",
   event = "VeryLazy",
