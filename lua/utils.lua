@@ -160,7 +160,7 @@ U.lsp_servers = {
   "solargraph", -- ruby
   "dockerls", -- docker
   "docker_compose_language_service", -- docker-compose
-  "angularls", -- angular
+  -- "angularls", -- angular
   "eslint",
   "volar" -- vue
 }

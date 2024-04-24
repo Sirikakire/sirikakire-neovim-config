@@ -10,7 +10,7 @@ local setup_highlight = function()
   -- NOTE: Get rid of dim background
   vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NeoTreeNormal Normal")
-  vim.cmd("highlight! link NeoTreeNormalNC Normal")
+  vim.cmd("highlight! link NeoTreeEndOfBuffer Normal")
 
   -- NOTE: sync neotree and nvim tree separator
   vim.cmd("highlight! link NeoTreeWinSeparator WinSeparator")

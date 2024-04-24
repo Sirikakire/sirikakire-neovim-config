@@ -17,7 +17,7 @@ local options = {
   "shiftround",
   "nobackup",
   "ignorecase",
-  "signcolumn=yes:2",
+  "signcolumn=yes:1",
   "linebreak",
   "number relativenumber",
   "clipboard+=unnamedplus",
