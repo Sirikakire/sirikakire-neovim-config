@@ -125,14 +125,15 @@ return {
           })
         },
         formatting = {
+          -- fields = { "abbr", "menu", "kind" },
           format = function(entry, vim_item)
             vim_item.menu = ({
-              nvim_lsp = "(LSP)",
-              luasnip = "(LuaSnip)",
-              cmp_tabnine = "(TabNine)",
-              buffer = "(Buffer)",
-              cmdline = "(CMDLine)",
-              path = "(Path)",
+              nvim_lsp = "[LSP]",
+              luasnip = "[LuaSnip]",
+              cmp_tabnine = "[TabNine]",
+              buffer = "[Buffer]",
+              cmdline = "[CMDLine]",
+              path = "[Path]",
             })[entry.source.name]
             vim_item.kind = string.format("%s %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
             return vim_item
@@ -183,6 +184,7 @@ return {
           { name = "path" },
           {
             name = "buffer",
+            max_item_count = 3,
             option = {
               get_bufnrs = function()
                 local bufs = {}
@@ -201,6 +203,7 @@ return {
         sources = {
           {
             name = "buffer",
+            max_item_count = 5,
             option = {
               get_bufnrs = function()
                 local bufs = {}

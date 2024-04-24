@@ -10,7 +10,7 @@ require("init").setup({
   syn_all_telescope_border = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  colorscheme = "nightfox"
+  colorscheme = "everforest"
 })
 
 require("autocmd") -- NOTE: Autocmd
