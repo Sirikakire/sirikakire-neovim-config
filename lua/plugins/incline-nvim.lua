@@ -27,7 +27,7 @@ return {
             if tonumber(signs[name]) and signs[name] > 0 then
               local hlname = ''
 
-              if name == 'removed' then hlname = 'remove' end
+              if name == 'removed' then hlname = 'delete' end
               if name == 'changed' then hlname = 'change' end
               if name == 'added' then hlname = 'add' end
 
