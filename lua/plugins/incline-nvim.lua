@@ -25,7 +25,16 @@ return {
           end
           for name, icon in pairs(icons) do
             if tonumber(signs[name]) and signs[name] > 0 then
-              table.insert(labels, { icon .. signs[name] .. ' ', group = 'Diff' .. name })
+              local hlname = ''
+
+              if name == 'removed' then hlname = 'remove' end
+              if name == 'changed' then hlname = 'change' end
+              if name == 'added' then hlname = 'add' end
+
+              table.insert(labels, {
+                icon .. signs[name] .. ' ',
+                group = 'GitSigns' .. hlname
+              })
             end
           end
           if #labels > 0 then

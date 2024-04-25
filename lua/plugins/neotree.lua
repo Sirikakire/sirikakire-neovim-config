@@ -207,16 +207,18 @@ return {
           with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
           -- expander_collapsed = "",
           -- expander_expanded = "",
+          expander_collapsed = " ",
+          expander_expanded = " ",
           -- expander_collapsed = "",
           -- expander_expanded = "",
-          expander_collapsed = "󰁙",
-          expander_expanded = "󰁊",
+          -- expander_collapsed = "󰁙",
+          -- expander_expanded = "󰁊",
           expander_highlight = "NeoTreeExpander",
         },
         icon = {
-          folder_closed = "󱥿",
-          folder_open = "󰷏",
-          folder_empty = "󰉖",
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "",
           folder_empty_open = "",
           default = "*",
           highlight = "NeoTreeFileIcon"

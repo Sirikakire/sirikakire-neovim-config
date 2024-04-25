@@ -3,7 +3,17 @@ return {
   event = { "BufEnter", "BufRead" },
   config = function()
     require("colorizer").setup({
-      filetypes = { "*" },
+      filetypes = {
+        "*",
+        "!toggleterm",
+        "!TelescopePrompt",
+        "!neo-tree",
+        "!dashboard",
+        "!mason",
+        "!lazy",
+        "!cmp_menu",
+        "!cmp_docs"
+      },
       user_default_options = {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes

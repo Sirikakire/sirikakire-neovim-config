@@ -50,7 +50,7 @@ K.setup_whichkey_keymap = function()
   local wk = require("which-key")
 
   wk.register({
-    ["<leader>gd"] = { "<cmd>%bd|e#<cr>", "Global delete all buffer" },
+    ["<leader>gd"] = { "<cmd>%bd!|e#<cr>", "Global delete all buffer" },
     ["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
     ["<leader>hn"] = { "<cmd>lua require('notify').notify('Health check vim notify')<CR>", "Health check vim notify" },
     ["<leader>hl"] = { "<cmd>nohlsearch<CR>", "Clear search highlight" },
