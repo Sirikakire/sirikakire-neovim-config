@@ -1,7 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function ()
-    local sign_icon = require('utils').sign_icons
     require('gitsigns').setup {
       -- signs = {
       --   add          = { text = '│' },
@@ -39,7 +38,7 @@ return {
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-        delay = 2000,
+        delay = 1500,
         ignore_whitespace = false,
         virt_text_priority = 10000,
       },
