@@ -83,7 +83,6 @@ K.setup_whichkey_keymap = function()
     ["<leader>fg"] = { "<cmd>lua require('telescope.builtin').live_grep({ hidden = true })<CR>", "Live grep" },
     ["<leader>fd"] = { "<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Open workspace diagnostics" },
     ["<leader>fb"] = { "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Open buffer git commit list" },
-    ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects({})<CR>", "Open buffer git commit list" },
     ["<leader>fr"] = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "Open references" },
   }, { mode = { "n" }})
 
