@@ -2,7 +2,7 @@
   NOTE: Neovide config.toml file
   wsl = true
   no-multigrid = false
-  vsync = true
+  vsync = false
   maximized = false
   srgb = false
   idle = true
