@@ -176,7 +176,7 @@ return {
       })
       -- NOTE: `/` cmdline setup.
       cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({}),
         sources = {
           {
             name = "buffer",
@@ -195,7 +195,7 @@ return {
       })
       -- NOTE:  `:` cmdline setup.
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({}),
         sources = cmp.config.sources(
           {
             { name = "path" },
@@ -286,7 +286,7 @@ return {
           source = "always",
         },
         signs = true,
-        underline = false,
+        underline = true,
         update_in_insert = false,
         severity_sort = true,
         float = { border = require("utils").border, source = "always" },

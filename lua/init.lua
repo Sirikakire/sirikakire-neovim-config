@@ -12,6 +12,16 @@ vim.b.doc_border = false
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
 vim.b.syn_neotree_with_normal = false
+vim.b.neovide_setting = {
+  scale_factor = 1,
+  transparency = 1,
+  font_setting = {
+    name = "",
+    size = 18,
+    bold = false,
+    italic = false
+  }
+}
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
@@ -63,6 +73,24 @@ M.setup = function (params)
 
   if params.syn_neotree_with_normal ~= nil then
     vim.b.syn_neotree_with_normal = params.syn_neotree_with_normal
+  end
+
+  if params.neovide_setting ~= nil then
+    local setting = params.neovide_setting
+    local default_setting = vim.b.neovide_setting
+
+    local neovide_setting = {
+      scale_factor = setting.scale_factor or default_setting.scale_factor,
+      transparency = setting.transparency or default_setting.transparency,
+      font_setting = {
+        name = setting.font_setting.name or default_setting.font_setting.name,
+        size = setting.font_setting.size or default_setting.font_setting.size,
+        bold = setting.font_setting.bold or default_setting.font_setting.bold,
+        italic = setting.font_setting.italic or default_setting.font_setting.italic
+      }
+    }
+
+    vim.b.neovide_setting = neovide_setting
   end
 end
 

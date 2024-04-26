@@ -5,6 +5,12 @@ K.setup_keymap = function()
   vim.keymap.set("n", "<C-o>", "a<CR><esc>")
   vim.keymap.set("n", "<C-z>", "")
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>")
+  if vim.g.neovide then
+    vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+    vim.keymap.set("n", "<C-->", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+    vim.keymap.set("n", "<C-0>", "<cmd>lua vim.g.neovide_scale_factor = 1<CR>")
+  end
+
   vim.keymap.set("n", "<A-9>", "<C-w>-")
   vim.keymap.set("n", "<A-0>", "<C-w>+")
   vim.keymap.set("n", "<A-7>", "<C-w><")
@@ -38,12 +44,14 @@ K.setup_keymap = function()
   vim.keymap.set("n", "<A-H>", "<cmd>BufferLineMovePrev<CR>")
   vim.keymap.set("n", "<A-L>", "<cmd>BufferLineMoveNext<CR>")
 
-  -- NOTE: keymap for barbar plugin
-  --[[ vim.keymap.set("n", "<A-c>", "<cmd>BufferClose<CR>")
-  vim.keymap.set("n", "<A-h>", "<cmd>BufferPrevious<CR>")
-  vim.keymap.set("n", "<A-l>", "<cmd>BufferNext<CR>")
-  vim.keymap.set("n", "<A-H>", "<cmd>BufferMovePrevious<CR>")
-  vim.keymap.set("n", "<A-L>", "<cmd>BufferMoveNext<CR>") ]]
+  --[[
+    NOTE: keymap for barbar plugin
+    vim.keymap.set("n", "<A-c>", "<cmd>BufferClose<CR>")
+    vim.keymap.set("n", "<A-h>", "<cmd>BufferPrevious<CR>")
+    vim.keymap.set("n", "<A-l>", "<cmd>BufferNext<CR>")
+    vim.keymap.set("n", "<A-H>", "<cmd>BufferMovePrevious<CR>")
+    vim.keymap.set("n", "<A-L>", "<cmd>BufferMoveNext<CR>")
+  ]]
 end
 
 K.setup_whichkey_keymap = function()
@@ -74,9 +82,16 @@ K.setup_whichkey_keymap = function()
     ["<leader>ff"] = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", "Find files" },
     ["<leader>fg"] = { "<cmd>lua require('telescope.builtin').live_grep({ hidden = true })<CR>", "Live grep" },
     ["<leader>fd"] = { "<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Open workspace diagnostics" },
-    ["<leader>fp"] = { "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Open buffer git commit list" },
+    ["<leader>fb"] = { "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Open buffer git commit list" },
+    ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects({})<CR>", "Open buffer git commit list" },
     ["<leader>fr"] = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "Open references" },
-  }, { mode = { "n" } })
+  }, { mode = { "n" }})
+
+  if vim.g.neovide then
+    wk.register({
+      ["<leader>lf"] = { "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", "Toggle screen mode" }
+    }, { mode = { "n" }})
+  end
 end
 
 

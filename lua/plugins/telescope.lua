@@ -8,7 +8,7 @@ return {
   config = function()
     local actions = require("telescope.actions")
     local common_setting = {
-      theme = "dropdown",
+      -- theme = "",
       prompt_prefix = "  ",
     }
     require('telescope').setup({
@@ -44,6 +44,7 @@ return {
       },
     })
     require("telescope").load_extension("noice")
+    require('telescope').load_extension("projects")
     require("telescope").load_extension("ui-select")
   end
 }

@@ -11,7 +11,15 @@ require("init").setup({
   syn_neotree_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  colorscheme = "nightfox"
+  colorscheme = "nightfox",
+  neovide_setting = {
+    font_setting = {
+      transparency = 1,
+      name = "CaskaydiaCove Nerd Font",
+      size = 12,
+      bold = false,
+    }
+  }
 })
 
 require("autocmd") -- NOTE: Autocmd
@@ -20,4 +28,5 @@ require("lazy-nvim") -- NOTE: Lazy vim install and import plugins
 require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, should install win32yank via scoop
 require("keymap").setup_keymap() -- NOTE: Neovim keymap
 require("keymap").setup_whichkey_keymap() -- NOTE: Neovim whichkey keymap
+require("neovide")
 require("highlight") -- NOTE: Neovim highlight
