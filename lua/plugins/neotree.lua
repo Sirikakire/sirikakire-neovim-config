@@ -35,7 +35,7 @@ return {
         max_lines = 10000, -- How many lines of git status results to process. Anything after this will be dropped.
         -- Anything before this will be used. The last items to be processed are the untracked files.
       },
-      hide_root_node = true, -- Hide the root node.
+      hide_root_node = false, -- Hide the root node.
       retain_hidden_root_indent = true, -- IF the root node is hidden, keep the indentation anyhow. 
       -- This is needed if you use expanders because they render in the indent.
       log_level = "info", -- "trace", "debug", "info", "warn", "error", "fatal"
@@ -44,7 +44,7 @@ return {
       open_files_do_not_replace_types = { "Trouble", "qf", "edgy", "toggleterm" }, -- when opening files, do not use windows containing these filetypes or buftypes
       resize_timer_interval = 500, -- in ms, needed for containers to redraw right aligned and faded content
       -- set to -1 to disable the resize timer entirely
-      --                           -- NOTE: this will speed up to 50 ms for 1 second following a resize
+                                -- NOTE: this will speed up to 50 ms for 1 second following a resize
       sort_case_insensitive = false, -- used when sorting files and directories in the tree
       sort_function = nil , -- uses a custom function for sorting files and directories in the tree
       use_popups_for_input = true, -- If false, inputs will use vim.ui.input() instead of custom floats.
