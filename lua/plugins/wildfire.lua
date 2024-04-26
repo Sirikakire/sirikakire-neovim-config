@@ -1,6 +1,6 @@
 return {
   "SUSTech-data/wildfire.nvim",
-  keys = require("keymap").setup_wildfire,
+  keys = require("keymap").wildfire_keymaps,
   config = function()
     require("wildfire").setup({
       surrounds = {

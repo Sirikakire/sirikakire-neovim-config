@@ -1,5 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = "VimEnter",
+  keys = require("keymap").gitsigns_keymaps,
   config = function ()
     require('gitsigns').setup {
       -- signs = {

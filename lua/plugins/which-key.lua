@@ -78,6 +78,7 @@ return {
         "'",
         "g`",
         "g'",
+        "<c>",
         -- registers
         '"',
         "<c-r>",

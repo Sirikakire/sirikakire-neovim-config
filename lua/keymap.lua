@@ -1,28 +1,26 @@
 local K = {}
 
--- NOTE: Non leader keymap
-K.setup_keymap = function()
-  vim.keymap.set("n", "<C-o>", "a<CR><esc>")
-  vim.keymap.set("n", "<C-z>", "")
-  vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>")
-  if vim.g.neovide then
-    vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-    vim.keymap.set("n", "<C-->", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
-    vim.keymap.set("n", "<C-0>", "<cmd>lua vim.g.neovide_scale_factor = 1<CR>")
-  end
+K.setup_custom_keymap = function()
+  vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
+  vim.keymap.set("n", "<C-z>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Go to visual line mode and select all" })
+  vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
+  vim.keymap.set("n", "<A-0>", "<C-w>+", { desc = "Increase window height" })
+  vim.keymap.set("n", "<A-7>", "<C-w><", { desc = "Decrease window width" })
+  vim.keymap.set("n", "<A-8>", "<C-w>>", { desc = "Increase window width" })
+  vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
+  vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to the bottom window" })
+  vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to the above window" })
+  vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
+  vim.keymap.set({ "n", "v" }, "<C-p>", '"0p', { desc = "Paste the previous yank register" })
+  vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+  vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+  vim.keymap.set("n", "<leader>gd", "cmd>%bd!|e#<cr", { desc = "Global delete all buffer" })
+  vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Navigate to the previous buffer" })
+  vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Navigate to the next buffer" })
+  vim.keymap.set("n", "<A-H>", "<cmd>BufferLineMovePrev<CR>", { desc = "Move the buffer to the previous" })
+  vim.keymap.set("n", "<A-L>", "<cmd>BufferLineMoveNext<CR>", { desc = "Move the buffer to the next" })
 
-  vim.keymap.set("n", "<A-9>", "<C-w>-")
-  vim.keymap.set("n", "<A-0>", "<C-w>+")
-  vim.keymap.set("n", "<A-7>", "<C-w><")
-  vim.keymap.set("n", "<A-8>", "<C-w>>")
-  vim.keymap.set("n", "<C-h>", "<C-w>h")
-  vim.keymap.set("n", "<C-j>", "<C-w>j")
-  vim.keymap.set("n", "<C-k>", "<C-w>k")
-  vim.keymap.set("n", "<C-l>", "<C-w>l")
-  vim.keymap.set({ "n", "v" }, "<C-p>", '"0p')
-  vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
-
-  -- NOTE: keymap for bufferline plugin
   vim.keymap.set("n", "<A-c>", function()
     local buffer_id = vim.fn.bufnr()
 
@@ -30,7 +28,7 @@ K.setup_keymap = function()
       vim.cmd("BufferLineCyclePrev")
       vim.cmd("bdelete "..buffer_id)
     end
-  end)
+  end, { desc = "Delete current buffer and then navigate to the previous one" })
 
   vim.keymap.set("n", "<A-C>", function()
     local buffer_id = vim.fn.bufnr()
@@ -39,87 +37,84 @@ K.setup_keymap = function()
       vim.cmd("BufferLineCycleNext")
       vim.cmd("bdelete "..buffer_id)
     end
-  end)
-  vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>")
-  vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<CR>")
-  vim.keymap.set("n", "<A-H>", "<cmd>BufferLineMovePrev<CR>")
-  vim.keymap.set("n", "<A-L>", "<cmd>BufferLineMoveNext<CR>")
-
-  --[[
-    NOTE: keymap for barbar plugin
-    vim.keymap.set("n", "<A-c>", "<cmd>BufferClose<CR>")
-    vim.keymap.set("n", "<A-h>", "<cmd>BufferPrevious<CR>")
-    vim.keymap.set("n", "<A-l>", "<cmd>BufferNext<CR>")
-    vim.keymap.set("n", "<A-H>", "<cmd>BufferMovePrevious<CR>")
-    vim.keymap.set("n", "<A-L>", "<cmd>BufferMoveNext<CR>")
-  ]]
-end
-
-K.setup_whichkey_keymap = function()
-  local wk = require("which-key")
-
-  wk.register({
-    ["<leader>gd"] = { "<cmd>%bd!|e#<cr>", "Global delete all buffer" },
-    ["<leader>gf"] = { vim.lsp.buf.format, "Buffer global format" },
-    ["<leader>hn"] = { "<cmd>lua require('notify').notify('Health check vim notify')<CR>", "Health check vim notify" },
-    ["<leader>hl"] = { "<cmd>nohlsearch<CR>", "Clear search highlight" },
-    ["<leader>hu"] = { package.loaded.gitsigns.undo_stage_hunk, "Undo stage hunk" },
-    ["<leader>hb"] = { package.loaded.gitsigns.preview_hunk, "Preview hunk" },
-    ["<leader>hp"] = {
-      function()
-        package.loaded.gitsigns.blame_line({ full = true })
-      end,
-      "Preview git blame",
-    },
-    ["<leader>hD"] = {
-      function()
-        package.loaded.gitsigns.diffthis("~")
-      end,
-      "Preview git different",
-    },
-    ["<leader>cp"] = { "<cmd>Copilot panel<CR>", "Open copilot panel" },
-    ["<leader>fa"] = { "<cmd>lua require('telescope.builtin').autocommands()<CR>", "List all auto commands" },
-    ["<leader>fh"] = { "<cmd>lua require('telescope.builtin').highlights()<CR>", "List all highlights" },
-    ["<leader>ff"] = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", "Find files" },
-    ["<leader>fg"] = { "<cmd>lua require('telescope.builtin').live_grep({ hidden = true })<CR>", "Live grep" },
-    ["<leader>fd"] = { "<cmd>lua require('telescope.builtin').diagnostics()<CR>", "Open workspace diagnostics" },
-    ["<leader>fb"] = { "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", "Open buffer git commit list" },
-    ["<leader>fr"] = { "<cmd>lua require('telescope.builtin').lsp_references()<CR>", "Open references" },
-  }, { mode = { "n" }})
+  end, { desc = "Delete current buffer and then navigate to the next one" })
 
   if vim.g.neovide then
-    wk.register({
-      ["<leader>lf"] = { "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", "Toggle screen mode" }
-    }, { mode = { "n" }})
+    vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", {
+      desc = "Increase scale factor"
+    })
+    vim.keymap.set("n", "<C-->", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>", {
+      desc = "Decrease scale factor"
+    })
+    vim.keymap.set("n", "<C-0>", "<cmd>lua vim.g.neovide_scale_factor = 1<CR>", {
+      desc = "Reset scale factor"
+    })
+    vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", {
+      desc = "Toggle screen mode"
+    })
   end
 end
 
-
 -- NOTE: Setup keymap for LSP
 K.setup_lsp_keymap = function(opts)
-  local wk = require("which-key")
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  opts.desc = "Go to definition"
   vim.keymap.set("n", "<C-]>", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
-  opts.mode = { "n" }
-  wk.register({
-    ["<leader>n"] = { vim.diagnostic.goto_next, "Jump to next diagnostic" },
-    ["<leader>p"] = { vim.diagnostic.goto_prev, "Jump to previous diagnostic" },
-    ["<leader>e"] = { vim.diagnostic.open_float, "Open float vim diagnostic" },
-  }, opts)
+  opts.desc = "Open hover on cursor"
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-  opts.mode = { "n", "v" }
-  wk.register({
-    ["<leader>ca"] = { vim.lsp.buf.code_action, "Open code action" },
-  }, opts)
+  opts.desc = "Jump to next diagnostic"
+  vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
+
+  opts.desc = "Jump to previous diagnostic"
+  vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev, opts)
+
+  opts.desc = "Open float vim diagnostic"
+  vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+
+  opts.desc = "Open code action"
+  vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 end
 
+-- NOTE: Setup keymap for nvim-lspconfig
+K.nvim_lspconfig_keymaps = {
+  { "<leader>gf", vim.lsp.buf.format, desc = "Buffer global format" }
+}
 
--- NOTE: Lazy loading keymap
--- NOTE: Setup keymap for toggleterm
-K.setup_toggle_term = {
-  { "<leader>ts", "<cmd>TermSelect<CR>", "Open terminal selection" },
-  { "<leader>tt", "<cmd>ToggleTerm<CR>", "Open terminal" },
+-- NOTE: Setup keymap for nvim-notify
+K.notify_keymaps = {
+  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify')<CR>", desc = "Health check vim notify" }
+}
+
+-- NOTE: Setup keymap for telescope
+K.telescope_keymaps = {
+  { "<leader>fa", "<cmd>lua require('telescope.builtin').autocommands()<CR>", desc = "List all auto commands" },
+  { "<leader>fh", "<cmd>lua require('telescope.builtin').highlights()<CR>", desc = "List all highlights" },
+  { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", desc = "Find files" },
+  { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep({ hidden = true })<CR>", desc = "Live grep" },
+  { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "Open workspace diagnostics" },
+  { "<leader>fb", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "Open buffer git commit list" },
+  { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", desc = "Open references" },
+}
+
+
+-- NOTE: Setup keymap for gitsigns
+K.gitsigns_keymaps = {
+  { "<leader>hu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
+  { "<leader>hb", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
+  { "<leader>hp", function() require("gitsigns").blame_line({ full = true }) end, desc = "Preview git blame" },
+  { "<leader>hD", function() require("gitsigns").diffthis("~") end, desc = "Preview git different" }
+}
+
+-- NOTE: Setup keymap for copilot
+K.copilot_keymaps = {
+  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+}
+
+-- NOTE: Setup keymap for toggle_term
+K.toggle_term_keymaps = {
+  { "<leader>ts", "<cmd>TermSelect<CR>", desc = "Open terminal selection" },
+  { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Open terminal" },
   { "<leader>ti",
     function()
       local user_input = vim.fn.input("Enter terminal number: ")
@@ -133,25 +128,25 @@ K.setup_toggle_term = {
 
       vim.cmd(user_input .. "ToggleTerm")
     end,
-    "Open or create terminal by number",
+    desc = "Open or create terminal by number",
   },
 }
 
 -- NOTE: Setup keymap for alternate_toggle
-K.setup_alternate_toggle = {
-  { "<leader>at", '<cmd>lua require("alternate-toggler").toggleAlternate()<CR>', "Toggle alternate" },
+K.alternate_toggle_keymaps = {
+  { "<leader>at", '<cmd>lua require("alternate-toggler").toggleAlternate()<CR>', desc = "Toggle alternate" },
 }
 
 -- NOTE: Setup keymap for neotree
-K.setup_neotree = {
-  { "<C-b>", "<cmd>Neotree . focus<CR>", "Open neotree" }
+K.neotree_keymaps = {
+  { "<C-b>", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
 }
 
 -- NOTE: Setup keymap for wildfire
-K.setup_wildfire = {
-  { "<CR>", "<cmd>lua require'wildfire'.init_selection()<CR>", "Init wild fire selection" },
-  { "<CR>", "<cmd>lua require'wildfire'.node_incremental()<CR>", mode = { "v" }, "Increase wild fire selection" },
-  { "<BS>", "<cmd>lua require'wildfire'.node_decremental()<CR>", mode = { "v" }, "Decrease wild fire selection" }
+K.wildfire_keymaps = {
+  { "<CR>", "<cmd>lua require'wildfire'.init_selection()<CR>", desc = "Init wild fire selection" },
+  { "<CR>", "<cmd>lua require'wildfire'.node_incremental()<CR>", mode = { "v" }, desc = "Increase wild fire selection" },
+  { "<BS>", "<cmd>lua require'wildfire'.node_decremental()<CR>", mode = { "v" }, desc = "Decrease wild fire selection" }
 }
 
 return K

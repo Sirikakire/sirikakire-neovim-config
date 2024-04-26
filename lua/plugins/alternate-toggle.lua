@@ -1,6 +1,6 @@
 return {
   "rmagatti/alternate-toggler",
-  keys = require("keymap").setup_alternate_toggle,
+  keys = require("keymap").alternate_toggle_keymaps,
   config = function ()
     require("alternate-toggler").setup {
       alternates = {

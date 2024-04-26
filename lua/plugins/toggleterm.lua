@@ -1,7 +1,7 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
-  keys = require("keymap").setup_toggle_term,
+  keys = require("keymap").toggle_term_keymaps,
   config = function()
     require("toggleterm").setup({
       shade_terminals = false,

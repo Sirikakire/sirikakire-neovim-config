@@ -1,6 +1,7 @@
 return {
   'rcarriga/nvim-notify',
   event = "VeryLazy",
+  keys = require("keymap").notify_keymaps,
   config = function()
 		require("notify").setup({
 			background_colour = vim.b.transparent_background and "#000000" or "Normal",

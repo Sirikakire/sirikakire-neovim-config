@@ -23,7 +23,8 @@ return {
   },
   {
     "github/copilot.vim",
-    event = "InsertEnter",
+    keys = require("keymap").copilot_keymaps,
+    event = "InsertEnter"
   },
   {
     "hrsh7th/cmp-nvim-lsp",
@@ -224,6 +225,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
+    keys = require("keymap").nvim_lspconfig_keymaps,
     config = function()
       require("lspconfig.ui.windows").default_options.border = require("utils").border
       vim.lsp.set_log_level("off")
