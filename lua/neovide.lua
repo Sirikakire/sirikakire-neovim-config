@@ -1,5 +1,5 @@
 --[[ 
-  NOTE: Neovide config.toml file
+  NOTE: Neovide %Username%/AppData/roaming/neovide/config.toml file
   wsl = true
   no-multigrid = false
   vsync = false
