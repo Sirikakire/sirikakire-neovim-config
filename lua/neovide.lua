@@ -23,18 +23,18 @@ if vim.g.neovide and vim.b.neovide_setting then
   end
 
   vim.g.neovide_transparency = setting.transparency
-  vim.g.neovide_window_blurred = true
+  vim.g.neovide_window_blurred = false
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
   vim.g.neovide_floating_shadow = true
-  vim.g.neovide_floating_z_height = 10
-  vim.g.neovide_light_angle_degrees = 45
-  vim.g.neovide_light_radius = 5
+  vim.g.neovide_floating_z_height = 2
+  vim.g.neovide_light_angle_degrees = 0
+  vim.g.neovide_light_radius = 0
   vim.g.neovide_show_border = false
-  vim.g.neovide_scroll_animation_length = 0.2
-  vim.g.neovide_scroll_animation_far_lines = 1
+  vim.g.neovide_scroll_animation_length = 0.1
+  vim.g.neovide_scroll_animation_far_lines = 0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_underline_stroke_scale = 1.0
   -- vim.g.neovide_theme = 'auto'
@@ -46,9 +46,9 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_fullscreen = false
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_profiler = false
-  vim.g.neovide_cursor_animation_length = 0.1
+  vim.g.neovide_cursor_animation_length = 0.05
   vim.g.neovide_cursor_trail_size = 0
   vim.g.neovide_cursor_animate_in_insert_mode = true
-  vim.g.neovide_cursor_animate_command_line = false
+  vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_smooth_blink = true
 end

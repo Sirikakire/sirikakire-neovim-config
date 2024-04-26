@@ -99,6 +99,16 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
+          ['<Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+          ['<S-Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
           ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
           ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
           ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
@@ -153,7 +163,18 @@ return {
       })
       -- NOTE: `/` cmdline setup.
       cmp.setup.cmdline("/", {
-        mapping = cmp.mapping.preset.cmdline({}),
+        mapping = cmp.mapping.preset.cmdline({
+          ['<Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+          ['<S-Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+        }),
         sources = {
           {
             name = "buffer",
@@ -172,7 +193,18 @@ return {
       })
       -- NOTE:  `:` cmdline setup.
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline({}),
+        mapping = cmp.mapping.preset.cmdline({
+          ['<Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+          ['<S-Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+        }),
         sources = cmp.config.sources(
           {
             { name = "path" },
