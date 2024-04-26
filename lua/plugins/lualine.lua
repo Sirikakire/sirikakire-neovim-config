@@ -51,14 +51,7 @@ return {
           --   },
           -- }
         },
-        lualine_c = {
-          {
-            function ()
-              return require'nvim-navic'.get_location()
-            end,
-            color = "NavicText",
-          }
-        },
+        lualine_c = {},
         lualine_x = {
           -- 'filesize',
         },

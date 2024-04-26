@@ -1,28 +1,5 @@
 return {
   {
-    "SmiteshP/nvim-navic",
-    event = { "BufEnter", "BufRead" },
-    config = function()
-      require("nvim-navic").setup({
-        icons = require("utils").nv_chad_icons,
-        lsp = {
-          auto_attach = true,
-          preference = nil,
-        },
-        highlight = false,
-        separator = " 󰁕 ",
-        depth_limit = 2,
-        depth_limit_indicator = "..",
-        safe_output = true,
-        lazy_update_context = false,
-        click = true,
-        format_text = function(text)
-          return text
-        end,
-      })
-    end
-  },
-  {
     "hinell/lsp-timeout.nvim",
     event = "VeryLazy",
     init = function()

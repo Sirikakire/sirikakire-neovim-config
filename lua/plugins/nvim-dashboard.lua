@@ -15,7 +15,7 @@ return {
           enable = true,
         },
         project = {
-          enable = true,
+          enable = false,
           limit = 5,
           icon = " ",
           label = "Recent projects",

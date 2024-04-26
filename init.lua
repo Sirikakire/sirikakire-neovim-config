@@ -11,7 +11,7 @@ require("init").setup({
   syn_neotree_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  colorscheme = "nightfox",
+  colorscheme = "nordic",
   neovide_setting = {
     font_setting = {
       transparency = 1,

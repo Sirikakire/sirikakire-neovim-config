@@ -28,7 +28,7 @@ local options = {
   "pumheight=10",
   "noswapfile",
   "noshowmode",
-  "linespace=3",
+  -- "linespace=3",
   "nowritebackup",
   "noruler",
   "foldexpr=nvim_treesitter#foldexpr()",
