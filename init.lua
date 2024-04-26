@@ -15,7 +15,7 @@ require("init").setup({
   neovide_setting = {
     font_setting = {
       transparency = 1,
-      name = "CaskaydiaCove Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font",
       size = 12,
       bold = false,
     }

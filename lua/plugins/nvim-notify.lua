@@ -14,7 +14,7 @@ return {
 			},
 			minimum_width = 50,
 			render = "compact",
-			stages = "slide",
+			stages = "fade",
 			time_formats = {
 				notification = "%T",
 				notification_history = "%FT%T"
