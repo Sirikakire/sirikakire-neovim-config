@@ -25,9 +25,13 @@ return {
       },
       sections = {
         lualine_a = {
-          function() return "Sirikakire " end,
+          {
+            function() return " " end,
+            padding = 0
+          },
         },
         lualine_b = {
+          function() return "Sirikakire " end,
           {
             'branch',
             icon = "󰊢"
@@ -67,13 +71,17 @@ return {
           {
             'progress',
             color = {gui = "bold"}
-          }
-        },
-        lualine_z = {
+          },
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
             icon = " "
+          }
+        },
+        lualine_z = {
+          {
+            function() return " " end,
+            padding = 0
           }
         }
       },
