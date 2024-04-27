@@ -13,7 +13,7 @@ require("init").setup({
   better_cmp_cursor_line = true,
   colorscheme = "sonokai",
   neovide_setting = {
-    transparency = 0.9,
+    transparency = 1,
     font_setting = {
       name = "CodeNewRoman Nerd Font",
       size = 12,

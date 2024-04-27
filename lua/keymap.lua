@@ -1,8 +1,12 @@
 local K = {}
 
 K.setup_custom_keymap = function()
-  vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
+  -- NOTE: Useless keymap to not hit by mistake
   vim.keymap.set("n", "<C-z>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "K", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "<C-b>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+
+  vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Go to visual line mode and select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
   vim.keymap.set("n", "<A-0>", "<C-w>+", { desc = "Increase window height" })
@@ -56,7 +60,7 @@ K.setup_lsp_keymap = function(opts)
   vim.keymap.set("n", "<C-]>", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
   opts.desc = "Open hover on cursor"
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
 
   opts.desc = "Jump to next diagnostic"
   vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
@@ -70,6 +74,12 @@ K.setup_lsp_keymap = function(opts)
   opts.desc = "Open code action"
   vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 end
+
+-- NOTE Setup keymap for flash
+K.flash_keymaps = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  }
 
 -- NOTE: Setup keymap for nvim-lspconfig
 K.nvim_lspconfig_keymaps = {
@@ -134,7 +144,7 @@ K.alternate_toggle_keymaps = {
 
 -- NOTE: Setup keymap for neotree
 K.neotree_keymaps = {
-  { "<C-b>", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
+  { "<leader>b", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
 }
 
 -- NOTE: Setup keymap for wildfire

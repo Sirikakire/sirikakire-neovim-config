@@ -23,8 +23,10 @@ return {
         },
         mru = { limit = 5, icon = "󰏓 ", label = "Recent files", cwd_only = false },
         footer = { '', '♥  Hello Sirikakire ♥ ', 'Hope you will have a wonderful day  ' },
-        -- shortcut = {
-        --   { icon = "󰊳 ", desc = "Update", action = "Lazy update", key = "u" },
+        shortcut = {
+          { desc = "Open Lazy 󰒲 ", action = "Lazy", key = "l" },
+          { desc = "Open Mason  ", action = "Mason", key = "m" },
+          { desc = "Navigate To Configuration 󱘎 ", action = "cd ~/.config/nvim | lua vim.notify('Successfully navigate to neovim configuration directory')", key = "c" },
         --   {
         --     icon = " ",
         --     desc = "Files",
@@ -37,7 +39,7 @@ return {
         --     action = "Neotree . focus",
         --     key = "n",
         --   },
-        -- },
+        },
       },
     })
   end,
