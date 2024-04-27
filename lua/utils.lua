@@ -51,11 +51,16 @@ U.sign_icons = {
   changedelete = '󰇽 ',
   untracked = ' ',
 
-  info = ' ',
   -- warning = " ",
-  warning = ' ',
-  error = ' ',
-  hint = ' ',
+  -- info = ' ',
+  -- warning = ' ',
+  -- error = ' ',
+  -- hint = ' ',
+
+  info = '󰀧 ',
+  warning = '󰬐 ',
+  error = '󰅗 ',
+  hint = '󰞋 ',
 }
 
 U.navic_icon = {

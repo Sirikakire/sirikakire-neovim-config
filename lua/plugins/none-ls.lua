@@ -10,7 +10,6 @@ return {
           -- NOTE: Formatting
           builtins.formatting.stylua,
           builtins.formatting.prettierd,
-          builtins.formatting.codespell,
 
           -- NOTE: Diagnostic
           builtins.diagnostics.codespell,

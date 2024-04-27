@@ -10,7 +10,7 @@ return {
     local actions = require("telescope.actions")
     local common_setting = {
       -- theme = "",
-      prompt_prefix = "  ",
+      prompt_prefix = "  ",
     }
     require('telescope').setup({
       extensions = {

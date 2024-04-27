@@ -11,11 +11,11 @@ require("init").setup({
   syn_neotree_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  colorscheme = "onedark",
+  colorscheme = "sonokai",
   neovide_setting = {
+    transparency = 0.9,
     font_setting = {
-      transparency = 1,
-      name = "JetBrainsMonoNL Nerd Font",
+      name = "CodeNewRoman Nerd Font",
       size = 12,
       bold = false,
     }

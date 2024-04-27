@@ -70,6 +70,7 @@ return {
   -- end
   'akinsho/bufferline.nvim', version = "*",
   config = function()
+    local sign_icons = require("utils").sign_icons
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
@@ -110,13 +111,13 @@ return {
           for e, n in pairs(diagnostics_dict) do
             local sym = ""
             if e == "error" then
-              sym = "  "
+              sym = " " .. sign_icons.error
             elseif e == "warning" then
-              sym = "  "
+              sym = " " .. sign_icons.warning
             elseif e == "info" then
-              sym = "  "
+              sym = " " .. sign_icons.info
             elseif e == "hint" then
-              sym = "  "
+              sym = " " .. sign_icons.hint
             end
             s = s..sym..n
           end

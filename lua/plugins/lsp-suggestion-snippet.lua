@@ -143,7 +143,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp_signature_help" },
           { name = "nvim_lsp" },
-          { name = "luasnip" },
+          { name = "luasnip", option = { use_show_condition = true, show_autosnippets = true } },
           { name = "cmp_tabnine" },
           { name = "path" },
           {
@@ -162,7 +162,7 @@ return {
         }),
       })
       -- NOTE: `/` cmdline setup.
-      cmp.setup.cmdline("/", {
+      cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline({
           ['<Tab>'] = cmp.mapping({
             i = cmp.config.disable,
@@ -218,6 +218,7 @@ return {
             },
           }
         ),
+        matching = { disallow_symbol_nonprefix_matching = false }
       })
     end,
   },

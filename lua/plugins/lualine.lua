@@ -2,12 +2,12 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   config = function()
-    require('lualine').setup {
+    require("lualine").setup {
       options = {
         icons_enabled = true,
         theme = "auto",
         -- component_separators = { left = '', right = ''},
-        -- section_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = '┃'},
         component_separators = { left = '┃', right = '┃' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -31,7 +31,10 @@ return {
           },
         },
         lualine_b = {
-          function() return "Sirikakire " end,
+          {
+            function() return "Sirikakire" end,
+            icon = "󱁇"
+          },
           {
             'branch',
             icon = "󰊢"
@@ -55,41 +58,33 @@ return {
           --   },
           -- }
         },
-        lualine_c = {},
-        lualine_x = {
-          -- 'filesize',
+        lualine_c = {
+          "buffer"
         },
-        -- lualine_y = {
-        --   {
-        --     'datetime',
-        --     style = '%H:%M:%S %d/%m/%Y',
-        --   }
-        -- },
-        -- lualine_z = {'location'}
+        lualine_x = {},
         lualine_y = {
-          'filetype',
+          {
+            'filetype',
+          },
           {
             'progress',
-            color = {gui = "bold"}
           },
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
-            icon = " "
+            icon = "󰥔"
           }
         },
         lualine_z = {
           {
             function() return " " end,
             padding = 0
-          }
+          },
         }
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        -- lualine_c = {'filename'},
-        -- lualine_x = {'location'},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},

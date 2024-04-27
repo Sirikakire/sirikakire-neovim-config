@@ -23,21 +23,21 @@ return {
         },
         mru = { limit = 5, icon = "󰏓 ", label = "Recent files", cwd_only = false },
         footer = { '', '♥  Hello Sirikakire ♥ ', 'Hope you will have a wonderful day  ' },
-        shortcut = {
-          { icon = "󰊳 ", desc = "Update", action = "Lazy update", key = "u" },
-          {
-            icon = " ",
-            desc = "Files",
-            action = "Telescope find_files",
-            key = "f",
-          },
-          {
-            icon = " ",
-            desc = "Sidebar",
-            action = "Neotree . focus",
-            key = "n",
-          },
-        },
+        -- shortcut = {
+        --   { icon = "󰊳 ", desc = "Update", action = "Lazy update", key = "u" },
+        --   {
+        --     icon = " ",
+        --     desc = "Files",
+        --     action = "Telescope find_files",
+        --     key = "f",
+        --   },
+        --   {
+        --     icon = " ",
+        --     desc = "Sidebar",
+        --     action = "Neotree . focus",
+        --     key = "n",
+        --   },
+        -- },
       },
     })
   end,
