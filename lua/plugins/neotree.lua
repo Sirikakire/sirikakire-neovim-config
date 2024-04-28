@@ -526,7 +526,7 @@ return {
         --  }
         --},
         ---- or use a function instead of list of strings
-        --find_args = function(cmd, path, search_term, args)
+        -- find_args = function(cmd, path, search_term, args)
         --  if cmd ~= "fd" then
         --    return args
         --  end
@@ -545,7 +545,7 @@ return {
         --    table.insert(args, "Library")
         --  end
         --  return args
-        --end,
+        -- end,
         group_empty_dirs = false, -- when true, empty folders will be grouped together
         search_limit = 500, -- max number of search results when using filters
         follow_current_file = {
