@@ -69,7 +69,7 @@ K.setup_lsp_keymap = function(opts)
   vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev, opts)
 
   opts.desc = "Open float vim diagnostic"
-  vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+  vim.keymap.set("n", "<leader>j", vim.diagnostic.open_float, opts)
 
   opts.desc = "Open code action"
   vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -144,7 +144,7 @@ K.alternate_toggle_keymaps = {
 
 -- NOTE: Setup keymap for neotree
 K.neotree_keymaps = {
-  { "<leader>b", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
+  { "<leader>e", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
 }
 
 -- NOTE: Setup keymap for wildfire

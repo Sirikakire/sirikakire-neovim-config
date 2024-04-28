@@ -1,6 +1,6 @@
 return {
   'numToStr/Comment.nvim',
-  event = { "BufRead", "BufEnter" },
+  event = "BufRead",
   config = function ()
     local comment = require("Comment")
     comment.setup({

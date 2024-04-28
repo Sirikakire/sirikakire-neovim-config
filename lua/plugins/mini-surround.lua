@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.surround",
-  event = { "BufRead", "BufEnter" },
+  event = "BufRead",
   config = function()
     require("mini.surround").setup({
       custom_surroundings = nil,

@@ -1,6 +1,6 @@
 return {
   "folke/flash.nvim",
-  event = { "BufEnter", "BufRead" },
+  event = "BufRead",
   keys = require("keymap").flash_keymaps,
   config = function()
     require("flash").setup({
