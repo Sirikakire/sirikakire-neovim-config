@@ -225,10 +225,69 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
-    keys = require("keymap").nvim_lspconfig_keymaps,
     config = function()
-      require("lspconfig.ui.windows").default_options.border = require("utils").border
+      -- NOTE: Disabled LSP generate logging file
       vim.lsp.set_log_level("off")
+
+      -- NOTE: Mapping keymap for lsp
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+        callback = function(ev)
+          vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+          local opts = { buffer = ev.buf }
+          require("keymap").setup_lsp_keymap(opts)
+        end,
+      })
+
+      -- FIX: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
+      vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+        config = config or {}
+        config.focus_id = ctx.method
+        config.border = require("utils").border
+        if not (result and result.contents) then
+          return
+        end
+        local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+        markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+        if vim.tbl_isempty(markdown_lines) then
+          return
+        end
+        return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+      end
+
+      -- NOTE: Styling
+      require("lspconfig.ui.windows").default_options.border = require("utils").border
+
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = require("utils").border,
+      })
+
+      -- NOTE: Diagnostic Sign
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = " ",
+          source = "always",
+        },
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+        float = { border = require("utils").border, source = "always" },
+      })
+
+      -- NOTE: Setup diagnostic highlight and icon
+      local sign_icon = require("utils").sign_icons
+      local signs = {
+        Error = sign_icon.error,
+        Warn = sign_icon.warning,
+        Hint = sign_icon.hint,
+        Info = sign_icon.info,
+      }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        local linehl = "DiagnosticVirtualText" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, linehl = linehl })
+      end
     end,
   },
   {
@@ -260,62 +319,6 @@ return {
         },
         automatic_installation = true,
       })
-
-      -- NOTE: Mapping keymap for lsp
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(ev)
-          vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-          local opts = { buffer = ev.buf }
-          require("keymap").setup_lsp_keymap(opts)
-        end,
-      })
-
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = require("utils").border,
-      })
-
-      -- FIX: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
-      vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-        config = config or {}
-        config.focus_id = ctx.method
-        config.border = require("utils").border
-        if not (result and result.contents) then
-          return
-        end
-        local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-        markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
-        if vim.tbl_isempty(markdown_lines) then
-          return
-        end
-        return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
-      end
-
-      vim.diagnostic.config({
-        virtual_text = {
-          prefix = " ",
-          source = "always",
-        },
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-        float = { border = require("utils").border, source = "always" },
-      })
-
-      -- NOTE: Setup diagnostic highlight and icon
-      local sign_icon = require("utils").sign_icons
-      local signs = {
-        Error = sign_icon.error,
-        Warn = sign_icon.warning,
-        Hint = sign_icon.hint,
-        Info = sign_icon.info,
-      }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        local linehl = "DiagnosticVirtualText" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, linehl = linehl })
-      end
     end,
   },
 }

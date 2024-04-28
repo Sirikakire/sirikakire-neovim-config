@@ -73,6 +73,9 @@ K.setup_lsp_keymap = function(opts)
 
   opts.desc = "Open code action"
   vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
+  opts.desc = "Buffer global format"
+  vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
 end
 
 -- NOTE Setup keymap for flash
@@ -80,11 +83,6 @@ K.flash_keymaps = {
     { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     { "<c-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   }
-
--- NOTE: Setup keymap for nvim-lspconfig
-K.nvim_lspconfig_keymaps = {
-  { "<leader>gf", vim.lsp.buf.format, desc = "Buffer global format" }
-}
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
