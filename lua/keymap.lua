@@ -77,8 +77,8 @@ end
 
 -- NOTE Setup keymap for flash
 K.flash_keymaps = {
-    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "<c-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   }
 
 -- NOTE: Setup keymap for nvim-lspconfig

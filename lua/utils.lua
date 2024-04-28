@@ -203,11 +203,12 @@ U.lsp_servers = {
   "tsserver", -- typescript
   "lua_ls", -- lua
   "cssls", -- css
+  "cssmodules_ls", -- css modules
+  "somesass_ls", -- Sass
   "bashls", -- bash
   "jsonls", -- json
   "tailwindcss", -- tailwindcss
   "emmet_ls", -- emmet
-  "cssmodules_ls", -- css modules
   "html", -- html
   "solargraph", -- ruby
   "dockerls", -- docker
