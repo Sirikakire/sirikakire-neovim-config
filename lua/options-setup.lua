@@ -28,7 +28,6 @@ local options = {
   "pumheight=10",
   "noswapfile",
   "noshowmode",
-  -- "linespace=3",
   "nowritebackup",
   "noruler",
   "foldexpr=nvim_treesitter#foldexpr()",
@@ -71,6 +70,10 @@ else
     "fillchars+=verthoriz:\\ ",
   })
 end
+
+options = vim.list_extend(options, {
+  "linespace=" .. vim.b.line_space
+})
 
 for i, option in pairs(options) do
   vim.cmd("set "..option)

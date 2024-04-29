@@ -12,6 +12,7 @@ vim.b.doc_border = false
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
 vim.b.syn_neotree_with_normal = false
+vim.b.line_space = 0
 vim.b.neovide_setting = {
   scale_factor = 1,
   transparency = 1,
@@ -91,6 +92,10 @@ M.setup = function (params)
     }
 
     vim.b.neovide_setting = neovide_setting
+  end
+
+  if params.line_space ~= nil then
+    vim.b.line_space = params.line_space
   end
 end
 
