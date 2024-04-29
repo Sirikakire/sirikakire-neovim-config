@@ -2,9 +2,7 @@ local init = require("init")
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
-  -- NOTE: sync treesitter context
-  vim.cmd("highlight! link TreesitterContext Normal")
-  vim.cmd("highlight! link TreesitterContextLineNumber LineNr")
+  -- NOTE: remove ctermbg and guibg for WinSeparator
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")
 
   -- NOTE: Get rid of dim background

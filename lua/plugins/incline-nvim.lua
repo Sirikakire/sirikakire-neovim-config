@@ -4,7 +4,7 @@ return {
   config = function ()
     local devicons = require 'nvim-web-devicons'
     local sign_icon = require('utils').sign_icons
-    require('incline').setup {
+    require('incline').setup({
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
         if filename == '' then
@@ -42,7 +42,6 @@ return {
           end
           return labels
         end
-
         local function get_diagnostic_label()
           local icons = {
             error = sign_icon.error,
@@ -69,8 +68,8 @@ return {
         end
 
         return {
-          { get_diagnostic_label()  },
-          { get_git_diff() },
+          { get_diagnostic_label(), gui = "bold"  },
+          { get_git_diff(), gui = "bold" },
           { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' },
           { filename .. ' ', gui = vim.bo[props.buf].modified and 'bold,italic' or 'bold' },
           -- border = require("utils").border
@@ -150,6 +149,6 @@ return {
         },
         zindex = 50
       }
-    }
+    })
   end
 }

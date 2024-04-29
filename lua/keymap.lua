@@ -6,6 +6,8 @@ K.setup_custom_keymap = function()
   vim.keymap.set("n", "K", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
   vim.keymap.set("n", "<C-b>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
+  vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = "Save file" })
+  vim.keymap.set('n', '<C-S>', '<cmd>wa<CR>', { desc = "Save all files" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Go to visual line mode and select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
@@ -51,6 +53,18 @@ K.setup_custom_keymap = function()
     vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", {
       desc = "Toggle screen mode"
     })
+
+    if vim.g.neovide then
+      vim.keymap.set('n', '<C-v>', '"+P') -- Paste normal mode
+      vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
+      vim.keymap.set('c', '<C-v>', '<C-r><C-o>+') -- Paste command mode
+      vim.keymap.set('i', '<c-v>', '<esc>"+pli') -- paste insert mode
+    end
+
+    -- vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('!', '<C-v>', '<C-r>+', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('t', '<C-v>', '<C-r>+', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('v', '<C-v>', '<C-r>+', { noremap = true, silent = true })
   end
 end
 

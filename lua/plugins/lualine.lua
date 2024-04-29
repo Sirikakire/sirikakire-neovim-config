@@ -37,7 +37,7 @@ return {
           },
           {
             'branch',
-            icon = "󰊢"
+            icon = ""
           },
           -- 'branch',
           -- {
