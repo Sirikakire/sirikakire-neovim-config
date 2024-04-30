@@ -12,7 +12,10 @@ return {
           builtins.formatting.prettierd,
 
           -- NOTE: Diagnostic
-          builtins.diagnostics.codespell,
+          -- builtins.diagnostics.codespell,
+
+          -- NOTE: Completion
+          builtins.completion.spell
         },
       })
     end,
