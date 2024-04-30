@@ -21,7 +21,7 @@ local options = {
   "linebreak",
   "number relativenumber",
   "clipboard+=unnamedplus",
-  "laststatus=1",
+  "laststatus=2",
   "termguicolors",
   "scrolloff=5",
   "title",
