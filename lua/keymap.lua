@@ -59,6 +59,7 @@ K.setup_custom_keymap = function()
       vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
       vim.keymap.set('c', '<C-v>', '<C-r><C-o>+') -- Paste command mode
       vim.keymap.set('i', '<c-v>', '<esc>"+pli') -- paste insert mode
+      vim.keymap.set('t', '<c-v>', '<C-\\><C-n>"+pi') -- paste terminal mode
     end
 
     -- vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
