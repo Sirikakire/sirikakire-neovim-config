@@ -8,8 +8,8 @@ return {
         theme = "auto",
         -- component_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = '┃'},
-        component_separators = { left = '┃', right = '┃' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = ' ', right = ' ' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -26,18 +26,14 @@ return {
       sections = {
         lualine_a = {
           {
-            function() return " " end,
-            padding = 0
+            function() return "Sirikakire" end,
+            icon = "󱁇",
           },
         },
         lualine_b = {
           {
-            function() return "Sirikakire" end,
-            icon = "󱁇"
-          },
-          {
             'branch',
-            icon = ""
+            icon = "",
           },
           -- 'branch',
           -- {
@@ -69,17 +65,13 @@ return {
           {
             'progress',
           },
-          {
-            'datetime',
-            style = '%H:%M:%S %d/%m/%Y',
-            icon = "󰥔"
-          }
         },
         lualine_z = {
           {
-            function() return " " end,
-            padding = 0
-          },
+            'datetime',
+            style = '%H:%M:%S %d/%m/%Y',
+            icon = "󰔟",
+          }
         }
       },
       inactive_sections = {

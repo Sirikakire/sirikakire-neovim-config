@@ -1,73 +1,4 @@
 return {
-  -- 'romgrk/barbar.nvim',
-  -- init = function() vim.g.barbar_auto_setup = false end,
-  -- opts = {
-  --   insert_at_start = false,
-  -- },
-  -- config = function()
-  --   require('barbar').setup({
-  --     animation = true,
-  --     auto_hide = false,
-  --     tabpages = true,
-  --     clickable = true,
-  --     exclude_ft = { 'neo-tree' },
-  --     exclude_name = {},
-  --     focus_on_close = 'left',
-  --     highlight_alternate = false,
-  --     highlight_inactive_file_icons = false,
-  --     highlight_visible = true,
-  --     icons = {
-  --       buffer_index = true,
-  --       buffer_number = false,
-  --       button = ' ',
-  --       diagnostics = {
-  --         [vim.diagnostic.severity.ERROR] = {
-  --           enabled = false
-  --         },
-  --         [vim.diagnostic.severity.WARN] = {
-  --           enabled = false
-  --         },
-  --         [vim.diagnostic.severity.INFO] = {
-  --           enabled = false
-  --         },
-  --         [vim.diagnostic.severity.HINT] = {
-  --           enabled = false
-  --         },
-  --       },
-  --       gitsigns = {
-  --         added = {enabled = false, icon = '+'},
-  --         changed = {enabled = false, icon = '~'},
-  --         deleted = {enabled = false, icon = '-'},
-  --       },
-  --       filetype = {
-  --         custom_colors = false,
-  --         enabled = true,
-  --       },
-  --       separator = { left = '┃', right = '' },
-  --       inactive = {
-  --         separator = {
-  --           left = '┃', -- FIX: fix inactive separator still visualize
-  --         },
-  --       },
-  --       separator_at_end = false,
-  --       modified = {button = '● '},
-  --       pinned = {button = '', filename = true},
-  --       preset = 'default',
-  --     },
-  --     insert_at_end = false,
-  --     insert_at_start = false,
-  --     maximum_padding = 0,
-  --     minimum_padding = 2,
-  --     maximum_length = 200,
-  --     minimum_length = 0,
-  --     semantic_letters = true,
-  --     sidebar_filetypes = {
-  --       ['neo-tree'] = true
-  --     },
-  --     letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
-  --     no_name_title = 'Blank buffer',
-  --   })
-  -- end
   'akinsho/bufferline.nvim', version = "*",
   config = function()
     local sign_icons = require("utils").sign_icons
@@ -84,7 +15,7 @@ return {
         middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
         indicator = {
           -- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-          icon = ' 󰁙 ',
+          icon = ' 󰞷 ',
           style = 'icon', -- 'icon' | 'underline' | 'none',
         },
         -- buffer_close_icon = '󰅖',

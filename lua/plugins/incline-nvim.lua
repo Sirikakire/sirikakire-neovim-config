@@ -38,7 +38,7 @@ return {
             end
           end
           if #labels > 0 then
-            table.insert(labels, { '┃ ' })
+            table.insert(labels, { '│ ' })
           end
           return labels
         end
@@ -62,7 +62,7 @@ return {
             end
           end
           if #label > 0 then
-            table.insert(label, { '┃ ' })
+            table.insert(label, { '│ ' })
           end
           return label
         end
