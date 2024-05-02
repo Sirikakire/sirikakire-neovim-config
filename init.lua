@@ -3,21 +3,21 @@ require("init").setup({
   transparent_background = false,
   mapleader = " ",
   border_color = "#cbc398",
-  doc_border = true,
-  win_separator = true,
+  doc_border = false,
+  win_separator = false,
   thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   syn_neotree_with_normal = false,
-  float_window_brightness = 0,
+  float_window_brightness = 30,
   better_cmp_cursor_line = true,
   line_space = -2,
-  colorscheme = "tokyonight",
+  colorscheme = "everblush",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "CodeNewRoman Nerd Font",
-      size = 12,
+      name = "VictorMono Nerd Font",
+      size = 14,
       bold = false,
     }
   }

@@ -6,11 +6,15 @@ local setup_highlight = function()
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")
 
   -- NOTE: Get rid of dim background
+  -- vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NeoTreeNormalNC NeoTreeNormal")
   vim.cmd("highlight! link NvimTreeNormal NeoTreeNormal")
   vim.cmd("highlight! link NvimTreeNormalNC NvimTreeNormal")
   vim.cmd("highlight! link NeoTreeExpander NeoTreeDirectoryIcon")
+  vim.cmd("highlight! CmpItemAbbr guibg=NONE")
+  vim.cmd("highlight! CmpItemKind guibg=NONE")
+  vim.cmd("highlight! CmpItemMenu guibg=NONE")
 
   -- NOTE: sync neotree and nvim tree separator
   vim.cmd("highlight! link NeoTreeWinSeparator WinSeparator")
