@@ -12,6 +12,8 @@ local setup_highlight = function()
   vim.cmd("highlight! link NvimTreeNormal NeoTreeNormal")
   vim.cmd("highlight! link NvimTreeNormalNC NvimTreeNormal")
   vim.cmd("highlight! link NeoTreeExpander NeoTreeDirectoryIcon")
+
+  -- NOTE: Remove cmp item background
   vim.cmd("highlight! CmpItemAbbr guibg=NONE")
   vim.cmd("highlight! CmpItemKind guibg=NONE")
   vim.cmd("highlight! CmpItemMenu guibg=NONE")
