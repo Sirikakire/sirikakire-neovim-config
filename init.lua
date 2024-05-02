@@ -16,8 +16,8 @@ require("init").setup({
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "VictorMono Nerd Font",
-      size = 14,
+      name = "Hack Nerd Font",
+      size = 13,
       bold = false,
     }
   }
