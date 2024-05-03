@@ -10,12 +10,7 @@ return {
           -- NOTE: Formatting
           builtins.formatting.stylua,
           builtins.formatting.prettierd,
-
-          -- NOTE: Diagnostic
-          -- builtins.diagnostics.codespell,
-
-          -- NOTE: Completion
-          builtins.completion.spell
+          builtins.formatting.rubocop,
         },
       })
     end,

@@ -32,9 +32,7 @@ return {
         -- path_display = { "smart" },
       },
       pickers = {
-        find_files = vim.list_extend(common_setting, {
-          find_command = "rg,--ignore,--hidden,--files"
-        }),
+        find_files = vim.list_extend(common_setting, {}),
         live_grep = vim.list_extend(common_setting, {}),
         buffers = vim.list_extend(common_setting, {}),
         diagnostics = vim.list_extend(common_setting, {}),

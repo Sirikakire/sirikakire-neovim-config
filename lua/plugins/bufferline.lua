@@ -1,29 +1,30 @@
 return {
-  'akinsho/bufferline.nvim', version = "*",
+  "akinsho/bufferline.nvim",
+  version = "*",
   config = function()
     local sign_icons = require("utils").sign_icons
     local bufferline = require("bufferline")
     bufferline.setup({
       options = {
-        mode = "buffers", -- buffers \ set to "tabs" to only show tabpages instead
+        mode = "buffers",                           -- buffers \ set to "tabs" to only show tabpages instead
         style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
-        themable = true, -- true | false, -- allows highlight groups to be overriden i.e. sets highlights as default
-        numbers = "none", --"none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-        close_command = "bdelete! %d",       -- can be a string | function, | false see "Mouse actions"
-        right_mouse_command = "bdelete! %d", -- can be a string | function | false, see "Mouse actions"
-        left_mouse_command = "buffer %d",    -- can be a string | function, | false see "Mouse actions"
-        middle_mouse_command = nil,          -- can be a string | function, | false see "Mouse actions"
+        themable = true,                            -- true | false, -- allows highlight groups to be overriden i.e. sets highlights as default
+        numbers = "none",                           --"none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+        close_command = "bdelete! %d",              -- can be a string | function, | false see "Mouse actions"
+        right_mouse_command = "bdelete! %d",        -- can be a string | function | false, see "Mouse actions"
+        left_mouse_command = "buffer %d",           -- can be a string | function, | false see "Mouse actions"
+        middle_mouse_command = nil,                 -- can be a string | function, | false see "Mouse actions"
         indicator = {
           -- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-          icon = ' 󰞷 ',
-          style = 'icon', -- 'icon' | 'underline' | 'none',
+          icon = " 󰞷 ",
+          style = "icon", -- 'icon' | 'underline' | 'none',
         },
         -- buffer_close_icon = '󰅖',
-        modified_icon = '●',
+        modified_icon = "●",
         -- close_icon = '',
-        left_trunc_marker = '',
-        right_trunc_marker = '',
-        name_formatter = function(buf)  -- buf contains:
+        left_trunc_marker = "",
+        right_trunc_marker = "",
+        name_formatter = function(buf) -- buf contains:
           -- name                | str        | the basename of the active file
           -- path                | str        | the full path of the active file
           -- bufnr (buffer only) | int        | the number of the active buffer
@@ -50,7 +51,7 @@ return {
             elseif e == "hint" then
               sym = " " .. sign_icons.hint
             end
-            s = s..sym..n
+            s = s .. sym .. n
           end
           return s
         end,
@@ -77,10 +78,10 @@ return {
         offsets = {
           {
             filetype = "neo-tree",
-            text = "", -- "File Explorer" | function ,
+            text = "",       -- "File Explorer" | function ,
             text_align = "center", -- "left" | "center" | "right"
-            separator = false
-          }
+            separator = false,
+          },
         },
         color_icons = true, -- true | false, -- whether or not to add the filetype icon highlights
         -- get_element_icon = function(element)
@@ -90,30 +91,30 @@ return {
         --   -- local custom_map = {my_thing_ft: {icon = "my_thing_icon", hl}}
         --   -- return custom_map[element.filetype]
         -- end,
-        show_buffer_icons = true, -- true | false, -- disable filetype icons for buffers
+        show_buffer_icons = true,    -- true | false, -- disable filetype icons for buffers
         show_buffer_close_icons = false, -- true | false,
-        show_close_icon = false, -- true | false,
-        show_tab_indicators = true, -- true | false,
+        show_close_icon = false,     -- true | false,
+        show_tab_indicators = true,  -- true | false,
         show_duplicate_prefix = true, -- true | false, -- whether to show duplicate buffer prefix
         duplicates_across_groups = true, -- whether to consider duplicate paths in different groups as duplicates
-        persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        move_wraps_at_ends = true, -- whether or not the move command "wraps" at the first or last position
+        persist_buffer_sort = true,  -- whether or not custom sorted buffers should persist
+        move_wraps_at_ends = true,   -- whether or not the move command "wraps" at the first or last position
         -- can also be a table containing 2 custom separators
         -- [focused and unfocused]. eg: { '|', '|' }
-        separator_style = { '', '' }, -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
+        separator_style = { "", "" }, -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = false, -- false | true,
         always_show_bufferline = true, -- true | false,
         auto_toggle_bufferline = true, -- true | false,
         hover = {
           enabled = false,
           delay = 200,
-          reveal = {'close'}
+          reveal = { "close" },
         },
-        sort_by = 'insert_after_current',--[[  insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+        sort_by = "insert_after_current", --[[  insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
                 -- add custom logic
                 return buffer_a.modified > buffer_b.modified
             end ]]
-      }
+      },
     })
-  end
+  end,
 }

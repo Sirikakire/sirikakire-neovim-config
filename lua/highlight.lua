@@ -27,9 +27,6 @@ local setup_highlight = function()
   vim.cmd("highlight! link IblIndent Comment")
   vim.cmd("highlight! link WinSeparator Comment")
 
-  -- NOTE: sync navic
-  vim.cmd("highlight! link NavicText Comment")
-
   -- NOTE: Remove FloatBorder bg but keep the fg and ctermbg
   local floatBorderForeground = vim.b.syn_all_border_color and vim.b.border_color or init.getHexColor("FloatBorder").foreground
   vim.cmd("highlight! FloatBorder ctermbg=NONE guibg=NONE guifg="..floatBorderForeground)

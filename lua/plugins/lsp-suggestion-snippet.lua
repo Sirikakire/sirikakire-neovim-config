@@ -1,21 +1,5 @@
 return {
   {
-    "hinell/lsp-timeout.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.g.lspTimeoutConfig = {
-        stopTimeout  = 1000 * 60 * 2, -- ms, timeout before stopping all LSPs 
-        startTimeout = 1000 * 10,     -- ms, timeout before restart
-        silent       = false,          -- true to suppress notifications
-        filetypes    = {
-          ignore = {                -- filetypes to ignore; empty by default
-            -- lsp-timeout is disabled completely
-          }                         -- for these filetypes
-        }
-      }
-    end
-  },
-  {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     event = "InsertEnter",
@@ -29,14 +13,6 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp",
     event = "InsertEnter"
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp-signature-help",
-    event = "InsertEnter"
-  },
-  {
-    "hrsh7th/cmp-buffer",
-    event = { "InsertEnter", "CmdlineEnter" },
   },
   {
     "hrsh7th/cmp-path",
@@ -85,11 +61,10 @@ return {
               nvim_lsp = "[LSP]",
               luasnip = "[LuaSnip]",
               cmp_tabnine = "[TabNine]",
-              buffer = "[Buffer]",
               cmdline = "[CMDLine]",
               path = "[Path]",
             })[entry.source.name]
-            vim_item.kind = string.format("%s %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
+            vim_item.kind = string.format("%s %s", require("utils").navic_icon[vim_item.kind], vim_item.kind)
             return vim_item
           end,
         },
@@ -141,55 +116,11 @@ return {
           }),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp_signature_help" },
           { name = "nvim_lsp" },
-          { name = "luasnip", option = { use_show_condition = true, show_autosnippets = true } },
+          { name = "luasnip" },
           { name = "cmp_tabnine" },
           { name = "path" },
-          {
-            name = "buffer",
-            max_item_count = 3,
-            option = {
-              get_bufnrs = function()
-                local bufs = {}
-                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                  bufs[vim.api.nvim_win_get_buf(win)] = true
-                end
-                return vim.tbl_keys(bufs)
-              end,
-            },
-          },
         }),
-      })
-      -- NOTE: `/` cmdline setup.
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline({
-          ['<Tab>'] = cmp.mapping({
-            i = cmp.config.disable,
-            c = cmp.config.disable,
-            s = cmp.config.disable
-          }),
-          ['<S-Tab>'] = cmp.mapping({
-            i = cmp.config.disable,
-            c = cmp.config.disable,
-            s = cmp.config.disable
-          }),
-        }),
-        sources = {
-          {
-            name = "buffer",
-            max_item_count = 5,
-            option = {
-              get_bufnrs = function()
-                local bufs = {}
-                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                  bufs[vim.api.nvim_win_get_buf(win)] = true
-                end
-                return vim.tbl_keys(bufs)
-              end,
-            },
-          },
-        },
       })
       -- NOTE:  `:` cmdline setup.
       cmp.setup.cmdline(":", {

@@ -1,5 +1,6 @@
 local K = {}
 
+-- NOTE: Setup custom keymap
 K.setup_custom_keymap = function()
   -- NOTE: Useless keymap to not hit by mistake
   vim.keymap.set("n", "<C-z>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
@@ -9,7 +10,7 @@ K.setup_custom_keymap = function()
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = "Save file" })
   vim.keymap.set('n', '<C-S>', '<cmd>wa<CR>', { desc = "Save all files" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
-  vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Go to visual line mode and select all" })
+  vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
   vim.keymap.set("n", "<A-0>", "<C-w>+", { desc = "Increase window height" })
   vim.keymap.set("n", "<A-7>", "<C-w><", { desc = "Decrease window width" })
@@ -21,7 +22,7 @@ K.setup_custom_keymap = function()
   vim.keymap.set({ "n", "v" }, "<C-p>", '"0p', { desc = "Paste the previous yank register" })
   vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
   vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
-  vim.keymap.set("n", "<leader>gd", "cmd>%bd!|e#<cr", { desc = "Global delete all buffer" })
+  vim.keymap.set("n", "<leader>gd", "cmd>%bd!|e#<CR>", { desc = "Global delete all buffer" })
   vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Navigate to the previous buffer" })
   vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Navigate to the next buffer" })
   vim.keymap.set("n", "<A-H>", "<cmd>BufferLineMovePrev<CR>", { desc = "Move the buffer to the previous" })
@@ -40,6 +41,7 @@ K.setup_custom_keymap = function()
       vim.cmd("bdelete "..buffer_id)
     end
   end, { desc = "Delete current buffer and then navigate to the next one" })
+
   if vim.g.neovide then
     vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", {
       desc = "Increase scale factor"
@@ -54,18 +56,11 @@ K.setup_custom_keymap = function()
       desc = "Toggle screen mode"
     })
 
-    if vim.g.neovide then
-      vim.keymap.set('n', '<C-v>', '"+P') -- Paste normal mode
-      vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
-      vim.keymap.set('c', '<C-v>', '<C-r><C-o>+') -- Paste command mode
-      vim.keymap.set('i', '<c-v>', '<esc>"+pli') -- paste insert mode
-      vim.keymap.set('t', '<c-v>', '<C-\\><C-n>"+pi') -- paste terminal mode
-    end
-
-    -- vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
-    -- vim.api.nvim_set_keymap('!', '<C-v>', '<C-r>+', { noremap = true, silent = true })
-    -- vim.api.nvim_set_keymap('t', '<C-v>', '<C-r>+', { noremap = true, silent = true })
-    -- vim.api.nvim_set_keymap('v', '<C-v>', '<C-r>+', { noremap = true, silent = true })
+    vim.keymap.set('n', '<C-v>', '"+P') -- Paste normal mode
+    vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
+    vim.keymap.set('c', '<C-v>', '<C-r><C-o>+') -- Paste command mode
+    vim.keymap.set('i', '<c-v>', '<esc>"+pli') -- paste insert mode
+    vim.keymap.set('t', '<c-v>', '<C-\\><C-n>"+pi') -- paste terminal mode
   end
 end
 
@@ -93,11 +88,11 @@ K.setup_lsp_keymap = function(opts)
   vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, opts)
 end
 
--- NOTE Setup keymap for flash
+-- NOTE: Setup keymap for flash
 K.flash_keymaps = {
-    { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "<c-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-  }
+  { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+  { "<c-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+}
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
@@ -133,20 +128,18 @@ K.copilot_keymaps = {
 K.toggle_term_keymaps = {
   { "<leader>ts", "<cmd>TermSelect<CR>", desc = "Open terminal selection" },
   { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Open terminal" },
-  { "<leader>ti",
-    function()
-      local user_input = vim.fn.input("Enter terminal number: ")
+  { "<leader>ti", function()
+    local user_input = vim.fn.input("Enter terminal number: ")
 
-      if user_input == "" then return end
+    if user_input == "" then return end
 
-      if "number" ~= type(tonumber(user_input)) then
-        vim.notify("The input must be a number!", "warn")
-        return
-      end
+    if "number" ~= type(tonumber(user_input)) then
+      vim.notify("The input must be a number!", "warn")
+      return
+    end
 
-      vim.cmd(user_input .. "ToggleTerm")
-    end,
-    desc = "Open or create terminal by number",
+    vim.cmd(user_input .. "ToggleTerm")
+  end, desc = "Open or create terminal by number",
   },
 }
 

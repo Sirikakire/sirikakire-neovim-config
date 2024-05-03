@@ -38,7 +38,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_underline_stroke_scale = 1.0
   -- vim.g.neovide_theme = 'auto'
-  vim.g.neovide_unlink_border_highlights = true
+  vim.g.neovide_unlink_border_highlights = false
   vim.g.neovide_refresh_rate = 60
   vim.g.neovide_refresh_rate_idle = 5
   vim.g.neovide_no_idle = false
@@ -46,9 +46,9 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_fullscreen = false
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_profiler = false
-  vim.g.neovide_cursor_animation_length = 0.06
-  vim.g.neovide_cursor_trail_size = 0.2
+  vim.g.neovide_cursor_animation_length = 0.08
+  vim.g.neovide_cursor_trail_size = 0
   vim.g.neovide_cursor_animate_in_insert_mode = true
-  vim.g.neovide_cursor_animate_command_line = true
-  vim.g.neovide_cursor_smooth_blink = true
+  vim.g.neovide_cursor_animate_command_line = false
+  vim.g.neovide_cursor_smooth_blink = false
 end
