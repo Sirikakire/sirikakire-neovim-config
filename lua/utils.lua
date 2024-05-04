@@ -82,6 +82,7 @@ U.navic_icon = {
   Constant      = "󰏿 ",
   String        = "󰀬 ",
   Number        = "󰎠 ",
+  Text          = "󰉿 ",
   Boolean       = "◩ ",
   Copilot       = " ",
   Codeium       = " ",
