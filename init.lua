@@ -9,7 +9,7 @@ require("init").setup({
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   syn_neotree_with_normal = false,
-  float_window_brightness = 0,
+  float_window_brightness = 35,
   better_cmp_cursor_line = true,
   line_space = -2,
   colorscheme = "palenightfall",
