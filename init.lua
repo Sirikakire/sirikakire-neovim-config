@@ -12,11 +12,11 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = -2,
-  colorscheme = "nightfox",
+  colorscheme = "palenightfall",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "Hack Nerd Font",
+      name = "CodeNewRoman Nerd Font",
       size = 13,
       bold = false,
     }

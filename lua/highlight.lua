@@ -5,6 +5,9 @@ local setup_highlight = function()
   -- NOTE: remove ctermbg and guibg for WinSeparator
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")
 
+  -- NOTE: Sync winbar with normal
+  vim.cmd("highlight! link WinBar Normal")
+
   -- NOTE: Get rid of dim background
   -- vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NormalNC Normal")

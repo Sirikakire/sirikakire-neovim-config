@@ -51,16 +51,18 @@ U.sign_icons = {
   changedelete = '󰇽 ',
   untracked = ' ',
 
-  -- warning = " ",
-  -- info = ' ',
-  -- warning = ' ',
-  -- error = ' ',
-  -- hint = ' ',
+  success_2 = ' ',
+  warning_2 = ' ',
+  info_2 = ' ',
+  warning_3 = ' ',
+  error_2 = ' ',
+  hint_2 = ' ',
 
   info = '󰀧 ',
   warning = '󰬐 ',
   error = '󰅗 ',
   hint = '󰞋 ',
+  success = ' ',
 }
 
 U.navic_icon = {
@@ -83,6 +85,7 @@ U.navic_icon = {
   String        = "󰀬 ",
   Number        = "󰎠 ",
   Text          = "󰉿 ",
+  Keyword       = "󰌋 ",
   Boolean       = "◩ ",
   Copilot       = " ",
   Codeium       = " ",
@@ -96,7 +99,6 @@ U.navic_icon = {
   Event         = " ",
   Operator      = "󰆕 ",
   TypeParameter = "󰊄 ",
-
 }
 
 U.nv_chad_icons = {
@@ -216,13 +218,15 @@ U.lsp_servers = {
   "tailwindcss", -- tailwindcss
   "emmet_ls", -- emmet
   "html", -- html
-  "solargraph", -- ruby
+  -- "solargraph", -- ruby
   "dockerls", -- docker
   "docker_compose_language_service", -- docker-compose
   "angularls", -- angular
   "eslint", -- eslint
   "volar" -- vue
 }
+
+U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 
 U.border = vim.b.doc_border and {
   { "╭", "FloatBorder" },

@@ -41,7 +41,7 @@ return vim.b.colorscheme ~= "tokyonight" and {} or {
       --- function will be called with a Highlights and ColorScheme table
       on_highlights = function(highlights, colors) end,
     })
-    vim.cmd.colorscheme("tokyonight-moon")
+    vim.cmd.colorscheme("tokyonight-storm")
   end
 }
 

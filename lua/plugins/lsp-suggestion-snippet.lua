@@ -204,19 +204,90 @@ return {
       })
 
       -- NOTE: Setup diagnostic highlight and icon
-      local sign_icon = require("utils").sign_icons
       local signs = {
-        Error = sign_icon.error,
-        Warn = sign_icon.warning,
-        Hint = sign_icon.hint,
-        Info = sign_icon.info,
+        Error = require("utils").sign_icons.error,
+        Warn = require("utils").sign_icons.warning,
+        Hint = require("utils").sign_icons.hint,
+        Info = require("utils").sign_icons.info,
       }
       for type, icon in pairs(signs) do
         local hl = "DiagnosticSign" .. type
         local linehl = "DiagnosticVirtualText" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl, linehl = linehl })
+        vim.fn.sign_define(hl, {
+          text = icon,
+          texthl = hl,
+          numhl = hl,
+          linehl = linehl
+        })
       end
-    end,
+
+      -- NOTE: Nvim notify
+
+      local client_notifs = {}
+      local function get_notif_data(client_id, token)
+        if not client_notifs[client_id] then client_notifs[client_id] = {} end
+        if not client_notifs[client_id][token] then client_notifs[client_id][token] = {} end
+        return client_notifs[client_id][token]
+      end
+      local spinner_frames = require("utils").spinner_frames
+      local function update_spinner(client_id, token)
+        local notif_data = get_notif_data(client_id, token)
+
+        if notif_data.spinner then
+          local new_spinner = (notif_data.spinner + 1) % #spinner_frames
+          notif_data.spinner = new_spinner
+
+          notif_data.notification = vim.notify(nil, nil, {
+            title = "Messages",
+            hide_from_history = true,
+            icon = spinner_frames[new_spinner],
+            replace = notif_data.notification,
+          })
+
+          vim.defer_fn(function()
+            update_spinner(client_id, token)
+          end, 100)
+        end
+      end
+
+      local function format_message(message, percentage)
+        return (percentage and percentage .. "%\t" or "") .. (message or "")
+      end
+
+      local success_icon = require("utils").sign_icons.success_2
+
+      vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+        local val = result.value
+        if val.title == "Diagnosing" or not val.kind then return end
+
+        local client_id = ctx.client_id
+        local notif_data = get_notif_data(client_id, result.token)
+        if val.kind == "begin" then
+          notif_data.notification = vim.notify(format_message(val.title, val.percentage), "info", {
+            title = "Messages",
+            icon = spinner_frames[1],
+            timeout = false,
+            hide_from_history = false,
+          })
+          notif_data.spinner = 1
+          update_spinner(client_id, result.token)
+        elseif val.kind == "report" and notif_data and notif_data.notification then
+          notif_data.notification = vim.notify(format_message(val.message, val.percentage), "info", {
+            title = "Messages",
+            replace = notif_data.notification,
+            hide_from_history = false,
+          })
+        elseif val.kind == "end" and notif_data and notif_data.notification then
+          notif_data.notification = vim.notify(val.message and format_message(val.message) or "Complete", "info", {
+            title = "Messages",
+            icon = success_icon,
+            replace = notif_data.notification,
+            timeout = 1500
+          })
+          notif_data.spinner = nil
+        end
+      end
+    end
   },
   {
     "williamboman/mason.nvim",

@@ -124,7 +124,7 @@ return {
           borders = true,
           statusline = true,
           tabline = false,
-          winbar = false
+          winbar = true
         },
         padding = 1,
         padding_char = " ",
@@ -147,7 +147,7 @@ return {
             Search = "None"
           }
         },
-        zindex = 50
+        zindex = 10
       }
     })
   end

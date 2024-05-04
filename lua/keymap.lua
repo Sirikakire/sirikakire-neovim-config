@@ -96,7 +96,7 @@ K.flash_keymaps = {
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
-  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify')<CR>", desc = "Health check vim notify" }
+  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info')<CR>", desc = "Health check vim notify" }
 }
 
 -- NOTE: Setup keymap for telescope
@@ -121,7 +121,7 @@ K.gitsigns_keymaps = {
 
 -- NOTE: Setup keymap for copilot
 K.copilot_keymaps = {
-  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+  -- { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
 }
 
 -- NOTE: Setup keymap for toggle_term
