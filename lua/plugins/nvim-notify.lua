@@ -5,7 +5,7 @@ return {
   config = function()
 		require("notify").setup({
 			background_colour = vim.b.transparent_background and "#000000" or "Normal",
-			fps = 60,
+			fps = vim.g.neovide and 30 or 60,
 			icons = {
 				DEBUG = " ",
 				ERROR = " ",
@@ -14,8 +14,8 @@ return {
 				WARN = " "
 			},
 			minimum_width = 50,
-			render = "compact",
-			stages = "fade",
+			render = "wrapped-compact",
+			stages = "slide",
 			time_formats = {
 				notification = "%T",
 				notification_history = "%FT%T"

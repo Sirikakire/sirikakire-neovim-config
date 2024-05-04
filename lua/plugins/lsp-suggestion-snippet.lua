@@ -195,10 +195,7 @@ return {
 
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
-        virtual_text = {
-          prefix = " ",
-          source = "always",
-        },
+        virtual_text = { prefix = " ", source = "always" },
         signs = true,
         underline = true,
         update_in_insert = false,
@@ -226,9 +223,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("mason").setup({
-        ui = {
-          border = require("utils").border,
-        },
+        ui = { border = require("utils").border },
       })
     end,
   },
@@ -237,6 +232,7 @@ return {
     event = "VeryLazy",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       local function setupLSP(lsp_server)
         require("lspconfig")[lsp_server].setup({
           capabilities = capabilities,
@@ -245,9 +241,7 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = require("utils").lsp_servers,
-        handlers = {
-          setupLSP,
-        },
+        handlers = { setupLSP },
         automatic_installation = true,
       })
     end,

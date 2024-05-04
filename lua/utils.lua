@@ -73,9 +73,10 @@ U.navic_icon = {
   Property      = " ",
   Field         = " ",
   Constructor   = " ",
-  Enum          = "󰕘",
+  Enum          = "󰕘 ",
   Folder        = "󰉋 ",
-  Interface     = "󰕘",
+  Interface     = "󰕘 ",
+  Snippet       = " ",
   Function      = "󰊕 ",
   Variable      = "󰆧 ",
   Constant      = "󰏿 ",
@@ -220,12 +221,6 @@ U.lsp_servers = {
   "angularls", -- angular
   "eslint", -- eslint
   "volar" -- vue
-}
-
-U.null_ls_formatters = {
-  "stylua",
-  "prettierd",
-  "rubocop",
 }
 
 U.border = vim.b.doc_border and {
