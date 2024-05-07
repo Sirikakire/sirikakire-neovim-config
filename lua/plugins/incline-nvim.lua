@@ -124,7 +124,7 @@ return {
           borders = true,
           statusline = true,
           tabline = false,
-          winbar = true
+          winbar = false
         },
         padding = 1,
         padding_char = " ",
