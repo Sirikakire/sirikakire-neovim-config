@@ -1,6 +1,5 @@
 local M = {}
 
-vim.o.winbar = " "
 vim.g.mapleader = " "
 vim.b.win_separator = true
 vim.b.border_color = "#ffffff"
