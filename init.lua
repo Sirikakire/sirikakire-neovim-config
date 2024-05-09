@@ -12,9 +12,9 @@ require("init").setup({
   float_window_brightness = 35,
   better_cmp_cursor_line = true,
   line_space = -2,
-  colorscheme = "sonokai",
+  colorscheme = "everblush",
   neovide_setting = {
-    transparency = 0.9,
+    transparency = 1,
     font_setting = {
       name = "CodeNewRoman Nerd Font",
       size = 13,
