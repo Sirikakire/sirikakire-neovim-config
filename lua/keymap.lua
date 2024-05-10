@@ -104,7 +104,7 @@ K.telescope_keymaps = {
   { "<leader>fa", "<cmd>lua require('telescope.builtin').autocommands()<CR>", desc = "List all auto commands" },
   { "<leader>fh", "<cmd>lua require('telescope.builtin').highlights()<CR>", desc = "List all highlights" },
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", desc = "Find files" },
-  { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep({ hidden = true })<CR>", desc = "Live grep" },
+  { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "Live grep" },
   { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "Open workspace diagnostics" },
   { "<leader>fb", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "Open buffer git commit list" },
   { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", desc = "Open references" },
@@ -141,6 +141,11 @@ K.toggle_term_keymaps = {
     vim.cmd(user_input .. "ToggleTerm")
   end, desc = "Open or create terminal by number",
   },
+}
+
+-- NOTE: Setup keymap for lazygit
+K.lazygit_keymaps = {
+  { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
 }
 
 -- NOTE: Setup keymap for alternate_toggle
