@@ -28,7 +28,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
-  vim.g.neovide_floating_shadow = false
+  vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 2
   vim.g.neovide_light_angle_degrees = 0
   vim.g.neovide_light_radius = 0
@@ -47,7 +47,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_profiler = false
   vim.g.neovide_cursor_animation_length = 0.08
-  vim.g.neovide_cursor_trail_size = 0
+  vim.g.neovide_cursor_trail_size = 0.2
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_animate_command_line = false
   vim.g.neovide_cursor_smooth_blink = false
