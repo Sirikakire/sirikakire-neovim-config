@@ -53,7 +53,7 @@ return {
         symlink_destination = true,
         -- none, icon, name, all
         highlight_git = "name",
-        highlight_diagnostics = "name",
+        highlight_diagnostics = "none",
         highlight_opened_files = "name",
         highlight_modified = "name",
         highlight_bookmarks = "name",
