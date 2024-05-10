@@ -1,5 +1,7 @@
 local M = {}
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.b.win_separator = true
 vim.b.border_color = "#ffffff"

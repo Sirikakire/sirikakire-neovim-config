@@ -150,7 +150,12 @@ K.alternate_toggle_keymaps = {
 
 -- NOTE: Setup keymap for neotree
 K.neotree_keymaps = {
-  { "<leader>e", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
+  -- { "<leader>e", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
+}
+
+-- NOTE: Setup keymap for nvim tree
+K.nvimtree_keymaps = {
+  { "<leader>e", "<cmd>NvimTreeFocus<CR>", desc = "Open nvim tree" }
 }
 
 -- NOTE: Setup keymap for wildfire

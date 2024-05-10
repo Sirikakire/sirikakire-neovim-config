@@ -82,6 +82,12 @@ return {
             text_align = "center", -- "left" | "center" | "right"
             separator = false,
           },
+          {
+            filetype = "NvimTree",
+            text = "",       -- "File Explorer" | function ,
+            text_align = "center", -- "left" | "center" | "right"
+            separator = false,
+          },
         },
         color_icons = true, -- true | false, -- whether or not to add the filetype icon highlights
         -- get_element_icon = function(element)
