@@ -5,21 +5,16 @@ return {
   config = function()
     require("dashboard").setup({
       theme = "hyper",
-      preview = {
-      },
+      preview = {},
       config = {
-        week_header = {
-          enable = true,
-        },
-        packages = {
-          enable = true,
-        },
+        week_header = { enable = true },
+        packages = { enable = true },
         project = {
-          enable = false,
+          enable = true,
           limit = 5,
           icon = " ",
           label = "Recent projects",
-          action = "Telescope find_files cwd=",
+          action = "cd ",
         },
         mru = { limit = 5, icon = "󰏓 ", label = "Recent files", cwd_only = false },
         footer = { '', '♥  Hello Sirikakire ♥ ', 'Hope you will have a wonderful day  ' },
@@ -27,18 +22,6 @@ return {
           { desc = "Open Lazy 󰒲 ", action = "Lazy", key = "l" },
           { desc = "Open Mason  ", action = "Mason", key = "m" },
           { desc = "Navigate To Configuration 󱘎 ", action = "cd ~/.config/nvim | lua vim.notify('Successfully navigate to neovim configuration directory')", key = "c" },
-        --   {
-        --     icon = " ",
-        --     desc = "Files",
-        --     action = "Telescope find_files",
-        --     key = "f",
-        --   },
-        --   {
-        --     icon = " ",
-        --     desc = "Sidebar",
-        --     action = "Neotree . focus",
-        --     key = "n",
-        --   },
         },
       },
     })

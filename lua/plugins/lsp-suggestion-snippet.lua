@@ -304,7 +304,7 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local function setupLSP(lsp_server)
+      local setupLSP = function(lsp_server)
         require("lspconfig")[lsp_server].setup({
           capabilities = capabilities,
         })
