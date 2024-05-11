@@ -26,6 +26,8 @@ return {
           "lazy%-lock.json",
           "target/.*",
           ".git/.*",
+          ".angular/.*",
+          ".vscode/.*",
         },
         mappings = {
           i = {
