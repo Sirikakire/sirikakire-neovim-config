@@ -19,6 +19,14 @@ return {
         }
       },
       defaults = {
+        file_ignore_patterns = {
+          "node_modules/.*",
+          "yarn.lock",
+          "package%-lock.json",
+          "lazy%-lock.json",
+          "target/.*",
+          ".git/.*",
+        },
         mappings = {
           i = {
             ["<esc>"] = actions.close

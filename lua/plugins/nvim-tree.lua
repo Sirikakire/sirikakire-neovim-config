@@ -29,7 +29,7 @@ return {
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        width = 40,
+        width = 35,
         float = {
           enable = false,
           quit_on_focus_loss = true,
@@ -49,7 +49,7 @@ return {
         full_name = true,
         root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        -- special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
         symlink_destination = true,
         -- none, icon, name, all
         highlight_git = "name",
@@ -154,7 +154,7 @@ return {
         enable = true,
         show_on_dirs = true,
         show_on_open_dirs = true,
-        debounce_delay = 50,
+        debounce_delay = 1000,
         severity = {
           min = vim.diagnostic.severity.HINT,
           max = vim.diagnostic.severity.ERROR,
@@ -213,13 +213,24 @@ return {
         open_file = {
           quit_on_open = false,
           eject = true,
-          resize_window = true,
+          resize_window = false,
           window_picker = {
             enable = true,
             picker = "default",
             chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
             exclude = {
-              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+              filetype = {
+                "notify",
+                "packer",
+                "qf",
+                "diff",
+                "fugitive",
+                "fugitiveblame",
+                "toggleterm",
+                "lazy",
+                "mason",
+                "TelescopePrompt",
+              },
               buftype = { "nofile", "terminal", "help" },
             },
           },

@@ -11,12 +11,12 @@ require("init").setup({
   syn_neotree_with_normal = false,
   float_window_brightness = 35,
   better_cmp_cursor_line = true,
-  line_space = -2,
-  colorscheme = "mellow",
+  line_space = 0,
+  colorscheme = "night-owl",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "CodeNewRoman Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font",
       size = 13,
       bold = false,
     }

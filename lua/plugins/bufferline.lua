@@ -85,6 +85,7 @@ return {
           {
             filetype = "NvimTree",
             text = "",       -- "File Explorer" | function ,
+            highlight = "NvimTreeNormal",
             text_align = "center", -- "left" | "center" | "right"
             separator = false,
           },

@@ -12,7 +12,6 @@ local setup_highlight = function()
   -- vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NeoTreeNormalNC NeoTreeNormal")
-  vim.cmd("highlight! link NvimTreeNormal NeoTreeNormal")
   vim.cmd("highlight! link NvimTreeNormalNC NvimTreeNormal")
   vim.cmd("highlight! link NeoTreeExpander NeoTreeDirectoryIcon")
 

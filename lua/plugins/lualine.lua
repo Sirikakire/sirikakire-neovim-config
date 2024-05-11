@@ -89,7 +89,8 @@ return {
         "neo-tree",
         "toggleterm",
         "lazy",
-        "mason"
+        "mason",
+        "nvim-tree"
       }
     }
   end
