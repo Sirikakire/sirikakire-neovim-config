@@ -7,6 +7,7 @@ K.setup_custom_keymap = function()
   vim.keymap.set("n", "K", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
   vim.keymap.set("n", "<C-b>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
+  -- NOTE: Rest of the custom keymaps
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = "Save file" })
   vim.keymap.set('n', '<C-S>', '<cmd>wa<CR>', { desc = "Save all files" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
@@ -151,11 +152,6 @@ K.lazygit_keymaps = {
 -- NOTE: Setup keymap for alternate_toggle
 K.alternate_toggle_keymaps = {
   { "<leader>at", '<cmd>lua require("alternate-toggler").toggleAlternate()<CR>', desc = "Toggle alternate" },
-}
-
--- NOTE: Setup keymap for neotree
-K.neotree_keymaps = {
-  -- { "<leader>e", "<cmd>Neotree . focus<CR>", desc = "Open neotree" }
 }
 
 -- NOTE: Setup keymap for nvim tree

@@ -34,9 +34,10 @@ local setup_highlight = function()
   vim.cmd("highlight! FloatBorder ctermbg=NONE guibg=NONE guifg="..floatBorderForeground)
 end
 
--- NOTE: sync Neotree with normal
-local setup_syn_neotree_with_normal = function()
+-- NOTE: sync Neotree/NvimTree with normal
+local setup_syn_sidebar_with_normal = function()
   vim.cmd("highlight! link NeoTreeNormal Normal")
+  vim.cmd("highlight! link NvimTreeNormal Normal")
 end
 
 -- NOTE: Setup better cmp cursor line
@@ -149,7 +150,7 @@ local init_highlight = function()
   setup_highlight()
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
-  if vim.b.syn_neotree_with_normal then setup_syn_neotree_with_normal() end
+  if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end
   if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
   if vim.b.transparent_background then setup_transparent_background() end
   if vim.b.syn_all_border_color then setup_synchronized_winseparator() end

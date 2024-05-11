@@ -13,7 +13,7 @@ vim.b.float_window_brightness = 0
 vim.b.doc_border = false
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
-vim.b.syn_neotree_with_normal = false
+vim.b.syn_sidebar_with_normal = false
 vim.b.line_space = 0
 vim.b.neovide_setting = {
   scale_factor = 1,
@@ -74,8 +74,8 @@ M.setup = function (params)
     vim.b.thick_win_separator = params.thick_win_separator
   end
 
-  if params.syn_neotree_with_normal ~= nil then
-    vim.b.syn_neotree_with_normal = params.syn_neotree_with_normal
+  if params.syn_sidebar_with_normal ~= nil then
+    vim.b.syn_sidebar_with_normal = params.syn_sidebar_with_normal
   end
 
   if params.neovide_setting ~= nil then
