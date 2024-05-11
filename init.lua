@@ -12,7 +12,7 @@ require("init").setup({
   float_window_brightness = 35,
   better_cmp_cursor_line = true,
   line_space = -2,
-  colorscheme = "nightfly",
+  colorscheme = "mellow",
   neovide_setting = {
     transparency = 1,
     font_setting = {
