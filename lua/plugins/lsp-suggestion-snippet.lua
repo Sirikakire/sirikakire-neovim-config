@@ -3,25 +3,15 @@ return {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
     event = "InsertEnter",
-    dependencies = "hrsh7th/nvim-cmp",
   },
   {
     "github/copilot.vim",
     keys = require("keymap").copilot_keymaps,
     event = "InsertEnter"
   },
-  {
-    "hrsh7th/cmp-nvim-lsp",
-    event = "InsertEnter"
-  },
-  {
-    "hrsh7th/cmp-path",
-    event = { "InsertEnter", "CmdlineEnter" },
-  },
-  {
-    "hrsh7th/cmp-cmdline",
-    event = { "InsertEnter", "CmdlineEnter" },
-  },
+  { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+  { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
+  { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
   {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",

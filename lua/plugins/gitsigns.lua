@@ -15,12 +15,6 @@ return {
       --   untracked    = { text = '┆' }, 
       -- }, 
       signs = {
-        -- add          = { text = sign_icon.add },
-        -- change       = { text = sign_icon.change },
-        -- delete       = { text = sign_icon.delete },
-        -- topdelete    = { text = sign_icon.topdelete },
-        -- changedelete = { text = sign_icon.changedelete },
-        -- untracked    = { text = sign_icon.untracked },
         add          = { text = '┃' },
         change       = { text = '┃' },
         delete       = { text = '┃' },
