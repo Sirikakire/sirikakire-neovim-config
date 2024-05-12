@@ -110,9 +110,8 @@ M.getHexColor = function (highlight)
 end
 
 M.addBrightnessToHexColor = function (hexColor, brightness)
-  if brightness == nil then
-    brightness = 0
-  end
+  if brightness == nil then brightness = 0 end
+
   -- Remove the hash symbol if present
   local hex = hexColor:gsub("#", "")
 
@@ -130,30 +129,28 @@ M.addBrightnessToHexColor = function (hexColor, brightness)
   b = math.min(255, math.floor(b * factor))
 
   -- Reassemble into a hex string and return
-  local adjustedHex = string.format("#%02X%02X%02X", r, g, b)
-  return adjustedHex
+  return string.format("#%02X%02X%02X", r, g, b)
 end
 
 M.complementaryColor = function (hexColor)
-    -- Kiểm tra xem mã màu có dấu # không, nếu không có, thêm dấu #
-    if string.sub(hexColor, 1, 1) ~= "#" then
-        hexColor = "#" .. hexColor
-    end
+  -- Kiểm tra xem mã màu có dấu # không, nếu không có, thêm dấu #
+  if string.sub(hexColor, 1, 1) ~= "#" then hexColor = "#" .. hexColor end
 
-    -- Loại bỏ dấu # từ mã màu
-    hexColor = string.sub(hexColor, 2)
+  -- Loại bỏ dấu # từ mã màu
+  hexColor = string.sub(hexColor, 2)
 
-    -- Chuyển đổi mã màu từ hex sang RGB
-    local r = tonumber(string.sub(hexColor, 1, 2), 16)
-    local g = tonumber(string.sub(hexColor, 3, 4), 16)
-    local b = tonumber(string.sub(hexColor, 5, 6), 16)
+  -- Chuyển đổi mã màu từ hex sang RGB
+  local r = tonumber(string.sub(hexColor, 1, 2), 16)
+  local g = tonumber(string.sub(hexColor, 3, 4), 16)
+  local b = tonumber(string.sub(hexColor, 5, 6), 16)
 
-    -- Tính toán màu bổ sung (complementary)
-    local comp_r = 255 - r
-    local comp_g = 255 - g
-    local comp_b = 255 - b
+  -- Tính toán màu bổ sung (complementary)
+  local comp_r = 255 - r
+  local comp_g = 255 - g
+  local comp_b = 255 - b
 
-    -- Chuyển đổi màu bổ sung (complementary) từ RGB sang hex
-    local comp_hexColor = string.format("#%02X%02X%02X", comp_r, comp_g, comp_b)
-return comp_hexColor end
+  -- Chuyển đổi màu bổ sung (complementary) từ RGB sang hex
+  return string.format("#%02X%02X%02X", comp_r, comp_g, comp_b)
+end
+
 return M
