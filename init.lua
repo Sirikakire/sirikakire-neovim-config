@@ -8,13 +8,13 @@ require("init").setup({
   thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
-  syn_sidebar_with_normal = true,
+  syn_sidebar_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 0,
   colorscheme = "catppuccin",
   neovide_setting = {
-    transparency = 1,
+    transparency = 0.9,
     font_setting = {
       name = "JetBrainsMonoNL Nerd Font",
       size = 13,

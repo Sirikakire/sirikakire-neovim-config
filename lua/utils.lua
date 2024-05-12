@@ -44,25 +44,37 @@ U.icons = {
 }
 
 U.sign_icons = {
-  add = ' ',
-  change = '󱗜 ',
-  delete = '󰅗 ',
-  topdelete = ' ',
-  changedelete = '󰇽 ',
-  untracked = ' ',
+  -- add = ' ',
+  -- change = '󱗜 ',
+  -- delete = '󰅗 ',
+  -- topdelete = ' ',
+  -- changedelete = '󰇽 ',
+  -- untracked = ' ',
+  add = '󰐗 ',
+  change = '󰻂 ',
+  delete = '󰅙 ',
+  topdelete = '󰍶 ',
+  changedelete = '󰟃 ',
+  untracked = '󰐗 ',
 
-  success_2 = ' ',
+  success = '󰄳 ',
+  info = '󰋼 ',
+  error = '󰅙 ',
+  hint = '󰋗 ',
+  warning = '󰀨 ',
+
+  -- success_2 = '󰄳 ',
   warning_2 = ' ',
-  info_2 = ' ',
-  warning_3 = ' ',
-  error_2 = ' ',
-  hint_2 = ' ',
+  -- info_2 = '󰋼 ',
+  -- error_2 = '󰅙 ',
+  -- hint_2 = '󰋗 ',
+  warning_3 = '󰀨 ',
 
-  info = '󰀧 ',
-  warning = '󰬐 ',
-  error = '󰅗 ',
-  hint = '󰞋 ',
-  success = ' ',
+  -- info = '󰀧 ',
+  -- warning = '󰬐 ',
+  -- error = '󰅗 ',
+  -- hint = '󰞋 ',
+  -- success = ' ',
 }
 
 U.navic_icon = {

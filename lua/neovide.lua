@@ -28,8 +28,8 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
-  vim.g.neovide_floating_shadow = true
-  vim.g.neovide_floating_z_height = 2
+  vim.g.neovide_floating_shadow = false
+  vim.g.neovide_floating_z_height = 0
   vim.g.neovide_light_angle_degrees = 0
   vim.g.neovide_light_radius = 0
   vim.g.neovide_show_border = false

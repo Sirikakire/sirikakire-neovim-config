@@ -244,7 +244,7 @@ return {
         return (percentage and percentage .. "%\t" or "") .. (message or "")
       end
 
-      local success_icon = require("utils").sign_icons.success_2
+      local success_icon = require("utils").sign_icons.success
 
       vim.lsp.handlers["$/progress"] = function(_, result, ctx)
         local val = result.value

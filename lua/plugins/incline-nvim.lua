@@ -122,7 +122,7 @@ return {
         },
         overlap = {
           borders = true,
-          statusline = true,
+          statusline = false,
           tabline = false,
           winbar = false
         },
