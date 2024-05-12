@@ -122,7 +122,7 @@ K.gitsigns_keymaps = {
 
 -- NOTE: Setup keymap for copilot
 K.copilot_keymaps = {
-  -- { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
 }
 
 -- NOTE: Setup keymap for toggle_term
@@ -157,13 +157,6 @@ K.alternate_toggle_keymaps = {
 -- NOTE: Setup keymap for nvim tree
 K.nvimtree_keymaps = {
   { "<leader>e", "<cmd>NvimTreeFocus<CR>", desc = "Open nvim tree" }
-}
-
--- NOTE: Setup keymap for wildfire
-K.wildfire_keymaps = {
-  { "<CR>", "<cmd>lua require'wildfire'.init_selection()<CR>", desc = "Init wild fire selection" },
-  { "<CR>", "<cmd>lua require'wildfire'.node_incremental()<CR>", mode = { "v" }, desc = "Increase wild fire selection" },
-  { "<BS>", "<cmd>lua require'wildfire'.node_decremental()<CR>", mode = { "v" }, desc = "Decrease wild fire selection" }
 }
 
 return K
