@@ -3,7 +3,7 @@ require("init").setup({
   transparent_background = false,
   mapleader = " ",
   border_color = "#cbc398",
-  doc_border = false,
+  doc_border = true,
   win_separator = false,
   thick_win_separator = false,
   syn_all_border_color = false,
