@@ -14,7 +14,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "catppuccin",
   neovide_setting = {
-    transparency = 0.9,
+    transparency = 1,
     font_setting = {
       name = "JetBrainsMonoNL Nerd Font",
       size = 13,
