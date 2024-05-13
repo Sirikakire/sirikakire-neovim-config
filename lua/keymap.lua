@@ -122,7 +122,26 @@ K.gitsigns_keymaps = {
 
 -- NOTE: Setup keymap for copilot
 K.copilot_keymaps = {
-  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" },
+}
+
+-- NOTE: Setup keymap for copilot chat
+K.copilot_chat_keymaps = {
+  { "<leader>cct", "<cmd>CopilotChatToggle<CR>", desc = "Open copilot chat" },
+  { "<leader>ccr", "<cmd>CopilotChatReset<CR>", desc = "Open copilot chat reset" },
+  { "<leader>cce", "<cmd>CopilotChatExplain<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to explain" },
+  { "<leader>ccf", "<cmd>CopilotChatFix<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to fix" },
+  { "<leader>cco", "<cmd>CopilotChatOptimize<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to optimize" },
+  {
+    "<leader>ccq",
+    function()
+      local input = vim.fn.input("Copilot  : ")
+      if input ~= "" then
+        require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+      end
+    end,
+    desc = "Open copilot chat with input",
+  }
 }
 
 -- NOTE: Setup keymap for toggle_term

@@ -1,6 +1,6 @@
 return {
   "nvim-tree/nvim-web-devicons",
-  priority = 100000,
+  event = "VimEnter",
   config = function ()
     require("nvim-web-devicons").setup({
       -- NOTE: override the icon

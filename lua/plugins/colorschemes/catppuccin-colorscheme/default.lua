@@ -31,6 +31,12 @@ return {
     notify = true,
     gitsigns = true,
     barbar = true,
+    markdown = true,
+    mason = true,
+    noice = true,
+    nvimtree = true,
+    which_key = true,
+    flash = true,
     dashboard = true,
     indent_blankline = {
       enabled = true,

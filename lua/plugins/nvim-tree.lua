@@ -71,10 +71,10 @@ return {
         },
         icons = {
           web_devicons = {
-            file = {
-              enable = true,
-              color = true,
-            },
+            -- file = {
+            --   enable = true,
+            --   color = true,
+            -- },
             folder = {
               enable = true,
               color = true,
