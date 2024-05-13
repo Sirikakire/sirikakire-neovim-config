@@ -22,7 +22,7 @@ return {
         proxy = nil, -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
 
-        system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use
+        system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
         model = 'gpt-4', -- GPT model to use, 'gpt-3.5-turbo' or 'gpt-4'
         temperature = 0.1, -- GPT temperature
 
@@ -43,7 +43,7 @@ return {
 
         -- default selection (visual or line)
         selection = function(source)
-          return select.visual(source) or select.line(source)
+          return require('CopilotChat.select').visual(source) or require('CopilotChat.select').line(source)
         end,
 
         -- default prompts
@@ -71,16 +71,16 @@ return {
           },
           FixDiagnostic = {
             prompt = 'Please assist with the following diagnostic issue in file:',
-            selection = select.diagnostics,
+            selection = require('CopilotChat.select').diagnostics,
           },
           Commit = {
             prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
-            selection = select.gitdiff,
+            selection = require('CopilotChat.select').gitdiff,
           },
           CommitStaged = {
             prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
             selection = function(source)
-              return select.gitdiff(source, true)
+              return require('CopilotChat.select').gitdiff(source, true)
             end,
           },
         },
