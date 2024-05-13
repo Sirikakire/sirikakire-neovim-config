@@ -40,7 +40,7 @@ U.icons = {
   rake = { icon = "", color = "#ef757c", name = "Rake" },
   rakefile = { icon = "", color = "#ef757c", name = "RakeFile" },
   jbuilder = { icon = "", color = "#f7cd6d", name = "Jbuilder" },
-  lua = { icon = "󰢱", color = "#5166f0", name = "Lua" },
+  lua = { icon = "", color = "#5166f0", name = "Lua" },
 }
 
 U.sign_icons = {

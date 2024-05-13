@@ -22,15 +22,15 @@ return {
         "TelescopePrompt"
       }
       cmp.setup({
-        enabled = function()
-          local filetype = vim.bo.filetype
-          for _, v in pairs(excluded_filetypes) do
-            if v == filetype then
-              return false
-            end
-          end
-          return true
-        end,
+        -- enabled = function()
+        --   local filetype = vim.bo.filetype
+        --   for _, v in pairs(excluded_filetypes) do
+        --     if v == filetype then
+        --       return false
+        --     end
+        --   end
+        --   return true
+        -- end,
         completion = {
           -- noselect, 
           completeopt = "noselect, menu, menuone, noinsert, preview",

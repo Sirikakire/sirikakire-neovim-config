@@ -99,7 +99,7 @@ return {
             default = "",
             symlink = "",
             bookmark = "󰆤",
-            modified = "󱗜",
+            modified = require('utils').sign_icons.change:gsub("%s+", ""),
             folder = {
               -- arrow_closed = "",
               -- arrow_open = "",
