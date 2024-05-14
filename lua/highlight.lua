@@ -6,9 +6,16 @@ local setup_highlight = function()
   vim.cmd("highlight! GitSignsAdd ctermbg=NONE guibg=NONE")
   vim.cmd("highlight! GitSignsDelete ctermbg=NONE guibg=NONE")
   vim.cmd("highlight! GitSignsChange ctermbg=NONE guibg=NONE")
-  vim.cmd("highlight! link NeoTreeGitAdded GitSignsAdd")
+  vim.cmd("highlight! link NvimTreeGitNew GitSignsAdd")
+  vim.cmd("highlight! link NvimTreeGitDeleted GitSignsDelete")
+  vim.cmd("highlight! link NvimTreeGitDirty GitSignsChange")
+  vim.cmd("highlight! link NvimTreeGitStaged GitSignsAdd")
+  vim.cmd("highlight! link NeoTreeGitNew GitSignsAdd")
   vim.cmd("highlight! link NeoTreeGitUntracked GitSignsAdd")
   vim.cmd("highlight! link NeoTreeGitModified GitSignsChange")
+
+  -- NOTE: Neotree folder color
+  vim.cmd("highlight! NvimTreeFolderIcon guifg=#e7c173")
 
   -- NOTE: remove ctermbg and guibg for WinSeparator
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")
