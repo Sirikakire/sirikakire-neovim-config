@@ -48,8 +48,10 @@ return {
         border = require('utils').border,
         style = 'minimal',
         relative = 'cursor',
-        row = 0,
-        col = 1
+        row = nil,
+        col =  nil,
+        width = 70,
+        height = 15
       },
       yadm = {
         enable = false
