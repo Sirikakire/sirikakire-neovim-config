@@ -1,6 +1,8 @@
 return {
   "akinsho/bufferline.nvim",
   version = "*",
+  keys = require("keymap").bufferline_keymaps,
+  event = "VimEnter",
   config = function()
     local sign_icons = require("utils").sign_icons
     local bufferline = require("bufferline")

@@ -23,16 +23,10 @@ return {
       },
       sections = {
         lualine_a = {
-          {
-            function() return "Sirikakire" end,
-            icon = "󱁂",
-          },
+          { function() return "Sirikakire" end, icon = "󱁂" },
         },
         lualine_b = {
-          {
-            'branch',
-            icon = "",
-          },
+          { 'branch', icon = "" },
           -- 'branch',
           -- {
           --   'diff',

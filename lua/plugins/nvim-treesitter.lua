@@ -3,29 +3,7 @@ return {
   event = "BufEnter",
   config = function()
     require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        "lua",
-        "javascript",
-        "typescript",
-        "json",
-        "ruby",
-        "html",
-        "css",
-        "scss",
-        "angular",
-        "bash",
-        "dockerfile",
-        "gitignore",
-        "regex",
-        "tsx",
-        "vim",
-        "vimdoc",
-        "vue",
-        "xml",
-        "yaml",
-        "markdown",
-        "markdown_inline"
-      },
+      ensure_installed = require("utils").treesitter_parsers,
       auto_install = true,
       sync_install = true,
       highlight = {

@@ -33,10 +33,12 @@ return {
           "noice",
           "flash_prompt",
           "neo-tree",
+          "NvimTree",
           "TelescopePrompt",
           "lazy",
           "mason",
           "toggleterm",
+          "copilot-chat",
           "dashboard",
           function(win)
             -- exclude non-focusable windows

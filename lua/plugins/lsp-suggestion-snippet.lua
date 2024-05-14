@@ -17,20 +17,7 @@ return {
     event = { "InsertEnter", "CmdlineEnter" },
     config = function()
       local cmp = require("cmp")
-      local excluded_filetypes = {
-        "copilot-chat",
-        "TelescopePrompt"
-      }
       cmp.setup({
-        -- enabled = function()
-        --   local filetype = vim.bo.filetype
-        --   for _, v in pairs(excluded_filetypes) do
-        --     if v == filetype then
-        --       return false
-        --     end
-        --   end
-        --   return true
-        -- end,
         completion = {
           -- noselect, 
           completeopt = "noselect, menu, menuone, noinsert, preview",

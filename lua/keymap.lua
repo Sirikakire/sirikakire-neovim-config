@@ -24,25 +24,9 @@ K.setup_custom_keymap = function()
   vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
   vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
   vim.keymap.set("n", "<leader>gd", "<cmd>%bd!|e#<CR>", { desc = "Global delete all buffer" })
-  vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Navigate to the previous buffer" })
-  vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<CR>", { desc = "Navigate to the next buffer" })
-  vim.keymap.set("n", "<A-H>", "<cmd>BufferLineMovePrev<CR>", { desc = "Move the buffer to the previous" })
-  vim.keymap.set("n", "<A-L>", "<cmd>BufferLineMoveNext<CR>", { desc = "Move the buffer to the next" })
-  vim.keymap.set("n", "<A-c>", function()
-    local buffer_id = vim.fn.bufnr()
-    if buffer_id then
-      vim.cmd("BufferLineCyclePrev")
-      vim.cmd("bdelete "..buffer_id)
-    end
-  end, { desc = "Delete current buffer and then navigate to the previous one" })
-  vim.keymap.set("n", "<A-C>", function()
-    local buffer_id = vim.fn.bufnr()
-    if buffer_id then
-      vim.cmd("BufferLineCycleNext")
-      vim.cmd("bdelete "..buffer_id)
-    end
-  end, { desc = "Delete current buffer and then navigate to the next one" })
+  vim.keymap.set("n", "<leader>ow", "<cmd>lua vim.opt.wrap = not vim.opt.wrap._value<CR>", { desc = "Toggle line wrap" })
 
+  -- NOTE: Setup keymap if neovide is enabled
   if vim.g.neovide then
     vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", {
       desc = "Increase scale factor"
@@ -97,7 +81,7 @@ K.flash_keymaps = {
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
-  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info')<CR>", desc = "Health check vim notify" }
+  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', { title = 'Healh check' }, 'info')<CR>", desc = "Health check vim notify" }
 }
 
 -- NOTE: Setup keymap for telescope
@@ -118,6 +102,30 @@ K.gitsigns_keymaps = {
   { "<leader>hb", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
   { "<leader>hp", function() require("gitsigns").blame_line({ full = true }) end, desc = "Preview git blame" },
   { "<leader>hD", function() require("gitsigns").diffthis("~") end, desc = "Preview git different" }
+}
+
+-- NOTE: Setup keymap of bufferline
+K.bufferline_keymaps = {
+  { "<A-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Navigate to the previous buffer" },
+  { "<A-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Navigate to the next buffer" },
+  { "<A-H>", "<cmd>BufferLineMovePrev<CR>", desc = "Move the buffer to the previous" },
+  { "<A-L>", "<cmd>BufferLineMoveNext<CR>", desc = "Move the buffer to the next" },
+  {
+    "<A-C>", function()
+      if not vim.fn.bufnr() then return end
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("BufferLineCycleNext")
+      vim.cmd("bdelete "..buffer_id)
+    end, desc = "Delete current buffer and then navigate to the next one"
+  },
+  {
+    "<A-c>", function()
+      if not vim.fn.bufnr() then return end
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("BufferLineCyclePrev")
+      vim.cmd("bdelete "..buffer_id)
+    end, desc = "Delete current buffer and then navigate to the previous one"
+  }
 }
 
 -- NOTE: Setup keymap for copilot
@@ -165,7 +173,7 @@ K.toggle_term_keymaps = {
 
 -- NOTE: Setup keymap for lazygit
 K.lazygit_keymaps = {
-  { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+  { "<leader>lg", "<cmd>LazyGit<CR>", desc = "LazyGit" }
 }
 
 -- NOTE: Setup keymap for alternate_toggle

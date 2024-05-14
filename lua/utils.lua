@@ -238,6 +238,31 @@ U.lsp_servers = {
   "volar" -- vue
 }
 
+-- NOTE: Treesitter parser list
+U.treesitter_parsers = {
+  "lua",
+  "javascript",
+  "typescript",
+  "json",
+  "ruby",
+  "html",
+  "css",
+  "scss",
+  "angular",
+  "bash",
+  "dockerfile",
+  "gitignore",
+  "regex",
+  "tsx",
+  "vim",
+  "vimdoc",
+  "vue",
+  "xml",
+  "yaml",
+  "markdown",
+  "markdown_inline"
+}
+
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 
 U.border = vim.b.doc_border and {

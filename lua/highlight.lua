@@ -2,15 +2,13 @@ local init = require("init")
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
-  -- NOTE: Remove background for icons
+  -- NOTE: Sign icons highlight
   vim.cmd("highlight! GitSignsAdd ctermbg=NONE guibg=NONE")
   vim.cmd("highlight! GitSignsDelete ctermbg=NONE guibg=NONE")
   vim.cmd("highlight! GitSignsChange ctermbg=NONE guibg=NONE")
-  -- vim.cmd("highlight! DiagnosticSignOk ctermbg=NONE guibg=NONE")
-  -- vim.cmd("highlight! DiagnosticSignError ctermbg=NONE guibg=NONE")
-  -- vim.cmd("highlight! DiagnosticSignHint ctermbg=NONE guibg=NONE")
-  -- vim.cmd("highlight! DiagnosticSignInfo ctermbg=NONE guibg=NONE")
-  -- vim.cmd("highlight! DiagnosticSignWarn ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight! link NeoTreeGitAdded GitSignsAdd")
+  vim.cmd("highlight! link NeoTreeGitUntracked GitSignsAdd")
+  vim.cmd("highlight! link NeoTreeGitModified GitSignsChange")
 
   -- NOTE: remove ctermbg and guibg for WinSeparator
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")

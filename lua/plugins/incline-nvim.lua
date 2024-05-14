@@ -2,7 +2,7 @@ return {
   "b0o/incline.nvim",
   event = "BufRead",
   config = function ()
-    local devicons = require 'nvim-web-devicons'
+    local devicons = require('nvim-web-devicons')
     local sign_icon = require('utils').sign_icons
     require('incline').setup({
       render = function(props)
@@ -105,6 +105,8 @@ return {
           'lazy',
           'neo-tree',
           'toggleterm',
+          'NvimTree',
+          'copilot-chat',
           'dashboard'
         },
         floating_wins = true,

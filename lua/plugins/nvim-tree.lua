@@ -230,6 +230,7 @@ return {
                 "lazy",
                 "mason",
                 "TelescopePrompt",
+                "copilot-chat"
               },
               buftype = { "nofile", "terminal", "help" },
             },
