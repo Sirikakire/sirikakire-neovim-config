@@ -27,9 +27,9 @@ return {
             if tonumber(signs[name]) and signs[name] > 0 then
               local hlname = ''
 
-              if name == 'removed' then hlname = 'delete' end
-              if name == 'changed' then hlname = 'change' end
-              if name == 'added' then hlname = 'add' end
+              if name == 'removed' then hlname = 'Delete' end
+              if name == 'changed' then hlname = 'Change' end
+              if name == 'added' then hlname = 'Add' end
 
               table.insert(labels, {
                 icon .. signs[name] .. ' ',

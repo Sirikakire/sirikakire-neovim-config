@@ -2,6 +2,11 @@ local init = require("init")
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
+  -- NOTE: Remove background for gitsigns
+  vim.cmd("highlight! GitSignsAdd ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight! GitSignsDelete ctermbg=NONE guibg=NONE")
+  vim.cmd("highlight! GitSignsChange ctermbg=NONE guibg=NONE")
+
   -- NOTE: remove ctermbg and guibg for WinSeparator
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE")
 

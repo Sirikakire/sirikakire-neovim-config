@@ -22,12 +22,12 @@ return {
         model = 'gpt-4', -- GPT model to use, 'gpt-3.5-turbo' or 'gpt-4'
         temperature = 0.5, -- GPT temperature
 
-        question_header = '`Sirikakire 󱁂 :`', -- Header to use for user questions
-        answer_header = '`Copilot  :`', -- Header to use for AI answers
-        error_header = '`Error 󰅙 :`', -- Header to use for errors
+        question_header = '# Sirikakire 󱁂 :', -- Header to use for user questions
+        answer_header = '# Copilot  :', -- Header to use for AI answers
+        error_header = '# Error 󰅙 :', -- Header to use for errors
         separator = ' ', -- Separator to use in chat
 
-        show_folds = true, -- Shows folds for sections in chat
+        show_folds = false, -- Shows folds for sections in chat
         show_help = false, -- Shows help message as virtual lines when waiting for user input
         auto_follow_cursor = true, -- Auto-follow cursor in chat
         auto_insert_mode = false, -- Automatically enter insert mode when opening window and if auto follow cursor is enabled on new prompt
@@ -89,15 +89,15 @@ return {
         -- default window options
         window = {
           layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace'
-          width = 0.7, -- fractional width of parent, or absolute width in columns when > 1
-          height = 0.7, -- fractional height of parent, or absolute height in rows when > 1
+          width = 0.8, -- fractional width of parent, or absolute width in columns when > 1
+          height = 0.8, -- fractional height of parent, or absolute height in rows when > 1
           -- Options below only apply to floating windows
           relative = 'editor', -- 'editor', 'win', 'cursor', 'mouse'
-          border = require("utils").border, -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
+          border = require('utils').border, -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
           row = nil, -- row position of the window, default is centered
           col = nil, -- column position of the window, default is centered
           title = 'Sirikakire Copilot Chat', -- title of chat window
-          footer = 'Ask something interesting and Copilot   will resolve it for you', -- footer of chat window
+          footer = nil, -- footer of chat window
           zindex = 1, -- determines if window is on top or below other floating windows
         },
 
