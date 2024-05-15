@@ -41,7 +41,7 @@ return {
               cmdline = "[CMDLine]",
               path = "[Path]",
             })[entry.source.name]
-            vim_item.kind = string.format("%s %s", require("utils").navic_icon[vim_item.kind], vim_item.kind)
+            vim_item.kind = string.format("%s %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,
         },
@@ -71,24 +71,18 @@ return {
             i = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm()
-              else
-                fallback()
-              end
+              else fallback() end
             end,
             s = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm()
-              else
-                fallback()
-              end
+              else fallback() end
             end,
             c = function(fallback)
               -- cmp.SelectBehavior.Replace()
               if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm()
-              else
-                fallback()
-              end
+              else fallback() end
             end,
           }),
         }),
@@ -114,9 +108,7 @@ return {
           }),
         }),
         sources = cmp.config.sources(
-          {
-            { name = "path" },
-          },
+          { { name = "path" } },
           {
             {
               name = "cmdline",
@@ -152,14 +144,10 @@ return {
         config = config or {}
         config.focus_id = ctx.method
         config.border = require("utils").border
-        if not (result and result.contents) then
-          return
-        end
+        if not (result and result.contents) then return end
         local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
         markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
-        if vim.tbl_isempty(markdown_lines) then
-          return
-        end
+        if vim.tbl_isempty(markdown_lines) then return end
         return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
       end
 
@@ -198,7 +186,7 @@ return {
         })
       end
 
-      -- NOTE: Nvim notify
+      -- NOTE: Nvim lsp progress notify
 
       local client_notifs = {}
       local function get_notif_data(client_id, token)

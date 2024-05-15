@@ -2,17 +2,17 @@
 require("init").setup({
   transparent_background = false,
   mapleader = " ",
-  border_color = "#cbc398",
-  doc_border = false,
-  win_separator = false,
+  border_color = "#e7c173",
+  doc_border = true,
+  win_separator = true,
   thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = -10,
+  float_window_brightness = 5,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "rose-pine",
+  colorscheme = "onenord",
   neovide_setting = {
     transparency = 1,
     font_setting = {

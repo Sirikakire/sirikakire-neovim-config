@@ -22,7 +22,7 @@ return {
         model = 'gpt-4', -- GPT model to use, 'gpt-3.5-turbo' or 'gpt-4'
         temperature = 0.5, -- GPT temperature
 
-        question_header = '# Sirikakire 󱁂 :', -- Header to use for user questions
+        question_header = '# Sirikakire  :', -- Header to use for user questions
         answer_header = '# Copilot  :', -- Header to use for AI answers
         error_header = '# Error 󰅙 :', -- Header to use for errors
         separator = ' ', -- Separator to use in chat
@@ -96,7 +96,7 @@ return {
           border = require('utils').border, -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
           row = nil, -- row position of the window, default is centered
           col = nil, -- column position of the window, default is centered
-          title = 'Sirikakire Copilot Chat', -- title of chat window
+          title = 'Copilot Chat Window ', -- title of chat window
           footer = nil, -- footer of chat window
           zindex = 1, -- determines if window is on top or below other floating windows
         },

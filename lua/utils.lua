@@ -220,22 +220,22 @@ U.kind_icons = {
 
 -- NOTE: Lsp server list
 U.lsp_servers = {
-  "tsserver", -- typescript
-  "lua_ls", -- lua
-  "cssls", -- css
-  "cssmodules_ls", -- css modules
-  "somesass_ls", -- Sass
-  "bashls", -- bash
-  "jsonls", -- json
-  "tailwindcss", -- tailwindcss
-  "emmet_ls", -- emmet
-  "html", -- html
-  -- "solargraph", -- ruby
-  "dockerls", -- docker
+  "tsserver",                        -- typescript
+  "lua_ls",                          -- lua
+  "cssls",                           -- css
+  "cssmodules_ls",                   -- css modules
+  "somesass_ls",                     -- Sass
+  "bashls",                          -- bash
+  "jsonls",                          -- json
+  "tailwindcss",                     -- tailwindcss
+  "emmet_ls",                        -- emmet
+  "html",                            -- html
+  "solargraph",                      -- ruby
+  "dockerls",                        -- docker
   "docker_compose_language_service", -- docker-compose
-  "angularls", -- angular
-  "eslint", -- eslint
-  "volar" -- vue
+  "angularls",                       -- angular
+  "eslint",                          -- eslint
+  "volar"                            -- vue
 }
 
 -- NOTE: Treesitter parser list
@@ -274,6 +274,14 @@ U.border = vim.b.doc_border and {
   { "─", "FloatBorder" },
   { "╰", "FloatBorder" },
   { "│", "FloatBorder" },
+  -- { "╔", "FloatBorder" },
+  -- { "═", "FloatBorder" },
+  -- { "╗", "FloatBorder" },
+  -- { "║", "FloatBorder" },
+  -- { "╝", "FloatBorder" },
+  -- { "═", "FloatBorder" },
+  -- { "╚", "FloatBorder" },
+  -- { "║", "FloatBorder" },
 } or {
   { "", "" },
   { "", "" },

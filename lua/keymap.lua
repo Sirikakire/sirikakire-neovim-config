@@ -3,13 +3,16 @@ local K = {}
 -- NOTE: Setup custom keymap
 K.setup_custom_keymap = function()
   -- NOTE: Useless keymap to not hit by mistake
-  vim.keymap.set("n", "<C-z>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "K", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "<C-b>", "", { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "<C-z>", "",
+    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "K", "",
+    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "<C-b>", "",
+    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
   -- NOTE: Rest of the custom keymaps
-  vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = "Save file" })
-  vim.keymap.set('n', '<C-S>', '<cmd>wa<CR>', { desc = "Save all files" })
+  vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+  vim.keymap.set("n", "<C-S>", "<cmd>wa<CR>", { desc = "Save all files" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
@@ -41,10 +44,10 @@ K.setup_custom_keymap = function()
       desc = "Toggle screen mode"
     })
 
-    vim.keymap.set('n', '<C-v>', '"+P') -- Paste normal mode
-    vim.keymap.set('v', '<C-v>', '"+P') -- Paste visual mode
-    vim.keymap.set('c', '<C-v>', '<C-r><C-o>+') -- Paste command mode
-    vim.keymap.set('i', '<c-v>', '<esc>"+pli') -- paste insert mode
+    vim.keymap.set('n', '<C-v>', '"+P')             -- Paste normal mode
+    vim.keymap.set('v', '<C-v>', '"+P')             -- Paste visual mode
+    vim.keymap.set('c', '<C-v>', '<C-r><C-o>+')     -- Paste command mode
+    vim.keymap.set('i', '<c-v>', '<esc>"+pli')      -- paste insert mode
     vim.keymap.set('t', '<c-v>', '<C-\\><C-n>"+pi') -- paste terminal mode
   end
 end
@@ -75,56 +78,60 @@ end
 
 -- NOTE: Setup keymap for flash
 K.flash_keymaps = {
-  { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-  { "<c-f>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  { "f",     mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+  { "<c-f>", mode = { "c" },           function() require("flash").toggle() end, desc = "Toggle Flash Search" },
 }
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
-  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info')<CR>", desc = "Health check vim notify" }
+  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info', { title = 'Health check' })<CR>", desc = "Health check vim notify" }
 }
 
 -- NOTE: Setup keymap for telescope
 K.telescope_keymaps = {
-  { "<leader>fa", "<cmd>lua require('telescope.builtin').autocommands()<CR>", desc = "List all auto commands" },
-  { "<leader>fh", "<cmd>lua require('telescope.builtin').highlights()<CR>", desc = "List all highlights" },
+  { "<leader>fa", "<cmd>lua require('telescope.builtin').autocommands()<CR>",                desc = "List all auto commands" },
+  { "<leader>fh", "<cmd>lua require('telescope.builtin').highlights()<CR>",                  desc = "List all highlights" },
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", desc = "Find files" },
-  { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "Live grep" },
-  { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "Open workspace diagnostics" },
-  { "<leader>fb", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "Open buffer git commit list" },
-  { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", desc = "Open references" },
+  { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>",                   desc = "Live grep" },
+  { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>",                 desc = "Open workspace diagnostics" },
+  { "<leader>fb", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>",                desc = "Open buffer git commit list" },
+  { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>",              desc = "Open references" },
 }
 
 
 -- NOTE: Setup keymap for gitsigns
 K.gitsigns_keymaps = {
-  { "<leader>hu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
-  { "<leader>hb", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
+  { "<leader>hu", function() require("gitsigns").undo_stage_hunk() end,           desc = "Undo stage hunk" },
+  { "<leader>hb", function() require("gitsigns").preview_hunk() end,              desc = "Preview hunk" },
   { "<leader>hp", function() require("gitsigns").blame_line({ full = true }) end, desc = "Preview git blame" },
-  { "<leader>hD", function() require("gitsigns").diffthis("~") end, desc = "Preview git different" }
+  { "<leader>hD", function() require("gitsigns").diffthis("~") end,               desc = "Preview git different" }
 }
 
 -- NOTE: Setup keymap of bufferline
 K.bufferline_keymaps = {
   { "<A-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Navigate to the previous buffer" },
   { "<A-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Navigate to the next buffer" },
-  { "<A-H>", "<cmd>BufferLineMovePrev<CR>", desc = "Move the buffer to the previous" },
-  { "<A-L>", "<cmd>BufferLineMoveNext<CR>", desc = "Move the buffer to the next" },
+  { "<A-H>", "<cmd>BufferLineMovePrev<CR>",  desc = "Move the buffer to the previous" },
+  { "<A-L>", "<cmd>BufferLineMoveNext<CR>",  desc = "Move the buffer to the next" },
   {
-    "<A-C>", function()
+    "<A-C>",
+    function()
       if not vim.fn.bufnr() then return end
       local buffer_id = vim.fn.bufnr()
       vim.cmd("BufferLineCycleNext")
-      vim.cmd("bdelete "..buffer_id)
-    end, desc = "Delete current buffer and then navigate to the next one"
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    desc = "Delete current buffer and then navigate to the next one"
   },
   {
-    "<A-c>", function()
+    "<A-c>",
+    function()
       if not vim.fn.bufnr() then return end
       local buffer_id = vim.fn.bufnr()
       vim.cmd("BufferLineCyclePrev")
-      vim.cmd("bdelete "..buffer_id)
-    end, desc = "Delete current buffer and then navigate to the previous one"
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    desc = "Delete current buffer and then navigate to the previous one"
   }
 }
 
@@ -135,11 +142,11 @@ K.copilot_keymaps = {
 
 -- NOTE: Setup keymap for copilot chat
 K.copilot_chat_keymaps = {
-  { "<leader>cct", "<cmd>CopilotChatToggle<CR>", desc = "Open copilot chat" },
-  { "<leader>ccr", "<cmd>CopilotChatReset<CR>", desc = "Open copilot chat reset" },
-  { "<leader>cce", "<cmd>CopilotChatExplain<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to explain" },
-  { "<leader>ccf", "<cmd>CopilotChatFix<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to fix" },
-  { "<leader>cco", "<cmd>CopilotChatOptimize<CR>", mode = { 'n', 'v' }, desc = "Open copilot chat to optimize" },
+  { "<leader>cct", "<cmd>CopilotChatToggle<CR>",   desc = "Open copilot chat" },
+  { "<leader>ccr", "<cmd>CopilotChatReset<CR>",    desc = "Open copilot chat reset" },
+  { "<leader>cce", "<cmd>CopilotChatExplain<CR>",  mode = { 'n', 'v' },             desc = "Open copilot chat to explain" },
+  { "<leader>ccf", "<cmd>CopilotChatFix<CR>",      mode = { 'n', 'v' },             desc = "Open copilot chat to fix" },
+  { "<leader>cco", "<cmd>CopilotChatOptimize<CR>", mode = { 'n', 'v' },             desc = "Open copilot chat to optimize" },
   {
     "<leader>ccq",
     function()
@@ -156,29 +163,27 @@ K.copilot_chat_keymaps = {
 K.toggle_term_keymaps = {
   { "<leader>ts", "<cmd>TermSelect<CR>", desc = "Open terminal selection" },
   { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Open terminal" },
-  { "<leader>ti", function()
-    local user_input = vim.fn.input("Enter terminal number: ")
+  {
+    "<leader>ti",
+    function()
+      local user_input = vim.fn.input("Enter terminal number  : ")
 
-    if user_input == "" then return end
+      if user_input == "" then return end
 
-    if "number" ~= type(tonumber(user_input)) then
-      vim.notify("The input must be a number!", "warn")
-      return
-    end
+      if "number" ~= type(tonumber(user_input)) then
+        vim.notify("The input must be a number!", "warn")
+        return
+      end
 
-    vim.cmd(user_input .. "ToggleTerm")
-  end, desc = "Open or create terminal by number",
+      vim.cmd(user_input .. "ToggleTerm")
+    end,
+    desc = "Open or create terminal by number",
   },
 }
 
 -- NOTE: Setup keymap for lazygit
 K.lazygit_keymaps = {
   { "<leader>lg", "<cmd>LazyGit<CR>", desc = "LazyGit" }
-}
-
--- NOTE: Setup keymap for alternate_toggle
-K.alternate_toggle_keymaps = {
-  { "<leader>at", '<cmd>lua require("alternate-toggler").toggleAlternate()<CR>', desc = "Toggle alternate" },
 }
 
 -- NOTE: Setup keymap for nvim tree
