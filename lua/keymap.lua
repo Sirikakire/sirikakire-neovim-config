@@ -81,7 +81,7 @@ K.flash_keymaps = {
 
 -- NOTE: Setup keymap for nvim-notify
 K.notify_keymaps = {
-  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', { title = 'Healh check' }, 'info')<CR>", desc = "Health check vim notify" }
+  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info')<CR>", desc = "Health check vim notify" }
 }
 
 -- NOTE: Setup keymap for telescope

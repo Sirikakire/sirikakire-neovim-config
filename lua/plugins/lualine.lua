@@ -6,7 +6,7 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        component_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '󰿟' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
@@ -23,42 +23,23 @@ return {
       },
       sections = {
         lualine_a = {
-          { function() return "Sirikakire" end, icon = "󱁂" },
+          { function() return "Sirikakire" end, icon = "", color = { gui = "bold" } },
         },
         lualine_b = {
-          { 'branch', icon = "" },
-          -- 'branch',
-          -- {
-          --   'diff',
-          --   symbols = {
-          --     added = " ",
-          --     modified = "󰈚 ",
-          --     removed = " "
-          --   },
-          -- },
-          -- {
-          --   'diagnostics',
-          --   symbols = {
-          --     error = " ",
-          --     warn = " ",
-          --     info = " ",
-          --     hint = " "
-          --   },
-          -- }
+          { 'branch', icon = "" },
         },
-        lualine_c = { "buffer" },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {
           { 'filetype' },
           { 'progress' },
-        },
-        lualine_z = {
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
             icon = "󰔟",
           }
-        }
+        },
+        lualine_z = {}
       },
       inactive_sections = {
         lualine_a = {},

@@ -26,6 +26,8 @@ local setup_highlight = function()
   -- NOTE: Get rid of dim background
   -- vim.cmd("highlight! link NormalNC Normal")
   vim.cmd("highlight! link NormalNC Normal")
+  vim.cmd("highlight! link StatusLine Normal")
+  vim.cmd("highlight! link StatusLineNC NormalNC")
   vim.cmd("highlight! link NeoTreeNormalNC NeoTreeNormal")
   vim.cmd("highlight! link NvimTreeNormalNC NvimTreeNormal")
   vim.cmd("highlight! link NeoTreeExpander NeoTreeDirectoryIcon")

@@ -6,7 +6,7 @@ return vim.b.colorscheme ~= "rose-pine" and {} or {
       -- variant = "dawn", -- auto, main, moon, or dawn
       -- dark_variant = "moon", -- main, moon, or dawn
       dim_inactive_windows = false,
-      extend_background_behind_borders = true,
+      extend_background_behind_borders = false,
       enable = {
         terminal = true,
         legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
@@ -67,8 +67,8 @@ return vim.b.colorscheme ~= "rose-pine" and {} or {
     })
 
     -- vim.cmd("colorscheme rose-pine")
-    -- vim.cmd("colorscheme rose-pine-main")
-    vim.cmd("colorscheme rose-pine-moon")
-    -- vim.cmd("colorscheme rose-pine-dawn")
+    -- vim.cmd("colorscheme rose-pine-moon")
+    vim.opt.background = "light"
+    vim.cmd("colorscheme rose-pine-dawn")
   end
 }
