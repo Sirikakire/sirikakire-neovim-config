@@ -55,6 +55,32 @@ local setup_syn_sidebar_with_normal = function()
   vim.cmd("highlight! link NvimTreeNormal Normal")
 end
 
+local setup_terminal_highlight = function()
+  vim.g.terminal_color_0 = "#737994"
+  vim.g.terminal_color_8 = "#838ba7"
+
+  vim.g.terminal_color_1 = "#e78284"
+  vim.g.terminal_color_9 = "#e78284"
+
+  vim.g.terminal_color_2 = "#a6d189"
+  vim.g.terminal_color_10 = "#a6d189"
+
+  vim.g.terminal_color_3 = "#e5c890"
+  vim.g.terminal_color_11 = "#e5c890"
+
+  vim.g.terminal_color_4 = "#8caaee"
+  vim.g.terminal_color_12 = "#8caaee"
+
+  vim.g.terminal_color_5 = "#f4b8e4"
+  vim.g.terminal_color_13 = "#f4b8e4"
+
+  vim.g.terminal_color_6 = "#99d1db"
+  vim.g.terminal_color_14 = "#99d1db"
+
+  vim.g.terminal_color_7 = "#c6d0f5"
+  vim.g.terminal_color_15 = "#c6d0f5"
+end
+
 -- NOTE: Setup better cmp cursor line
 local setup_better_cmp_cursor_line = function()
   local cmpColorAfter = {}
@@ -163,6 +189,7 @@ end
 
 local init_highlight = function()
   setup_highlight()
+  if vim.g.neovide then setup_terminal_highlight() end
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end
