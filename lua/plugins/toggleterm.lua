@@ -11,6 +11,11 @@ return {
       direction = "float",
       auto_scroll = true,
       title_pos = "center",
+      highlights = {
+        NormalFloat = {
+          link = "NormalFloat"
+        }
+      },
       float_opts = {
         border = require("utils").border,
       },
