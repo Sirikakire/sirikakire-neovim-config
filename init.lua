@@ -3,7 +3,7 @@ require("init").setup({
   transparent_background = false,
   mapleader = " ",
   border_color = "#cbc398",
-  doc_border = true,
+  doc_border = false,
   win_separator = false,
   thick_win_separator = false,
   syn_all_border_color = false,
@@ -11,12 +11,12 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  line_space = 0,
+  line_space = 2,
   colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "JetBrainsMonoNL Nerd Font",
+      name = "CodeNewRoman Nerd Font",
       size = 13,
       bold = false,
     }
