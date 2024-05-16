@@ -6,7 +6,7 @@ return vim.b.colorscheme ~= "fluoromachine" and {} or {
 
     fm.setup {
       glow = true,
-      theme = 'fluoromachine' -- fluoromachine, retrowave, delta
+      theme = 'delta' -- fluoromachine, retrowave, delta
     }
 
     vim.cmd.colorscheme 'fluoromachine'
