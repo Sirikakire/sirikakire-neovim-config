@@ -2,6 +2,7 @@ local init = require("init")
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
+  -- highlight! link NvimTreeFolderIcon guifg=#e7c173
   --[[
      NOTE: 
     - Sign icons highlight
@@ -22,7 +23,7 @@ local setup_highlight = function()
     highlight! link NeoTreeGitUntracked GitSignsAdd
     highlight! link NeoTreeGitModified GitSignsChange
 
-    highlight! NvimTreeFolderIcon guifg=#e7c173
+    highlight! link NvimTreeFolderIcon NvimTreeFolderName
 
     highlight! link WinBar Normal
     highlight! link WinBarNC NormalNC
