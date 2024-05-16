@@ -11,8 +11,6 @@ K.setup_custom_keymap = function()
     { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
   -- NOTE: Rest of the custom keymaps
-  vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
-  vim.keymap.set("n", "<C-S>", "<cmd>wa<CR>", { desc = "Save all files" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
@@ -107,31 +105,14 @@ K.gitsigns_keymaps = {
   { "<leader>hD", function() require("gitsigns").diffthis("~") end,               desc = "Preview git different" }
 }
 
--- NOTE: Setup keymap of bufferline
-K.bufferline_keymaps = {
-  { "<A-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Navigate to the previous buffer" },
-  { "<A-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Navigate to the next buffer" },
-  { "<A-H>", "<cmd>BufferLineMovePrev<CR>",  desc = "Move the buffer to the previous" },
-  { "<A-L>", "<cmd>BufferLineMoveNext<CR>",  desc = "Move the buffer to the next" },
+-- NOTE: Setup keymap of barbar
+K.barbar_keymaps = {
+  { "<A-h>", "<cmd>BufferPrevious<CR>", desc = "Navigate to the previous buffer" },
+  { "<A-l>", "<cmd>BufferNext<CR>", desc = "Navigate to the next buffer" },
+  { "<A-H>", "<cmd>BufferMovePrevious<CR>",  desc = "Move the buffer to the previous" },
+  { "<A-L>", "<cmd>BufferMoveNext<CR>",  desc = "Move the buffer to the next" },
   {
-    "<A-C>",
-    function()
-      if not vim.fn.bufnr() then return end
-      local buffer_id = vim.fn.bufnr()
-      vim.cmd("BufferLineCycleNext")
-      vim.cmd("bdelete " .. buffer_id)
-    end,
-    desc = "Delete current buffer and then navigate to the next one"
-  },
-  {
-    "<A-c>",
-    function()
-      if not vim.fn.bufnr() then return end
-      local buffer_id = vim.fn.bufnr()
-      vim.cmd("BufferLineCyclePrev")
-      vim.cmd("bdelete " .. buffer_id)
-    end,
-    desc = "Delete current buffer and then navigate to the previous one"
+    "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one"
   }
 }
 

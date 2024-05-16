@@ -23,7 +23,7 @@ local options = {
   "number relativenumber",
   "clipboard+=unnamedplus",
   "shada=!,'20,<10,s10,h",
-  "laststatus=2",
+  "laststatus=3",
   "termguicolors",
   "scrolloff=5",
   "title",
