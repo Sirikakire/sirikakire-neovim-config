@@ -80,7 +80,10 @@ return {
             end,
             c = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm()
+                cmp.confirm({
+                  behavior = cmp.ConfirmBehavior.Replace,
+                  select = false,
+                })
               else fallback() end
             end,
           }),
@@ -106,17 +109,15 @@ return {
             s = cmp.config.disable
           }),
         }),
-        sources = cmp.config.sources(
-          { { name = "path" } },
+        sources = cmp.config.sources( {
+          { name = "path" } ,
           {
-            {
-              name = "cmdline",
-              option = {
-                ignore_cmds = { "Man", "!" },
-              },
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
             },
           }
-        ),
+        }),
         matching = { disallow_symbol_nonprefix_matching = false }
       })
     end,
