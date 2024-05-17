@@ -5,6 +5,7 @@ local setup_highlight = function()
   -- highlight! link NvimTreeFolderIcon guifg=#e7c173
   --[[
      NOTE: 
+    - Remove diagnostic sign background
     - Sign icons highlight
     - Neotree folder color
     - Get rid of dim background
@@ -12,6 +13,9 @@ local setup_highlight = function()
     - sync neotree and nvim tree separator
   ]]
   vim.cmd([[
+    highlight! GitGutterAdd ctermbg=NONE guibg=NONE
+    highlight! GitGutterDelete ctermbg=NONE guibg=NONE
+    highlight! GitGutterChange ctermbg=NONE guibg=NONE
     highlight! link DiffAdd GitSignsAdd
     highlight! link DiffDelete GitSignsDelete
     highlight! link DiffChange GitSignsChange
@@ -169,16 +173,6 @@ local setup_transparent_background = function()
     highlight! TelescopeResultsTitle ctermbg=NONE guibg=NONE
     highlight! TreesitterContext ctermbg=NONE guibg=NONE
     highlight! TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE
-    highlight! DiagnosticSignError ctermbg=NONE guibg=NONE
-    highlight! DiagnosticSignWarn ctermbg=NONE guibg=NONE
-    highlight! DiagnosticSignInfo ctermbg=NONE guibg=NONE
-    highlight! DiagnosticSignHint ctermbg=NONE guibg=NONE
-    highlight! DiagnosticSignOk ctermbg=NONE guibg=NONE
-    highlight! DiagnosticError ctermbg=NONE guibg=NONE
-    highlight! DiagnosticWarn ctermbg=NONE guibg=NONE
-    highlight! DiagnosticInfo ctermbg=NONE guibg=NONE
-    highlight! DiagnosticHint ctermbg=NONE guibg=NONE
-    highlight! DiagnosticOk ctermbg=NONE guibg=NONE
   ]])
 end
 

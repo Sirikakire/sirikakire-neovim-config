@@ -11,7 +11,7 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  line_space = 0,
+  line_space = 1,
   colorscheme = "embark",
   neovide_setting = {
     transparency = 1,
