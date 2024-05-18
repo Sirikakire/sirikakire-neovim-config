@@ -23,10 +23,10 @@ return {
         buffer_number = false,
         button = '',
         diagnostics = {
-          [vim.diagnostic.severity.ERROR] = {enabled = false},
-          [vim.diagnostic.severity.WARN] = {enabled = false},
-          [vim.diagnostic.severity.INFO] = {enabled = false},
-          [vim.diagnostic.severity.HINT] = {enabled = false},
+          -- [vim.diagnostic.severity.ERROR] = {enabled = false},
+          -- [vim.diagnostic.severity.WARN] = {enabled = false},
+          -- [vim.diagnostic.severity.INFO] = {enabled = false},
+          -- [vim.diagnostic.severity.HINT] = {enabled = false},
         },
         gitsigns = {
           added = {enabled = false, icon = '+'},
