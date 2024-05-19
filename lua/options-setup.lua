@@ -27,6 +27,7 @@ local options = {
   "termguicolors",
   "scrolloff=5",
   "title",
+  "smoothscroll",
   "pumheight=10",
   "noswapfile",
   "noshowmode",
