@@ -1,6 +1,5 @@
 return {
   "romgrk/barbar.nvim",
-  version = "*",
   keys = require("keymap").barbar_keymaps,
   event = "VimEnter",
   init = function()
