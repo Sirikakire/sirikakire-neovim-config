@@ -2,13 +2,14 @@
   NOTE: Neovide %Username%/AppData/roaming/neovide/config.toml file
   wsl = true
   no-multigrid = false
-  vsync = false
+  vsync = true
   maximized = false
-  srgb = false
+  srgb = true
   idle = true
   neovim-bin = "/opt/nvim-linux64/bin/nvim" # in reality found dynamically on $PATH if unset
   frame = "full"
-  title-hidden = true
+  opengl = true
+  title-hidden = false
   tabs = true
 ]]
 
@@ -23,7 +24,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   end
 
   vim.g.neovide_transparency = setting.transparency
-  vim.g.neovide_window_blurred = false
+  vim.g.neovide_window_blurred = true
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0

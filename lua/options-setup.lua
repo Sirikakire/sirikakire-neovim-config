@@ -52,16 +52,6 @@ if(vim.b.win_separator) then
       "fillchars+=vertright:\\┣",
       "fillchars+=verthoriz:\\╋",
     })
-
-    -- vim.list_extend(options, {
-    --   "fillchars+=horiz:\\═",
-    --   "fillchars+=horizup:\\╩",
-    --   "fillchars+=horizdown:\\╦",
-    --   "fillchars+=vert:\\║",
-    --   "fillchars+=vertleft:\\╣",
-    --   "fillchars+=vertright:\\╠",
-    --   "fillchars+=verthoriz:\\╬",
-    -- })
   or
     vim.list_extend(options, {
     "fillchars+=horiz:\\─",

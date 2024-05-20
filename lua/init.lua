@@ -11,6 +11,7 @@ vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
 vim.b.float_window_brightness = 0
 vim.b.doc_border = false
+vim.opt.background = "dark"
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
 vim.b.syn_sidebar_with_normal = false
@@ -64,6 +65,10 @@ M.setup = function (params)
 
   if params.better_cmp_cursor_line ~= nil then
     vim.b.better_cmp_cursor_line = params.better_cmp_cursor_line
+  end
+
+  if params.background_theme ~= nil then
+    vim.opt.background = params.background_theme
   end
 
   if params.colorscheme ~= nil then
