@@ -65,7 +65,9 @@ local setup_terminal_highlight = function()
     "#8caaee", "#f4b8e4", "#99d1db", "#c6d0f5",
   }
   for i, color in ipairs(terminal_colors) do
-    vim.g["terminal_color_" .. i-1] = color
+    if not vim.g["terminal_color_" .. i-1] then
+      vim.g["terminal_color_" .. i-1] = color
+    end
   end
 end
 
