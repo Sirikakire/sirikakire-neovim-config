@@ -11,7 +11,7 @@ require("init").setup({
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
   float_window_brightness = 0,
-  better_cmp_cursor_line = true,
+  better_cmp_cursor_line = false,
   line_space = 1,
   colorscheme = "onedark",
   neovide_setting = {
