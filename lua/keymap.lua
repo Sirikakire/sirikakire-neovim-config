@@ -111,13 +111,7 @@ K.barbar_keymaps = {
   { "<A-l>", "<cmd>BufferNext<CR>", desc = "Navigate to the next buffer" },
   { "<A-H>", "<cmd>BufferMovePrevious<CR>",  desc = "Move the buffer to the previous" },
   { "<A-L>", "<cmd>BufferMoveNext<CR>",  desc = "Move the buffer to the next" },
-  -- { "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one" },
-  { "<A-c>", function ()
-    if not vim.fn.bufnr() then return end
-    local buffer_id = vim.fn.bufnr()
-    vim.cmd("BufferPrevious")
-    vim.cmd("bdelete " .. buffer_id)
-  end, desc = "Close current buffer and then navigate to the previous one"}
+  { "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one" },
 }
 
 -- NOTE: Setup keymap for copilot
