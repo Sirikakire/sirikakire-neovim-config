@@ -238,7 +238,7 @@ U.lsp_servers = {
   "tailwindcss",                     -- tailwindcss
   "emmet_ls",                        -- emmet
   "html",                            -- html
-  -- "solargraph",                      -- ruby
+  "solargraph",                      -- ruby
   "dockerls",                        -- docker
   "docker_compose_language_service", -- docker-compose
   "angularls",                       -- angular
@@ -273,7 +273,7 @@ U.treesitter_parsers = {
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 U.sbar           = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
 
-U.border = vim.b.doc_border_type == "singple" and {
+U.border = vim.b.doc_border_type == "single" and {
   { "╭", "FloatBorder" },
   { "─", "FloatBorder" },
   { "╮", "FloatBorder" },

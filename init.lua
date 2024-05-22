@@ -4,7 +4,7 @@ require("init").setup({
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "padding",
-  win_separator = false,
+  win_separator = true,
   background_theme = "dark",
   thick_win_separator = true,
   syn_all_border_color = false,
@@ -12,12 +12,12 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = -15,
   better_cmp_cursor_line = true,
-  line_space = -1,
+  line_space = 6,
   colorscheme = "palenightfall",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "ComicShannsMono Nerd Font",
+      name = "UbuntuSansMono Nerd Font",
       size = 13,
       bold = false,
     }
