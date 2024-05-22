@@ -39,7 +39,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_underline_stroke_scale = 1.0
   vim.g.neovide_unlink_border_highlights = false
-  vim.g.neovide_refresh_rate = 70
+  vim.g.neovide_refresh_rate = 60
   vim.g.neovide_refresh_rate_idle = 5
   vim.g.neovide_no_idle = false
   vim.g.neovide_confirm_quit = true
