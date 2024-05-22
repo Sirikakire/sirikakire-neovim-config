@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 local init = require("init")
 
 -- NOTE: Setup highlight
@@ -27,16 +28,15 @@ local setup_highlight = function()
     highlight! link NeoTreeGitUntracked GitSignsAdd
     highlight! link NeoTreeGitModified GitSignsChange
 
+    highlight! link BufferDefaultOffset NvimTreeNormal
     highlight! link NvimTreeFolderIcon NvimTreeFolderName
 
     highlight! link WinBar Normal
     highlight! link WinBarNC NormalNC
-    highlight! link StatusLine lualine_c_normal
-    highlight! link StatusLineNC lualine_c_normal
-    highlight! link NeoTreeNormal Normal
-    highlight! link NeoTreeNormalNC NormalNC
-    highlight! link NvimTreeNormal Normal
-    highlight! link NvimTreeNormalNC NormalNC
+    " highlight! link StatusLine lualine_c_normal
+    " highlight! link StatusLine lualine_c_normal
+    highlight! link StatusLine Normal
+    highlight! link StatusLineNC Normal
     highlight! link NeoTreeExpander NeoTreeDirectoryIcon
 
     highlight! CmpItemAbbr ctermbg=NONE guibg=NONE
@@ -58,12 +58,8 @@ local setup_highlight = function()
 end
 
 local setup_terminal_highlight = function()
-  local terminal_colors = {
-    "#737994", "#e78284", "#a6d189", "#e5c890",
-    "#8caaee", "#f4b8e4", "#99d1db", "#c6d0f5",
-    "#838ba7", "#e78284", "#a6d189", "#e5c890",
-    "#8caaee", "#f4b8e4", "#99d1db", "#c6d0f5",
-  }
+  local terminal_colors = vim.opt.background._value == "light" and require("utils").terminal_light_palette or require("utils").terminal_dark_palette
+
   for i, color in ipairs(terminal_colors) do
     if not vim.g["terminal_color_" .. i-1] then
       vim.g["terminal_color_" .. i-1] = color
@@ -101,6 +97,8 @@ local setup_syn_sidebar_with_normal = function()
   vim.cmd([[
     highlight! link NeoTreeNormal Normal
     highlight! link NvimTreeNormal Normal
+    highlight! link NeoTreeNormalNC NormalNC
+    highlight! link NvimTreeNormalNC NormalNC
   ]])
 end
 

@@ -6,7 +6,7 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        component_separators = { left = '', right = '󰿟' },
+        component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
@@ -23,23 +23,54 @@ return {
       },
       sections = {
         lualine_a = {
-          { function() return "Sirikakire" end, icon = "", color = { gui = "bold" } },
+          {
+            function () return "" end,
+            padding = 0,
+            separator = { left = "", right = "█" },
+            draw_empty = true,
+          }
         },
         lualine_b = {
-          { 'branch', icon = "" },
+          { function() return "Sirikakire" end, icon = "" },
         },
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {
+        lualine_c = {
+          {
+            'branch',
+            icon = "",
+            color = function()
+              local opt = {}
+              if vim.g.terminal_color_1 then
+                opt.fg = vim.g.terminal_color_1
+              end
+              return opt
+            end
+          },
+        },
+        lualine_x = {
           { 'filetype' },
           { 'progress' },
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
             icon = "󰔟",
+            color = function()
+              local opt = {}
+              if vim.g.terminal_color_2 then
+                opt.fg = vim.g.terminal_color_2
+              end
+              return opt
+            end
           }
         },
-        lualine_z = {}
+        lualine_y = {},
+        lualine_z = {
+          {
+            function () return "" end,
+            padding = 0,
+            separator = { left = "", right = "█" },
+            draw_empty = true,
+          }
+        }
       },
       inactive_sections = {
         lualine_a = {},

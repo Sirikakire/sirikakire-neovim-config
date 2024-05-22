@@ -108,6 +108,7 @@ end
 
 M.getHexColor = function (highlight)
   local color = vim.api.nvim_get_hl_by_name(highlight, true)
+  if not color then return { background = "NONE", foreground = "NONE" } end
   return {
     background = color.background and ("#"..string.format("%06x", color.background)) or "NONE",
     foreground = color.foreground and ("#"..string.format("%06x", color.foreground)) or "NONE",

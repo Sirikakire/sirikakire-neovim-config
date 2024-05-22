@@ -1,5 +1,19 @@
 local U = {}
 
+U.terminal_dark_palette = {
+  "#737994", "#e78284", "#a6d189", "#e5c890",
+  "#8caaee", "#f4b8e4", "#99d1db", "#c6d0f5",
+  "#838ba7", "#e78284", "#a6d189", "#e5c890",
+  "#8caaee", "#f4b8e4", "#99d1db", "#c6d0f5",
+}
+
+U.terminal_light_palette = {
+  "#9ca0b0", "#d20f39", "#40a02b", "#df8e1d",
+  "#1e66f5", "#ea76cb", "#04a5e5", "#4c4f69",
+  "#8c8fa1", "#d20f39", "#40a02b", "#df8e1d",
+  "#1e66f5", "#ea76cb", "#04a5e5", "#4c4f69",
+}
+
 U.icons = {
   -- default_icon = { icon = "󰈚", name = "Default" },
   -- c = { icon = "", name = "c" },
