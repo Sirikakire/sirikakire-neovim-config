@@ -48,7 +48,24 @@ return {
         },
         lualine_x = {
           { 'filetype' },
-          { 'progress' },
+          {
+            function ()
+              local sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
+
+              local curr_line = vim.api.nvim_win_get_cursor(0)[1]
+              local lines = vim.api.nvim_buf_line_count(0)
+              local i = math.floor((curr_line - 1) / lines * #sbar) + 1
+              local percentage = math.floor(curr_line * 100 / lines)
+              return percentage .. '%% ' .. sbar[i]
+            end,
+            color = function()
+              local opt = {}
+              if vim.g.terminal_color_5 then
+                opt.fg = vim.g.terminal_color_5
+              end
+              return opt
+            end
+          },
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
