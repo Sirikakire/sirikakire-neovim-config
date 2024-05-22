@@ -50,12 +50,19 @@ return {
           { 'filetype' },
           {
             function ()
-              local sbar = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
-
+              local function round(num, numDecimalPlaces)
+                local mult = 10^(numDecimalPlaces or 0)
+                return math.floor(num * mult + 0.5) / mult
+              end
+              local sbar = require("utils").sbar
               local curr_line = vim.api.nvim_win_get_cursor(0)[1]
               local lines = vim.api.nvim_buf_line_count(0)
-              local i = math.floor((curr_line - 1) / lines * #sbar) + 1
-              local percentage = math.floor(curr_line * 100 / lines)
+              local divide = curr_line / lines
+              local i = round(divide * #sbar)
+              local percentage = round(divide * 100)
+
+              i = i == 0 and 1 or i
+
               return percentage .. '%% ' .. sbar[i]
             end,
             color = function()

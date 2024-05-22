@@ -278,6 +278,7 @@ U.treesitter_parsers = {
 }
 
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
+U.sbar           = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
 
 U.border = vim.b.doc_border and {
   { "╭", "FloatBorder" },
