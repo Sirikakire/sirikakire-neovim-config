@@ -50,20 +50,22 @@ return {
           { 'filetype' },
           {
             function ()
+              local curr_line = vim.fn.line('.')
+              local lines = vim.fn.line('$')
               local function round(num, numDecimalPlaces)
                 local mult = 10^(numDecimalPlaces or 0)
                 return math.floor(num * mult + 0.5) / mult
               end
               local sbar = require("utils").sbar
-              local curr_line = vim.api.nvim_win_get_cursor(0)[1]
-              local lines = vim.api.nvim_buf_line_count(0)
               local divide = curr_line / lines
+              local percentage = curr_line == 1 and "Top"
+                                                  or curr_line == lines
+                                                and "Bot"
+                                                  or round(divide * 100) .. '%%'
               local i = round(divide * #sbar)
-              local percentage = round(divide * 100)
-
               i = i == 0 and 1 or i
 
-              return percentage .. '%% ' .. sbar[i]
+              return percentage .. ' ' .. sbar[i]
             end,
             color = function()
               local opt = {}
@@ -76,7 +78,7 @@ return {
           {
             'datetime',
             style = '%H:%M:%S %d/%m/%Y',
-            icon = "󰔟",
+            icon = "󱑔",
             color = function()
               local opt = {}
               if vim.g.terminal_color_2 then

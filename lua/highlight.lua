@@ -5,8 +5,10 @@ local init = require("init")
 local setup_highlight = function()
   -- highlight! link NvimTreeFolderIcon guifg=#e7c173
   --[[
-     NOTE: 
-    - Remove diagnostic sign background
+     NOTE: Personal highlight setting: 
+    - Remove FloatBorder bg but keep the guifg
+    - Remove diagnostic sign and git sign background
+    - Remove signcolumn background
     - Sign icons highlight
     - Neotree folder color
     - Get rid of dim background
@@ -14,9 +16,6 @@ local setup_highlight = function()
     - sync neotree and nvim tree separator
   ]]
   vim.cmd([[
-    highlight! GitGutterAdd ctermbg=NONE guibg=NONE
-    highlight! GitGutterDelete ctermbg=NONE guibg=NONE
-    highlight! GitGutterChange ctermbg=NONE guibg=NONE
     highlight! link DiffAdd GitSignsAdd
     highlight! link DiffDelete GitSignsDelete
     highlight! link DiffChange GitSignsChange
@@ -45,6 +44,11 @@ local setup_highlight = function()
 
     highlight! link NeoTreeWinSeparator WinSeparator
     highlight! link NvimTreeWinSeparator WinSeparator
+
+    highlight! LineNr ctermbg=NONE guibg=NONE
+    highlight! SignColumn ctermbg=NONE guibg=NONE
+
+    highlight! FloatBorder ctermbg=NONE guibg=NONE
   ]])
 
   -- NOTE: sync color line 
@@ -53,8 +57,31 @@ local setup_highlight = function()
   vim.cmd("highlight! IblIndent guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
   vim.cmd("highlight! WinSeparator guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
 
-  -- NOTE: Remove FloatBorder bg but keep the fg and ctermbg
-  vim.cmd("highlight! FloatBorder ctermbg=NONE guibg=NONE")
+end
+
+
+-- NOTE: Safely remove diagnostic sign background
+local remove_diagnostic_sign_background = function()
+  local diagnostic_signs = { "Ok", "Error", "Warn", "Info" }
+  for i, sign in pairs(diagnostic_signs) do
+    local sign_foreground = init.getHexColor("DiagnosticSign"..sign).foreground
+
+    if sign_foreground ~= "NONE" then
+      vim.cmd("highlight! DiagnosticSign"..sign.." ctermbg=NONE guibg=NONE guifg="..sign_foreground)
+    end
+  end
+end
+
+-- NOTE: Safely remove git sign background
+local remove_git_sign_background = function()
+  local git_signs = { "Add", "Delete", "Change" }
+  for i, sign in pairs(git_signs) do
+    local sign_foreground = init.getHexColor("GitSigns"..sign).foreground
+
+    if sign_foreground ~= "NONE" then
+      vim.cmd("highlight! GitSigns"..sign.." ctermbg=NONE guibg=NONE guifg="..sign_foreground)
+    end
+  end
 end
 
 local setup_terminal_highlight = function()
@@ -86,7 +113,7 @@ local setup_better_cmp_cursor_line = function()
   vim.cmd("highlight! PmenuSel guibg="..cmpColorAfter.background.." guifg="..cmpColorAfter.foreground)
 end
 
--- NOTE: Hide WinSepartor linking with Normal
+-- NOTE: Hide WinSepartor by linking with Normal
 local hide_win_separator = function()
   vim.cmd("highlight! link WinSeparator Normal")
 end
@@ -178,6 +205,8 @@ end
 
 local init_highlight = function()
   setup_highlight()
+  remove_diagnostic_sign_background()
+  remove_git_sign_background()
   if vim.g.neovide then setup_terminal_highlight() end
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end

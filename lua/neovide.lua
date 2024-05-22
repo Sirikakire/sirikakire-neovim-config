@@ -34,7 +34,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_light_angle_degrees = 0
   vim.g.neovide_light_radius = 0
   vim.g.neovide_show_border = false
-  vim.g.neovide_scroll_animation_length = 0.2
+  vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_scroll_animation_far_lines = 0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.g.neovide_underline_stroke_scale = 1.0

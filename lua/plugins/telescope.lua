@@ -5,7 +5,6 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
   },
   keys = require("keymap").telescope_keymaps,
-  event = "VeryLazy",
   config = function()
     local actions = require("telescope.actions")
     local common_setting = {
@@ -52,7 +51,6 @@ return {
         autocommands = vim.list_extend(common_setting, {}),
       },
     })
-    require("telescope").load_extension("noice")
     require("telescope").load_extension("ui-select")
   end
 }

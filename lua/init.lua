@@ -10,7 +10,7 @@ vim.b.thick_win_separator = false
 vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
 vim.b.float_window_brightness = 0
-vim.b.doc_border = false
+vim.b.doc_border_type = "" ---@type "" | "single" | "double" | "padding"
 vim.opt.background = "dark"
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
@@ -59,8 +59,8 @@ M.setup = function (params)
     vim.b.float_window_brightness = params.float_window_brightness
   end
 
-  if params.doc_border ~= nil then
-    vim.b.doc_border = params.doc_border
+  if params.doc_border_type ~= nil then
+    vim.b.doc_border_type = params.doc_border_type
   end
 
   if params.better_cmp_cursor_line ~= nil then

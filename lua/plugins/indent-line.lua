@@ -1,5 +1,6 @@
 return {
-  "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {},
+  "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
   event = 'BufRead',
   config = function ()
     require("ibl").setup {
@@ -17,8 +18,8 @@ return {
       },
       scope = { enabled = false },
       indent = {
-        char = "▏",
-        -- char = "▎"
+        -- char = "▏",
+        char = "▎"
       }
     }
   end

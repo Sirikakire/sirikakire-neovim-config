@@ -114,11 +114,6 @@ K.barbar_keymaps = {
   { "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one" },
 }
 
--- NOTE: Setup keymap for copilot
-K.copilot_keymaps = {
-  { "<leader>cp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" },
-}
-
 -- NOTE: Setup keymap for copilot chat
 K.copilot_chat_keymaps = {
   { "<leader>cct", "<cmd>CopilotChatToggle<CR>",   desc = "Open copilot chat" },
@@ -130,9 +125,9 @@ K.copilot_chat_keymaps = {
     "<leader>ccq",
     function()
       local input = vim.fn.input("Copilot  : ")
-      if input ~= "" then
-        require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-      end
+      if input == "" then return end
+
+      require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
     end,
     desc = "Open copilot chat with input",
   }

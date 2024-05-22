@@ -6,7 +6,6 @@ return {
     vim.g.barbar_auto_setup = true
   end,
   config = function()
-    -- local sign_icons = require("utils").sign_icons
     require'barbar'.setup {
       animation = true,
       auto_hide = false,

@@ -76,12 +76,7 @@ U.sign_icons = {
   error = '󰅙 ',
   hint = '󰋗 ',
   warning = '󰀨 ',
-
-  -- success_2 = '󰄳 ',
   warning_2 = ' ',
-  -- info_2 = '󰋼 ',
-  -- error_2 = '󰅙 ',
-  -- hint_2 = '󰋗 ',
   warning_3 = '󰀨 ',
 
   -- info = '󰀧 ',
@@ -239,17 +234,15 @@ U.lsp_servers = {
   "cssls",                           -- css
   "cssmodules_ls",                   -- css modules
   "somesass_ls",                     -- Sass
-  "bashls",                          -- bash
   "jsonls",                          -- json
   "tailwindcss",                     -- tailwindcss
   "emmet_ls",                        -- emmet
   "html",                            -- html
-  "solargraph",                      -- ruby
+  -- "solargraph",                      -- ruby
   "dockerls",                        -- docker
   "docker_compose_language_service", -- docker-compose
   "angularls",                       -- angular
   "eslint",                          -- eslint
-  "volar"                            -- vue
 }
 
 -- NOTE: Treesitter parser list
@@ -280,7 +273,7 @@ U.treesitter_parsers = {
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
 U.sbar           = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
 
-U.border = vim.b.doc_border and {
+U.border = vim.b.doc_border_type == "singple" and {
   { "╭", "FloatBorder" },
   { "─", "FloatBorder" },
   { "╮", "FloatBorder" },
@@ -289,14 +282,24 @@ U.border = vim.b.doc_border and {
   { "─", "FloatBorder" },
   { "╰", "FloatBorder" },
   { "│", "FloatBorder" },
-  -- { "╔", "FloatBorder" },
-  -- { "═", "FloatBorder" },
-  -- { "╗", "FloatBorder" },
-  -- { "║", "FloatBorder" },
-  -- { "╝", "FloatBorder" },
-  -- { "═", "FloatBorder" },
-  -- { "╚", "FloatBorder" },
-  -- { "║", "FloatBorder" },
+} or vim.b.doc_border_type == "double" and {
+  { "╔", "FloatBorder" },
+  { "═", "FloatBorder" },
+  { "╗", "FloatBorder" },
+  { "║", "FloatBorder" },
+  { "╝", "FloatBorder" },
+  { "═", "FloatBorder" },
+  { "╚", "FloatBorder" },
+  { "║", "FloatBorder" },
+} or vim.b.doc_border_type == "padding" and {
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
+  { " ", "NormalFloat" },
 } or {
   { "", "" },
   { "", "" },

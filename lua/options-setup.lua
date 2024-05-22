@@ -12,11 +12,13 @@ local options = {
   "autowrite",
   "cursorline",
   "history=0",
+  "confirm",
   "noshowcmd",
   "cmdheight=0",
   "backspace=start,eol,indent",
   "shiftround",
   "nobackup",
+  "nowritebackup",
   "ignorecase",
   "signcolumn=yes:1",
   "linebreak",
@@ -31,13 +33,12 @@ local options = {
   "pumheight=10",
   "noswapfile",
   "noshowmode",
-  "nowritebackup",
   "noruler",
   "foldexpr=nvim_treesitter#foldexpr()",
   "foldmethod=expr",
   "nofoldenable",
-  "fillchars+=eob:\\ "
-  -- "undofile",
+  "fillchars+=eob:\\ ",
+  "noundofile",
 }
 
 if(vim.b.win_separator) then

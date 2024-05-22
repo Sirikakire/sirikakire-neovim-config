@@ -20,7 +20,7 @@ return {
       cmp.setup({
         completion = {
           -- noselect, 
-          -- completeopt = "noselect, menu, menuone, noinsert, preview",
+          completeopt = "noselect, menu, menuone, noinsert, preview",
         },
         window = {
           completion = cmp.config.window.bordered({
@@ -80,10 +80,7 @@ return {
             end,
             c = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({
-                  behavior = cmp.ConfirmBehavior.Replace,
-                  select = false,
-                })
+                cmp.confirm()
               else fallback() end
             end,
           }),
