@@ -50,12 +50,12 @@ return {
           { 'filetype' },
           {
             function ()
-              local curr_line = vim.fn.line('.')
-              local lines = vim.fn.line('$')
               local function round(num, numDecimalPlaces)
                 local mult = 10^(numDecimalPlaces or 0)
                 return math.floor(num * mult + 0.5) / mult
               end
+              local curr_line = vim.fn.line('.')
+              local lines = vim.fn.line('$')
               local sbar = require("utils").sbar
               local divide = curr_line / lines
               local percentage = curr_line == 1 and "Top"
