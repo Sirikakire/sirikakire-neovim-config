@@ -114,6 +114,36 @@ K.barbar_keymaps = {
   { "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one" },
 }
 
+-- NOTE: Setup keymap of bufferline
+K.bufferline_keymaps = {
+  { "<A-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Navigate to the previous buffer" },
+  { "<A-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Navigate to the next buffer" },
+  { "<A-H>", "<cmd>BufferLineMovePrev<CR>",  desc = "Move the buffer to the previous" },
+  { "<A-L>", "<cmd>BufferLineMoveNext<CR>",  desc = "Move the buffer to the next" },
+  {
+    "<A-c>",
+    function ()
+      if not vim.fn.bufnr() then return end
+
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("BufferLineCyclePrev")
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    desc = "Delete current buffer and then navigate to the previous one"
+  },
+  {
+    "<A-C>",
+    function ()
+      if not vim.fn.bufnr() then return end
+
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("BufferLineCycleNext")
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    desc = "Delete current buffer and then navigate to the next one"
+  },
+}
+
 -- NOTE: Setup keymap for copilot chat
 K.copilot_chat_keymaps = {
   { "<leader>cct", "<cmd>CopilotChatToggle<CR>",   desc = "Open copilot chat" },

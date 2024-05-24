@@ -232,8 +232,6 @@ U.lsp_servers = {
   "tsserver",                        -- typescript
   "lua_ls",                          -- lua
   "cssls",                           -- css
-  "cssmodules_ls",                   -- css modules
-  "somesass_ls",                     -- Sass
   "jsonls",                          -- json
   "tailwindcss",                     -- tailwindcss
   "emmet_ls",                        -- emmet

@@ -12,12 +12,12 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = -15,
   better_cmp_cursor_line = true,
-  line_space = 6,
+  line_space = 8,
   colorscheme = "palenightfall",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "UbuntuSansMono Nerd Font",
+      name = "FantasqueSansM Nerd Font",
       size = 13,
       bold = false,
     }
