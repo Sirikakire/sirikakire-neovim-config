@@ -159,4 +159,21 @@ M.complementaryColor = function (hexColor)
   return string.format("#%02X%02X%02X", comp_r, comp_g, comp_b)
 end
 
+M.round = function (num, numDecimalPlaces)
+  local mult = 10^(numDecimalPlaces or 0)
+  return math.floor(num * mult + 0.5) / mult
+end
+
+M.trunc = function (hide_width, no_ellipsis)
+  return function(str)
+    local win_width = vim.fn.winwidth(0)
+    local trunc_width = M.round(win_width * 1 / 3.2)
+    if hide_width and win_width < hide_width then return ''
+    elseif trunc_width and trunc_width < #str then
+      return str:sub(1, #str / 2) .. (no_ellipsis and '' or '...')
+    end
+    return str
+  end
+end
+
 return M
