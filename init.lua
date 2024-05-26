@@ -12,7 +12,7 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = -7,
   better_cmp_cursor_line = true,
-  line_space = 8,
+  line_space = 5,
   colorscheme = "poimandres",
   neovide_setting = {
     transparency = 1,

@@ -48,19 +48,6 @@ return {
         lualine_x = {},
         lualine_y = {
           {
-            'datetime',
-            style = '%H:%M %d/%m/%Y',
-            icon = "󱑔",
-            color = function()
-              local opt = {}
-              if vim.g.terminal_color_2 then
-                opt.fg = vim.g.terminal_color_2
-              end
-              return opt
-            end,
-            padding = { left = 1, right = 0 }
-          },
-          {
             function ()
               local curr_line = vim.fn.line('.')
               local lines = vim.fn.line('$')
@@ -77,13 +64,19 @@ return {
               return sbar[i]
             end,
             padding = 1,
-            -- color = function()
-            --   local opt = {}
-            --   if vim.g.terminal_color_5 then
-            --     opt.fg = vim.g.terminal_color_5
-            --   end
-            --   return opt
-            -- end
+          },
+          {
+            'datetime',
+            style = '%H:%M %d/%m/%Y',
+            icon = "󱑔",
+            color = function()
+              local opt = {}
+              if vim.g.terminal_color_2 then
+                opt.fg = vim.g.terminal_color_2
+              end
+              return opt
+            end,
+            padding = { left = 1, right = 0 }
           },
         },
         lualine_z = {
@@ -95,12 +88,6 @@ return {
               gui = "",
             }
           },
-          -- {
-          --   function () return "" end,
-          --   padding = 0,
-          --   separator = { left = "", right = "█" },
-          --   draw_empty = true,
-          -- }
         }
       },
       inactive_sections = {
