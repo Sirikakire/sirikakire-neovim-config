@@ -63,7 +63,7 @@ return {
               -- return percentage .. ' ' .. sbar[i]
               return sbar[i]
             end,
-            padding = 1,
+            padding = { left = 1, right = 1 }
           },
           {
             'datetime',
@@ -76,7 +76,7 @@ return {
               end
               return opt
             end,
-            padding = { left = 1, right = 0 }
+            padding = { left = 0, right = 1 }
           },
         },
         lualine_z = {
