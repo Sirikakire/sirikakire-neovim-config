@@ -14,6 +14,8 @@
 ]]
 
 if vim.g.neovide and vim.b.neovide_setting then
+  vim.cmd("cd ~")
+
   local setting = vim.b.neovide_setting
 
   if setting.font_setting ~=nil and setting.font_setting.name ~= "" then

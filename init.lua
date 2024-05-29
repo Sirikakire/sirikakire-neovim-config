@@ -13,11 +13,11 @@ require("init").setup({
   float_window_brightness = -7,
   better_cmp_cursor_line = true,
   line_space = 5,
-  colorscheme = "poimandres",
+  colorscheme = "tokyonight",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "UbuntuSansMono Nerd Font",
+      name = "FantasqueSansM Nerd Font",
       size = 13,
       bold = false,
     }
