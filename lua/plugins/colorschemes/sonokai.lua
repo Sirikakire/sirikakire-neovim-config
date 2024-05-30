@@ -10,7 +10,7 @@ return vim.b.colorscheme ~= "sonokai" and {} or {
     vim.g.sonokai_diagnostic_virtual_text = 1
     vim.g.sonokai_better_performance = 1
     vim.g.sonokai_float_style = "dim"
-    vim.g.sonokai_dim_inactive_windows = 1
+    vim.g.sonokai_dim_inactive_windows = 0
     vim.cmd.colorscheme("sonokai")
   end
 }

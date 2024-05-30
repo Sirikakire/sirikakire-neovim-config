@@ -22,48 +22,73 @@ return {
       },
       sections = {
         lualine_a = {
-          -- {
-          --   function () return "" end,
-          --   padding = 0,
-          --   separator = { left = "", right = "█" },
-          --   draw_empty = true,
-          -- },
           {
-            "buffers",
-            color = { gui = "" },
-            hide_filename_extension = true,
-            use_mode_colors = false,
-            max_length = vim.fn.winwidth(0) * 1 / 2,
-            symbols = {
-              modified = ' ●',      -- Text to show when the buffer is modified
-              alternate_file = '', -- Text to show to identify the alternate file
-              directory =  '',     -- Text to show when the buffer is a directory
-            },
-          }
-        },
-        lualine_c = {
-          -- { function() return "Sirikakire" end, icon = "" },
+            function () return "" end,
+            padding = 0,
+            separator = { left = "", right = "█" },
+            draw_empty = true,
+          },
+          -- {
+          --   "buffers",
+          --   color = { gui = "" },
+          --   hide_filename_extension = true,
+          --   use_mode_colors = false,
+          --   max_length = vim.fn.winwidth(0) * 1 / 2,
+          --   symbols = {
+          --     modified = ' ●',      -- Text to show when the buffer is modified
+          --     alternate_file = '', -- Text to show to identify the alternate file
+          --     directory =  '',     -- Text to show when the buffer is a directory
+          --   },
+          -- }
         },
         lualine_b = {},
-        lualine_x = {},
-        lualine_y = {
+        lualine_c = {
+          {
+            function() return "Sirikakire" end, icon = "",
+            color = function ()
+              local opts = {}
+              if vim.g.terminal_color_4 then
+                opts.fg = vim.g.terminal_color_4
+              end
+              return opts
+            end
+          },
+          {
+            'branch',
+            icon = "",
+            -- fmt = require("init").trunc(95),
+            color = function ()
+              local opt = {}
+              if vim.g.terminal_color_1 then
+                opt.fg = vim.g.terminal_color_1
+              end
+              return opt
+            end
+          },
+        },
+        lualine_x = {
           {
             function ()
               local curr_line = vim.fn.line('.')
               local lines = vim.fn.line('$')
               local sbar = require("utils").sbar
               local divide = curr_line / lines
-              -- local percentage = curr_line == 1 and "Top"
-              --                                     or curr_line == lines
-              --                                   and "Bot"
-              --                                     or round(divide * 100) .. '%%'
+              local percentage = curr_line == 1 and "Top"
+              or curr_line == lines
+              and "Bot"
+              or require("init").round(divide * 100) .. '%%'
               local i = require("init").round(divide * #sbar)
               i = i == 0 and 1 or i
 
-              -- return percentage .. ' ' .. sbar[i]
-              return sbar[i]
+              return percentage .. ' ' .. sbar[i]
             end,
-            padding = { left = 1, right = 1 }
+            color = function ()
+              local opts = {}
+              if vim.g.terminal_color_3 then
+                opts.fg = vim.g.terminal_color_3
+              end
+              return opts
+            end
           },
           {
             'datetime',
@@ -76,17 +101,15 @@ return {
               end
               return opt
             end,
-            padding = { left = 0, right = 1 }
           },
         },
+        lualine_y = {},
         lualine_z = {
           {
-            'branch',
-            icon = "",
-            fmt = require("init").trunc(95),
-            color = {
-              gui = "",
-            }
+            function () return "" end,
+            padding = 0,
+            separator = { left = "", right = "█" },
+            draw_empty = true,
           },
         }
       },
