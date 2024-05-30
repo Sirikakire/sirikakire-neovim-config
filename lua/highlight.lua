@@ -23,6 +23,10 @@ local setup_highlight = function()
     highlight! link NvimTreeGitDeleted GitSignsDelete
     highlight! link NvimTreeGitDirty GitSignsChange
     highlight! link NvimTreeGitStaged GitSignsAdd
+    highlight! link NvimTreeDiagnosticHintIcon DiagnosticSignHint
+    highlight! link NvimTreeDiagnosticInfoIcon DiagnosticSignInfo
+    highlight! link NvimTreeDiagnosticWarnIcon DiagnosticSignWarn
+    highlight! link NvimTreeDiagnosticErrorIcon DiagnosticSignError
     highlight! link NeoTreeGitNew GitSignsAdd
     highlight! link NeoTreeGitUntracked GitSignsAdd
     highlight! link NeoTreeGitModified GitSignsChange
@@ -62,7 +66,7 @@ end
 
 -- NOTE: Safely remove diagnostic sign background
 local remove_diagnostic_sign_background = function()
-  local diagnostic_signs = { "Ok", "Error", "Warn", "Info" }
+  local diagnostic_signs = { "Ok", "Error", "Warn", "Info", "Hint" }
   for i, sign in pairs(diagnostic_signs) do
     local sign_foreground = init.getHexColor("DiagnosticSign"..sign).foreground
 
