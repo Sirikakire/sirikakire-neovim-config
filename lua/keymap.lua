@@ -129,11 +129,11 @@ K.gitsigns_keymaps = {
 
 -- NOTE: Setup keymap of barbar
 K.barbar_keymaps = {
-  { "<A-h>", "<cmd>BufferPrevious<CR>", desc = "Navigate to the previous buffer" },
-  { "<A-l>", "<cmd>BufferNext<CR>", desc = "Navigate to the next buffer" },
-  { "<A-H>", "<cmd>BufferMovePrevious<CR>",  desc = "Move the buffer to the previous" },
-  { "<A-L>", "<cmd>BufferMoveNext<CR>",  desc = "Move the buffer to the next" },
-  { "<A-c>", "<cmd>BufferClose<CR>", desc = "Delete current buffer and then navigate to the previous one" },
+  { "<A-h>", "<cmd>BufferPrevious<CR>",     desc = "Navigate to the previous buffer" },
+  { "<A-l>", "<cmd>BufferNext<CR>",         desc = "Navigate to the next buffer" },
+  { "<A-H>", "<cmd>BufferMovePrevious<CR>", desc = "Move the buffer to the previous" },
+  { "<A-L>", "<cmd>BufferMoveNext<CR>",     desc = "Move the buffer to the next" },
+  { "<A-c>", "<cmd>BufferClose<CR>",        desc = "Delete current buffer and then navigate to the previous one" },
 }
 
 -- NOTE: Setup keymap of bufferline
@@ -144,7 +144,7 @@ K.bufferline_keymaps = {
   { "<A-L>", "<cmd>BufferLineMoveNext<CR>",  desc = "Move the buffer to the next" },
   {
     "<A-c>",
-    function ()
+    function()
       if not vim.fn.bufnr() then return end
 
       local buffer_id = vim.fn.bufnr()
@@ -155,7 +155,7 @@ K.bufferline_keymaps = {
   },
   {
     "<A-C>",
-    function ()
+    function()
       if not vim.fn.bufnr() then return end
 
       local buffer_id = vim.fn.bufnr()
@@ -173,6 +173,7 @@ K.copilot_chat_keymaps = {
   { "<leader>cce", "<cmd>CopilotChatExplain<CR>",  mode = { 'n', 'v' },             desc = "Open copilot chat to explain" },
   { "<leader>ccf", "<cmd>CopilotChatFix<CR>",      mode = { 'n', 'v' },             desc = "Open copilot chat to fix" },
   { "<leader>cco", "<cmd>CopilotChatOptimize<CR>", mode = { 'n', 'v' },             desc = "Open copilot chat to optimize" },
+  { "<leader>ccd", "<cmd>CopilotChatDocs<CR>",     mode = { 'n', 'v' },             desc = "Open copilot chat to generate docs" },
   {
     "<leader>ccq",
     function()
