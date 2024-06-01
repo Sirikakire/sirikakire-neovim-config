@@ -26,28 +26,7 @@ K.setup_custom_keymap = function()
   vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
   vim.keymap.set("n", "<leader>gd", "<cmd>%bd!|e#<CR>", { desc = "Global delete all buffer" })
   vim.keymap.set("n", "<leader>ow", "<cmd>lua vim.opt.wrap = not vim.opt.wrap._value<CR>", { desc = "Toggle line wrap" })
-  -- vim.keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "Navigate to the next buffer" })
-  -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
-  -- vim.keymap.set("n", "<A-c>",
-  --   function ()
-  --     if not vim.fn.bufnr() then return end
-  --
-  --     local buffer_id = vim.fn.bufnr()
-  --     vim.cmd("bprevious")
-  --     vim.cmd("bdelete " .. buffer_id)
-  --   end,
-  --   { desc = "Delete current buffer and then navigate to the previous one" }
-  -- )
-  -- vim.keymap.set("n", "<A-C>",
-  --   function ()
-  --     if not vim.fn.bufnr() then return end
-  --
-  --     local buffer_id = vim.fn.bufnr()
-  --     vim.cmd("bnext")
-  --     vim.cmd("bdelete " .. buffer_id)
-  --   end,
-  --   { desc = "Delete current buffer and then navigate to the next one" }
-  -- )
+  vim.keymap.set("n", "<leader>ln", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim" })
 
   -- NOTE: Setup keymap if neovide is enabled
   if vim.g.neovide then
@@ -60,8 +39,8 @@ K.setup_custom_keymap = function()
     vim.keymap.set("n", "<C-0>", "<cmd>lua vim.g.neovide_scale_factor = 1<CR>", {
       desc = "Reset scale factor"
     })
-    vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", {
-      desc = "Toggle screen mode"
+    vim.keymap.set("n", "<leader>of", "<cmd>lua vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen<CR>", {
+      desc = "Toggle full screen mode"
     })
 
     vim.keymap.set('n', '<C-v>', '"+P')             -- Paste normal mode
@@ -72,6 +51,10 @@ K.setup_custom_keymap = function()
   end
 end
 
+-- NOTE: Setup keymap for Mason nvim
+K.mason_keymaps = {
+  { "<leader>lm", "<cmd>Mason<CR>", desc = "Open Mason" }
+ }
 -- NOTE: Setup keymap for LSP
 K.setup_lsp_keymap = function(opts)
   opts.desc = "Go to definition"
@@ -210,7 +193,7 @@ K.toggle_term_keymaps = {
 
 -- NOTE: Setup keymap for lazygit
 K.lazygit_keymaps = {
-  { "<leader>lg", "<cmd>LazyGit<CR>", desc = "LazyGit" }
+  { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" }
 }
 
 -- NOTE: Setup keymap for nvim tree

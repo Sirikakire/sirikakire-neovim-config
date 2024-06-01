@@ -4,7 +4,7 @@ require("init").setup({
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "padding",
-  win_separator = true,
+  win_separator = false,
   background_theme = "dark",
   thick_win_separator = true,
   syn_all_border_color = false,
@@ -13,7 +13,7 @@ require("init").setup({
   float_window_brightness = 40,
   better_cmp_cursor_line = true,
   line_space = 5,
-  colorscheme = "everblush",
+  colorscheme = "fluoromachine",
   neovide_setting = {
     transparency = 1,
     font_setting = {

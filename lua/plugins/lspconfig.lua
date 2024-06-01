@@ -198,6 +198,7 @@ return {
   {
     "williamboman/mason.nvim",
     event = "VeryLazy",
+    keys = require("keymap").mason_keymaps,
     config = function()
       require("mason").setup({
         ui = { border = require("utils").border },
