@@ -10,14 +10,14 @@ require("init").setup({
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = 40,
+  float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 5,
-  colorscheme = "fluoromachine",
+  colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "FantasqueSansM Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font",
       size = 13,
       bold = false,
     }
