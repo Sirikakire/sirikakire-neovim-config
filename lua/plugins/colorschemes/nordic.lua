@@ -18,18 +18,10 @@ return vim.b.colorscheme ~= "nordic" and {} or {
         theme = 'dark',
         blend = 0.85,
       },
-      noice = {
-        style = 'flat',
-      },
-      telescope = {
-        style = 'flat',
-      },
-      leap = {
-        dim_backdrop = false,
-      },
-      ts_context = {
-        dark_background = true,
-      },
+      noice = { style = 'flat' },
+      telescope = { style = 'flat' },
+      leap = { dim_backdrop = false },
+      ts_context = { dark_background = true },
       override = {},
     }
     vim.cmd.colorscheme("nordic")

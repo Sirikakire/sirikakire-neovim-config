@@ -7,7 +7,7 @@ local setup_highlight = function()
   --[[
      NOTE: Personal highlight setting: 
     - Remove FloatBorder bg but keep the guifg
-    - Remove diagnostic sign and git sign background
+    - Remove Diagnostic sign and Git sign background
     - Remove signcolumn background
     - Sign icons highlight
     - Neotree folder color
