@@ -247,6 +247,7 @@ U.lsp_servers = {
 U.treesitter_parsers = {
   "lua",
   "javascript",
+  "diff",
   "typescript",
   "json",
   "ruby",
