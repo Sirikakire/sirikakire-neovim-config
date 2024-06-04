@@ -19,7 +19,8 @@ return {
       scope = { enabled = false },
       indent = {
         -- char = "▏",
-        char = "▎"
+        -- char = "▎"
+        char = "┃"
       }
     }
   end
