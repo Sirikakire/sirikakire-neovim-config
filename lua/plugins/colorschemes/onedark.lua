@@ -89,7 +89,7 @@ return vim.b.colorscheme ~= "onedark" and {} or {
         highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
       }
     })
-    vim.cmd.colorscheme("onelight")
+    vim.cmd.colorscheme("onedark")
   end
 }
 

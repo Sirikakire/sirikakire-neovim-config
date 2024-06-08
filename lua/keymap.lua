@@ -11,6 +11,8 @@ K.setup_custom_keymap = function()
     { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
   vim.keymap.set("n", "<C-t>", "",
     { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  vim.keymap.set("n", "q", "",
+    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
   -- NOTE: Rest of the custom keymaps
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
