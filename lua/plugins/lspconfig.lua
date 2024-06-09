@@ -16,7 +16,7 @@ return {
         end,
       })
 
-      -- FIX: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
+      -- NOTE: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
       vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
         config = config or {}
         config.focus_id = ctx.method

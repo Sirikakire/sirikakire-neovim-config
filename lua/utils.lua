@@ -241,6 +241,7 @@ U.lsp_servers = {
   "docker_compose_language_service", -- docker-compose
   "angularls",                       -- angular
   "eslint",                          -- eslint
+  -- "vuels"
 }
 
 -- NOTE: Treesitter parser list
