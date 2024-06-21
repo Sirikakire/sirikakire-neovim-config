@@ -15,6 +15,28 @@ K.setup_custom_keymap = function()
     { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
 
   -- NOTE: Rest of the custom keymaps
+  -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
+  -- vim.keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "Navigate to the next buffer" })
+  -- vim.keymap.set("n", "<A-c>",
+  --   function()
+  --     if not vim.fn.bufnr() then return end
+  --
+  --     local buffer_id = vim.fn.bufnr()
+  --     vim.cmd("bprevious")
+  --     vim.cmd("bdelete " .. buffer_id)
+  --   end,
+  --   { desc = "Delete current buffer and then navigate to the previous one" }
+  -- )
+  -- vim.keymap.set("n", "<A-C>",
+  --   function()
+  --     if not vim.fn.bufnr() then return end
+  --
+  --     local buffer_id = vim.fn.bufnr()
+  --     vim.cmd("bnext")
+  --     vim.cmd("bdelete " .. buffer_id)
+  --   end,
+  --   { desc = "Delete current buffer and then navigate to the next one" }
+  -- )
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
@@ -101,7 +123,7 @@ K.telescope_keymaps = {
   { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>", desc = "Find files" },
   { "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>",                   desc = "Live grep" },
   { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>",                 desc = "Open workspace diagnostics" },
-  { "<leader>fb", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>",                desc = "Open buffer git commit list" },
+  { "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>",                desc = "Open buffer git commit list" },
   { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>",              desc = "Open references" },
 }
 

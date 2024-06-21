@@ -9,7 +9,10 @@ return {
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
-          winbar = {},
+          winbar = {
+            "toggleterm",
+            "NvimTree"
+          },
         },
         ignore_focus = {},
         always_divide_middle = true,
@@ -33,7 +36,11 @@ return {
           --   color = { gui = "" },
           --   hide_filename_extension = true,
           --   use_mode_colors = false,
-          --   max_length = vim.fn.winwidth(0) * 1 / 2,
+          --   max_length = vim.o.columns * 1 / 3,
+          --   buffers_color = {
+          --     active = 'lualine_a_buffers_insert',
+          --     inactive = 'lualine_a_buffers_inactive',
+          --   },
           --   symbols = {
           --     modified = ' ●',      -- Text to show when the buffer is modified
           --     alternate_file = '', -- Text to show to identify the alternate file
@@ -56,7 +63,6 @@ return {
           {
             'branch',
             icon = "",
-            -- fmt = require("init").trunc(95),
             color = function ()
               local opt = {}
               if vim.g.terminal_color_1 then
@@ -64,7 +70,7 @@ return {
               end
               return opt
             end
-          },
+          }
         },
         lualine_x = {
           {
@@ -90,6 +96,8 @@ return {
               return opts
             end
           },
+        },
+        lualine_y = {
           {
             'datetime',
             style = '%H:%M %d/%m/%Y',
@@ -103,7 +111,6 @@ return {
             end,
           },
         },
-        lualine_y = {},
         lualine_z = {
           {
             function () return "" end,
@@ -122,8 +129,21 @@ return {
         lualine_z = {}
       },
       tabline = {},
-      winbar = {},
-      inactive_winbar = {},
+      winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {}
+      },
       extensions = {
         "neo-tree",
         "toggleterm",

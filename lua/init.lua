@@ -166,10 +166,12 @@ end
 
 M.trunc = function (hide_width, no_ellipsis)
   return function(str)
-    local win_width = vim.fn.winwidth(0)
+    -- local win_width = vim.fn.winwidth(0)
+    local win_width = vim.o.columns
     local trunc_width = M.round(win_width * 1 / 3.2)
+    local string_length = #str + 2
     if hide_width and win_width < hide_width then return ''
-    elseif trunc_width and trunc_width < #str then
+    elseif trunc_width and trunc_width < string_length then
       return str:sub(1, #str / 2) .. (no_ellipsis and '' or '...')
     end
     return str

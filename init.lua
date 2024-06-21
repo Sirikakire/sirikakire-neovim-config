@@ -10,14 +10,14 @@ require("init").setup({
   syn_all_border_color = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = 30,
+  float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  line_space = 3,
-  colorscheme = "catppuccin",
+  line_space = 0,
+  colorscheme = "palenightfall",
   neovide_setting = {
-    transparency = 1,
+    transparency = 0.95,
     font_setting = {
-      name = "JetBrainsMonoNL Nerd Font",
+      name = "CaskaydiaCove Nerd Font",
       size = 13,
       bold = false,
     }

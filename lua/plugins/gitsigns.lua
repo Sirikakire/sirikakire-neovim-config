@@ -53,9 +53,6 @@ return {
         width = 70,
         height = 15
       },
-      yadm = {
-        enable = false
-      },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
