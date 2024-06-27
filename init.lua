@@ -12,10 +12,10 @@ require("init").setup({
   syn_sidebar_with_normal = false,
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
-  line_space = 0,
-  colorscheme = "palenightfall",
+  line_space = -1,
+  colorscheme = "tokyonight",
   neovide_setting = {
-    transparency = 0.95,
+    transparency = 1,
     font_setting = {
       name = "CaskaydiaCove Nerd Font",
       size = 13,
