@@ -1,18 +1,35 @@
 local K = {}
 
+K.disable_keymap_for_filetype = function (filetype, keymaps)
+  vim.api.nvim_create_autocmd({ "BufEnter",  "BufNew" }, {
+    callback = function()
+      if filetype == nil then
+        for _key, keymap in pairs(keymaps) do
+          vim.keymap.set("n", keymap, "",
+            { desc = "This keymap does nothing, I'm remapping it because I usually hit this keymap by mistake" }
+          )
+        end
+        return
+      end
+
+      for _key, keymap in pairs(keymaps) do
+        if vim.bo.filetype == filetype then
+          vim.keymap.set("n", keymap, "",
+            { desc = "This keymap does nothing, I'm remapping it because I usually hit this keymap by mistake" }
+          )
+        else
+          vim.cmd("silent! unmap " .. keymap)
+        end
+      end
+    end
+  })
+end
+
 -- NOTE: Setup custom keymap
 K.setup_custom_keymap = function()
   -- NOTE: Useless keymap to not hit by mistake
-  vim.keymap.set("n", "<C-z>", "",
-    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "K", "",
-    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "<C-b>", "",
-    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "<C-t>", "",
-    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
-  vim.keymap.set("n", "q", "",
-    { desc = "This keymap do nothing, I remapping it because I usually hit this keymap by mistake" })
+  K.disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
+  K.disable_keymap_for_filetype("toggleterm", { "<C-t>" })
 
   -- NOTE: Rest of the custom keymaps
   -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
