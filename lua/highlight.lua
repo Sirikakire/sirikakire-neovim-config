@@ -202,6 +202,7 @@ local setup_transparent_background = function()
     highlight! TelescopePromptTitle ctermbg=NONE guibg=NONE
     highlight! TelescopeResultsNormal ctermbg=NONE guibg=NONE
     highlight! TelescopeResultsTitle ctermbg=NONE guibg=NONE
+    highlight! TelescopePromptCounter ctermbg=NONE guibg=NONE
     highlight! TreesitterContext ctermbg=NONE guibg=NONE
     highlight! TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE
   ]])
