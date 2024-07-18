@@ -205,6 +205,28 @@ local setup_transparent_background = function()
     highlight! TelescopePromptCounter ctermbg=NONE guibg=NONE
     highlight! TreesitterContext ctermbg=NONE guibg=NONE
     highlight! TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE
+    highlight! NoiceCmdline ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIcon ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconCalculator ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconCmdline ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconFilter ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconHelp ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconIncRename ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconInput ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconLua ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlineIconSearch ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopup ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorder ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderCalculator ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderCmdline ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderFilter ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderHelp ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderIncRename ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderInput ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderLua ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupBorderSearch ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePopupTitle ctermbg=NONE guibg=NONE
+    highlight! NoiceCmdlinePrompt ctermbg=NONE guibg=NONE
   ]])
 end
 

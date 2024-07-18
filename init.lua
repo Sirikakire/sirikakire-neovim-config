@@ -3,7 +3,7 @@ require("init").setup({
   transparent_background = true,
   mapleader = " ",
   border_color = "#e7c173",
-  doc_border_type = "padding",
+  doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
   thick_win_separator = true,
@@ -13,7 +13,7 @@ require("init").setup({
   float_window_brightness = 30,
   better_cmp_cursor_line = true,
   line_space = -1,
-  colorscheme = "onedark",
+  colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     font_setting = {
