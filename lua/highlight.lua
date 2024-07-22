@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-field
 local init = require("init")
 
 -- NOTE: Setup highlight
@@ -154,6 +153,33 @@ local setup_synchronized_telescope = function ()
   ]])
 end
 
+local setup_synchronized_noice_cmdline = function ()
+  vim.cmd([[
+    highlight! link NoiceCmdline WinSeparator
+    highlight! link NoiceCmdlineIcon NoiceCmdline
+    highlight! link NoiceCmdlineIconCalculator NoiceCmdline
+    highlight! link NoiceCmdlineIconCmdline NoiceCmdline
+    highlight! link NoiceCmdlineIconFilter NoiceCmdline
+    highlight! link NoiceCmdlineIconHelp NoiceCmdline
+    highlight! link NoiceCmdlineIconIncRename NoiceCmdline
+    highlight! link NoiceCmdlineIconInput NoiceCmdline
+    highlight! link NoiceCmdlineIconLua NoiceCmdline
+    highlight! link NoiceCmdlineIconSearch NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderCalculator NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderFilter NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderHelp NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderIncRename NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderInput NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderLua NoiceCmdline
+    highlight! link NoiceCmdlinePopupBorderSearch NoiceCmdline
+    highlight! link NoiceCmdlinePrompt NoiceCmdline
+    highlight! link NoiceCmdlinePopupTitle NoiceCmdline
+    highlight! link NoiceCmdlinePopup NONE
+    highlight! link NoiceCmdlinePopupBorderCmdline NONE
+    highlight! link NoiceCmdlinePopupBorder NONE
+  ]])
+end
+
 -- NOTE: Setup synchronized WinSeparator background
 local setup_synchronized_border_color = function()
   vim.cmd("highlight! WinSeparator ctermbg=NONE guibg=NONE guifg="..vim.b.border_color)
@@ -242,6 +268,7 @@ local init_highlight = function()
   if vim.b.transparent_background then setup_transparent_background() end
   if vim.b.syn_all_border_color then setup_synchronized_border_color() end
   if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
+  if vim.b.syn_all_noice_cmdline_border then setup_synchronized_noice_cmdline() end
 end
 
 init_highlight()

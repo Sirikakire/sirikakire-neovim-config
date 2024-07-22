@@ -9,6 +9,7 @@ vim.b.transparent_background = false
 vim.b.thick_win_separator = false
 vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
+vim.b.syn_all_noice_cmdline_border = false
 vim.b.float_window_brightness = 0
 vim.b.doc_border_type = "" ---@type "" | "single" | "double" | "padding"
 vim.opt.background = "dark"
@@ -49,6 +50,10 @@ M.setup = function (params)
 
   if params.syn_all_telescope_border ~= nil then
     vim.b.syn_all_telescope_border = params.syn_all_telescope_border
+  end
+
+  if params.syn_all_noice_cmdline_border ~= nil then
+    vim.b.syn_all_noice_cmdline_border = params.syn_all_noice_cmdline_border
   end
 
   if params.mapleader ~= nil then
