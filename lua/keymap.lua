@@ -30,6 +30,7 @@ K.setup_custom_keymap = function()
   -- NOTE: Useless keymap to not hit by mistake
   K.disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
   K.disable_keymap_for_filetype("toggleterm", { "<C-t>" })
+  K.disable_keymap_for_filetype("NvimTree", { "<C-t>" })
 
   -- NOTE: Rest of the custom keymaps
   -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
@@ -241,7 +242,8 @@ K.lazygit_keymaps = {
 
 -- NOTE: Setup keymap for nvim tree
 K.nvimtree_keymaps = {
-  { "<leader>e", "<cmd>NvimTreeFocus<CR>", desc = "Open nvim tree" }
+  { "<leader>e", "<cmd>NvimTreeFocus<CR>", desc = "Open nvim tree" },
+  { "<C-t>", "" }
 }
 
 return K
