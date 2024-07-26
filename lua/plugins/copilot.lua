@@ -1,7 +1,7 @@
 return {
   {
     "github/copilot.vim",
-    keys = require("keymap").copilot_keymaps,
+    -- keys = require("keymap").copilot_keymaps,
     event = "InsertEnter"
   },
   {

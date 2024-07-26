@@ -2,7 +2,7 @@ return vim.b.colorscheme ~= "everforest" and {} or {
   "sainnhe/everforest",
   priority = 100,
   config = function ()
-    vim.g.everforest_background = 'hard'
+    vim.g.everforest_background = 'soft'
     vim.g.everforest_better_performance = 1
     vim.g.everforest_enable_italic = 1
     vim.g.everforest_transparent_background = 0
