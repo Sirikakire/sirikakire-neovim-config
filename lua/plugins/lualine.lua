@@ -96,8 +96,6 @@ return {
               return opts
             end
           },
-        },
-        lualine_y = {
           {
             'datetime',
             style = '%H:%M %d/%m/%Y',
@@ -111,6 +109,7 @@ return {
             end,
           },
         },
+        lualine_y = {},
         lualine_z = {
           {
             function () return "" end,
