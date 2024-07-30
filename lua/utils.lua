@@ -58,12 +58,12 @@ U.icons = {
 }
 
 U.sign_icons = {
-  add = ' ',
+  add = '󰐖 ',
   change = '󱗜 ',
   delete = '󰅗 ',
-  topdelete = ' ',
+  topdelete = '󰍵 ',
   changedelete = '󰇽 ',
-  untracked = ' ',
+  untracked = '󰐖 ',
   -- add = '󰐗 ',
   -- change = '󰻂 ',
   -- delete = '󰅙 ',
@@ -83,7 +83,7 @@ U.sign_icons = {
   warning = '󰬐 ',
   error = '󰅗 ',
   hint = '󰞋 ',
-  success = ' ',
+  success = '󰄲 ',
 }
 
 U.navic_icon = {
