@@ -3,17 +3,17 @@ return {
   no_bold = false, -- Force no bold
   no_underline = false, -- Force no underline
   styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-    comments = { "italic", "bold" }, -- Change the style of comments
+    comments = { "italic" }, -- Change the style of comments
     conditionals = { "italic" },
     loops = {"italic"},
     functions = {"italic"},
-    keywords = {"bold"},
+    keywords = {},
     strings = {},
     variables = {},
     numbers = {},
     booleans = {},
     properties = {},
-    types = {"bold"},
+    types = {},
     operators = {},
   },
   custom_highlights = function(colors)
