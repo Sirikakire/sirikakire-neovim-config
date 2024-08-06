@@ -1,8 +1,9 @@
 return vim.b.colorscheme ~= "catppuccin" and {} or {
   "catppuccin/nvim",
-  priority = 100,
+  name = "catppuccin",
+  priority = 1000,
   config = function()
-    require("catppuccin").setup(require("plugins.colorschemes.catppuccin-colorscheme.high-contrast"))
-    vim.cmd.colorscheme "catppuccin-mocha"
+    require("catppuccin").setup(require("plugins.colorschemes.catppuccin-colorscheme.default"))
+    vim.cmd.colorscheme("catppuccin-latte")
   end
 }

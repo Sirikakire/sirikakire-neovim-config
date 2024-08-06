@@ -5,16 +5,16 @@ return {
   styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
     comments = { "italic", "bold" }, -- Change the style of comments
     conditionals = { "italic" },
-    loops = {"italic", "bold"},
-    functions = {"bold", "italic"},
+    loops = {"italic"},
+    functions = {"italic"},
     keywords = {"bold"},
     strings = {},
     variables = {},
     numbers = {},
     booleans = {},
-    properties = {"bold"},
+    properties = {},
     types = {"bold"},
-    operators = {"bold"},
+    operators = {},
   },
   custom_highlights = function(colors)
     return {
