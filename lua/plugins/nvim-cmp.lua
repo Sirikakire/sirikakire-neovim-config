@@ -1,8 +1,10 @@
 return {
   { "tzachar/cmp-tabnine", build = "./install.sh", event = "InsertEnter" },
   { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+  { "hrsh7th/cmp-nvim-lsp-signature-help", event = "InsertEnter" },
   { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
   { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
+  { "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
   {
     "L3MON4D3/LuaSnip",
     event = "InsertEnter",
@@ -34,13 +36,14 @@ return {
         },
         formatting = {
           format = function(entry, vim_item)
-            -- vim_item.menu = ({
-            --   nvim_lsp = "[LSP]",
-            --   luasnip = "[LuaSnip]",
-            --   cmp_tabnine = "[TabNine]",
-            --   cmdline = "[CMDLine]",
-            --   path = "[Path]",
-            -- })[entry.source.name]
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[LuaSnip]",
+              cmp_tabnine = "[TabNine]",
+              cmdline = "[CMDLine]",
+              path = "[Path]",
+              buffer = "[Buffer]"
+            })[entry.source.name]
             vim_item.kind = string.format("%s %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,
@@ -90,6 +93,20 @@ return {
           { name = "luasnip" },
           { name = "cmp_tabnine" },
           { name = "path" },
+          { name = "nvim_lsp_signature_help" },
+          {
+            name = "buffer",
+            max_item_count = 3,
+            option = {
+              get_bufnrs = function()
+                local bufs = {}
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                  bufs[vim.api.nvim_win_get_buf(win)] = true
+                end
+                return vim.tbl_keys(bufs)
+              end
+            }
+          }
         }),
       })
       -- NOTE:  `:` cmdline setup.

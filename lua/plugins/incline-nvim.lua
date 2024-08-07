@@ -38,6 +38,8 @@ return {
             end
           end
           if #labels > 0 then
+            -- Insert  icon before the table
+            table.insert(labels, 1, { " : ", guifg = vim.g.terminal_color_1 })  -- Set the color to red
             table.insert(labels, { '│ ' })
           end
           return labels
@@ -62,6 +64,7 @@ return {
             end
           end
           if #label > 0 then
+            table.insert(label, 1, { "󰒔 : ", guifg = vim.g.terminal_color_4 })
             table.insert(label, { '│ ' })
           end
           return label
