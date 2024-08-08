@@ -5,7 +5,7 @@ require("init").setup({
   border_color = "#e7c173",
   doc_border_type = "padding",
   win_separator = false,
-  background_theme = "dark",
+  background_theme = "light",
   thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
@@ -14,7 +14,7 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "aquarium",
+  colorscheme = "onenord",
   neovide_setting = {
     transparency = 1,
     font_setting = {

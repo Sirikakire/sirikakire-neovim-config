@@ -3,6 +3,7 @@ return vim.b.colorscheme ~= "onenord" and {} or {
   priority = 100,
   config = function()
     require('onenord').setup({
+      theme = "light",
       borders = true, -- Split window borders
       fade_nc = false, -- Fade non-current windows, making them more distinguishable
       -- Style that is applied to various groups: see `highlight-args` for options
