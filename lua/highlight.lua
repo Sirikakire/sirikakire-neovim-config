@@ -60,9 +60,45 @@ local setup_highlight = function()
   vim.cmd("highlight! IblScope guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
   vim.cmd("highlight! IblIndent guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
   vim.cmd("highlight! WinSeparator guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
-
 end
 
+-- NOTE: Setup cmp highlight
+local setup_cmp_highlight = function()
+  local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette
+
+  vim.cmd("highlight! CmpItemAbbr guibg=NONE guifg="..palette.overlay2)
+  vim.cmd("highlight! CmpItemAbbrDeprecated guibg=NONE guifg="..palette.overlay0.." gui=strikethrough")
+  vim.cmd("highlight! CmpItemKind guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemMenu guibg=NONE guifg="..palette.text)
+  vim.cmd("highlight! CmpItemAbbrMatch guibg=NONE guifg="..palette.text.. " gui=bold")
+  vim.cmd("highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg="..palette.text.." gui=bold")
+  vim.cmd("highlight! CmpItemKindSnippet guibg=NONE guifg="..palette.mauve)
+  vim.cmd("highlight! CmpItemKindKeyword guibg=NONE guifg="..palette.red)
+  vim.cmd("highlight! CmpItemKindText guibg=NONE guifg="..palette.teal)
+  vim.cmd("highlight! CmpItemKindMethod guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindConstructor guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindFunction guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindFolder guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindModule guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindConstant guibg=NONE guifg="..palette.peach)
+  vim.cmd("highlight! CmpItemKindField guibg=NONE guifg="..palette.green)
+  vim.cmd("highlight! CmpItemKindProperty guibg=NONE guifg="..palette.green)
+  vim.cmd("highlight! CmpItemKindEnum guibg=NONE guifg="..palette.green)
+  vim.cmd("highlight! CmpItemKindUnit guibg=NONE guifg="..palette.green)
+  vim.cmd("highlight! CmpItemKindClass guibg=NONE guifg="..palette.yellow)
+  vim.cmd("highlight! CmpItemKindVariable guibg=NONE guifg="..palette.flamingo)
+  vim.cmd("highlight! CmpItemKindFile guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindInterface guibg=NONE guifg="..palette.yellow)
+  vim.cmd("highlight! CmpItemKindColor guibg=NONE guifg="..palette.red)
+  vim.cmd("highlight! CmpItemKindReference guibg=NONE guifg="..palette.red)
+  vim.cmd("highlight! CmpItemKindEnumMember guibg=NONE guifg="..palette.red)
+  vim.cmd("highlight! CmpItemKindStruct guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindValue guibg=NONE guifg="..palette.peach)
+  vim.cmd("highlight! CmpItemKindEvent guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindOperator guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindTypeParameter guibg=NONE guifg="..palette.blue)
+  vim.cmd("highlight! CmpItemKindCopilot guibg=NONE guifg="..palette.teal)
+end
 
 -- NOTE: Safely remove diagnostic sign background
 local remove_diagnostic_sign_background = function()
@@ -259,6 +295,7 @@ end
 
 local init_highlight = function()
   setup_highlight()
+  setup_cmp_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
   if vim.g.neovide then setup_terminal_highlight() end

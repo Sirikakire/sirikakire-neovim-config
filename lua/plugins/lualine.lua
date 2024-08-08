@@ -31,6 +31,16 @@ return {
             separator = { left = "", right = "█" },
             draw_empty = true,
           },
+          {
+            function() return "Sirikakire" end, icon = "",
+            -- color = function ()
+            --   local opts = {}
+            --   if vim.g.terminal_color_4 then
+            --     opts.fg = vim.g.terminal_color_4
+            --   end
+            --   return opts
+            -- end
+          },
           -- {
           --   "buffers",
           --   color = { gui = "" },
@@ -48,18 +58,8 @@ return {
           --   },
           -- }
         },
-        lualine_b = {},
-        lualine_c = {
-          {
-            function() return "Sirikakire" end, icon = "",
-            color = function ()
-              local opts = {}
-              if vim.g.terminal_color_4 then
-                opts.fg = vim.g.terminal_color_4
-              end
-              return opts
-            end
-          },
+        lualine_b = {
+
           {
             'branch',
             icon = "",
@@ -72,7 +72,9 @@ return {
             end
           }
         },
-        lualine_x = {
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {
           {
             function ()
               local curr_line = vim.fn.line('.')
@@ -100,16 +102,15 @@ return {
             'datetime',
             style = '%H:%M %d/%m/%Y',
             icon = "󱑔",
-            color = function()
-              local opt = {}
-              if vim.g.terminal_color_2 then
-                opt.fg = vim.g.terminal_color_2
-              end
-              return opt
-            end,
+            -- color = function()
+            --   local opt = {}
+            --   if vim.g.terminal_color_2 then
+            --     opt.fg = vim.g.terminal_color_2
+            --   end
+            --   return opt
+            -- end,
           },
         },
-        lualine_y = {},
         lualine_z = {
           {
             function () return "" end,

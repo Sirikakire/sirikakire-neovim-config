@@ -10,6 +10,8 @@ return {
   config = function ()
     vim.opt.updatetime = 200
 
+    local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette
+
     vim.api.nvim_create_autocmd({
       "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
       "BufWinEnter",
@@ -123,48 +125,38 @@ return {
       ---
       ---@type barbecue.Config.theme
       theme = {
-        -- this highlight is used to override other highlights
-        -- you can take advantage of its `bg` and set a background throughout your winbar
-        -- (e.g. basename will look like this: { fg = "#c0caf5", bold = true })
-        normal = { fg = "#c0caf5" },
-
-        -- these highlights correspond to symbols table from config
-        ellipsis = { fg = "#737aa2" },
-        separator = { fg = "#737aa2" },
-        modified = { fg = "#737aa2" },
-
-        -- these highlights represent the _text_ of three main parts of barbecue
-        dirname = { fg = "#737aa2" },
-        basename = { bold = true },
-        context = {},
-
-        -- these highlights are used for context/navic icons
-        context_file = { fg = "#ac8fe4" },
-        context_module = { fg = "#ac8fe4" },
-        context_namespace = { fg = "#ac8fe4" },
-        context_package = { fg = "#ac8fe4" },
-        context_class = { fg = "#ac8fe4" },
-        context_method = { fg = "#ac8fe4" },
-        context_property = { fg = "#ac8fe4" },
-        context_field = { fg = "#ac8fe4" },
-        context_constructor = { fg = "#ac8fe4" },
-        context_enum = { fg = "#ac8fe4" },
-        context_interface = { fg = "#ac8fe4" },
-        context_function = { fg = "#ac8fe4" },
-        context_variable = { fg = "#ac8fe4" },
-        context_constant = { fg = "#ac8fe4" },
-        context_string = { fg = "#ac8fe4" },
-        context_number = { fg = "#ac8fe4" },
-        context_boolean = { fg = "#ac8fe4" },
-        context_array = { fg = "#ac8fe4" },
-        context_object = { fg = "#ac8fe4" },
-        context_key = { fg = "#ac8fe4" },
-        context_null = { fg = "#ac8fe4" },
-        context_enum_member = { fg = "#ac8fe4" },
-        context_struct = { fg = "#ac8fe4" },
-        context_event = { fg = "#ac8fe4" },
-        context_operator = { fg = "#ac8fe4" },
-        context_type_parameter = { fg = "#ac8fe4" },
+        normal = { fg = palette.text },
+        ellipsis = { fg = palette.overlay1 },
+        separator = { fg = palette.overlay1 },
+        modified = { fg = palette.peach },
+        dirname = { fg = palette.overlay1 },
+        basename = { fg = palette.text},
+        context = { fg = palette.overlay1 },
+        context_file = { fg = palette.blue },
+        context_module = { fg = palette.blue },
+        context_namespace = { fg = palette.blue },
+        context_package = { fg = palette.blue },
+        context_class = { fg = palette.yellow },
+        context_method = { fg = palette.blue },
+        context_property = { fg = palette.green },
+        context_field = { fg = palette.green },
+        context_constructor = { fg = palette.blue },
+        context_enum = { fg = palette.green },
+        context_interface = { fg = palette.yellow },
+        context_function = { fg = palette.blue },
+        context_variable = { fg = palette.flamingo },
+        context_constant = { fg = palette.peach },
+        context_string = { fg = palette.green },
+        context_number = { fg = palette.peach },
+        context_boolean = { fg = palette.peach },
+        context_array = { fg = palette.blue },
+        context_object = { fg = palette.blue },
+        context_key = { fg = palette.flamingo },
+        context_enum_member = { fg = palette.red },
+        context_struct = { fg = palette.blue },
+        context_event = { fg = palette.blue },
+        context_operator = { fg = palette.blue },
+        context_type_parameter = { fg = palette.blue },
       },
 
       ---Whether context text should follow its icon's color.
