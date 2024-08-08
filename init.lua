@@ -18,7 +18,7 @@ require("init").setup({
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "FantasqueSansM Nerd Font Propo",
+      name = "JetBrainsMono Nerd Font Propo",
       size = 13,
       bold = false,
     }
