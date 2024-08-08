@@ -18,6 +18,11 @@ return {
       float_opts = {
         border = require("utils").border,
       },
+      on_open = function(term)
+        vim.defer_fn(function()
+          vim.wo[term.window].winbar = ""
+        end, 0)
+      end
     })
   end,
 }

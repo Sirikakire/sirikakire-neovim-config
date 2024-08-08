@@ -52,6 +52,7 @@ local setup_highlight = function()
     highlight! SignColumn ctermbg=NONE guibg=NONE
 
     highlight! FloatBorder ctermbg=NONE guibg=NONE
+    highlight! NonText guibg=NONE
   ]])
 
   -- NOTE: sync color line 
