@@ -19,8 +19,8 @@ return {
         globalstatus = true,
         refresh = {
           statusline = 1000,
-          tabline = 5000,
-          winbar = 5000,
+          tabline = 1000,
+          winbar = 1000,
         }
       },
       sections = {
@@ -128,21 +128,21 @@ return {
         lualine_z = {}
       },
       tabline = {},
-      winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-      },
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {}
-      },
+      -- winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {},
+      --   lualine_x = {},
+      --   lualine_y = {},
+      --   lualine_z = {}
+      -- },
+      -- inactive_winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {},
+      --   lualine_x = {},
+      --   lualine_y = {}
+      -- },
       extensions = {
         "neo-tree",
         "toggleterm",
