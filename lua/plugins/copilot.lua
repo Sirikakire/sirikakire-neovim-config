@@ -19,7 +19,7 @@ return {
         allow_insecure = false, -- Allow insecure server connections
 
         system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
-        model = 'gpt-4', -- GPT model to use, 'gpt-3.5-turbo' or 'gpt-4'
+        model = 'gpt-4o',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
         temperature = 0.5, -- GPT temperature
 
         question_header = '# Sirikakire  :', -- Header to use for user questions
