@@ -5,7 +5,7 @@ require("init").setup({
   border_color = "#e7c173",
   doc_border_type = "padding",
   win_separator = false,
-  background_theme = "light",
+  background_theme = "dark",
   thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "cyberdream",
   neovide_setting = {
-    transparency = 1,
+    transparency = 0.85,
     font_setting = {
       name = "FantasqueSansM Nerd Font Propo",
       size = 13,
