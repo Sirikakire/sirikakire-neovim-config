@@ -38,9 +38,7 @@ return {
             end
           end
           if #labels > 0 then
-            -- Insert  icon before the table
-            table.insert(labels, 1, { " : ", guifg = vim.g.terminal_color_1 })  -- Set the color to red
-            table.insert(labels, { '│ ' })
+            table.insert(labels, { '| ', guifg = vim.g.terminal_color_1  })
           end
           return labels
         end
@@ -64,17 +62,17 @@ return {
             end
           end
           if #label > 0 then
-            table.insert(label, 1, { "󰒔 : ", guifg = vim.g.terminal_color_4 })
-            table.insert(label, { '│ ' })
+            table.insert(label, { '| ', guifg = vim.g.terminal_color_4 })
           end
           return label
         end
 
         return {
-          { get_diagnostic_label(), gui = "bold"  },
-          { get_git_diff(), gui = "bold" },
+          -- { get_diagnostic_label(), gui = "bold"  },
+          { get_diagnostic_label() },
+          { get_git_diff() },
           { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' },
-          { filename .. ' ', gui = vim.bo[props.buf].modified and 'bold,italic' or 'bold' },
+          { filename .. '', gui = vim.bo[props.buf].modified and 'italic' or '' },
           -- border = require("utils").border
           guibg = "NormalFloat"
         }
@@ -135,7 +133,7 @@ return {
         padding_char = " ",
         placement = {
           horizontal = "right",
-          vertical = "top"
+          vertical = "bottom"
         },
         width = "fit",
         winhighlight = {

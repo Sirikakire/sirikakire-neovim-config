@@ -11,14 +11,14 @@ require("init").setup({
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = 0,
+  float_window_brightness = -5,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "onenord",
+  colorscheme = "cyberdream",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "JetBrainsMono Nerd Font Propo",
+      name = "FantasqueSansM Nerd Font Propo",
       size = 13,
       bold = false,
     }

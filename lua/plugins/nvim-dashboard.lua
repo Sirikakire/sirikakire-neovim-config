@@ -12,11 +12,11 @@ return {
         project = {
           enable = true,
           limit = 5,
-          icon = " ",
+          icon = "  ",
           label = "Recent projects",
           action = "cd ",
         },
-        mru = { limit = 5, icon = "󰏓 ", label = "Recent files", cwd_only = false },
+        mru = { limit = 5, icon = "󰏓  ", label = "Recent files", cwd_only = false },
         footer = { '', '♥  Hello Sirikakire ♥ ', 'Hope you will have a wonderful day  ' },
         shortcut = {
           { desc = "Open Lazy 󰒲 ", action = "Lazy", key = "l" },
