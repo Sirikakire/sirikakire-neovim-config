@@ -1,6 +1,8 @@
 return {
   "okuuva/auto-save.nvim",
+
   cmd = "ASToggle", -- optional for lazy loading on command
+
   event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
   config = function ()
     require("auto-save").setup({
@@ -8,10 +10,10 @@ return {
       execution_message = {
         enabled = false,
         message = function() -- message to print on save
-          return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+          return ("AutoSave: The file has been written and saved!")
         end,
-        dim = 1, -- dim the color of `message`
-        cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+        dim = 0.18, -- dim the color of `message`
+        cleaning_interval = 1000, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
       },
       trigger_events = { -- See :h events
         immediate_save = { "BufLeave", "FocusLost" }, -- vim events that trigger an immediate save
@@ -34,7 +36,7 @@ return {
       write_all_buffers = false, -- write all buffers when the current one meets `condition`
       noautocmd = false, -- do not execute autocmds when saving
       lockmarks = false, -- lock marks when saving, see `:h lockmarks` for more details
-      debounce_delay = 2000, -- delay after which a pending save is executed
+      debounce_delay = 1000, -- delay after which a pending save is executed
       -- log debug messages to 'auto-save.log' file in neovim cache directory, set to `true` to enable
       debug = false,
     })
