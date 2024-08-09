@@ -25,6 +25,7 @@ require("init").setup({
   }
 })
 
+require("init").setup()
 require("autocmd") -- NOTE: Autocmd
 require("options-setup") -- NOTE: Neovim options
 require("lazy-nvim") -- NOTE: Lazy vim install and import plugins

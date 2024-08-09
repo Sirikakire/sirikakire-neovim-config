@@ -1,7 +1,6 @@
 return {
   { "tzachar/cmp-tabnine", build = "./install.sh", event = "InsertEnter" },
   { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
-  { "hrsh7th/cmp-nvim-lsp-signature-help", event = "InsertEnter" },
   { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
   { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
   { "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
@@ -93,7 +92,6 @@ return {
           { name = "luasnip" },
           { name = "cmp_tabnine" },
           { name = "path" },
-          { name = "nvim_lsp_signature_help" },
           {
             name = "buffer",
             max_item_count = 3,

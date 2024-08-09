@@ -162,5 +162,5 @@ return {
         automatic_installation = true,
       })
     end,
-  },
+  }
 }
