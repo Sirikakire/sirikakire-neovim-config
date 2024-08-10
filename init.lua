@@ -11,10 +11,10 @@ require("init").setup({
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = -5,
+  float_window_brightness = 60,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "cyberdream",
+  colorscheme = "aquarium",
   neovide_setting = {
     transparency = 0.85,
     font_setting = {

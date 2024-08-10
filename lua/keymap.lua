@@ -246,4 +246,9 @@ K.nvimtree_keymaps = {
   { "<C-t>", "" }
 }
 
+-- NOTE: Setup keymap for copilot
+K.copilot_keymaps = {
+  { "<leader>ccp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+}
+
 return K

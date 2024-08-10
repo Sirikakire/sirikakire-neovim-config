@@ -98,6 +98,7 @@ return {
               return opts
             end
           },
+          { "copilot" },
           {
             'datetime',
             style = '%H:%M %d/%m/%Y',

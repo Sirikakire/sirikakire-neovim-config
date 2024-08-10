@@ -108,6 +108,9 @@ local setup_cmp_highlight = function()
   }
 
   for i, cmd in ipairs(cmd_executions) do
+    -- Check the highlight's guifg is Existed
+
+    -- Execute the command
     vim.cmd(cmd)
   end
 end
