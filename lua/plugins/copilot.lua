@@ -3,7 +3,7 @@ return {
     "zbirenbaum/copilot.lua",
     keys = require("keymap").copilot_keymaps,
     cmd = "Copilot",
-    event = "VimEnter",
+    event = "InsertEnter",
     config = function ()
       require('copilot').setup({
         panel = {
