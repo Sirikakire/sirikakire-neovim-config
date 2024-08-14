@@ -1,27 +1,27 @@
 return {
   "okuuva/auto-save.nvim",
-  cmd = "ASToggle", -- optional for lazy loading on command
-  event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+  cmd = "ASToggle",
+  event = { "InsertLeave", "TextChanged" },
   config = function ()
     require("auto-save").setup({
-      enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+      enabled = true,
       execution_message = {
         enabled = true,
-        message = function() -- message to print on save
+        message = function()
           return ("AutoSave: The file has been written and saved!")
         end,
-        dim = 0.18, -- dim the color of `message`
-        cleaning_interval = 1000, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+        dim = 0.18,
+        cleaning_interval = 1000,
       },
-      trigger_events = { -- See :h events
-        immediate_save = { "BufLeave", "FocusLost" }, -- vim events that trigger an immediate save
-        defer_save = { "InsertLeave", "TextChanged" }, -- vim events that trigger a deferred save (saves after `debounce_delay`)
-        cancel_defered_save = { "InsertEnter" }, -- vim events that cancel a pending deferred save
+      trigger_events = {
+        immediate_save = { "BufLeave", "FocusLost" },
+        defer_save = { "InsertLeave", "TextChanged" },
+        cancel_defered_save = { "InsertEnter" },
       },
       write_all_buffers = false,
       noautocmd = false,
       lockmarks = false,
-      debounce_delay = 1000,
+      debounce_delay = 2500,
       debug = false,
     })
   end
