@@ -21,7 +21,7 @@ return {
         files_first = false,
       },
       view = {
-        centralize_selection = false,
+        centralize_selection = true,
         cursorline = true,
         debounce_delay = 15,
         side = "left",
@@ -44,7 +44,7 @@ return {
         },
       },
       renderer = {
-        add_trailing = false,
+        add_trailing = true,
         group_empty = false,
         full_name = true,
         -- root_folder_label = ":~:s?$?/..?",
@@ -188,7 +188,7 @@ return {
       },
       live_filter = {
         prefix = " ",
-        always_show_folders = true,
+        always_show_folders = false,
       },
       filesystem_watchers = {
         enable = true,
@@ -204,7 +204,9 @@ return {
         },
         expand_all = {
           max_folder_discovery = 300,
-          exclude = {},
+          exclude = {
+            ".git"
+          },
         },
         file_popup = {
           open_win_config = {
