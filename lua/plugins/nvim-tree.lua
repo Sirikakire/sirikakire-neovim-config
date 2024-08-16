@@ -84,7 +84,7 @@ return {
           git_placement = "right_align",
           modified_placement = "right_align",
           diagnostics_placement = "right_align",
-          bookmarks_placement = "right_alignt",
+          bookmarks_placement = "right_align",
           padding = " ",
           symlink_arrow = " ➛ ",
           show = {
