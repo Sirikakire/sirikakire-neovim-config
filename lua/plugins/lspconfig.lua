@@ -38,7 +38,8 @@ return {
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
         virtual_text = {
-          prefix = " ",
+          -- prefix = " ",
+          prefix = " ",
           source = "always"
         },
         signs = true,

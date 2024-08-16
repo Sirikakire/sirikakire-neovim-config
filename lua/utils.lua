@@ -140,12 +140,12 @@ U.icons = {
 }
 
 U.sign_icons = {
-  add = '󰐖 ',
-  change = '󱗜 ',
-  delete = '󰍵 ',
-  topdelete = '󰍵 ',
-  changedelete = '󰇽 ',
-  untracked = '󰐖 ',
+  add = '󰐖',
+  change = '󱗜',
+  delete = '󰍵',
+  topdelete = '󰍵',
+  changedelete = '󰇽',
+  untracked = '󰐖',
   -- add = '󰐗 ',
   -- change = '󰻂 ',
   -- delete = '󰍶 ',
@@ -158,14 +158,14 @@ U.sign_icons = {
   -- error = '󰅙 ',
   -- hint = '󰋗 ',
   -- warning = '󰀨 ',
-  warning_2 = ' ',
-  warning_3 = '󰀨 ',
+  warning_2 = '',
+  warning_3 = '󰀨',
 
-  info = '󰏬 ',
-  warning = '󰀧 ',
-  error = '󰅗 ',
-  hint = '󰞋 ',
-  success = '󰄲 ',
+  info = '󰏬',
+  warning = '󰀧',
+  error = '󰅗',
+  hint = '󰞋',
+  success = '󰄲',
 }
 
 U.navic_icon = {

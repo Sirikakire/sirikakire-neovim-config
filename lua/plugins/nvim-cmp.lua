@@ -34,15 +34,16 @@ return {
           })
         },
         formatting = {
+          -- fields = { "kind", "abbr", "menu" },
           format = function(entry, vim_item)
-            vim_item.menu = ({
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              cmp_tabnine = "[TabNine]",
-              cmdline = "[CMDLine]",
-              path = "[Path]",
-              buffer = "[Buffer]"
-            })[entry.source.name]
+            -- vim_item.menu = ({
+            --   nvim_lsp = "[LSP]",
+            --   luasnip = "[LuaSnip]",
+            --   cmp_tabnine = "[TabNine]",
+            --   cmdline = "[CMDLine]",
+            --   path = "[Path]",
+            --   buffer = "[Buffer]"
+            -- })[entry.source.name]
             vim_item.kind = string.format("%s  %s", require("utils").nv_chad_icons[vim_item.kind], vim_item.kind)
             return vim_item
           end,

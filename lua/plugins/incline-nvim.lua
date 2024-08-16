@@ -32,7 +32,7 @@ return {
               if name == 'added' then hlname = 'Add' end
 
               table.insert(labels, {
-                icon .. signs[name] .. ' ',
+                icon .. ' ' .. signs[name] .. ' ',
                 group = 'GitSigns' .. hlname
               })
             end
@@ -58,7 +58,7 @@ return {
           for severity, icon in pairs(icons) do
             local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
             if n > 0 then
-              table.insert(label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
+              table.insert(label, { icon .. ' ' .. n .. ' ', group = 'DiagnosticSign' .. severity })
             end
           end
           if #label > 0 then

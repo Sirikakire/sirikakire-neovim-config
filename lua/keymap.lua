@@ -1,6 +1,6 @@
 local K = {}
 
-K.disable_keymap_for_filetype = function (filetype, keymaps)
+local disable_keymap_for_filetype = function (filetype, keymaps)
   vim.api.nvim_create_autocmd({ "BufEnter",  "BufNew" }, {
     callback = function()
       if filetype == nil then
@@ -28,9 +28,9 @@ end
 -- NOTE: Setup custom keymap
 K.setup_custom_keymap = function()
   -- NOTE: Useless keymap to not hit by mistake
-  K.disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
-  K.disable_keymap_for_filetype("toggleterm", { "<C-t>" })
-  K.disable_keymap_for_filetype("NvimTree", { "<C-t>" })
+  disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
+  disable_keymap_for_filetype("toggleterm", { "<C-t>" })
+  disable_keymap_for_filetype("NvimTree", { "<C-t>" })
 
   -- NOTE: Rest of the custom keymaps
   -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
