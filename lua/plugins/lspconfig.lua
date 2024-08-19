@@ -1,8 +1,52 @@
 return {
   {
+    "williamboman/mason.nvim",
+    event = "VeryLazy",
+    keys = require("keymap").mason_keymaps,
+    opts = {
+      ui = {
+        border = require("utils").border,
+        icons = {
+          package_pending = " ",
+          package_installed = " ",
+          package_uninstalled = " ",
+        },
+      },
+      max_concurrent_installers = 10,
+    },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
+    opts = {
+      ensure_installed = require("utils").lsp_servers,
+      automatic_installation = true,
+    }
+  },
+  {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
     config = function()
+      -- NOTE: Setup LSP capabilities
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        vim.lsp.protocol.make_client_capabilities(),
+        require('cmp_nvim_lsp').default_capabilities()
+      )
+
+      require("mason-lspconfig").setup_handlers({
+        function(lsp_server)
+          require("lspconfig")[lsp_server].setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              if client.server_capabilities["documentSymbolProvider"] then
+                require("nvim-navic").attach(client, bufnr)
+              end
+            end
+          })
+        end
+      })
+
       -- NOTE: Disabled LSP generate logging file
       vim.lsp.set_log_level("off")
 
@@ -129,39 +173,5 @@ return {
         end
       end
     end
-  },
-  {
-    "williamboman/mason.nvim",
-    event = "VeryLazy",
-    keys = require("keymap").mason_keymaps,
-    config = function()
-      require("mason").setup({
-        ui = { border = require("utils").border },
-      })
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    event = "VeryLazy",
-    config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      local setupLSP = function(lsp_server)
-        require("lspconfig")[lsp_server].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            if client.server_capabilities["documentSymbolProvider"] then
-              require("nvim-navic").attach(client, bufnr)
-            end
-          end
-        })
-      end
-
-      require("mason-lspconfig").setup({
-        ensure_installed = require("utils").lsp_servers,
-        handlers = { setupLSP },
-        automatic_installation = true,
-      })
-    end,
   }
 }

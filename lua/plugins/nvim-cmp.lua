@@ -1,37 +1,82 @@
 return {
-  { "tzachar/cmp-tabnine", build = "./install.sh", event = "InsertEnter" },
-  { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
-  { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
-  { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
-  { "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
-  {
-    "L3MON4D3/LuaSnip",
-    event = "InsertEnter",
-    dependencies = { "saadparwaiz1/cmp_luasnip", "rafamadriz/friendly-snippets" },
-    config = function()
-      require("luasnip").filetype_extend("ruby", { "rails" })
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
-  },
   {
     "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
-    config = function()
+    event = "InsertEnter",
+    dependencies = {
+      { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+      { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
+      { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
+      { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
+      { "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        event = "InsertEnter",
+        opts = { updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require("luasnip.loaders.from_vscode").lazy_load { exclude = vim.g.vscode_snippets_exclude or {} }
+          require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+          -- snipmate format
+          require("luasnip.loaders.from_snipmate").load()
+          require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.g.snipmate_snippets_path or "" }
+          -- lua format
+          require("luasnip.loaders.from_lua").load()
+          require("luasnip.loaders.from_lua").lazy_load { paths = vim.g.lua_snippets_path or "" }
+          vim.api.nvim_create_autocmd("InsertLeave", {
+            callback = function()
+              if
+                require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+                and not require("luasnip").session.jump_active
+              then
+                require("luasnip").unlink_current()
+              end
+            end,
+          })
+        end,
+      },
+    },
+    opts = function ()
       local cmp = require("cmp")
-      cmp.setup({
+      local border = require("utils").border
+      -- NOTE:`:` cmdline setup.
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline({
+          ['<Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+          ['<S-Tab>'] = cmp.mapping({
+            i = cmp.config.disable,
+            c = cmp.config.disable,
+            s = cmp.config.disable
+          }),
+        }),
+        sources = cmp.config.sources({
+          { name = "path" } ,
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
+          }
+        }),
+        matching = { disallow_symbol_nonprefix_matching = false }
+      })
+      return {
         completion = {
-          -- noselect, 
           completeopt = "noselect, menu, menuone, noinsert, preview",
         },
         window = {
-          completion = cmp.config.window.bordered({
-            border = require("utils").border,
+          completion = {
+            border = border,
             winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
-          }),
-          documentation = cmp.config.window.bordered({
-            border = require("utils").border,
+          },
+          documentation = {
+            border = border,
             winhighlight = "Normal:NormalFloat,CursorLine:PmenuSel,Search:None",
-          })
+          }
         },
         formatting = {
           -- fields = { "kind", "abbr", "menu" },
@@ -91,7 +136,6 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "cmp_tabnine" },
           { name = "path" },
           {
             name = "buffer",
@@ -107,32 +151,7 @@ return {
             }
           }
         }),
-      })
-      -- NOTE:  `:` cmdline setup.
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline({
-          ['<Tab>'] = cmp.mapping({
-            i = cmp.config.disable,
-            c = cmp.config.disable,
-            s = cmp.config.disable
-          }),
-          ['<S-Tab>'] = cmp.mapping({
-            i = cmp.config.disable,
-            c = cmp.config.disable,
-            s = cmp.config.disable
-          }),
-        }),
-        sources = cmp.config.sources( {
-          { name = "path" } ,
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          }
-        }),
-        matching = { disallow_symbol_nonprefix_matching = false }
-      })
+      }
     end,
   },
 }
