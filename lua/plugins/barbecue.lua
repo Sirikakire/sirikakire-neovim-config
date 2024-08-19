@@ -7,27 +7,10 @@ return {
     "nvim-tree/nvim-web-devicons", -- optional dependency
   },
   event = "BufRead",
-  config = function ()
-    vim.opt.updatetime = 200
-
+  opts = function()
     local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette
 
-    vim.api.nvim_create_autocmd({
-      "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
-      "BufWinEnter",
-      "CursorHold",
-      "InsertLeave",
-
-      -- include this if you have set `show_modified` to `true`
-      "BufModifiedSet",
-    }, {
-        group = vim.api.nvim_create_augroup("barbecue.updater", {}),
-        callback = function()
-          require("barbecue.ui").update()
-        end,
-      })
-
-    require("barbecue").setup({
+    return {
       ---Whether to attach navic to language servers automatically.
       ---
       ---@type boolean
@@ -190,6 +173,24 @@ return {
       ---
       ---@type barbecue.Config.kinds
       kinds = require("utils").nv_chad_icons
-    })
+    }
+  end,
+  config = function ()
+    vim.opt.updatetime = 200
+
+    vim.api.nvim_create_autocmd({
+      "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
+      "BufWinEnter",
+      "CursorHold",
+      "InsertLeave",
+
+      -- include this if you have set `show_modified` to `true`
+      "BufModifiedSet",
+    }, {
+        group = vim.api.nvim_create_augroup("barbecue.updater", {}),
+        callback = function()
+          require("barbecue.ui").update()
+        end,
+      })
   end
 }

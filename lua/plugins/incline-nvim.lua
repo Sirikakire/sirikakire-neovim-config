@@ -1,10 +1,11 @@
 return {
   "b0o/incline.nvim",
   event = "BufRead",
-  config = function ()
+  opts = function ()
     local devicons = require('nvim-web-devicons')
     local sign_icon = require('utils').sign_icons
-    require('incline').setup({
+
+    return {
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
         if filename == '' then
@@ -152,6 +153,6 @@ return {
         },
         zindex = 10
       }
-    })
+    }
   end
 }

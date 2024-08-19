@@ -6,19 +6,21 @@ return {
   },
   keys = require("keymap").telescope_keymaps,
   event = "VeryLazy",
-  config = function()
+  opts = function()
     local actions = require("telescope.actions")
     local common_setting = {
-      theme = "ivy",
-      prompt_prefix = "  ",
+      -- theme = "dropdown",
     }
-    require('telescope').setup({
+    require("telescope").load_extension("ui-select")
+
+    return {
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown({}),
         }
       },
       defaults = {
+        prompt_prefix = "  ",
         file_ignore_patterns = {
           "node_modules/.*",
           "yarn.lock",
@@ -34,8 +36,14 @@ return {
             ["<esc>"] = actions.close,
           },
         },
+        sorting_strategy = "ascending",
         layout_config = {
-          vertical = { width = 0.5 }
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
+          },
+          width = 0.92,
+          height = 0.88,
         },
         wrap_results = true,
         dynamic_preview_title = true,
@@ -51,7 +59,6 @@ return {
         highlights = vim.list_extend(common_setting, {}),
         autocommands = vim.list_extend(common_setting, {}),
       },
-    })
-    require("telescope").load_extension("ui-select")
+    }
   end
 }

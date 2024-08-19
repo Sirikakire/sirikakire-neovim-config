@@ -4,44 +4,42 @@ return {
     keys = require("keymap").copilot_keymaps,
     cmd = "Copilot",
     event = "InsertEnter",
-    config = function ()
-      require('copilot').setup({
-        panel = {
-          enabled = true,
-          auto_refresh = true,
-          keymap = {
-            jump_prev = "[[",
-            jump_next = "]]",
-            accept = "<CR>",
-            refresh = "gr",
-            open = "<M-CR>"
-          },
-          layout = {
-            position = "right", -- | top | left | right
-            ratio = 0.4
-          },
+    opts = {
+      panel = {
+        enabled = true,
+        auto_refresh = true,
+        keymap = {
+          jump_prev = "[[",
+          jump_next = "]]",
+          accept = "<CR>",
+          refresh = "gr",
+          open = "<M-CR>"
         },
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          hide_during_completion = true,
-          debounce = 75,
-          keymap = {
-            accept = "<tab>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
+        layout = {
+          position = "right", -- | top | left | right
+          ratio = 0.4
         },
-        filetypes = {
-          ["*"] = true,
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = true,
+        debounce = 75,
+        keymap = {
+          accept = "<tab>",
+          accept_word = false,
+          accept_line = false,
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<C-]>",
         },
-        copilot_node_command = 'node', -- Node.js version must be > 18.x
-        server_opts_overrides = {},
-      })
-    end
+      },
+      filetypes = {
+        ["*"] = true,
+      },
+      copilot_node_command = 'node', -- Node.js version must be > 18.x
+      server_opts_overrides = {},
+    }
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -51,7 +49,7 @@ return {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
-    config = function()
+    config = function ()
       require("CopilotChat").setup({
         debug = false, -- Enable debug logging
         proxy = nil, -- [protocol://]host[:port] Use this proxy
