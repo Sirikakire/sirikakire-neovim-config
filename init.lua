@@ -4,9 +4,9 @@ require("init").setup({
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "padding",
-  win_separator = false,
+  win_separator = true,
   background_theme = "dark",
-  thick_win_separator = false,
+  thick_win_separator = true,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
@@ -14,11 +14,11 @@ require("init").setup({
   float_window_brightness = 30,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "tokyodark",
+  colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "CaskaydiaCove Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font",
       size = 13,
       bold = false,
     }

@@ -139,6 +139,7 @@ local remove_git_sign_background = function()
   end
 end
 
+-- NOTE: Setup terminal color highlight
 local setup_terminal_highlight = function()
   local terminal_colors = vim.opt.background._value == "light" and require("utils").terminal_light_palette or require("utils").terminal_dark_palette
 
