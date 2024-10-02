@@ -311,7 +311,7 @@ U.kind_icons = {
 
 -- NOTE: Lsp server list
 U.lsp_servers = {
-  "tsserver",                        -- typescript
+  "ts_ls",                        -- typescript
   "lua_ls",                          -- lua
   "cssls",                           -- css
   "jsonls",                          -- json
