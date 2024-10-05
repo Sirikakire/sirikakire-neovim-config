@@ -5,7 +5,7 @@ return {
   opts = {
     enabled = true,
     execution_message = {
-      enabled = true,
+      enabled = false,
       message = function()
         return ("AutoSave: The file has been written and saved!")
       end,
