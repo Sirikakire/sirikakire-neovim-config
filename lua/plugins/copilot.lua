@@ -50,13 +50,14 @@ return {
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
     config = function ()
+      local select = require('CopilotChat.select')
       require("CopilotChat").setup({
         debug = false, -- Enable debug logging
         proxy = nil, -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
 
         system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
-        model = 'gpt-4o',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
+        model = 'gpt-4o-mini',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
         temperature = 0.3, -- GPT temperature
 
         question_header = '# Sirikakire  :', -- Header to use for user questions
@@ -76,49 +77,82 @@ return {
 
         -- default selection (visual or line)
         selection = function(source)
-          return require('CopilotChat.select').visual(source) or require('CopilotChat.select').line(source)
+          return select.visual(source) or select.line(source)
         end,
 
         -- default prompts
         prompts = {
           Explain = {
             prompt = '/COPILOT_EXPLAIN Write an explanation for the active selection as paragraphs of text.',
-            selection = require("CopilotChat.select").buffer
+            selection = select.visual
           },
           Review = {
             prompt = '/COPILOT_REVIEW Review the selected code.',
             callback = function(response, source)
-              -- see config.lua for implementation
+              local ns = vim.api.nvim_create_namespace('copilot_review')
+              local diagnostics = {}
+              for line in response:gmatch('[^\r\n]+') do
+                if line:find('^line=') then
+                  local start_line = nil
+                  local end_line = nil
+                  local message = nil
+                  local single_match, message_match = line:match('^line=(%d+): (.*)$')
+                  if not single_match then
+                    local start_match, end_match, m_message_match = line:match('^line=(%d+)-(%d+): (.*)$')
+                    if start_match and end_match then
+                      start_line = tonumber(start_match)
+                      end_line = tonumber(end_match)
+                      message = m_message_match
+                    end
+                  else
+                    start_line = tonumber(single_match)
+                    end_line = start_line
+                    message = message_match
+                  end
+
+                  if start_line and end_line then
+                    table.insert(diagnostics, {
+                      lnum = start_line - 1,
+                      end_lnum = end_line - 1,
+                      col = 0,
+                      message = message,
+                      severity = vim.diagnostic.severity.WARN,
+                      source = 'Copilot Review',
+                    })
+                  end
+                end
+              end
+              vim.diagnostic.set(ns, source.bufnr, diagnostics)
             end,
           },
           Fix = {
             prompt = '/COPILOT_GENERATE There is a problem in this code. Rewrite the code to show it with the bug fixed.',
-            selection = require("CopilotChat.select").visual
+            selection = select.visual
           },
           Optimize = {
             prompt = '/COPILOT_GENERATE Optimize the selected code to improve performance and readablilty.',
-            selection = require("CopilotChat.select").visual
+            selection = select.visual
           },
           Docs = {
             prompt = '/COPILOT_GENERATE Please add documentation comment for the selection.',
-            selection = require("CopilotChat.select").visual
+            selection = select.visual
           },
           Tests = {
             prompt = '/COPILOT_GENERATE Please generate tests for my code.',
-            selection = require("CopilotChat.select").visual
+            selection = select.visual
           },
           FixDiagnostic = {
             prompt = 'Please assist with the following diagnostic issue in file:',
-            selection = require('CopilotChat.select').diagnostics,
+            selection = select.diagnostics,
           },
           Commit = {
             prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
-            selection = require('CopilotChat.select').gitdiff,
+            selection = select.gitdiff,
           },
           CommitStaged = {
             prompt = 'Write commit message for the change with commitizen convention. Make sure the title has maximum 50 characters and message is wrapped at 72 characters. Wrap the whole message in code block with language gitcommit.',
             selection = function(source)
-              return require('CopilotChat.select').gitdiff(source, true)
+              return select.gitdiff(source, true)
             end,
           },
         },
@@ -151,6 +185,7 @@ return {
           show_user_selection = { normal = 'gs' },
         },
       })
+      require("CopilotChat.integrations.cmp").setup()
     end
   },
   { "AndreM222/copilot-lualine", event = "VeryLazy" }
