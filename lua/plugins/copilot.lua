@@ -57,7 +57,7 @@ return {
 
         system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
         model = 'gpt-4o',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
-        temperature = 0.5, -- GPT temperature
+        temperature = 0.3, -- GPT temperature
 
         question_header = '# Sirikakire  :', -- Header to use for user questions
         answer_header = '# Copilot  :', -- Header to use for AI answers
