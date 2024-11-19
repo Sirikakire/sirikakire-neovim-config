@@ -55,9 +55,9 @@ return {
         debug = false, -- Enable debug logging
         proxy = nil, -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
-
+        chat_autocomplete = true,
         system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
-        model = 'gpt-4o-mini',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
+        model = 'o1-mini',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
         temperature = 0.3, -- GPT temperature
 
         question_header = '# Sirikakire  :', -- Header to use for user questions
@@ -185,7 +185,6 @@ return {
           show_user_selection = { normal = 'gs' },
         },
       })
-      require("CopilotChat.integrations.cmp").setup()
     end
   },
   { "AndreM222/copilot-lualine", event = "VeryLazy" }
