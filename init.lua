@@ -4,7 +4,7 @@ require("init").setup({
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "single",
-  win_separator = true,
+  win_separator = false,
   background_theme = "dark",
   thick_win_separator = true,
   syn_all_border_color = false,
@@ -14,12 +14,12 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "tokyonight",
+  colorscheme = "aquarium",
   neovide_setting = {
     transparency = 1,
     font_setting = {
-      name = "JetBrainsMono Nerd Font Propo",
-      size = 13,
+      name = "CaskaydiaCove Nerd Font",
+      size = 15,
       bold = false,
     }
   }
