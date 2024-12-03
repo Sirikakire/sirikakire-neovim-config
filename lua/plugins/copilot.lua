@@ -43,7 +43,6 @@ return {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
     keys = require("keymap").copilot_chat_keymaps,
     dependencies = {
       { "zbirenbaum/copilot.lua" },
@@ -57,7 +56,7 @@ return {
         allow_insecure = false, -- Allow insecure server connections
         chat_autocomplete = true,
         system_prompt = require('CopilotChat.prompts').COPILOT_INSTRUCTIONS, -- System prompt to use
-        model = 'gpt-4o-mini',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
+        model = 'o1-mini',-- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
         temperature = 0.2, -- GPT temperature
 
         question_header = '# Sirikakire  :', -- Header to use for user questions
@@ -181,8 +180,8 @@ return {
           accept_diff = { normal = '<C-y>', insert = '<C-y>' },
           yank_diff = { normal = 'gy' },
           show_diff = { normal = 'gd' },
-          show_system_prompt = { normal = 'gp' },
-          show_user_selection = { normal = 'gs' },
+          sho_info = { normal = 'gp' },
+          show_context = { normal = 'gs' },
         },
       })
     end
