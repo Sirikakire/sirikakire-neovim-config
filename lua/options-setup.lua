@@ -5,6 +5,8 @@ local options = {
   "expandtab",
   "smarttab",
   "breakindent",
+  -- "completeopt=noselect,menu,menuone,noinsert,preview,popup",
+  "completeopt=menu,menuone,noinsert,preview,popup",
   "shiftwidth=2",
   "tabstop=2",
   "wrap",

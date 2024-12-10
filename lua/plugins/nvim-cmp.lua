@@ -5,6 +5,7 @@ return {
     { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
     { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" },
     { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
+    { "hrsh7th/cmp-nvim-lsp-signature-help", event = "InsertEnter" },
     { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
     { "hrsh7th/cmp-buffer", event = { "InsertEnter", "CmdlineEnter" } },
     {
@@ -38,20 +39,73 @@ return {
   opts = function ()
     local cmp = require("cmp")
     local border = require("utils").border
+    local mapping = {
+      ["<Tab>"] = cmp.mapping({
+        i = cmp.config.disable,
+        c = cmp.config.disable,
+        s = cmp.config.disable
+      }),
+      ["<S-Tab>"] = cmp.mapping({
+        i = cmp.config.disable,
+        c = cmp.config.disable,
+        s = cmp.config.disable
+      }),
+      ["<C-n>"] = cmp.mapping({
+        i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        s = cmp.config.disable
+      }),
+      ["<C-p>"] = cmp.mapping({
+        i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        s = cmp.config.disable
+      }),
+      ["<C-d>"] = cmp.mapping({
+        i = cmp.mapping.scroll_docs(4),
+        c = cmp.mapping.scroll_docs(4),
+        s = cmp.mapping.scroll_docs(4)
+      }),
+      ["<C-u>"] = cmp.mapping({
+        i = cmp.mapping.scroll_docs(-4),
+        c = cmp.mapping.scroll_docs(-4),
+        s = cmp.mapping.scroll_docs(-4)
+      }),
+      ["<C-e>"] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.abort(),
+        s = cmp.config.disable
+      }),
+      ["<C-a>"] = cmp.mapping({
+        i = cmp.mapping.complete(),
+        c = cmp.mapping.complete(),
+        s = cmp.config.disable
+      }),
+      ["<CR>"] = cmp.mapping({
+        i = cmp.mapping.confirm({ select = true }),
+        c = cmp.mapping.confirm({ select = true }),
+        s = cmp.mapping.disable
+      })
+      -- ["<CR>"] = cmp.mapping({
+      --   i = function(fallback)
+      --     if cmp.visible() and cmp.get_active_entry() then
+      --       cmp.confirm()
+      --     else fallback() end
+      --   end,
+      --   s = function(fallback)
+      --     if cmp.visible() and cmp.get_active_entry() then
+      --       cmp.confirm()
+      --     else fallback() end
+      --   end,
+      --   c = function(fallback)
+      --     if cmp.visible() and cmp.get_active_entry() then
+      --       cmp.confirm()
+      --     else fallback() end
+      --   end,
+      -- }),
+    }
     -- NOTE:`:` cmdline setup.
     cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline({
-        ['<Tab>'] = cmp.mapping({
-          i = cmp.config.disable,
-          c = cmp.config.disable,
-          s = cmp.config.disable
-        }),
-        ['<S-Tab>'] = cmp.mapping({
-          i = cmp.config.disable,
-          c = cmp.config.disable,
-          s = cmp.config.disable
-        }),
-      }),
+      mapping = cmp.mapping.preset.cmdline(mapping),
       sources = cmp.config.sources({
         { name = "path" } ,
         {
@@ -64,9 +118,7 @@ return {
       matching = { disallow_symbol_nonprefix_matching = false }
     })
     return {
-      completion = {
-        completeopt = "noselect, menu, menuone, noinsert, preview",
-      },
+      completion = { completeopt = vim.opt.completeopt._value },
       window = {
         completion = {
           border = border,
@@ -97,48 +149,17 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping({
-          i = cmp.config.disable,
-          c = cmp.config.disable,
-          s = cmp.config.disable
-        }),
-        ['<S-Tab>'] = cmp.mapping({
-          i = cmp.config.disable,
-          c = cmp.config.disable,
-          s = cmp.config.disable
-        }),
-        ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
-        ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "i" }),
-        ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i" }),
-        ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i" }),
-        ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i" }),
-        ["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i" }),
-        ["<CR>"] = cmp.mapping({
-          i = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm()
-            else fallback() end
-          end,
-          s = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm()
-            else fallback() end
-          end,
-          c = function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm()
-            else fallback() end
-          end,
-        }),
-      }),
+      mapping = cmp.mapping.preset.insert(mapping),
+      performance = {
+        max_view_entries = 13
+      },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = 'nvim_lsp_signature_help' },
         { name = "path" },
         {
           name = "buffer",
-          max_item_count = 3,
           option = {
             get_bufnrs = function()
               local bufs = {}
