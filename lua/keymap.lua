@@ -6,7 +6,7 @@ local disable_keymap_for_filetype = function (filetype, keymaps)
       if filetype == nil then
         for _key, keymap in pairs(keymaps) do
           vim.keymap.set("n", keymap, "",
-            { desc = "This keymap does nothing, I'm remapping it because I usually hit this keymap by mistake" }
+            { desc = "This keymap does nothing, I remapped it because I usually hit this keymap by mistake" }
           )
         end
         return
@@ -15,7 +15,7 @@ local disable_keymap_for_filetype = function (filetype, keymaps)
       for _key, keymap in pairs(keymaps) do
         if vim.bo.filetype == filetype then
           vim.keymap.set("n", keymap, "",
-            { desc = "This keymap does nothing, I'm remapping it because I usually hit this keymap by mistake" }
+            { desc = "This keymap does nothing, I remapped it because I usually hit this keymap by mistake" }
           )
         else
           vim.cmd("silent! unmap " .. keymap)
@@ -31,6 +31,7 @@ K.setup_custom_keymap = function()
   disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
   disable_keymap_for_filetype("toggleterm", { "<C-t>" })
   disable_keymap_for_filetype("NvimTree", { "<C-t>" })
+  disable_keymap_for_filetype("copilot-chat", { "<C-s>" })
 
   -- NOTE: Rest of the custom keymaps
   -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
@@ -55,6 +56,7 @@ K.setup_custom_keymap = function()
   --   end,
   --   { desc = "Delete current buffer and then navigate to the next one" }
   -- )
+  vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
   vim.keymap.set("n", "<A-9>", "<C-w>-", { desc = "Decrease window height" })
