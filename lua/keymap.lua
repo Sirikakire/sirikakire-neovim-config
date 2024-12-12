@@ -31,7 +31,6 @@ K.setup_custom_keymap = function()
   disable_keymap_for_filetype(nil, { "<C-z>", "K", "<C-b>", "q" })
   disable_keymap_for_filetype("toggleterm", { "<C-t>" })
   disable_keymap_for_filetype("NvimTree", { "<C-t>" })
-  disable_keymap_for_filetype("copilot-chat", { "<C-s>" })
 
   -- NOTE: Rest of the custom keymaps
   -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
