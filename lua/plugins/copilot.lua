@@ -1,13 +1,12 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    keys = require("keymap").copilot_keymaps,
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
       panel = {
-        enabled = true,
-        auto_refresh = true,
+        enabled = false,
+        auto_refresh = false,
         keymap = {
           jump_prev = "[[",
           jump_next = "]]",
@@ -58,10 +57,10 @@ return {
         -- Shared config starts here (can be passed to functions at runtime and configured via setup function)
 
         system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use (can be specified manually in prompt via /).
-        model = 'gpt-4o-mini', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
+        model = 'o1-mini', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
         agent = 'copilot', -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
         context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
-        temperature = 0.1, -- GPT result temperature
+        temperature = 0.3, -- GPT result temperature
         headless = false, -- Do not write to chat buffer and use history(useful for using callback for custom processing)
         callback = nil, -- Callback to use when ask response is received
 
@@ -73,8 +72,8 @@ return {
         -- default window options
         window = {
           layout = 'float', -- 'vertical', 'horizontal', 'float', 'replace'
-          width = 0.8, -- fractional width of parent, or absolute width in columns when > 1
-          height = 0.8, -- fractional height of parent, or absolute height in rows when > 1
+          width = 0.5, -- fractional width of parent, or absolute width in columns when > 1
+          height = 0.5, -- fractional height of parent, or absolute height in rows when > 1
           -- Options below only apply to floating windows
           relative = 'editor', -- 'editor', 'win', 'cursor', 'mouse'
           border = require('utils').border, -- 'none', single', 'double', 'rounded', 'solid', 'shadow'          row = nil, -- row position of the window, default is centered
@@ -106,7 +105,7 @@ return {
         question_header = '# Sirikakire  :', -- Header to use for user questions
         answer_header = '# Copilot  :', -- Header to use for AI answers
         error_header = '# Error 󰅙 :', -- Header to use for errors
-        separator = ' ', -- Separator to use in chat
+        separator = '----', -- Separator to use in chat
 
         contexts = {
           buffer = {

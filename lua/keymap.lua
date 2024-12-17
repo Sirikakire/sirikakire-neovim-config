@@ -1,7 +1,7 @@
 local K = {}
 
-local disable_keymap_for_filetype = function (filetype, keymaps)
-  vim.api.nvim_create_autocmd({ "BufEnter",  "BufNew" }, {
+local disable_keymap_for_filetype = function(filetype, keymaps)
+  vim.api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
     callback = function()
       if filetype == nil then
         for _key, keymap in pairs(keymaps) do
@@ -68,6 +68,7 @@ K.setup_custom_keymap = function()
   vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
   vim.keymap.set({ "n", "v" }, "<C-p>", '"0p', { desc = "Paste the previous yank register" })
   vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+  vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window" })
   vim.keymap.set("n", "<leader>hl", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
   vim.keymap.set("n", "<leader>gd", "<cmd>%bd!|e#<CR>", { desc = "Global delete all buffer" })
   vim.keymap.set("n", "<leader>ow", "<cmd>lua vim.opt.wrap = not vim.opt.wrap._value<CR>", { desc = "Toggle line wrap" })
@@ -99,7 +100,7 @@ end
 -- NOTE: Setup keymap for Mason nvim
 K.mason_keymaps = {
   { "<leader>lm", "<cmd>Mason<CR>", desc = "Open Mason" }
- }
+}
 -- NOTE: Setup keymap for LSP
 K.setup_lsp_keymap = function(opts)
   opts.desc = "Go to definition"
@@ -244,12 +245,7 @@ K.lazygit_keymaps = {
 -- NOTE: Setup keymap for nvim tree
 K.nvimtree_keymaps = {
   { "<leader>e", "<cmd>NvimTreeFocus<CR>", desc = "Open nvim tree" },
-  { "<C-t>", "" }
-}
-
--- NOTE: Setup keymap for copilot
-K.copilot_keymaps = {
-  { "<leader>ccp", "<cmd>Copilot panel<CR>", desc = "Open copilot panel" }
+  { "<C-t>",     "" }
 }
 
 return K
