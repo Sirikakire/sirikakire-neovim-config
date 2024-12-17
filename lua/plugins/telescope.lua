@@ -20,28 +20,29 @@ return {
       if not vim.tbl_isempty(multi) then
         require('telescope.actions').close(prompt_bufnr)
         for _, j in pairs(multi) do
-          if j.path ~= nil then
-            if j.lnum ~= nil then
-              vim.cmd(string.format("%s +%s %s", "edit", j.lnum, j.path))
-            else
-              vim.cmd(string.format("%s %s", "edit", j.path))
-            end
+          local file = j.path or j.filename or j.value
+          local lnum = j.lnum or 1
+          local lcol = j.col or 1
+
+          if file ~= nil then
+            vim.cmd(string.format("%s %s", "edit", file))
+            vim.cmd(string.format("%s %sG%s|", "normal!", lnum, lcol))
           end
         end
-      else
-        require('telescope.actions').select_default(prompt_bufnr)
-      end
+    else
+      require('telescope.actions').select_default(prompt_bufnr)
     end
-    return {
-      extensions = {
-        ["ui-select"] = {
-          -- require("telescope.themes").get_dropdown({}),
-        }
-      },
-      defaults = {
-        prompt_prefix = "  ",
-        file_ignore_patterns = {
-          "node_modules/.*",
+  end
+  return {
+    extensions = {
+      ["ui-select"] = {
+        -- require("telescope.themes").get_dropdown({}),
+      }
+    },
+    defaults = {
+      prompt_prefix = "  ",
+      file_ignore_patterns = {
+        "node_modules/.*",
           "yarn.lock",
           "package%-lock.json",
           "lazy%-lock.json",
