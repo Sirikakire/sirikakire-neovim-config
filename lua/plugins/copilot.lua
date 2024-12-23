@@ -105,7 +105,7 @@ return {
         question_header = '# Sirikakire  :', -- Header to use for user questions
         answer_header = '# Copilot  :', -- Header to use for AI answers
         error_header = '# Error 󰅙 :', -- Header to use for errors
-        separator = ''-- Separator to use in chat
+        separator = '',-- Separator to use in chat
 
         contexts = {
           buffer = {
