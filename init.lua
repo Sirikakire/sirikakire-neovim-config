@@ -1,12 +1,12 @@
 -- NOTE: Loading Neovim global variable
 require("init").setup({
-  transparent_background = false,
+  transparent_background = true,
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = false,
+  thick_win_separator = true,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "catppuccin",
   neovide_setting = {
-    transparency = 0.53,
+    transparency = 1,
     dont_apply_transparent_background = false,
     theme = "dark",
     font_setting = {
