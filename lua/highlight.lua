@@ -322,7 +322,7 @@ local init_highlight = function()
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end
   if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
   if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
-  if vim.b.transparent_background then setup_transparent_background() end
+  if vim.b.transparent_background or vim.g.neovide_transparency then setup_transparent_background() end
   if vim.b.syn_all_border_color then setup_synchronized_border_color() end
   if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
   if vim.b.syn_all_noice_cmdline_border then setup_synchronized_noice_cmdline() end
