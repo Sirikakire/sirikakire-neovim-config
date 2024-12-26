@@ -310,6 +310,10 @@ local setup_transparent_background = function()
   ]])
 end
 
+local load_color_icons = function ()
+  require("nvim-web-devicons").set_icon(require("utils").icons)
+end
+
 local init_highlight = function()
   setup_highlight()
   setup_cursor_line_highlight()
@@ -317,6 +321,7 @@ local init_highlight = function()
   setup_barbar_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
+  load_color_icons()
   if vim.g.neovide then setup_terminal_highlight() end
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end

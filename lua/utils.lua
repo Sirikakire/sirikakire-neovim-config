@@ -353,6 +353,7 @@ U.treesitter_parsers = {
 }
 
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
+U.spinner_circle = { "", "󰀚", "" }
 U.sbar           = { '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█' }
 
 U.border = vim.b.doc_border_type == "single" and {

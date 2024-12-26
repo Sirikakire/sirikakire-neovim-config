@@ -20,6 +20,7 @@ vim.b.line_space = 0
 vim.b.neovide_setting = {
   scale_factor = 1,
   transparency = 1,
+  dont_apply_transparent_background = false,
   theme = "auto", ---@type "auto" | "light" | "dark"
   font_setting = {
     name = "",
@@ -46,7 +47,7 @@ M.setup = function (params)
   end
 
   if params.transparent_background ~= nil then
-    if params.neovide_setting.transparency < 1 then
+    if params.neovide_setting.transparency < 1 and params.neovide_setting.dont_apply_transparent_background == false then
       vim.b.transparent_background = true
     else
       vim.b.transparent_background = params.transparent_background

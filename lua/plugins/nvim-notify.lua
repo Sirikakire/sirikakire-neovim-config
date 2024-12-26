@@ -5,10 +5,20 @@ return {
   opts = function()
     local background = "Normal"
 
-    if vim.b.trnsparent_background then
-      background = "#000000"
-    else
-      background = "#ffffff"
+    if vim.b.transparent_background then
+      if vim.b.neovide_setting == "auto" then
+        if vim.opt.background._value == "dark" then
+          background = "#000000"
+        else
+          background = "#ffffff"
+        end
+      else
+        if vim.b.neovide_setting == "dark" then
+          background = "#000000"
+        else
+          background = "#ffffff"
+        end
+      end
     end
 
     return {

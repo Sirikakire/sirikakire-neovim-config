@@ -113,7 +113,7 @@ return {
 
       -- NOTE: Nvim lsp progress notify
       local client_notifs = {}
-      local spinner_frames = require("utils").spinner_frames
+      local spinner_frames = require("utils").spinner_circle
       local success_icon = require("utils").sign_icons.success
 
       local function get_notif_data(client_id, token)
