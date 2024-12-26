@@ -1,9 +1,8 @@
 return {
   "nvim-tree/nvim-web-devicons",
-  lazy = true,
   opts = function ()
     -- NOTE: I dont know why but this is needed
-    require("nvim-web-devicons").set_icon(require("utils").icons)
+    -- require("nvim-web-devicons").set_icon(require("utils").icons)
 
     return {
       -- NOTE: override the icon

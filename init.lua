@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "catppuccin",
   neovide_setting = {
-    transparency = 0.9,
+    transparency = 0.55,
     theme = "dark",
     font_setting = {
       name = "CaskaydiaCove Nerd Font",
