@@ -25,6 +25,7 @@ if vim.g.neovide and vim.b.neovide_setting then
     vim.o.guifont = font
   end
 
+  vim.g.neovide_theme = setting.theme
   vim.g.neovide_transparency = setting.transparency
   vim.g.neovide_window_blurred = true
   vim.g.neovide_padding_top = 0
@@ -53,4 +54,10 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_animate_command_line = false
   vim.g.neovide_cursor_smooth_blink = false
+  -- vim.g.neovide_title_background_color = string.format(
+  --   "%x",
+  --   vim.api.nvim_get_hl(0, {id=vim.api.nvim_get_hl_id_by_name("Normal")}).bg
+  -- )
+  --
+  -- vim.g.neovide_title_text_color = "pink"
 end

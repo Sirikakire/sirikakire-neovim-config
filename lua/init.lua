@@ -20,6 +20,7 @@ vim.b.line_space = 0
 vim.b.neovide_setting = {
   scale_factor = 1,
   transparency = 1,
+  theme = "auto", ---@type "auto" | "light" | "dark"
   font_setting = {
     name = "",
     size = 18,
@@ -45,7 +46,11 @@ M.setup = function (params)
   end
 
   if params.transparent_background ~= nil then
-    vim.b.transparent_background = params.transparent_background
+    if params.neovide_setting.transparency < 1 then
+      vim.b.transparent_background = true
+    else
+      vim.b.transparent_background = params.transparent_background
+    end
   end
 
   if params.syn_all_telescope_border ~= nil then
@@ -95,6 +100,7 @@ M.setup = function (params)
     local neovide_setting = {
       scale_factor = setting.scale_factor or default_setting.scale_factor,
       transparency = setting.transparency or default_setting.transparency,
+      theme = setting.theme or default_setting.theme,
       font_setting = {
         name = setting.font_setting.name or default_setting.font_setting.name,
         size = setting.font_setting.size or default_setting.font_setting.size,
