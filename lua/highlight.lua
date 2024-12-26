@@ -49,7 +49,6 @@ local setup_highlight = function()
     highlight! NonText guibg=NONE
 
 		highlight! link BufferCurrentMod Normal
-		" highlight! link TabLineFill Normal
   ]])
 end
 
@@ -306,6 +305,8 @@ local setup_transparent_background = function()
     highlight! NoiceCmdlinePopupBorderSearch ctermbg=NONE guibg=NONE
     highlight! NoiceCmdlinePopupTitle ctermbg=NONE guibg=NONE
     highlight! NoiceCmdlinePrompt ctermbg=NONE guibg=NONE
+    highlight! BufferTabpageFill ctermbg=NONE guibg=NONE
+    highlight! BufferOffset ctermbg=NONE guibg=NONE
   ]])
 end
 
