@@ -13,7 +13,7 @@ return {
           background = "#ffffff"
         end
       else
-        if vim.b.neovide_setting == "dark" then
+        if vim.b.neovide_setting.theme == "dark" then
           background = "#000000"
         else
           background = "#ffffff"
