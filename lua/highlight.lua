@@ -48,8 +48,8 @@ local setup_highlight = function()
     highlight! FloatBorder ctermbg=NONE guibg=NONE
     highlight! NonText guibg=NONE
 
-		highlight! link BufferCurrentMod Normal
-  ]])
+    highlight! link BufferCurrentMod Normal
+    ]])
 end
 
 -- NOTE: setup cursor line highlight
@@ -307,6 +307,11 @@ local setup_transparent_background = function()
     highlight! NoiceCmdlinePrompt ctermbg=NONE guibg=NONE
     highlight! link BufferTabpageFill Normal
     highlight! link BufferOffset Normal
+    highlight! link BufferCurrentIcon Normal
+    highlight! link BufferVisibleIcon Normal
+    highlight! link BufferInactiveIcon Normal
+    highlight! link BufferInactiveMod Normal
+
   ]])
 end
 

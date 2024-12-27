@@ -14,7 +14,7 @@ return {
     hide = {extensions = false, inactive = false},
     highlight_alternate = false,
     highlight_inactive_file_icons = false,
-    highlight_visible = true,
+    highlight_visible = false,
     icons = {
       buffer_index = false,
       buffer_number = false,
