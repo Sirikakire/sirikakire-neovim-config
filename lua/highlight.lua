@@ -4,6 +4,7 @@ local init = require("init")
 local setup_highlight = function()
   -- highlight! link NvimTreeFolderIcon guifg=#e7c173
   --[[
+
      NOTE: Personal highlight setting: 
     - Remove FloatBorder bg but keep the guifg
     - Remove Diagnostic sign and Git sign background
@@ -49,6 +50,9 @@ local setup_highlight = function()
     highlight! NonText guibg=NONE
 
     highlight! link BufferCurrentMod Normal
+    highlight! link lualine_c_normal Normal
+    highlight! link lualine_c_inactive Normal
+    highlight! link lualine_c_insert Normal
     ]])
 end
 
@@ -306,18 +310,7 @@ local setup_transparent_background = function()
     highlight! NoiceCmdlinePopupTitle ctermbg=NONE guibg=NONE
     highlight! NoiceCmdlinePrompt ctermbg=NONE guibg=NONE
     highlight! lualine_c_normal ctermbg=NONE guibg=NONE
-    highlight! link BufferTabpageFill Normal
-    highlight! link BufferOffset Normal
-    highlight! link BufferCurrentIcon Normal
-    highlight! link BufferVisibleIcon Normal
-    highlight! link BufferInactiveIcon Normal
-    highlight! link BufferInactiveMod Normal
-
   ]])
-end
-
-local load_color_icons = function ()
-  require("nvim-web-devicons").set_icon(require("utils").icons)
 end
 
 local init_highlight = function()
@@ -327,7 +320,6 @@ local init_highlight = function()
   setup_barbar_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
-  load_color_icons()
   if vim.g.neovide then setup_terminal_highlight() end
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end

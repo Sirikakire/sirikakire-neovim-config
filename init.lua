@@ -3,15 +3,15 @@ require("init").setup({
   transparent_background = false,
   mapleader = " ",
   border_color = "#e7c173",
-  doc_border_type = "single",
-  win_separator = true,
+  doc_border_type = "",
+  win_separator = false,
   background_theme = "dark",
   thick_win_separator = true,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = 0,
+  float_window_brightness = 10,
   better_cmp_cursor_line = true,
   line_space = 0,
   colorscheme = "catppuccin",
@@ -34,3 +34,4 @@ require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, shoul
 require("keymap").setup_custom_keymap() -- NOTE: Neovim custom keymap
 require("neovide") -- NOTE: Neovide setting
 require("highlight") -- NOTE: Neovim custom highlight
+require("nvim-web-devicons").set_icon(require("utils").icons)
