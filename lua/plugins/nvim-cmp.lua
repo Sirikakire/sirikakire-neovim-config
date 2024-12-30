@@ -260,7 +260,7 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
           draw = {
             padding = 1,
-            gap = 1,
+            gap = 2,
             treesitter = {
               'lsp',
               'luasnip',
@@ -270,8 +270,10 @@ return {
               'cmdline'
             },
             columns = {
+              { 'kind_icon' },
               { 'label', 'label_description', gap = 1 },
-              { 'kind_icon', 'kind', gap = 2 },
+              { 'kind' },
+              -- { 'source_name' },
             },
             components = {
               source_name = {
