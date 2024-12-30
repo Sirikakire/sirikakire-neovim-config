@@ -10,15 +10,17 @@ return {
         statusline = {},
         winbar = {
           "toggleterm",
-          "NvimTree"
+          "NvimTree",
+          "Telescope"
         },
       },
       ignore_focus = {},
       always_divide_middle = true,
+      always_show_tabline = true,
       globalstatus = true,
       refresh = {
-        statusline = 5000,
-        tabline = 5000,
+        statusline = 500,
+        tabline = 500,
         winbar = 5000,
       }
     },
@@ -58,7 +60,6 @@ return {
         -- }
       },
       lualine_b = {
-
         {
           'branch',
           icon = "",
@@ -128,7 +129,35 @@ return {
       lualine_y = {},
       lualine_z = {}
     },
-    tabline = {},
+    tabline = {
+      lualine_a = {
+        {
+          "buffers",
+          padding = 1,
+          -- separator = { left = '', right = ''},
+          show_filename_only = true,
+          hide_filename_extension = false,
+          show_modified_status = true,
+          use_mode_colors = true,
+          mode = 0,
+          max_length = vim.o.columns,
+          -- buffers_color = {
+          --   active = 'cleared',
+          --   inactive = 'cleared',
+          -- },
+          symbols = {
+            modified = ' ●',      -- Text to show when the buffer is modified
+            alternate_file = '', -- Text to show to identify the alternate file
+            directory =  '',     -- Text to show when the buffer is a directory
+          },
+        }
+      },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
+    },
     -- winbar = {
     --   lualine_a = {},
     --   lualine_b = {},

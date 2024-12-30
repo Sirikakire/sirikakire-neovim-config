@@ -33,28 +33,28 @@ K.setup_custom_keymap = function()
   disable_keymap_for_filetype("NvimTree", { "<C-t>" })
 
   -- NOTE: Rest of the custom keymaps
-  -- vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
-  -- vim.keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "Navigate to the next buffer" })
-  -- vim.keymap.set("n", "<A-c>",
-  --   function()
-  --     if not vim.fn.bufnr() then return end
-  --
-  --     local buffer_id = vim.fn.bufnr()
-  --     vim.cmd("bprevious")
-  --     vim.cmd("bdelete " .. buffer_id)
-  --   end,
-  --   { desc = "Delete current buffer and then navigate to the previous one" }
-  -- )
-  -- vim.keymap.set("n", "<A-C>",
-  --   function()
-  --     if not vim.fn.bufnr() then return end
-  --
-  --     local buffer_id = vim.fn.bufnr()
-  --     vim.cmd("bnext")
-  --     vim.cmd("bdelete " .. buffer_id)
-  --   end,
-  --   { desc = "Delete current buffer and then navigate to the next one" }
-  -- )
+  vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
+  vim.keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "Navigate to the next buffer" })
+  vim.keymap.set("n", "<A-c>",
+    function()
+      if not vim.fn.bufnr() then return end
+
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("bprevious")
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    { desc = "Delete current buffer and then navigate to the previous one" }
+  )
+  vim.keymap.set("n", "<A-C>",
+    function()
+      if not vim.fn.bufnr() then return end
+
+      local buffer_id = vim.fn.bufnr()
+      vim.cmd("bnext")
+      vim.cmd("bdelete " .. buffer_id)
+    end,
+    { desc = "Delete current buffer and then navigate to the next one" }
+  )
   vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })

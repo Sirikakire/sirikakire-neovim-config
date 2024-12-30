@@ -305,6 +305,7 @@ local setup_transparent_background = function()
     highlight! NoiceCmdlinePopupBorderSearch ctermbg=NONE guibg=NONE
     highlight! NoiceCmdlinePopupTitle ctermbg=NONE guibg=NONE
     highlight! NoiceCmdlinePrompt ctermbg=NONE guibg=NONE
+    highlight! lualine_c_normal ctermbg=NONE guibg=NONE
     highlight! link BufferTabpageFill Normal
     highlight! link BufferOffset Normal
     highlight! link BufferCurrentIcon Normal
