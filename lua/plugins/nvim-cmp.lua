@@ -310,9 +310,6 @@ return {
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
         }
       },
-
-      -- Default list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
       snippets = {
         expand = function(snippet)
           require('luasnip').lsp_expand(snippet)
