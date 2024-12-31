@@ -1,13 +1,17 @@
 return {
   "nvim-tree/nvim-web-devicons",
-  event = "VimEnter",
-  config = function()
-    require("nvim-web-devicons").setup({
-      override_by_extension = require("utils").icons,
-      override = require("utils").icons,
-      color_icons = true,
-      default = false,
-      strict = true,
-    })
-  end,
+  pin = "nerd-v2-compat",
+  priority = 10000,
+  event = "VeryLazy",
+  opts = {
+    override_by_extension = require("utils").icons,
+    color_icons = true,
+    default = false,
+    strict = true,
+  },
+  config = function(_, opts)
+    require("nvim-web-devicons").set_icon(require("utils").icons)
+    require("nvim-web-devicons").setup(opts)
+    require("nvim-web-devicons").set_icon(require("utils").icons)
+  end
 }

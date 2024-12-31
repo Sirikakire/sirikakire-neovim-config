@@ -276,7 +276,7 @@ return {
             },
             components = {
               source_name = {
-                text = function(ctx) return "["..(ctx.source_name:gsub("^%l", string.upper)).."]" end,
+                text = function(ctx) return ctx.source_name:gsub("^%l", string.upper) end,
                 highlight = 'BlinkCmpSource',
               },
               kind_icon = {
