@@ -387,11 +387,11 @@ U.border = vim.b.doc_border_type == "single" and {
   { "", "" },
   { "", "" },
   { "", "" },
-  { "", "NormalFloat" },
   { "", "" },
   { "", "" },
   { "", "" },
-  { "", "NormalFloat" },
+  { "", "" },
+  { "", "" },
 }
 
 return U

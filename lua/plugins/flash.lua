@@ -96,7 +96,7 @@ return {
     ---@type table<string, Flash.Config>
     modes = {
       search = {
-        enabled = true,
+        enabled = false,
         highlight = { backdrop = false },
         jump = { history = true, register = true, nohlsearch = true },
         search = {
