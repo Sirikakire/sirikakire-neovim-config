@@ -20,7 +20,7 @@ require("init").setup({
     dont_apply_transparent_background = false,
     theme = "dark",
     font_setting = {
-      name = "CaskaydiaCove Nerd Font",
+      name = "SauceCodePro Nerd Font Propo",
       size = 15,
       bold = false,
     }
@@ -34,4 +34,4 @@ require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, shoul
 require("keymap").setup_custom_keymap() -- NOTE: Neovim custom keymap
 require("neovide") -- NOTE: Neovide setting
 require("highlight") -- NOTE: Neovim custom highlight
-require("nvim-web-devicons").set_icon(require("utils").icons)
+require("nvim-web-devicons").set_icon(require("icons"))

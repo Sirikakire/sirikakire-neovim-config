@@ -2,10 +2,7 @@ return {
   "utilyre/barbecue.nvim",
   name = "barbecue",
   version = "*",
-  dependencies = {
-    "SmiteshP/nvim-navic",
-    "nvim-tree/nvim-web-devicons", -- optional dependency
-  },
+  dependencies = { "SmiteshP/nvim-navic", },
   event = "BufRead",
   opts = function()
     local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette

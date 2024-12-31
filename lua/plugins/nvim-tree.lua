@@ -75,10 +75,10 @@ return {
           --   enable = true,
           --   color = true,
           -- },
-          folder = {
-            enable = true,
-            color = true,
-          },
+          -- folder = {
+          --   enable = true,
+          --   color = true,
+          -- },
         },
         git_placement = "right_align",
         modified_placement = "right_align",
