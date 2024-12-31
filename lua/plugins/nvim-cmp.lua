@@ -272,12 +272,11 @@ return {
             columns = {
               { 'kind_icon' },
               { 'label', 'label_description', gap = 1 },
-              { 'kind' },
-              -- { 'source_name' },
+              { 'source_name' },
             },
             components = {
               source_name = {
-                text = function(ctx) return "["..ctx.source_name.."]" end,
+                text = function(ctx) return "["..(ctx.source_name:gsub("^%l", string.upper)).."]" end,
                 highlight = 'BlinkCmpSource',
               },
               kind_icon = {
@@ -338,6 +337,7 @@ return {
           lsp = { name = "LSP" },
           luasnip = { name = "luasnip" },
           snippets = { name = "snippets" },
+          path = { name = "path" },
           buffer = {
             name = "buffer",
             max_items = 10,
