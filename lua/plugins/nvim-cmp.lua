@@ -1,6 +1,7 @@
 return {
   -- "hrsh7th/nvim-cmp",
   -- event = "InsertEnter",
+  
   -- dependencies = {
   --   { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
   --   { "saadparwaiz1/cmp_luasnip", event = "InsertEnter" }, { "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
@@ -300,7 +301,9 @@ return {
         ghost_text = { enabled = false },
         list = {
           max_items = 30,
-          selection = "preselect"
+          selection = {
+            preselect = true
+          }
         }
       },
       signature = {
@@ -312,6 +315,7 @@ return {
         }
       },
       snippets = {
+        preset = 'luasnip',
         expand = function(snippet)
           require('luasnip').lsp_expand(snippet)
         end,
@@ -328,14 +332,12 @@ return {
       sources = {
         default = {
           'lsp',
-          'luasnip',
           'snippets',
           'path',
           'buffer'
         },
         providers = {
           lsp = { name = "LSP" },
-          luasnip = { name = "luasnip" },
           snippets = { name = "snippets" },
           path = { name = "path" },
           buffer = {
