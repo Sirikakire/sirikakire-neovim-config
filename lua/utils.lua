@@ -275,10 +275,10 @@ U.lsp_servers = {
   "tailwindcss",                     -- tailwindcss
   "emmet_ls",                        -- emmet
   "html",                            -- html
-  "solargraph",                      -- ruby
+  -- "solargraph",                      -- ruby
   "dockerls",                        -- docker
   "docker_compose_language_service", -- docker-compose
-  "angularls@17.3.2",                       -- angular
+  "angularls@17.0.0",                       -- angular
   "eslint",                          -- eslint
   -- "vuels"
 }
