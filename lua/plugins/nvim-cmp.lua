@@ -255,7 +255,7 @@ return {
             return { vim.o.lines - height, 0 }
           end,
           auto_show = true,
-          scrollbar = false,
+          scrollbar = true,
           scrolloff = 2,
           border = require("utils").border,
           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
@@ -300,7 +300,7 @@ return {
         },
         ghost_text = { enabled = false },
         list = {
-          max_items = 30,
+          max_items = 20,
           selection = {
             preselect = true
           }
