@@ -101,6 +101,7 @@ end
 K.mason_keymaps = {
   { "<leader>lm", "<cmd>Mason<CR>", desc = "Open Mason" }
 }
+
 -- NOTE: Setup keymap for LSP
 K.setup_lsp_keymap = function(opts)
   opts.desc = "Go to definition"
@@ -154,45 +155,6 @@ K.gitsigns_keymaps = {
   { "<leader>hb", function() require("gitsigns").preview_hunk() end,              desc = "Preview hunk" },
   { "<leader>hp", function() require("gitsigns").blame_line({ full = true }) end, desc = "Preview git blame" },
   { "<leader>hD", function() require("gitsigns").diffthis("~") end,               desc = "Preview git different" }
-}
-
--- NOTE: Setup keymap of barbar
-K.barbar_keymaps = {
-  { "<A-h>", "<cmd>BufferPrevious<CR>",     desc = "Navigate to the previous buffer" },
-  { "<A-l>", "<cmd>BufferNext<CR>",         desc = "Navigate to the next buffer" },
-  { "<A-H>", "<cmd>BufferMovePrevious<CR>", desc = "Move the buffer to the previous" },
-  { "<A-L>", "<cmd>BufferMoveNext<CR>",     desc = "Move the buffer to the next" },
-  { "<A-c>", "<cmd>BufferClose<CR>",        desc = "Delete current buffer and then navigate to the previous one" },
-}
-
--- NOTE: Setup keymap of bufferline
-K.bufferline_keymaps = {
-  { "<A-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Navigate to the previous buffer" },
-  { "<A-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Navigate to the next buffer" },
-  { "<A-H>", "<cmd>BufferLineMovePrev<CR>",  desc = "Move the buffer to the previous" },
-  { "<A-L>", "<cmd>BufferLineMoveNext<CR>",  desc = "Move the buffer to the next" },
-  {
-    "<A-c>",
-    function()
-      if not vim.fn.bufnr() then return end
-
-      local buffer_id = vim.fn.bufnr()
-      vim.cmd("BufferLineCyclePrev")
-      vim.cmd("bdelete " .. buffer_id)
-    end,
-    desc = "Delete current buffer and then navigate to the previous one"
-  },
-  {
-    "<A-C>",
-    function()
-      if not vim.fn.bufnr() then return end
-
-      local buffer_id = vim.fn.bufnr()
-      vim.cmd("BufferLineCycleNext")
-      vim.cmd("bdelete " .. buffer_id)
-    end,
-    desc = "Delete current buffer and then navigate to the next one"
-  },
 }
 
 -- NOTE: Setup keymap for copilot chat

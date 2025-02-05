@@ -2,9 +2,7 @@ local init = require("init")
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
-  -- highlight! link NvimTreeFolderIcon guifg=#e7c173
   --[[
-
      NOTE: Personal highlight setting: 
     - Remove FloatBorder bg but keep the guifg
     - Remove Diagnostic sign and Git sign background
@@ -111,9 +109,6 @@ local setup_cmp_highlight = function()
   }
 
   for i, cmd in ipairs(cmd_executions) do
-    -- Check the highlight's guifg is Existed
-
-    -- Execute the command
     vim.cmd(cmd)
   end
 end
@@ -285,6 +280,7 @@ local setup_transparent_background = function()
     highlight! TelescopeResultsNormal ctermbg=NONE guibg=NONE
     highlight! TelescopeResultsTitle ctermbg=NONE guibg=NONE
     highlight! TelescopePromptCounter ctermbg=NONE guibg=NONE
+    highlight! TelescopeBorder ctermbg=NONE guibg=NONE
     highlight! TreesitterContext ctermbg=NONE guibg=NONE
     highlight! TreesitterContextLineNumber ctermbg=NONE guibg=NONE guifg=NONE
     highlight! NoiceCmdline ctermbg=NONE guibg=NONE
