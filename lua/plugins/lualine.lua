@@ -20,7 +20,7 @@ return {
       globalstatus = true,
       refresh = {
         statusline = 500,
-        tabline = 500,
+        tabline = 300,
         winbar = 5000,
       }
     },
@@ -75,30 +75,29 @@ return {
       lualine_c = {},
       lualine_x = {},
       lualine_y = {
-        {
-          function ()
-            local curr_line = vim.fn.line('.')
-            local lines = vim.fn.line('$')
-            local sbar = require("utils").sbar
-            local divide = curr_line / lines
-            local percentage = curr_line == 1 and "Top"
-            or curr_line == lines
-            and "Bot"
-            or require("init").round(divide * 100) .. '%%'
-            local i = require("init").round(divide * #sbar)
-            i = i == 0 and 1 or i
-
-            return percentage .. ' ' .. sbar[i]
-          end,
-          color = function ()
-            local opts = {}
-            if vim.g.terminal_color_3 then
-              opts.fg = vim.g.terminal_color_3
-            end
-            return opts
-          end
-        },
-        { "copilot" },
+        -- {
+        --   function ()
+        --     local curr_line = vim.fn.line('.')
+        --     local lines = vim.fn.line('$')
+        --     local sbar = require("utils").sbar
+        --     local divide = curr_line / lines
+        --     local percentage = curr_line == 1 and "Top"
+        --     or curr_line == lines
+        --     and "Bot"
+        --     or require("init").round(divide * 100) .. '%%'
+        --     local i = require("init").round(divide * #sbar)
+        --     i = i == 0 and 1 or i
+        --
+        --     return percentage .. ' ' .. sbar[i]
+        --   end,
+        --   color = function ()
+        --     local opts = {}
+        --     if vim.g.terminal_color_3 then
+        --       opts.fg = vim.g.terminal_color_3
+        --     end
+        --     return opts
+        --   end
+        -- },
         {
           'datetime',
           style = '%H:%M %d/%m/%Y',

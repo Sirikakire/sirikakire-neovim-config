@@ -11,7 +11,7 @@ local options = {
   "wrap",
   "autoread",
   "autowrite",
-  "cursorline",
+  "nocursorline",
   "history=0",
   "confirm",
   "noshowcmd",

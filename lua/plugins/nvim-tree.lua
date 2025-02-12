@@ -21,7 +21,7 @@ return {
     },
     view = {
       centralize_selection = true,
-      cursorline = true,
+      cursorline = false,
       debounce_delay = 15,
       side = "left",
       preserve_window_proportions = false,

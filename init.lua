@@ -34,4 +34,4 @@ require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, shoul
 require("keymap").setup_custom_keymap() -- NOTE: Neovim custom keymap
 require("neovide") -- NOTE: Neovide setting
 require("highlight") -- NOTE: Neovim custom highlight
-require("nvim-web-devicons").set_icon(require("icons"))
+-- require("nvim-web-devicons").set_icon(require("icons"))
