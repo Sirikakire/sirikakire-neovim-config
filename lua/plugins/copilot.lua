@@ -52,8 +52,24 @@ return {
       local prompts = require('CopilotChat.config.prompts')
       local contexts = require('CopilotChat.config.contexts')
       local mappings = require('CopilotChat.config.mappings')
+      local base = string.format(
+        [[
+          When asked for your name, you must respond with "GitHub Copilot".
+          Follow the user's requirements carefully & to the letter.
+          Follow Microsoft content policies.
+          Avoid content that violates copyrights.
+          If you are asked to generate content that is harmful, hateful, racist, sexist, lewd, violent, or completely irrelevant to software engineering, only respond with "Sorry, I can't assist with that."
+          Keep your answers short and impersonal.
+          The user works in an IDE called Neovim which has a concept for editors with open files, integrated unit test support, an output pane that shows the output of running the code as well as an integrated terminal.
+          The user is working on a %s machine. Please respond with system specific commands if applicable.
+        ]],
+        vim.loop.os_uname().sysname
+      )
+
+      local COPILOT_INSTRUCTIONS = [[ You are a code-focused AI programming assistant that specializes in practical software engineering solutions. ]] .. base
+
       local config = {
-        system_prompt = prompts.COPILOT_INSTRUCTIONS, -- System prompt to use (can be specified manually in prompt via /).
+        system_prompt = COPILOT_INSTRUCTIONS, -- System prompt to use (can be specified manually in prompt via /).
         model = 'o3-mini', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
         agent = 'copilot', -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
         context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
