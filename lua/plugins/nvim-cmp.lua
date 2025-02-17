@@ -273,7 +273,7 @@ return {
             columns = {
               { 'kind_icon' },
               { 'label', 'label_description', gap = 1 },
-              { 'source_name' },
+              -- { 'source_name' },
             },
             components = {
               source_name = {

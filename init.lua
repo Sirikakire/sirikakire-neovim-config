@@ -6,7 +6,7 @@ require("init").setup({
   doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = true,
+  thick_win_separator = false,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
@@ -14,7 +14,7 @@ require("init").setup({
   float_window_brightness = 30,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "nightfox",
+  colorscheme = "tokyodark",
   neovide_setting = {
     transparency = 1,
     dont_apply_transparent_background = false,
