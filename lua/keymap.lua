@@ -55,6 +55,7 @@ K.setup_custom_keymap = function()
     end,
     { desc = "Delete current buffer and then navigate to the next one" }
   )
+  vim.keymap.set("n", "<leader>hn", "<cmd>lua vim.notify('Health check vim notify', 'info', { title = 'Health check' })<CR>", { desc = "Health check vim notify" })
   vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
@@ -130,11 +131,6 @@ end
 K.flash_keymaps = {
   { "f",     mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
   { "<c-f>", mode = { "c" },           function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-}
-
--- NOTE: Setup keymap for nvim-notify
-K.notify_keymaps = {
-  { "<leader>hn", "<cmd>lua require('notify').notify('Health check vim notify', 'info', { title = 'Health check' })<CR>", desc = "Health check vim notify" }
 }
 
 -- NOTE: Setup keymap for telescope

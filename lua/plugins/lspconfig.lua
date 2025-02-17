@@ -39,11 +39,6 @@ return {
         function(lsp_server)
           require("lspconfig")[lsp_server].setup({
             capabilities = capabilities,
-            -- on_attach = function(client, bufnr)
-            --   if client.server_capabilities["documentSymbolProvider"] then
-            --     require("nvim-navic").attach(client, bufnr)
-            --   end
-            -- end
           })
         end
       })
@@ -53,9 +48,9 @@ return {
 
       -- NOTE: Mapping keymap for lsp
       vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+        -- group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
-          vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+          -- vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
           local opts = { buffer = ev.buf }
           require("keymap").setup_lsp_keymap(opts)
         end,
@@ -113,66 +108,66 @@ return {
       end
 
       -- NOTE: Nvim lsp progress notify
-      local client_notifs = {}
-      local spinner_frames = require("utils").spinner_circle
-      local success_icon = require("utils").sign_icons.success
-
-      local function get_notif_data(client_id, token)
-        client_notifs[client_id] = client_notifs[client_id] or {}
-        client_notifs[client_id][token] = client_notifs[client_id][token] or {}
-        return client_notifs[client_id][token]
-      end
-
-      local function update_spinner(client_id, token)
-        local notif_data = get_notif_data(client_id, token)
-
-        if notif_data.spinner then
-          local new_spinner = (notif_data.spinner + 1) % #spinner_frames
-          notif_data.spinner = new_spinner
-
-          notif_data.notification = vim.notify(nil, nil, {
-            title = "Messages",
-            hide_from_history = true,
-            icon = spinner_frames[new_spinner],
-            replace = notif_data.notification,
-          })
-
-          vim.defer_fn(function()
-            update_spinner(client_id, token)
-          end, 100)
-        end
-      end
-
-      local function format_message(message, percentage)
-        return (percentage and percentage .. "%\t" or "") .. (message or "")
-      end
-
-      vim.lsp.handlers["$/progress"] = function(_, result, ctx)
-        local val = result.value
-        if val.title == "Diagnosing" or not val.kind then return end
-
-        local client_id = ctx.client_id
-        local notif_data = get_notif_data(client_id, result.token)
-
-        local function notify_user(message, options)
-          options = options or {}
-          options.title = "Messages"
-          options.hide_from_history = options.hide_from_history or false
-          options.replace = notif_data.notification
-          notif_data.notification = vim.notify(message, "info", options)
-        end
-
-        if val.kind == "begin" then
-          notify_user(format_message(val.title, val.percentage), {icon = spinner_frames[1], timeout = false})
-          notif_data.spinner = 1
-          update_spinner(client_id, result.token)
-        elseif val.kind == "report" and notif_data.notification then
-          notify_user(format_message(val.message, val.percentage))
-        elseif val.kind == "end" and notif_data.notification then
-          notify_user(val.message and format_message(val.message) or "Complete", {icon = success_icon, timeout = 1500})
-          notif_data.spinner = nil
-        end
-      end
+      -- local client_notifs = {}
+      -- local success_icon = require("utils").sign_icons.success
+      --
+      -- local function get_notif_data(client_id, token)
+      --   client_notifs[client_id] = client_notifs[client_id] or {}
+      --   client_notifs[client_id][token] = client_notifs[client_id][token] or {}
+      --   return client_notifs[client_id][token]
+      -- end
+      --
+      -- local function update_spinner(client_id, token)
+      --   local notif_data = get_notif_data(client_id, token)
+      --
+      --   if notif_data.spinner then
+      --     local notification_data = MiniNotify.get(notif_data.notification)
+      --     MiniNotify.update(notif_data.notification, {
+      --       msg = notification_data.msg,
+      --       level = "INFO",
+      --     })
+      --
+      --     vim.defer_fn(function()
+      --       update_spinner(client_id, token)
+      --     end, 100)
+      --   else
+      --     vim.defer_fn(function() MiniNotify.remove(notif_data.notification) end, 1000)
+      --   end
+      -- end
+      --
+      -- local function format_message(title, message, percentage)
+      --   return (title or "") .. (percentage and percentage .. "%\t" or "") .. (message or "")
+      -- end
+      --
+      -- vim.lsp.handlers["$/progress"] = function(_, result, ctx)
+      --   local val = result.value
+      --   if val.title == "Diagnosing" or not val.kind then return end
+      --
+      --   local client_id = ctx.client_id
+      --   local notif_data = get_notif_data(client_id, result.token)
+      --
+      --   local function notify_user(message, options)
+      --     if notif_data.notification then
+      --       MiniNotify.update(notif_data.notification, {
+      --         msg = message,
+      --         level = "INFO"
+      --       })
+      --     else
+      --       notif_data.notification = MiniNotify.add(message, "INFO")
+      --     end
+      --   end
+      --
+      --   if val.kind == "begin" then
+      --     notify_user(format_message(val.title, val.message, val.percentage))
+      --     notif_data.spinner = 1
+      --     update_spinner(client_id, result.token)
+      --   elseif val.kind == "report" and notif_data.notification then
+      --     notify_user(format_message(val.title, val.message, val.percentage))
+      --   elseif val.kind == "end" and notif_data.notification then
+      --     notify_user(format_message(val.title, val.message, val.percentage) or "Complete", {icon = success_icon, timeout = 1500})
+      --     notif_data.spinner = nil
+      --   end
+      -- end
     end
   }
 }

@@ -46,11 +46,13 @@ local setup_highlight = function()
 
     highlight! FloatBorder ctermbg=NONE guibg=NONE
     highlight! NonText guibg=NONE
+    highlight! Conceal guibg=NONE ctermbg=NONE gui=NONE
 
     highlight! link BufferCurrentMod Normal
     highlight! link lualine_c_normal Normal
     highlight! link lualine_c_inactive Normal
     highlight! link lualine_c_insert Normal
+
     ]])
 end
 
