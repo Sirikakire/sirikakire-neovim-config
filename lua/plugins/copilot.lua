@@ -74,7 +74,7 @@ return {
         agent = 'copilot', -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
         context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
         sticky = {
-          "#buffers:all"
+          "#buffers: listed"
         },
         temperature = 0.3, -- GPT result temperature
         headless = false, -- Do not write to chat buffer and use history(useful for using callback for custom processing)
