@@ -13,6 +13,7 @@ return {
       -- theme = "dropdown",
     }
     require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("fidget")
 
     local select_one_or_multi = function(prompt_bufnr)
       local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
