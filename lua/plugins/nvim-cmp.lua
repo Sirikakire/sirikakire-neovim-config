@@ -184,7 +184,6 @@ return {
     'saghen/blink.cmp',
     event = "InsertEnter",
     dependencies = {
-      { "hrsh7th/cmp-cmdline", event = { "InsertEnter", "CmdlineEnter" } },
       {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
@@ -329,12 +328,38 @@ return {
           require('luasnip').jump(direction)
         end,
       },
+      cmdline = {
+        enabled = true,
+        keymap = nil, -- Inherits from top level `keymap` config when not set
+        sources = function()
+          local type = vim.fn.getcmdtype()
+          if type == '/' or type == '?' then return { 'buffer' }              end
+          if type == ':'                then return { 'cmdline', 'path' }     end
+          return {}
+        end,
+        completion = {
+          trigger = {
+            show_on_blocked_trigger_characters = {},
+            show_on_x_blocked_trigger_characters = nil, -- Inherits from top level `completion.trigger.show_on_blocked_trigger_characters` config when not set
+          },
+          menu = {
+            auto_show = nil, -- Inherits from top level `completion.menu.auto_show` config when not set
+            draw = {
+              columns = {
+                { 'kind_icon' },
+                { 'label', 'label_description', gap = 1 },
+                -- { 'source_name' },
+              },
+            },
+          }
+        }
+      },
       sources = {
         default = {
           'lsp',
           'snippets',
           'path',
-          'buffer'
+          'buffer',
         },
         providers = {
           lsp = { name = "LSP" },
@@ -353,17 +378,7 @@ return {
               end
             }
           },
-          cmp_cmdline = {
-            name = "cmdline",
-            module = "blink.compat.source",
-          },
         },
-        cmdline = function()
-          local type = vim.fn.getcmdtype()
-          if type == '/' or type == '?' then return { 'buffer' }              end
-          if type == ':'                then return { 'cmp_cmdline', 'path' } end
-          return {}
-        end,
       },
     },
     opts_extend = { "sources.default" }
