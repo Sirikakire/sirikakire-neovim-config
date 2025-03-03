@@ -33,6 +33,24 @@ K.setup_custom_keymap = function()
   disable_keymap_for_filetype("NvimTree", { "<C-t>" })
 
   -- NOTE: Rest of the custom keymaps
+  local function print_highlight_groups_with_color()
+    local search_pattern = "guibg=#11121d"
+    local hl_output = vim.api.nvim_exec("highlight", true)
+    local groups = {}
+
+    for line in hl_output:gmatch("[^\r\n]+") do
+      if line:find(search_pattern) then
+        local group = line:match("^(%S+)")
+        if group then
+          table.insert(groups, group)
+        end
+      end
+    end
+
+    vim.notify(vim.inspect(groups))
+  end
+
+  vim.keymap.set("n", "<leader>hhf", function () print_highlight_groups_with_color() end, { desc = "Find all highlight group that match the color pattern" })
   vim.keymap.set("n", "<A-h>", "<cmd>bprevious<CR>", { desc = "Navigate to the previous buffer" })
   vim.keymap.set("n", "<A-l>", "<cmd>bnext<CR>", { desc = "Navigate to the next buffer" })
   vim.keymap.set("n", "<A-c>",

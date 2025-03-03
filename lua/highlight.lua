@@ -254,6 +254,7 @@ local setup_transparent_background = function()
     highlight! NormalFloat ctermbg=NONE guibg=NONE
     highlight! NormalNC ctermbg=NONE guibg=NONE
     highlight! LineNr ctermbg=NONE guibg=NONE guifg=NONE
+    highlight! EndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE
     highlight! CursorLineNr ctermbg=NONE guibg=NONE guifg=NONE
     highlight! SignColumn ctermbg=NONE guibg=NONE guifg=NONE
     highlight! SignColumnSB ctermbg=NONE guibg=NONE guifg=NONE
@@ -330,3 +331,4 @@ local init_highlight = function()
 end
 
 init_highlight()
+
