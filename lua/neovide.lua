@@ -50,10 +50,10 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_profiler = false
   vim.g.neovide_cursor_animation_length = 0.05
-  vim.g.neovide_cursor_trail_size = 0.6
+  vim.g.neovide_cursor_trail_size = 0.5
   vim.g.neovide_cursor_animate_in_insert_mode = true
-  vim.g.neovide_cursor_animate_command_line = false
-  vim.g.neovide_cursor_smooth_blink = false
+  vim.g.neovide_cursor_animate_command_line = true
+  vim.g.neovide_cursor_smooth_blink = true
   -- vim.g.neovide_title_background_color = string.format(
   --   "%x",
   --   vim.api.nvim_get_hl(0, {id=vim.api.nvim_get_hl_id_by_name("Normal")}).bg
