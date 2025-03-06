@@ -215,7 +215,14 @@ K.toggle_term_keymaps = {
 
 -- NOTE: Setup keymap for lazygit
 K.lazygit_keymaps = {
-  { "<leader>lg", "<cmd>LazyGit<CR>", desc = "Open LazyGit" }
+  { "<leader>lg", function ()
+    local git_dir = vim.fn.finddir('.git', vim.fn.getcwd() .. ";")
+    if git_dir == ".git" then
+      vim.cmd("LazyGit")
+    else
+      vim.notify("This is not a git repository", "warn")
+    end
+  end, desc = "Open LazyGit" }
 }
 
 -- NOTE: Setup keymap for nvim tree

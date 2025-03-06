@@ -342,6 +342,12 @@ return {
             show_on_blocked_trigger_characters = {},
             show_on_x_blocked_trigger_characters = nil, -- Inherits from top level `completion.trigger.show_on_blocked_trigger_characters` config when not set
           },
+          list = {
+            selection = {
+              preselect = true,
+              auto_insert = true,
+            },
+          },
           menu = {
             auto_show = nil, -- Inherits from top level `completion.menu.auto_show` config when not set
             draw = {
