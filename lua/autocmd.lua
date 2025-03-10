@@ -12,3 +12,27 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end
 })
+--
+-- vim.ui_attach(
+--   vim.api.nvim_create_namespace("noice"),
+--   { ext_messages = true, ext_cmdline = false, ext_popupmenu = false },
+--   function (event, kind, content, syntax)
+--     if event == "msg_show" then
+--       if kind == "return_prompt" then
+--         vim.api.nvim_input("<cr>")
+--       end
+--       vim.notify(content[1][2], "INFO")
+--     end
+--
+--     if event == "cmdline_show" then
+--       vim.opt.winbar = kind[1][2]
+--       vim.cmd.redraw()
+--     end
+--
+--     if event == "cmdline_hide" then
+--       vim.opt.winbar = ""
+--     end
+--
+--     return true
+--   end
+-- )

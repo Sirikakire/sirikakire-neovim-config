@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "tokyodark",
   neovide_setting = {
-    transparency = 1,
+    transparency = 0.95,
     dont_apply_transparent_background = false,
     theme = "dark",
     font_setting = {
