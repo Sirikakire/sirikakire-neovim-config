@@ -11,16 +11,17 @@ require("init").setup({
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = false,
-  float_window_brightness = 30,
+  float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "tokyodark",
+  colorscheme = "everforest",
   neovide_setting = {
-    transparency = 0.95,
+    transparency = 1,
+    opacity = 0.9,
     dont_apply_transparent_background = false,
     theme = "dark",
     font_setting = {
-      name = "JetBrainsMono Nerd Font Propo",
+      name = "FiraCode Nerd Font",
       size = 15,
       bold = false,
     }

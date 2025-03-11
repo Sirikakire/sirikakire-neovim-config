@@ -28,7 +28,7 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_theme = setting.theme
   vim.g.neovide_transparency = setting.transparency
   vim.g.neovide_window_blurred = true
-  vim.g.neovide_normal_opacity = 0.8
+  vim.g.neovide_normal_opacity = setting.opacity
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
   vim.g.neovide_padding_right = 0
