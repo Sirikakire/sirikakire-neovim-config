@@ -95,7 +95,7 @@ return {
           col = nil, -- column position of the window, default is centered
           title = 'Copilot Chat Window  ', -- title of chat window
           footer = nil, -- footer of chat window
-          zindex = 1, -- determines if window is on top or below other floating windows
+          zindex = 11, -- determines if window is on top or below other floating windows
         },
         show_help = false, -- Shows help message as virtual lines when waiting for user input
         show_folds = false, -- Shows folds for sections in chat

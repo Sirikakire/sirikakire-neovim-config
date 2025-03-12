@@ -65,12 +65,6 @@ local setup_cursor_line_highlight = function()
   vim.cmd("highlight! WinSeparator guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
 end
 
--- NOTE: Setup barbar highlight
-local setup_barbar_highlight = function()
-  local normalColor = init.getHexColor("Normal")
-  vim.cmd("highlight! BufferCurrent guibg="..normalColor.background.." guifg="..normalColor.foreground.." gui=bold")
-end
-
 -- NOTE: Setup cmp highlight
 local setup_cmp_highlight = function()
   local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette
@@ -316,7 +310,6 @@ local init_highlight = function()
   setup_highlight()
   setup_cursor_line_highlight()
   setup_cmp_highlight()
-  setup_barbar_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
   if vim.g.neovide then setup_terminal_highlight() end

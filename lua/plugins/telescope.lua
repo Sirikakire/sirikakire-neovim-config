@@ -10,7 +10,7 @@ return {
     local actions = require("telescope.actions")
     local action_state = require('telescope.actions.state')
     local common_setting = {
-      -- theme = "dropdown",
+      theme = "ivy",
     }
     require("telescope").load_extension("ui-select")
     require("telescope").load_extension("fidget")
@@ -37,7 +37,7 @@ return {
   return {
     extensions = {
       ["ui-select"] = {
-        -- require("telescope.themes").get_dropdown({}),
+        require("telescope.themes").get_ivy({}),
       }
     },
     defaults = {
@@ -59,14 +59,14 @@ return {
           },
         },
         sorting_strategy = "ascending",
-        layout_config = {
-          horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-          },
-          width = 0.92,
-          height = 0.88,
-        },
+        -- layout_config = {
+        --   horizontal = {
+        --     prompt_position = "top",
+        --     preview_width = 0.55,
+        --   },
+        --   width = 0.92,
+        --   height = 0.88,
+        -- },
         wrap_results = true,
         dynamic_preview_title = true,
         -- path_display = { "smart" },
