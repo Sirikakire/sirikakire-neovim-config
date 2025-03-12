@@ -28,7 +28,7 @@ return {
       number = false,
       relativenumber = false,
       signcolumn = "no",
-      width = 30,
+      width = 35,
       float = {
         enable = false,
         quit_on_focus_loss = true,
