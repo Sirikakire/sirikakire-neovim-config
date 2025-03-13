@@ -21,6 +21,7 @@ local options = {
   "nobackup",
   "nowritebackup",
   "ignorecase",
+  "notagstack",
   "signcolumn=yes:1",
   "linebreak",
   "number relativenumber",
