@@ -109,7 +109,6 @@ K.setup_custom_keymap = function()
   vim.keymap.set("n", "<leader>gd", "<cmd>%bd!|e#<CR>", { desc = "Global delete all buffer" })
   vim.keymap.set("n", "<leader>ow", "<cmd>lua vim.opt.wrap = not vim.opt.wrap._value<CR>", { desc = "Toggle line wrap" })
   vim.keymap.set("n", "<leader>ln", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim" })
-
   -- NOTE: Setup keymap if neovide is enabled
   if vim.g.neovide then
     vim.keymap.set("n", "<C-=>", "<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>", {

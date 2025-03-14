@@ -24,12 +24,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --     end
 --
 --     if event == "cmdline_show" then
---       vim.opt.winbar = kind[1][2]
+--       print(kind[1][2])
 --       vim.cmd.redraw()
 --     end
 --
 --     if event == "cmdline_hide" then
---       vim.opt.winbar = ""
+--       print("")
 --     end
 --
 --     return true
