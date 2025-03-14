@@ -3,8 +3,7 @@ local init = require("init")
 -- NOTE: Setup highlight
 local setup_highlight = function()
   --[[
-     NOTE: Personal highlight setting: 
-    - Remove FloatBorder bg but keep the guifg
+      NOTE: Personal highlight setting: 
     - Remove Diagnostic sign and Git sign background
     - Remove signcolumn background
     - Sign icons highlight
@@ -27,6 +26,8 @@ local setup_highlight = function()
     highlight! link NeoTreeGitNew GitSignsAdd
     highlight! link NeoTreeGitUntracked GitSignsAdd
     highlight! link NeoTreeGitModified GitSignsChange
+    highlight! NvimTreeOpenedHL guibg=NONE
+    highlight! NvimTreeOpenedFile guibg=NONE
 
     highlight! link BufferDefaultOffset NvimTreeNormal
     highlight! link NvimTreeFolderIcon NvimTreeFolderName
@@ -44,7 +45,6 @@ local setup_highlight = function()
     highlight! LineNr ctermbg=NONE guibg=NONE
     highlight! SignColumn ctermbg=NONE guibg=NONE
 
-    highlight! FloatBorder ctermbg=NONE guibg=NONE
     highlight! NonText guibg=NONE
     highlight! Conceal guibg=NONE ctermbg=NONE gui=NONE
 
@@ -68,6 +68,7 @@ end
 -- NOTE: Setup cmp highlight
 local setup_cmp_highlight = function()
   local palette = vim.opt.background._value == "light" and require("utils").light_palette or require("utils").dark_palette
+  local normalFloatBackground = init.getHexColor("NormalFloat").background
 
   local cmd_executions = {
     "highlight! CmpItemAbbr guibg=NONE guifg="..palette.overlay2,
@@ -102,6 +103,7 @@ local setup_cmp_highlight = function()
     "highlight! CmpItemKindOperator guibg=NONE guifg="..palette.blue,
     "highlight! CmpItemKindTypeParameter guibg=NONE guifg="..palette.blue,
     "highlight! CmpItemKindCopilot guibg=NONE guifg="..palette.teal,
+    "highlight! FloatBorder guibg=" .. normalFloatBackground,
   }
 
   for i, cmd in ipairs(cmd_executions) do
@@ -247,6 +249,7 @@ local setup_transparent_background = function()
     highlight! Normal ctermbg=NONE guibg=NONE
     highlight! NormalFloat ctermbg=NONE guibg=NONE
     highlight! NormalNC ctermbg=NONE guibg=NONE
+    highlight! FloatBorder ctermbg=NONE guibg=NONE
     highlight! LineNr ctermbg=NONE guibg=NONE guifg=NONE
     highlight! EndOfBuffer ctermbg=NONE guibg=NONE guifg=NONE
     highlight! CursorLineNr ctermbg=NONE guibg=NONE guifg=NONE
@@ -324,4 +327,3 @@ local init_highlight = function()
 end
 
 init_highlight()
-

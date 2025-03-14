@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end
 })
---
 -- vim.ui_attach(
 --   vim.api.nvim_create_namespace("noice"),
 --   { ext_messages = true, ext_cmdline = false, ext_popupmenu = false },

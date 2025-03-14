@@ -25,7 +25,6 @@ if vim.g.neovide and vim.b.neovide_setting then
     vim.o.guifont = font
   end
 
-  vim.g.neovide_theme = setting.theme
   vim.g.neovide_transparency = setting.transparency
   vim.g.neovide_window_blurred = true
   vim.g.neovide_normal_opacity = setting.opacity

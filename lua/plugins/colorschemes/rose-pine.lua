@@ -14,7 +14,7 @@ return vim.b.colorscheme ~= "rose-pine" and {} or {
       },
       styles = {
         bold = true,
-        italic = true,
+        italic = false,
         transparency = false,
       },
       groups = {
@@ -68,7 +68,6 @@ return vim.b.colorscheme ~= "rose-pine" and {} or {
 
     -- vim.cmd("colorscheme rose-pine")
     -- vim.cmd("colorscheme rose-pine-moon")
-    -- vim.opt.background = "light"
     vim.cmd("colorscheme rose-pine-dawn")
   end
 }

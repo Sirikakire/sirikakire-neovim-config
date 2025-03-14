@@ -81,7 +81,7 @@ return {
 
         -- Options related to the notification window and buffer
         window = {
-          normal_hl = "Pmenu",      -- Base highlight group in the notification window
+          normal_hl = "NormalFloat",      -- Base highlight group in the notification window
           winblend = 0,             -- Background color opacity in the notification window
           border = require("utils").border,            -- Border around the notification window
           zindex = 45,                -- Stacking priority of the notification window
