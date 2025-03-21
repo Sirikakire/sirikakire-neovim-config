@@ -247,4 +247,17 @@ K.nvimtree_keymaps = {
   { "<C-t>",     "" }
 }
 
+
+-- NOTE: Setup keymap for avante
+K.avante_keymaps = {
+  { "<leader>al", "<cmd>AvanteClear<CR>", desc = "avante: clear history" },
+  { "<leader>ad", nil },
+  { "<leader>as", nil },
+  { "<leader>ah", nil },
+  { "<leader>ar", nil },
+  { "<leader>aR", nil },
+  { "<leader>as", nil },
+  { "<leader>af", nil },
+}
+
 return K
