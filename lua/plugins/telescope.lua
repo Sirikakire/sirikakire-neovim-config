@@ -37,7 +37,7 @@ return {
   return {
     extensions = {
       ["ui-select"] = {
-        require("telescope.themes").get_ivy({}),
+        require("telescope.themes").get_dropdown({}),
       }
     },
     defaults = {

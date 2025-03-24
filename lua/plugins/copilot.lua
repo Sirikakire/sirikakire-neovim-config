@@ -19,6 +19,14 @@ return {
           ratio = 0.4
         },
       },
+      logger = {
+        file = vim.fn.stdpath("log") .. "/copilot-lua.log",
+        file_log_level = vim.log.levels.OFF,
+        print_log_level = vim.log.levels.OFF,
+        trace_lsp = "off", -- "off" | "messages" | "verbose"
+        trace_lsp_progress = false,
+        log_lsp_messages = false,
+      },
       suggestion = {
         enabled = true,
         auto_trigger = true,
@@ -38,6 +46,7 @@ return {
       },
       copilot_node_command = 'node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
+      copilot_model = "gpt-4o-mini"
     }
   },
   {
@@ -70,7 +79,7 @@ return {
 
       local config = {
         system_prompt = COPILOT_INSTRUCTIONS, -- System prompt to use (can be specified manually in prompt via /).
-        model = 'o3-mini', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
+        model = 'gpt-4o-mini', -- Default model to use, see ':CopilotChatModels' for available models (can be specified manually in prompt via $).
         agent = 'copilot', -- Default agent to use, see ':CopilotChatAgents' for available agents (can be specified manually in prompt via @).
         context = nil, -- Default context or array of contexts to use (can be specified manually in prompt via #).
         sticky = {
