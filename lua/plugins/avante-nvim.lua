@@ -64,7 +64,7 @@ return {
     windows = {
       ---@type "right" | "left" | "top" | "bottom" | "smart"
       position = "right", -- the position of the sidebar
-      wrap = true, -- similar to vim.o.wrap
+      wrap = false, -- similar to vim.o.wrap
       width = 30, -- default % based on available width
       height = 30,
       sidebar_header = {
@@ -74,7 +74,7 @@ return {
       },
       input = {
         prefix = "> ",
-        height = 2, -- Height of the input window in vertical layout
+        height = 4, -- Height of the input window in vertical layout
       },
       edit = {
         border = require("utils").border,
@@ -113,7 +113,6 @@ return {
   build = "make",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
@@ -131,18 +130,9 @@ return {
           drag_and_drop = {
             insert_mode = true,
           },
-          -- required for Windows users
           use_absolute_path = true,
         },
       },
-    },
-    {
-      -- Make sure to set this up properly if you have lazy=true
-      'MeanderingProgrammer/render-markdown.nvim',
-      opts = {
-        file_types = { "markdown", "Avante" },
-      },
-      ft = { "markdown", "Avante" },
     },
   },
 }
