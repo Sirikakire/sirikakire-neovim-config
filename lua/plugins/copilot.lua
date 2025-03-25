@@ -56,6 +56,7 @@ return {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
+    event = "VeryLazy",
     config = function ()
       local select = require('CopilotChat.select')
       local prompts = require('CopilotChat.config.prompts')

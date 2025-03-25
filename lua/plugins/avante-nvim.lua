@@ -4,9 +4,8 @@ return {
   version = false, -- Never set this value to "*"! Never!
   keys = require("keymap").avante_keymaps,
   opts = {
-    auto_suggestions_provider = "copilot",
+    auto_suggestions_provider = nil,
     cursor_applying_provider = nil,
-
     provider = "copilot",
     copilot = {
       endpoint = "https://api.githubcopilot.com",
@@ -15,7 +14,7 @@ return {
       allow_insecure = false, -- Allow insecure server connections
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0.3,
-      max_tokens = 20480,
+      -- max_tokens = 20480,
     },
     claude = {
       endpoint = "https://api.anthropic.com",
@@ -42,7 +41,7 @@ return {
       auto_suggestions_respect_ignore = false,
       jump_result_buffer_on_finish = true,
       use_cwd_as_project_root = false,
-      auto_suggestions = true, -- Experimental stage
+      auto_suggestions = false, -- Experimental stage
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = true,
@@ -61,13 +60,13 @@ return {
       },
     },
     mappings = {},
-
     hints = { enabled = true },
     windows = {
       ---@type "right" | "left" | "top" | "bottom" | "smart"
-      position = "smart", -- the position of the sidebar
+      position = "right", -- the position of the sidebar
       wrap = true, -- similar to vim.o.wrap
-      width = 35, -- default % based on available width
+      width = 30, -- default % based on available width
+      height = 30,
       sidebar_header = {
         enabled = true, -- true, false to enable/disable the header
         align = "right", -- left, center, right for title
@@ -75,7 +74,7 @@ return {
       },
       input = {
         prefix = "> ",
-        height = 8, -- Height of the input window in vertical layout
+        height = 2, -- Height of the input window in vertical layout
       },
       edit = {
         border = require("utils").border,

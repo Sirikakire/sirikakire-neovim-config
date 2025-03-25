@@ -8,7 +8,10 @@ return vim.b.colorscheme ~= "nordic" and {} or {
       end,
       bold_keywords = true,
       italic_comments = true,
-      transparent_bg = false,
+      transparent = {
+        bg = false,
+        float =  false
+      },
       bright_border = false,
       reduced_blue = false,
       swap_backgrounds = false,
@@ -22,7 +25,7 @@ return vim.b.colorscheme ~= "nordic" and {} or {
       telescope = { style = 'flat' },
       leap = { dim_backdrop = false },
       ts_context = { dark_background = true },
-      override = {},
+      on_highlight = function (highlights, palette) end
     }
     vim.cmd.colorscheme("nordic")
   end

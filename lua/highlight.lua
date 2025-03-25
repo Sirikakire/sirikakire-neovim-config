@@ -56,13 +56,35 @@ local setup_highlight = function()
     ]])
 end
 
+-- NOTE: setup avante highlight
+local setup_avante_highlight = function ()
+  local normalBackgroundColor = init.getHexColor("Normal").background
+
+  local cmd_executions = {
+    "highlight! link AvanteSidebarNormal Normal",
+    "highlight! link AvanteSidebarWinSeparator WinSeparator",
+    "highlight! link AvanteSidebarWinSeparatorHorizontal WinSeparator",
+    "highlight! AvanteSidebarWinHorizontalSeparator guibg=NONE guifg=" .. normalBackgroundColor
+  }
+
+  for i, cmd in ipairs(cmd_executions) do
+    vim.cmd(cmd)
+  end
+end
+
 -- NOTE: setup cursor line highlight
 local setup_cursor_line_highlight = function()
   -- NOTE: sync color line 
   local cursorLineBackground = init.getHexColor("CursorLine").background
-  vim.cmd("highlight! IblScope guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
-  vim.cmd("highlight! IblIndent guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
-  vim.cmd("highlight! WinSeparator guibg=NONE ctermbg=NONE guifg="..cursorLineBackground)
+  local cmd_executions = {
+    "highlight! IblScope guibg=NONE ctermbg=NONE guifg="..cursorLineBackground,
+    "highlight! IblIndent guibg=NONE ctermbg=NONE guifg="..cursorLineBackground,
+    "highlight! WinSeparator guibg=NONE ctermbg=NONE guifg="..cursorLineBackground
+  }
+
+  for i, cmd in ipairs(cmd_executions) do
+    vim.cmd(cmd)
+  end
 end
 
 -- NOTE: Setup cmp highlight
@@ -313,6 +335,7 @@ local init_highlight = function()
   setup_highlight()
   setup_cursor_line_highlight()
   setup_cmp_highlight()
+  setup_avante_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
   if vim.g.neovide then setup_terminal_highlight() end
