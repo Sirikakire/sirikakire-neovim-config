@@ -1,19 +1,10 @@
 return {
   "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-ui-select.nvim",
-  },
   keys = require("keymap").telescope_keymaps,
   event = "VeryLazy",
-  opts = function()
+  config = function()
     local actions = require("telescope.actions")
-    local action_state = require('telescope.actions.state')
-    local common_setting = {
-      theme = "ivy",
-    }
-    require("telescope").load_extension("ui-select")
-    require("telescope").load_extension("fidget")
+    local common_setting = { theme = "ivy" }
 
     local select_one_or_multi = function(prompt_bufnr)
       local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
@@ -30,20 +21,24 @@ return {
             vim.cmd(string.format("%s %sG%s|", "normal!", lnum, lcol))
           end
         end
-    else
-      require('telescope.actions').select_default(prompt_bufnr)
+      else
+        require('telescope.actions').select_default(prompt_bufnr)
+      end
     end
-  end
-  return {
-    extensions = {
-      ["ui-select"] = {
-        require("telescope.themes").get_dropdown({}),
-      }
-    },
-    defaults = {
-      prompt_prefix = "  ",
-      file_ignore_patterns = {
-        "node_modules/.*",
+
+    require("telescope").setup({
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_ivy({}),
+        },
+        ["fidget"] = {
+          require("telescope.themes").get_ivy({}),
+        },
+      },
+      defaults = {
+        prompt_prefix = "  ",
+        file_ignore_patterns = {
+          "node_modules/.*",
           "yarn.lock",
           "package%-lock.json",
           "lazy%-lock.json",
@@ -81,6 +76,9 @@ return {
         highlights = vim.list_extend(common_setting, {}),
         autocommands = vim.list_extend(common_setting, {}),
       },
-    }
+    })
+
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("fidget")
   end
 }

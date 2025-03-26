@@ -9,12 +9,12 @@ return {
     provider = "copilot",
     copilot = {
       endpoint = "https://api.githubcopilot.com",
-      model = "gpt-4o-mini",
+      model = "o3-mini",
       proxy = nil, -- [protocol://]host[:port] Use this proxy
       allow_insecure = false, -- Allow insecure server connections
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0.3,
-      -- max_tokens = 20480,
+      disable_tools = true
     },
     claude = {
       endpoint = "https://api.anthropic.com",
@@ -111,28 +111,4 @@ return {
     },
   },
   build = "make",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
-    {
-      -- support for image pasting
-      "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- recommended settings
-        default = {
-          embed_image_as_base64 = false,
-          prompt_for_file_name = false,
-          drag_and_drop = {
-            insert_mode = true,
-          },
-          use_absolute_path = true,
-        },
-      },
-    },
-  },
 }

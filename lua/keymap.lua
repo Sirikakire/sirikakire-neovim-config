@@ -63,7 +63,7 @@ K.setup_custom_keymap = function()
     local user_change_input = vim.fn.input("Enter change pattern  : ")
     local user_replace_input = vim.fn.input("Enter replace pattern for '" .. user_change_input .. "'  : ")
 
-    if user_change_input == "" or user_replace_input == "" then return end
+    if user_change_input == "" then return end
 
     vim.cmd("%s/\\%V" .. user_change_input .. "/" .. user_replace_input .. "/gic")
   end, { desc = "Replace word using pattern in visual mode" })
