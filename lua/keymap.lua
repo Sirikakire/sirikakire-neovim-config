@@ -76,7 +76,7 @@ K.setup_custom_keymap = function()
 
       local buffer_id = vim.fn.bufnr()
       vim.cmd("bprevious")
-      vim.cmd("bdelete " .. buffer_id)
+      Snacks.bufdelete(buffer_id)
     end,
     { desc = "Delete current buffer and then navigate to the previous one" }
   )
@@ -86,7 +86,7 @@ K.setup_custom_keymap = function()
 
       local buffer_id = vim.fn.bufnr()
       vim.cmd("bnext")
-      vim.cmd("bdelete " .. buffer_id)
+      Snacks.bufdelete(buffer_id)
     end,
     { desc = "Delete current buffer and then navigate to the next one" }
   )

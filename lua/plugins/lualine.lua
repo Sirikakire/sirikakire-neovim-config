@@ -11,7 +11,9 @@ return {
         winbar = {
           "toggleterm",
           "NvimTree",
-          "Telescope"
+          "Telescope",
+          "Avante",
+          "AvanteInput"
         },
       },
       ignore_focus = {},

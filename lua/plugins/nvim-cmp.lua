@@ -213,6 +213,17 @@ return {
     },
     version = '*',
     opts = {
+      enabled = function ()
+        local filetypes = {
+          "toggleterm",
+          "NvimTree",
+          "Telescope",
+          "Avante",
+          "AvanteInput"
+        }
+
+        return not vim.tbl_contains(filetypes, vim.bo.filetype)
+      end,
       keymap = {
         preset = 'none',
         ['<CR>'] = { 'select_and_accept', 'fallback' },

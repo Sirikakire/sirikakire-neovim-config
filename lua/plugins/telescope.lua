@@ -36,6 +36,16 @@ return {
         },
       },
       defaults = {
+        preview = {
+          filesize_limit = 1,
+          highlights_limit = 1,
+          timeout = 100,
+          filesize_hook = function(filepath, bufnr, opts)
+            local max_bytes = 10000
+            local cmd = {"head", "-c", max_bytes, filepath}
+            require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
+          end
+        },
         prompt_prefix = "  ",
         file_ignore_patterns = {
           "node_modules/.*",
@@ -64,7 +74,7 @@ return {
         -- },
         wrap_results = true,
         dynamic_preview_title = true,
-        -- path_display = { "smart" },
+        path_display = { "smart" },
       },
       pickers = {
         find_files = vim.list_extend(common_setting, {}),
