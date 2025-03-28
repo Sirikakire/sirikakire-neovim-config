@@ -1,5 +1,5 @@
 return {
-  { "nvim-lua/plenary.nvim" } ,
-  { "MunifTanjim/nui.nvim" } ,
-  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "nvim-lua/plenary.nvim", lazy = true } ,
+  { "MunifTanjim/nui.nvim", lazy = true } ,
+  { "nvim-telescope/telescope-ui-select.nvim", lazy = true },
 }

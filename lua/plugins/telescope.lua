@@ -37,14 +37,9 @@ return {
       },
       defaults = {
         preview = {
-          filesize_limit = 1,
-          highlights_limit = 1,
+          filesize_limit = 0.5555,
+          highlights_limit = 0.555,
           timeout = 100,
-          filesize_hook = function(filepath, bufnr, opts)
-            local max_bytes = 10000
-            local cmd = {"head", "-c", max_bytes, filepath}
-            require('telescope.previewers.utils').job_maker(cmd, bufnr, opts)
-          end
         },
         prompt_prefix = "  ",
         file_ignore_patterns = {

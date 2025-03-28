@@ -218,6 +218,7 @@ return {
           "toggleterm",
           "NvimTree",
           "Telescope",
+          "TelescopePrompt",
           "Avante",
           "AvanteInput"
         }
