@@ -23,9 +23,9 @@ return {
         always_show_tabline = true,
         globalstatus = true,
         refresh = {
-          statusline = 500,
+          statusline = 1000,
           tabline = 300,
-          winbar = 5000,
+          winbar = 1000,
         }
       },
       sections = {
@@ -84,8 +84,8 @@ return {
               " :",
               color = function ()
                 local opt = {}
-                if vim.g.terminal_color_6 then
-                  opt.fg = vim.g.terminal_color_6
+                if vim.g.terminal_color_1 then
+                  opt.fg = vim.g.terminal_color_1
                   opt.bg = "none"
                 end
                 return opt
@@ -116,8 +116,8 @@ return {
               " :",
               color = function ()
                 local opt = {}
-                if vim.g.terminal_color_6 then
-                  opt.fg = vim.g.terminal_color_6
+                if vim.g.terminal_color_1 then
+                  opt.fg = vim.g.terminal_color_1
                   opt.bg = "none"
                 end
                 return opt
