@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function ()
+    local sign_icon = require("utils").sign_icons
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -77,53 +78,77 @@ return {
         },
         lualine_c = {},
         lualine_x = {
-          -- {
-          --   'diagnostics',
-          --   sources = { 'nvim_diagnostic', 'coc' },
-          --   sections = { 'error', 'warn', 'info', 'hint' },
-          --   diagnostics_color = {
-          --     error = 'DiagnosticError', -- Changes diagnostics' error color.
-          --     warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-          --     info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-          --     hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-          --   },
-          --   symbols = {
-          --     error = sign_icon.error .. " ",
-          --     warn = sign_icon.warning .. " ",
-          --     info = sign_icon.info .. " ",
-          --     hint = sign_icon.hint .. " "
-          --   },
-          --   colored = true,           -- Displays diagnostics status in color if set to true.
-          --   update_in_insert = false, -- Update diagnostics in insert mode.
-          --   always_visible = false,   -- Show diagnostics even if there are none.
-          -- },
-          -- {
-          --   'diff',
-          --   colored = true, -- Displays a colored diff status if set to true
-          --   diff_color = {
-          --     added    = 'GitSignsAdd',    -- Changes the diff's added color
-          --     modified = 'GitSignsChange', -- Changes the diff's modified color
-          --     removed  = 'GitSignsDelete', -- Changes the diff's removed color you
-          --   },
-          --   symbols = {
-          --     removed = sign_icon.delete .. " ",
-          --     modified = sign_icon.change .. " ",
-          --     added = sign_icon.add .. " ",
-          --   },
-          --   -- source = nil, -- A function that works as a data source for diff.
-          -- },
+          {
+            'diagnostics',
+            icon = {
+              " :",
+              color = function ()
+                local opt = {}
+                if vim.g.terminal_color_6 then
+                  opt.fg = vim.g.terminal_color_6
+                  opt.bg = "none"
+                end
+                return opt
+              end
+            },
+            padding = 1,
+            sources = { 'nvim_diagnostic', 'coc' },
+            sections = { 'error', 'warn', 'info', 'hint' },
+            diagnostics_color = {
+              error = 'DiagnosticError', -- Changes diagnostics' error color.
+              warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+              info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+              hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+            },
+            symbols = {
+              error = sign_icon.error .. " ",
+              warn = sign_icon.warning .. " ",
+              info = sign_icon.info .. " ",
+              hint = sign_icon.hint .. " "
+            },
+            colored = true,           -- Displays diagnostics status in color if set to true.
+            update_in_insert = false, -- Update diagnostics in insert mode.
+            always_visible = false,   -- Show diagnostics even if there are none.
+          },
+          {
+            'diff',
+            icon = {
+              " :",
+              color = function ()
+                local opt = {}
+                if vim.g.terminal_color_6 then
+                  opt.fg = vim.g.terminal_color_6
+                  opt.bg = "none"
+                end
+                return opt
+              end
+            },
+            padding = 1,
+            colored = true, -- Displays a colored diff status if set to true
+            diff_color = {
+              added    = 'GitSignsAdd',    -- Changes the diff's added color
+              modified = 'GitSignsChange', -- Changes the diff's modified color
+              removed  = 'GitSignsDelete', -- Changes the diff's removed color you
+            },
+            symbols = {
+              removed = sign_icon.delete .. " ",
+              modified = sign_icon.change .. " ",
+              added = sign_icon.add .. " ",
+            },
+            -- source = nil, -- A function that works as a data source for diff.
+          },
 
         },
         lualine_y = {
-          -- {
-          --   "filetype",
-          --   colored = true,   -- Displays filetype icon in color if set to true
-          --   icon_only = false, -- Display only an icon for filetype
-          --   icon = { align = 'left' },
-          --   fmt = function ()
-          --     return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
-          --   end
-          -- },
+          {
+            "filetype",
+            colored = true,   -- Displays filetype icon in color if set to true
+            icon_only = false, -- Display only an icon for filetype
+            icon = { align = 'left' },
+            fmt = function ()
+              return " " .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
+            end
+          },
           -- {
           --   function ()
           --     local curr_line = vim.fn.line('.')
