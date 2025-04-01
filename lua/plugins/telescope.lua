@@ -69,7 +69,7 @@ return {
         -- },
         wrap_results = true,
         dynamic_preview_title = true,
-        path_display = { "smart" },
+        path_display = { "absolute" },
       },
       pickers = {
         find_files = vim.list_extend(common_setting, {}),
