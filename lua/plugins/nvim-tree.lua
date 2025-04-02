@@ -192,7 +192,7 @@ return {
     },
     live_filter = {
       prefix = " ",
-      always_show_folders = false,
+      always_show_folders = true,
     },
     filesystem_watchers = {
       enable = true,
