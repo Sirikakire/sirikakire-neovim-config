@@ -4,7 +4,8 @@ return {
   event = "VeryLazy",
   config = function()
     local actions = require("telescope.actions")
-    local common_setting = { theme = "ivy" }
+    -- local common_setting = { theme = "ivy" }
+    local common_setting = {}
 
     local select_one_or_multi = function(prompt_bufnr)
       local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
@@ -29,17 +30,17 @@ return {
     require("telescope").setup({
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_ivy({}),
+          -- require("telescope.themes").get_ivy({}),
         },
         ["fidget"] = {
-          require("telescope.themes").get_ivy({}),
+          -- require("telescope.themes").get_ivy({}),
         },
       },
       defaults = {
         preview = {
           filesize_limit = 0.5555,
           highlights_limit = 0.555,
-          timeout = 100,
+          timeout = 50,
         },
         prompt_prefix = "  ",
         file_ignore_patterns = {
@@ -59,15 +60,15 @@ return {
           },
         },
         sorting_strategy = "ascending",
-        -- layout_config = {
-        --   horizontal = {
-        --     prompt_position = "top",
-        --     preview_width = 0.55,
-        --   },
-        --   width = 0.92,
-        --   height = 0.88,
-        -- },
-        wrap_results = true,
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55,
+          },
+          width = 0.92,
+          height = 0.88,
+        },
+        wrap_results = false,
         dynamic_preview_title = true,
         path_display = { "absolute" },
       },

@@ -8,7 +8,7 @@ local options = {
   "completeopt=menu,menuone,noinsert,preview,popup",
   "shiftwidth=2",
   "tabstop=2",
-  "nowrap",
+  "wrap",
   "autoread",
   "autowrite",
   "nocursorline",

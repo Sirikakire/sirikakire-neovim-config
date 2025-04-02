@@ -46,7 +46,7 @@ return vim.b.colorscheme ~= "nightfox" and {} or {
     })
 
     -- setup must be called before loading
-    vim.cmd.colorscheme("nightfox")
+    vim.cmd.colorscheme("dawnfox")
   end
 }
 
