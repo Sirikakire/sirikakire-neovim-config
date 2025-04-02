@@ -341,7 +341,16 @@ return {
       },
       cmdline = {
         enabled = true,
-        keymap = nil, -- Inherits from top level `keymap` config when not set
+        keymap = {
+          preset = 'none',
+          ['<CR>'] = { 'select_and_accept', 'fallback' },
+          ['<C-n>'] = { 'select_next', 'fallback' },
+          ['<C-p>'] = { 'select_prev', 'fallback' },
+          ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+          ['<C-e>'] = { 'hide' },
+          ['<C-d>'] = { 'scroll_documentation_down' },
+          ['<C-u>'] = { 'scroll_documentation_up' },
+        },
         sources = function()
           local type = vim.fn.getcmdtype()
           if type == '/' or type == '?' then return { 'buffer' }              end
@@ -356,11 +365,10 @@ return {
           list = {
             selection = {
               preselect = true,
-              auto_insert = true,
             },
           },
           menu = {
-            auto_show = nil, -- Inherits from top level `completion.menu.auto_show` config when not set
+            auto_show = true, -- Inherits from top level `completion.menu.auto_show` config when not set
             draw = {
               columns = {
                 { 'kind_icon' },
