@@ -52,7 +52,7 @@ return {
       special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
       symlink_destination = true,
       decorators = { "Git", "Open", "Hidden", "Modified", "Bookmark", "Diagnostics", "Copied", "Cut", },
-      hidden_display = "all",
+      hidden_display = "simple",
       highlight_git = "none",
       highlight_diagnostics = "none",
       highlight_opened_files = "all",
@@ -142,7 +142,7 @@ return {
     update_focused_file = {
       enable = true,
       update_root = {
-        enable = false,
+        enable = true,
         ignore_list = {},
       },
       exclude = false,
@@ -192,7 +192,7 @@ return {
     },
     live_filter = {
       prefix = " ",
-      always_show_folders = true,
+      always_show_folders = false,
     },
     filesystem_watchers = {
       enable = true,
