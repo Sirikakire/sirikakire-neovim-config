@@ -1,10 +1,6 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 500
-  end,
   opts = {
     plugins = {
       marks = true, -- shows a list of your marks on ' and `
@@ -25,7 +21,9 @@ return {
         g = true, -- bindings for prefixed with g
       },
     },
-    -- add operators that will trigger motion and text object completion
+    notify = true,
+    preset = "helix",
+    delay = 1000,    -- add operators that will trigger motion and text object completion
     -- to enable all native operators, set the preset / operators plugin above
     icons = {
       -- breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
@@ -34,6 +32,24 @@ return {
       breadcrumb = "", -- symbol used in the command line area that shows your active key combo
       separator = "󰛂", -- symbol used between a key and it's label
       group = "󰐗 ", -- symbol prepended to a group
+    },
+    win = {
+      -- don't allow the popup to overlap with the cursor
+      no_overlap = true,
+      -- width = 1,
+      -- height = { min = 4, max = 25 },
+      -- col = 0,
+      -- row = math.huge,
+      -- border = "none",
+      padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+      title = true,
+      title_pos = "center",
+      zindex = 1000,
+      -- Additional vim.wo and vim.bo options
+      bo = {},
+      wo = {
+        -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+      },
     },
     layout = {
       height = { min = 4, max = 25 }, -- min and max height of the columns

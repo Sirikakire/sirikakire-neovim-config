@@ -38,8 +38,8 @@ return {
       },
       defaults = {
         preview = {
-          filesize_limit = 0.5555,
-          highlights_limit = 0.555,
+          filesize_limit = 0.3,
+          highlights_limit = 0.3,
           timeout = 50,
         },
         prompt_prefix = "  ",

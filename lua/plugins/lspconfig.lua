@@ -55,16 +55,16 @@ return {
       })
 
       -- NOTE: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
-      vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-        config = config or {}
-        config.focus_id = ctx.method
-        config.border = require("utils").border
-        if not (result and result.contents) then return end
-        local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-        markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
-        if vim.tbl_isempty(markdown_lines) then return end
-        return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
-      end
+      -- vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+      --   config = config or {}
+      --   config.focus_id = ctx.method
+      --   config.border = require("utils").border
+      --   if not (result and result.contents) then return end
+      --   local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+      --   markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
+      --   if vim.tbl_isempty(markdown_lines) then return end
+      --   return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+      -- end
 
       -- NOTE: Styling
       require("lspconfig.ui.windows").default_options.border = require("utils").border
@@ -76,8 +76,8 @@ return {
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
         virtual_text = {
-          -- prefix = " ",
-          prefix = " ",
+          prefix = " ",
+          -- prefix = " ",
           source = "always"
         },
         signs = true,

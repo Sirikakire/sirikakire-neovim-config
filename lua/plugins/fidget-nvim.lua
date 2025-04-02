@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   config = function()
     require("fidget").setup({
-      -- Options related to LSP progress subsystem
       progress = {
         poll_rate = 0,                -- How and when to poll for progress messages
         suppress_on_insert = true,   -- Suppress new messages while in insert mode

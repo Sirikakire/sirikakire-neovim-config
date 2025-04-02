@@ -33,6 +33,8 @@ return {
         "toggleterm",
         "copilot-chat",
         "dashboard",
+        "Avante",
+        "AvanteInput",
         function(win)
           -- exclude non-focusable windows
           return not vim.api.nvim_win_get_config(win).focusable
