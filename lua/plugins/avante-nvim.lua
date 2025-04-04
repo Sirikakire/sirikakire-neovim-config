@@ -16,19 +16,6 @@ return {
       temperature = 0.3,
       disable_tools = true
     },
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      temperature = 0,
-      max_tokens = 4096,
-    },
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
-      max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-    },
     dual_boost = {
       enabled = false,
       first_provider = "openai",
@@ -62,7 +49,6 @@ return {
     mappings = {},
     hints = { enabled = true },
     windows = {
-      ---@type "right" | "left" | "top" | "bottom" | "smart"
       position = "top", -- the position of the sidebar
       wrap = true, -- similar to vim.o.wrap
       width = 30, -- default % based on available width
@@ -84,25 +70,18 @@ return {
         floating = true, -- Open the 'AvanteAsk' prompt in a floating window
         start_insert = false, -- Start insert mode when opening the ask window
         border = require("utils").border,
-        ---@type "ours" | "theirs"
         focus_on_apply = "ours", -- which diff to focus after applying
       },
     },
     highlights = {
-      ---@type AvanteConflictHighlights
       diff = {
         current = "DiffText",
         incoming = "DiffAdd",
       },
     },
-    --- @class AvanteConflictUserConfig
     diff = {
       autojump = true,
-      ---@type string | fun(): any
       list_opener = "copen",
-      --- Override the 'timeoutlen' setting while hovering over a diff (see :help timeoutlen).
-      --- Helps to avoid entering operator-pending mode with diff mappings starting with `c`.
-      --- Disable by setting to -1.
       override_timeoutlen = 500,
     },
     suggestion = {
