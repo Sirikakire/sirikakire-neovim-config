@@ -15,7 +15,8 @@ return {
             "NvimTree",
             "Telescope",
             "Avante",
-            "AvanteInput"
+            "AvanteInput",
+            "AvantePromptInput",
           },
         },
         ignore_focus = {},

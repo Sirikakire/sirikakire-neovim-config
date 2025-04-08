@@ -220,7 +220,8 @@ return {
           "Telescope",
           "TelescopePrompt",
           "Avante",
-          "AvanteInput"
+          "AvanteInput",
+          "AvantePromptInput",
         }
 
         return not vim.tbl_contains(filetypes, vim.bo.filetype)

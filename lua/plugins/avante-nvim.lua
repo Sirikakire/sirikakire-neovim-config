@@ -51,7 +51,7 @@ return {
     windows = {
       position = "top", -- the position of the sidebar
       wrap = true, -- similar to vim.o.wrap
-      width = 30, -- default % based on available width
+      width = 40, -- default % based on available width
       height = 30,
       sidebar_header = {
         enabled = true, -- true, false to enable/disable the header
