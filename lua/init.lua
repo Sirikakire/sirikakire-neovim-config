@@ -17,6 +17,7 @@ vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
 vim.b.syn_sidebar_with_normal = false
 vim.b.line_space = 0
+-- vim.o.winborder = require("utils").border
 vim.b.neovide_setting = {
   scale_factor = 1,
   transparency = 1,

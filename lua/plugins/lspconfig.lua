@@ -27,6 +27,9 @@ return {
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
     config = function()
+      -- NOTE: Styling
+      require("lspconfig.ui.windows").default_options.border = require("utils").border
+
       -- NOTE: Setup LSP capabilities
       local capabilities = vim.tbl_deep_extend(
         "force",
@@ -54,32 +57,19 @@ return {
         end,
       })
 
-      -- NOTE: Fixing a bug that trigger vim.lsp.buf.hover multiple times when using it when running multiple lsp in a single buffer
-      -- vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-      --   config = config or {}
-      --   config.focus_id = ctx.method
-      --   config.border = require("utils").border
-      --   if not (result and result.contents) then return end
-      --   local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-      --   markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
-      --   if vim.tbl_isempty(markdown_lines) then return end
-      --   return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
-      -- end
-
-      -- NOTE: Styling
-      require("lspconfig.ui.windows").default_options.border = require("utils").border
-
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = require("utils").border,
       })
 
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
-        virtual_text = {
-          prefix = " ",
-          -- prefix = " ",
-          source = "always"
-        },
+        -- virtual_text = {
+        --   prefix = " ",
+        --   -- prefix = " ",
+        --   source = "always"
+        -- },
+        virtual_text = false,
+        virtual_lines = {},
         signs = true,
         underline = true,
         update_in_insert = false,
@@ -104,68 +94,6 @@ return {
           linehl = linehl
         })
       end
-
-      -- NOTE: Nvim lsp progress notify
-      -- local client_notifs = {}
-      -- local success_icon = require("utils").sign_icons.success
-      --
-      -- local function get_notif_data(client_id, token)
-      --   client_notifs[client_id] = client_notifs[client_id] or {}
-      --   client_notifs[client_id][token] = client_notifs[client_id][token] or {}
-      --   return client_notifs[client_id][token]
-      -- end
-      --
-      -- local function update_spinner(client_id, token)
-      --   local notif_data = get_notif_data(client_id, token)
-      --
-      --   if notif_data.spinner then
-      --     local notification_data = MiniNotify.get(notif_data.notification)
-      --     MiniNotify.update(notif_data.notification, {
-      --       msg = notification_data.msg,
-      --       level = "INFO",
-      --     })
-      --
-      --     vim.defer_fn(function()
-      --       update_spinner(client_id, token)
-      --     end, 100)
-      --   else
-      --     vim.defer_fn(function() MiniNotify.remove(notif_data.notification) end, 1000)
-      --   end
-      -- end
-      --
-      -- local function format_message(title, message, percentage)
-      --   return (title or "") .. (percentage and percentage .. "%\t" or "") .. (message or "")
-      -- end
-      --
-      -- vim.lsp.handlers["$/progress"] = function(_, result, ctx)
-      --   local val = result.value
-      --   if val.title == "Diagnosing" or not val.kind then return end
-      --
-      --   local client_id = ctx.client_id
-      --   local notif_data = get_notif_data(client_id, result.token)
-      --
-      --   local function notify_user(message, options)
-      --     if notif_data.notification then
-      --       MiniNotify.update(notif_data.notification, {
-      --         msg = message,
-      --         level = "INFO"
-      --       })
-      --     else
-      --       notif_data.notification = MiniNotify.add(message, "INFO")
-      --     end
-      --   end
-      --
-      --   if val.kind == "begin" then
-      --     notify_user(format_message(val.title, val.message, val.percentage))
-      --     notif_data.spinner = 1
-      --     update_spinner(client_id, result.token)
-      --   elseif val.kind == "report" and notif_data.notification then
-      --     notify_user(format_message(val.title, val.message, val.percentage))
-      --   elseif val.kind == "end" and notif_data.notification then
-      --     notify_user(format_message(val.title, val.message, val.percentage) or "Complete", {icon = success_icon, timeout = 1500})
-      --     notif_data.spinner = nil
-      --   end
-      -- end
     end
   }
 }

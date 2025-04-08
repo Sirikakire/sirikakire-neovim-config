@@ -1,6 +1,6 @@
 return {
   'akinsho/git-conflict.nvim',
-  event = "BufRead",
+  event = "BufEnter",
   opts = {
     default_mappings = true, -- disable buffer local mapping created by this plugin
     default_commands = true, -- disable commands created by this plugin

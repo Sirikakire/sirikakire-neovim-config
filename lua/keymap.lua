@@ -50,7 +50,7 @@ K.setup_custom_keymap = function()
     vim.notify(vim.inspect(groups))
   end
 
-  vim.keymap.set("n", "<leader>rn", function ()
+  vim.keymap.set("n", "<leader>rn", function()
     local user_change_input = vim.fn.input("Enter change pattern  : ")
     local user_replace_input = vim.fn.input("Enter replace pattern for '" .. user_change_input .. "'  : ")
 
@@ -59,7 +59,7 @@ K.setup_custom_keymap = function()
     vim.cmd("%s/" .. user_change_input .. "/" .. user_replace_input .. "/gic")
   end, { desc = "Replace word using pattern in normal mode" })
 
-  vim.keymap.set("n", "<leader>rv", function ()
+  vim.keymap.set("n", "<leader>rv", function()
     local user_change_input = vim.fn.input("Enter change pattern  : ")
     local user_replace_input = vim.fn.input("Enter replace pattern for '" .. user_change_input .. "'  : ")
 
@@ -90,7 +90,9 @@ K.setup_custom_keymap = function()
     end,
     { desc = "Delete current buffer and then navigate to the next one" }
   )
-  vim.keymap.set("n", "<leader>hn", "<cmd>lua vim.notify('Health check vim notify', 'info', { title = 'Health check' })<CR>", { desc = "Health check vim notify" })
+  vim.keymap.set("n", "<leader>hn",
+    "<cmd>lua vim.notify('Health check vim notify', 'info', { title = 'Health check' })<CR>",
+    { desc = "Health check vim notify" })
   vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
   vim.keymap.set("n", "<C-o>", "a<CR><esc>", { desc = "Go down by one line" })
   vim.keymap.set("n", "<C-a>", "gg<S-V><S-G>", { desc = "Select all" })
@@ -143,7 +145,15 @@ K.setup_lsp_keymap = function(opts)
   vim.keymap.set("n", "<C-]>", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
   opts.desc = "Open hover on cursor"
-  vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "<leader>k", function()
+    vim.lsp.buf.hover({ border = require("utils").border })
+  end, opts)
+
+  opts.desc = "Open signature_help on cursor"
+  vim.keymap.set("i", "<C-s>", function()
+    vim.lsp.buf.signature_help({ border = require("utils").border })
+  end, opts)
+
 
   opts.desc = "Jump to next diagnostic"
   vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
@@ -231,14 +241,18 @@ K.toggle_term_keymaps = {
 
 -- NOTE: Setup keymap for lazygit
 K.lazygit_keymaps = {
-  { "<leader>lg", function ()
-    local git_dir = vim.fn.finddir('.git', vim.fn.getcwd() .. ";")
-    if git_dir == ".git" then
-      vim.cmd("LazyGit")
-    else
-      vim.notify("This is not a git repository", "warn")
-    end
-  end, desc = "Open LazyGit" }
+  {
+    "<leader>lg",
+    function()
+      local git_dir = vim.fn.finddir('.git', vim.fn.getcwd() .. ";")
+      if git_dir == ".git" then
+        vim.cmd("LazyGit")
+      else
+        vim.notify("This is not a git repository", "warn")
+      end
+    end,
+    desc = "Open LazyGit"
+  }
 }
 
 -- NOTE: Setup keymap for nvim tree
