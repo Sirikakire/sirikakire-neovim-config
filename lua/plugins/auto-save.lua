@@ -20,7 +20,7 @@ return {
     write_all_buffers = false,
     noautocmd = false,
     lockmarks = false,
-    debounce_delay = 2500,
+    debounce_delay = 5000,
     debug = false,
   }
 }
