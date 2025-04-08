@@ -16,9 +16,9 @@ require("init").setup({
   line_space = 0,
   colorscheme = "nightfox",
   neovide_setting = {
-    transparency = 1,
-    opacity = 1,
-    dont_apply_transparent_background = false,
+    transparency = 0.8,
+    opacity = 0.3,
+    dont_apply_transparent_background = true,
     font_setting = {
       name = "ZedMono Nerd Font",
       size = 15,

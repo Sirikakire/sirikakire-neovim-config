@@ -1,16 +1,20 @@
 --[[ 
   NOTE: Neovide %Username%/AppData/roaming/neovide/config.toml file
+  fork = true
   wsl = true
   no-multigrid = false
   vsync = true
   maximized = false
   srgb = true
   idle = true
-  neovim-bin = "/opt/nvim-linux64/bin/nvim" # in reality found dynamically on $PATH if unset
-  frame = "full"
-  opengl = true
+  neovim-bin = "/opt/nvim-linux-x86_64/bin/nvim" # in reality found dynamically on $PATH if unset
+  frame = "none"
   title-hidden = false
   tabs = true
+
+  [box-drawing]
+# "font-glyph", "native" or "selected-native"
+  mode = "native"
 ]]
 
 if vim.g.neovide and vim.b.neovide_setting then
@@ -25,7 +29,7 @@ if vim.g.neovide and vim.b.neovide_setting then
     vim.o.guifont = font
   end
 
-  vim.g.neovide_transparency = setting.transparency
+  vim.g.neovide_opacity = setting.transparency
   vim.g.neovide_window_blurred = true
   vim.g.neovide_normal_opacity = setting.opacity
   vim.g.neovide_padding_top = 0
@@ -33,9 +37,9 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
   vim.g.neovide_floating_shadow = false
-  vim.g.neovide_floating_z_height = 0
-  vim.g.neovide_light_angle_degrees = 0
-  vim.g.neovide_light_radius = 0
+  vim.g.neovide_floating_z_height = 10
+  vim.g.neovide_light_angle_degrees = 45
+  vim.g.neovide_light_radius = 5
   vim.g.neovide_show_border = false
   vim.g.neovide_scroll_animation_length = 0.2
   vim.g.neovide_scroll_animation_far_lines = 0
