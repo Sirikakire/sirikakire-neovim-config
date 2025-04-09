@@ -5,7 +5,7 @@ require("init").setup({
   border_color = "#e7c173",
   doc_border_type = "single",
   win_separator = true,
-  background_theme = "dark",
+  background_theme = "light",
   thick_win_separator = true,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "rose-pine",
   neovide_setting = {
-    transparency = 0.65,
+    transparency = 0.4,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
