@@ -14,9 +14,9 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "poimandres",
+  colorscheme = "rose-pine",
   neovide_setting = {
-    transparency = 0.75,
+    transparency = 0.65,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
