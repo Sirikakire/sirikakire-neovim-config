@@ -53,8 +53,8 @@ if vim.g.neovide and vim.b.neovide_setting then
   vim.g.neovide_fullscreen = false
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_profiler = false
-  vim.g.neovide_cursor_animation_length = 0.05
-  vim.g.neovide_cursor_trail_size = 0.4
+  vim.g.neovide_cursor_animation_length = 0.1
+  vim.g.neovide_cursor_trail_size = 0.5
   vim.g.neovide_cursor_animate_in_insert_mode = true
   vim.g.neovide_cursor_animate_command_line = true
   vim.g.neovide_cursor_smooth_blink = false
