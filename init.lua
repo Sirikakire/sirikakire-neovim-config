@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "poimandres",
   neovide_setting = {
-    transparency = 0.6,
+    transparency = 0.75,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
