@@ -16,11 +16,11 @@ require("init").setup({
   line_space = 0,
   colorscheme = "nightfox",
   neovide_setting = {
-    transparency = 0.8,
-    opacity = 0.3,
+    transparency = 0.9,
+    opacity = 0.4,
     dont_apply_transparent_background = true,
     font_setting = {
-      name = "ZedMono Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font Propo",
       size = 15,
       bold = false,
     }
