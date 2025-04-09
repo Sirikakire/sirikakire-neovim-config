@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "nightfox",
   neovide_setting = {
-    transparency = 0.9,
+    transparency = 0.95,
     opacity = 0.4,
     dont_apply_transparent_background = true,
     font_setting = {
