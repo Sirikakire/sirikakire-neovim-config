@@ -147,7 +147,7 @@ return {
             icon_only = false, -- Display only an icon for filetype
             icon = { align = 'left' },
             fmt = function ()
-              return " " .. vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
+              return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ':t')
             end
           },
           -- {
