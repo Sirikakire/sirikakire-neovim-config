@@ -4,8 +4,9 @@ return {
   version = false, -- Never set this value to "*"! Never!
   keys = require("keymap").avante_keymaps,
   opts = {
-    auto_suggestions_provider = "copilot",
-    cursor_applying_provider = "copilot",
+    auto_suggestions_provider = nil,
+    cursor_applying_provider = nil,
+    memory_summary_provider = nil,
     provider = "copilot",
     copilot = {
       endpoint = "https://api.githubcopilot.com",
@@ -33,13 +34,15 @@ return {
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = true,
       support_paste_from_clipboard = true,
-      minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+      minimize_diff = false, -- Whether to remove unchanged lines when applying a code block
       enable_token_counting = false, -- Whether to enable token counting. Default to true.
-      enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
-      enable_claude_text_editor_tool_mode = true, -- Whether to enable Claude Text Editor Tool Mode.
+      enable_cursor_planning_mode = false, -- Whether to enable Cursor Planning Mode. Default to false.
+      enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
+      auto_focus_on_diff_view = true,
     },
     history = {
       max_tokens = 0,
+      carried_entry_count = nil,
       storage_path = vim.fn.stdpath("state") .. "/avante",
       paste = {
         extension = "png",
@@ -56,6 +59,7 @@ return {
     },
     hints = { enabled = true },
     windows = {
+      fillchars = "eob: ",
       position = "right", -- the position of the sidebar
       wrap = true, -- similar to vim.o.wrap
       width = 40, -- default % based on available width
@@ -67,16 +71,16 @@ return {
       },
       input = {
         prefix = "> ",
-        height = 4, -- Height of the input window in vertical layout
+        height = 3, -- Height of the input window in vertical layout
       },
       edit = {
-        border = require("utils").border,
+        border = { " ", " ", " ", " ", " ", " ", " ", " " },
         start_insert = false, -- Start insert mode when opening the edit window
       },
       ask = {
         floating = true, -- Open the 'AvanteAsk' prompt in a floating window
         start_insert = false, -- Start insert mode when opening the ask window
-        border = require("utils").border,
+        border = { " ", " ", " ", " ", " ", " ", " ", " " },
         focus_on_apply = "ours", -- which diff to focus after applying
       },
     },

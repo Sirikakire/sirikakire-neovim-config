@@ -16,7 +16,7 @@ require("init").setup({
   line_space = 0,
   colorscheme = "rose-pine",
   neovide_setting = {
-    transparency = 0.4,
+    transparency = 0.5,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
