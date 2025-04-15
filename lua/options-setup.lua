@@ -77,9 +77,11 @@ else
   })
 end
 
-options = vim.list_extend(options, {
-  "linespace=" .. vim.b.line_space
-})
+if (vim.g.neovide) then
+  options = vim.list_extend(options, {
+    "linespace=" .. vim.b.line_space
+  })
+end
 
 for i, option in pairs(options) do
   vim.cmd("set "..option)
