@@ -5,7 +5,7 @@ require("init").setup({
   border_color = "#e7c173",
   doc_border_type = "single",
   win_separator = true,
-  background_theme = "light",
+  background_theme = "dark",
   thick_win_separator = true,
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
@@ -14,13 +14,13 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "rose-pine",
+  colorscheme = "kanagawa",
   neovide_setting = {
-    transparency = 0.5,
+    transparency = 0.8,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
-      name = "JetBrainsMonoNL Nerd Font Propo",
+      name = "CaskaydiaCove Nerd Font",
       size = 15,
       bold = false,
     }

@@ -145,21 +145,20 @@ K.setup_lsp_keymap = function(opts)
   vim.keymap.set("n", "<C-]>", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
 
   opts.desc = "Open hover on cursor"
-  vim.keymap.set("n", "<leader>k", function()
+  vim.keymap.set("n", "<leader>k",function ()
     vim.lsp.buf.hover({ border = require("utils").border })
   end, opts)
 
   opts.desc = "Open signature_help on cursor"
-  vim.keymap.set("i", "<C-s>", function()
+  vim.keymap.set("i", "<C-s>", function ()
     vim.lsp.buf.signature_help({ border = require("utils").border })
   end, opts)
 
-
   opts.desc = "Jump to next diagnostic"
-  vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
+  vim.keymap.set("n", "<leader>n", vim.diagnostic.get_next, opts)
 
   opts.desc = "Jump to previous diagnostic"
-  vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev, opts)
+  vim.keymap.set("n", "<leader>p", vim.diagnostic.get_prev, opts)
 
   opts.desc = "Open float vim diagnostic"
   vim.keymap.set("n", "<leader>j", vim.diagnostic.open_float, opts)
@@ -191,7 +190,6 @@ K.telescope_keymaps = {
 
 -- NOTE: Setup keymap for gitsigns
 K.gitsigns_keymaps = {
-  { "<leader>hu", function() require("gitsigns").undo_stage_hunk() end,           desc = "Undo stage hunk" },
   { "<leader>hb", function() require("gitsigns").preview_hunk() end,              desc = "Preview hunk" },
   { "<leader>hp", function() require("gitsigns").blame_line({ full = true }) end, desc = "Preview git blame" },
   { "<leader>hD", function() require("gitsigns").diffthis("~") end,               desc = "Preview git different" }

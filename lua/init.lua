@@ -11,13 +11,19 @@ vim.b.syn_all_border_color = false
 vim.b.syn_all_telescope_border = false
 vim.b.syn_all_noice_cmdline_border = false
 vim.b.float_window_brightness = 0
-vim.b.doc_border_type = "" ---@type "" | "single" | "double" | "padding"
+-- "bold": Bold line box.
+-- "double": Double-line box.
+-- "none": No border.
+-- "rounded": Like "single", but with rounded corners ("╭" etc.).
+-- "shadow": Drop shadow effect, by blending with the background.
+-- "single": Single-line box.
+-- "solid": Adds padding by a single whitespace cell.
+vim.b.doc_border_type = "" ---@type "" | "single" | "double" | "rounded" | "solid" | "shadow" | "none"
 vim.opt.background = "dark"
 vim.b.better_cmp_cursor_line = false
 vim.b.colorscheme = ""
 vim.b.syn_sidebar_with_normal = false
 vim.b.line_space = 0
--- vim.o.winborder = require("utils").border
 vim.b.neovide_setting = {
   scale_factor = 1,
   transparency = 1,

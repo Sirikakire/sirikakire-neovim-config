@@ -57,10 +57,6 @@ return {
         end,
       })
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = require("utils").border,
-      })
-
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
         -- virtual_text = {
@@ -74,7 +70,7 @@ return {
         underline = true,
         update_in_insert = false,
         severity_sort = true,
-        float = { border = require("utils").border, source = "always" },
+        float = { border = require("utils").border, source = true },
       })
 
       -- NOTE: Setup diagnostic highlight and icon
