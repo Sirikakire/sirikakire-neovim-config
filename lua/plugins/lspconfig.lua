@@ -4,6 +4,7 @@ return {
     event = "VeryLazy",
     keys = require("keymap").mason_keymaps,
     opts = {
+      log_level = vim.log.levels.OFF,
       ui = {
         border = require("utils").border,
         icons = {
@@ -37,14 +38,6 @@ return {
         -- require('cmp_nvim_lsp').default_capabilities()
         require('blink.cmp').get_lsp_capabilities()
       )
-
-      require("mason-lspconfig").setup_handlers({
-        function(lsp_server)
-          require("lspconfig")[lsp_server].setup({
-            capabilities = capabilities,
-          })
-        end
-      })
 
       -- NOTE: Disabled LSP generate logging file
       vim.lsp.set_log_level("off")

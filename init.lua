@@ -14,13 +14,13 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "kanagawa",
+  colorscheme = "palenightfall",
   neovide_setting = {
-    transparency = 0.8,
+    transparency = 0.9,
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
-      name = "CaskaydiaCove Nerd Font",
+      name = "JetBrainsMonoNL Nerd Font",
       size = 15,
       bold = false,
     }
