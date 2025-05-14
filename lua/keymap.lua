@@ -185,6 +185,7 @@ K.telescope_keymaps = {
   { "<leader>fd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>",                 desc = "Open workspace diagnostics" },
   { "<leader>fc", "<cmd>lua require('telescope.builtin').git_bcommits()<CR>",                desc = "Open buffer git commit list" },
   { "<leader>fr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>",              desc = "Open references" },
+  { "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>",                     desc = "Open buffer list" },
 }
 
 
