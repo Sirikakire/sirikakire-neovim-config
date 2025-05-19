@@ -215,10 +215,10 @@ return {
             use_mode_colors = true,
             mode = 0,
             max_length = vim.o.columns,
-            -- buffers_color = {
-            --   active = 'cleared',
-            --   inactive = 'cleared',
-            -- },
+            buffers_color = {
+              active = 'lualine_a_normal',
+              inactive = 'lualine_a_inactive',
+            },
             symbols = {
               modified = ' ●',      -- Text to show when the buffer is modified
               alternate_file = '', -- Text to show to identify the alternate file
