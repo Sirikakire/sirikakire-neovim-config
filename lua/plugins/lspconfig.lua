@@ -52,13 +52,13 @@ return {
 
       -- NOTE: Diagnostic Sign
       vim.diagnostic.config({
-        -- virtual_text = {
-        --   prefix = " ",
-        --   -- prefix = " ",
-        --   source = "always"
-        -- },
-        virtual_text = false,
-        virtual_lines = {},
+        virtual_text = {
+          prefix = " ",
+          -- prefix = " ",
+          source = "always"
+        },
+        -- virtual_text = false,
+        -- virtual_lines = {},
         signs = true,
         underline = true,
         update_in_insert = false,
