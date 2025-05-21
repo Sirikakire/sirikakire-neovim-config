@@ -4,9 +4,10 @@ return {
   version = false, -- Never set this value to "*"! Never!
   keys = require("keymap").avante_keymaps,
   opts = {
-    auto_suggestions_provider = nil,
-    cursor_applying_provider = nil,
-    memory_summary_provider = nil,
+    mode = "legacy", -- "agentic" | "legacy"
+    auto_suggestions_provider = "copilot",
+    cursor_applying_provider = "copilot",
+    memory_summary_provider = "copilot",
     provider = "copilot",
     copilot = {
       endpoint = "https://api.githubcopilot.com",
@@ -16,6 +17,13 @@ return {
       timeout = 30000, -- Timeout in milliseconds
       temperature = 0.3,
       disable_tools = true
+    },
+    claude = {
+      endpoint = "https://api.anthropic.com",
+      model = "claude-3-7-sonnet",
+      timeout = 30000, -- Timeout in milliseconds
+      temperature = 0,
+      max_tokens = 20480,
     },
     dual_boost = {
       enabled = false,
@@ -28,8 +36,8 @@ return {
       auto_focus_sidebar = true,
       auto_suggestions_respect_ignore = false,
       jump_result_buffer_on_finish = true,
-      use_cwd_as_project_root = true,
       auto_suggestions = false, -- Experimental stage
+      use_cwd_as_project_root = true,
       auto_set_highlight_group = true,
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = true,
@@ -37,7 +45,7 @@ return {
       minimize_diff = false, -- Whether to remove unchanged lines when applying a code block
       enable_token_counting = false, -- Whether to enable token counting. Default to true.
       enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
-      enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
+      -- enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
       auto_focus_on_diff_view = true,
     },
     history = {
@@ -65,9 +73,9 @@ return {
       width = 40, -- default % based on available width
       height = 30,
       sidebar_header = {
-        enabled = false, -- true, false to enable/disable the header
-        align = "right", -- left, center, right for title
-        rounded = true,
+        enabled = true, -- true, false to enable/disable the header
+        align = "center", -- left, center, right for title
+        rounded = false,
       },
       input = {
         prefix = "> ",
@@ -92,7 +100,6 @@ return {
     },
     diff = {
       autojump = true,
-      list_opener = "copen",
       override_timeoutlen = 500,
     },
     suggestion = {
