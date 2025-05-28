@@ -196,26 +196,6 @@ K.gitsigns_keymaps = {
   { "<leader>hD", function() require("gitsigns").diffthis("~") end,               desc = "Preview git different" }
 }
 
--- NOTE: Setup keymap for copilot chat
-K.copilot_chat_keymaps = {
-  { "<leader>cct", "<cmd>CopilotChatToggle<CR>",   desc = "Open copilot chat" },
-  { "<leader>ccr", "<cmd>CopilotChatReset<CR>",    desc = "Open copilot chat reset" },
-  { "<leader>cce", "<cmd>CopilotChatExplain<CR>",  mode = { 'n', 'v' },             desc = "Open copilot chat to explain" },
-  { "<leader>ccf", "<cmd>CopilotChatFix<CR>",      mode = { 'n', 'v' },             desc = "Open copilot chat to fix" },
-  { "<leader>cco", "<cmd>CopilotChatOptimize<CR>", mode = { 'n', 'v' },             desc = "Open copilot chat to optimize" },
-  { "<leader>ccd", "<cmd>CopilotChatDocs<CR>",     mode = { 'n', 'v' },             desc = "Open copilot chat to generate docs" },
-  {
-    "<leader>ccq",
-    function()
-      local input = vim.fn.input("Copilot  : ")
-      if input == "" then return end
-
-      require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-    end,
-    desc = "Open copilot chat with input",
-  }
-}
-
 -- NOTE: Setup keymap for toggle_term
 K.toggle_term_keymaps = {
   { "<leader>ts", "<cmd>TermSelect<CR>", desc = "Open terminal selection" },

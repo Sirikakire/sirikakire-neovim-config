@@ -350,7 +350,7 @@ local init_highlight = function()
   setup_avante_highlight()
   remove_diagnostic_sign_background()
   remove_git_sign_background()
-  if vim.g.neovide then setup_terminal_highlight() end
+  setup_terminal_highlight()
   if not vim.b.win_separator then hide_win_separator() end
   if vim.b.syn_sidebar_with_normal then setup_syn_sidebar_with_normal() end
   if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end

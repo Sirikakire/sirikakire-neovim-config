@@ -83,14 +83,18 @@ return {
             'diagnostics',
             icon = {
               " :",
-              color = function ()
-                local opt = {}
-                if vim.g.terminal_color_1 then
-                  opt.fg = vim.g.terminal_color_1
-                  opt.bg = "none"
-                end
-                return opt
-              end
+              color = {
+                fg = vim.opt.background._value == "light" and require("utils").light_palette.red or require("utils").dark_palette.red, -- Default to red if terminal color is not set
+                bg = "none", -- No background color
+              }
+              -- color = function ()
+              --   local opt = {}
+              --   if vim.g.terminal_color_1 then
+              --     opt.fg = vim.g.terminal_color_1
+              --     opt.bg = "none"
+              --   end
+              --   return opt
+              -- end
             },
             padding = 1,
             sources = { 'nvim_diagnostic', 'coc' },
@@ -115,14 +119,18 @@ return {
             'diff',
             icon = {
               " :",
-              color = function ()
-                local opt = {}
-                if vim.g.terminal_color_1 then
-                  opt.fg = vim.g.terminal_color_1
-                  opt.bg = "none"
-                end
-                return opt
-              end
+              color = {
+                fg = vim.opt.background._value == "light" and require("utils").light_palette.red or require("utils").dark_palette.red, -- Default to red if terminal color is not set
+                bg = "none", -- No background color
+              }
+              -- color = function ()
+              --   local opt = {}
+              --   if vim.g.terminal_color_1 then
+              --     opt.fg = vim.g.terminal_color_1
+              --     opt.bg = nil
+              --   end
+              --   return opt
+              -- end
             },
             padding = 1,
             colored = true, -- Displays a colored diff status if set to true
