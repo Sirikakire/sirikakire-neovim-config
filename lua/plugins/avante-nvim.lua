@@ -9,21 +9,27 @@ return {
     cursor_applying_provider = "copilot",
     memory_summary_provider = "copilot",
     provider = "copilot",
-    copilot = {
-      endpoint = "https://api.githubcopilot.com",
-      model = "claude-3.7-sonnet",
-      proxy = nil, -- [protocol://]host[:port] Use this proxy
-      allow_insecure = false, -- Allow insecure server connections
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0.3,
-      disable_tools = true
-    },
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-7-sonnet",
-      timeout = 30000, -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 20480,
+    providers = {
+      copilot = {
+        endpoint = "https://api.githubcopilot.com",
+        model = "claude-3.7-sonnet",
+        proxy = nil, -- [protocol://]host[:port] Use this proxy
+        allow_insecure = false, -- Allow insecure server connections
+        timeout = 30000, -- Timeout in milliseconds
+        disable_tools = true,
+        extra_request_body = {
+          temperature = 0.3,
+        }
+      },
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-7-sonnet",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 20480,
+        }
+      },
     },
     dual_boost = {
       enabled = false,
