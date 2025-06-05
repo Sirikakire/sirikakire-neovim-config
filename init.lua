@@ -14,7 +14,7 @@ require("init").setup({
   float_window_brightness = 0,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "catppuccin",
+  colorscheme = "everforest",
   neovide_setting = {
     transparency = 1,
     opacity = 1,
