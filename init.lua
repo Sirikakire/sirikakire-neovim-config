@@ -1,3 +1,4 @@
+require("autocmd") -- NOTE: Autocmd
 -- NOTE: Loading Neovim global variable
 require("init").setup({
   transparent_background = false,
@@ -27,10 +28,9 @@ require("init").setup({
   }
 })
 
-require("autocmd") -- NOTE: Autocmd
 require("options-setup") -- NOTE: Neovim options
 require("lazy-nvim") -- NOTE: Lazy vim install and import plugins
 require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, should install win32yank via scoop
 require("keymap").setup_custom_keymap() -- NOTE: Neovim custom keymap
 require("neovide") -- NOTE: Neovide setting
-require("highlight") -- NOTE: Highlight setting
+require("highlight").init_highlight()

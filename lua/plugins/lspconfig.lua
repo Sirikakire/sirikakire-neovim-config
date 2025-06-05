@@ -59,30 +59,37 @@ return {
         },
         -- virtual_text = false,
         -- virtual_lines = {},
-        signs = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = require("utils").sign_icons.error,
+            [vim.diagnostic.severity.WARN] = require("utils").sign_icons.warning,
+            [vim.diagnostic.severity.HINT] = require("utils").sign_icons.hint,
+            [vim.diagnostic.severity.INFO] = require("utils").sign_icons.info,
+          },
+          texthl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+          },
+          linehl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticVirtualTextError",
+            [vim.diagnostic.severity.WARN] = "DiagnosticVirtualTextWarn",
+            [vim.diagnostic.severity.HINT] = "DiagnosticVirtualTextHint",
+            [vim.diagnostic.severity.INFO] = "DiagnosticVirtualTextInfo",
+          },
+          numhl = {
+            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+          },
+        },
         underline = true,
         update_in_insert = false,
         severity_sort = true,
         float = { border = require("utils").border, source = true },
       })
-
-      -- NOTE: Setup diagnostic highlight and icon
-      local signs = {
-        Error = require("utils").sign_icons.error,
-        Warn = require("utils").sign_icons.warning,
-        Hint = require("utils").sign_icons.hint,
-        Info = require("utils").sign_icons.info,
-      }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        local linehl = "DiagnosticVirtualText" .. type
-        vim.fn.sign_define(hl, {
-          text = icon,
-          texthl = hl,
-          numhl = hl,
-          linehl = linehl
-        })
-      end
     end
   }
 }

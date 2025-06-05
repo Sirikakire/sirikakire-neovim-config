@@ -100,10 +100,10 @@ return {
             sources = { 'nvim_diagnostic', 'coc' },
             sections = { 'error', 'warn', 'info', 'hint' },
             diagnostics_color = {
-              error = 'DiagnosticError', -- Changes diagnostics' error color.
-              warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-              info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-              hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+              error = 'DiagnosticSignError', -- Changes diagnostics' error color.
+              warn  = 'DiagnosticSignWarn',  -- Changes diagnostics' warn color.
+              info  = 'DiagnosticSignInfo',  -- Changes diagnostics' info color.
+              hint  = 'DiagnosticSignHint',  -- Changes diagnostics' hint color.
             },
             symbols = {
               error = sign_icon.error .. " ",

@@ -1,5 +1,6 @@
 local init = require("init")
 local cmd_executions = {}
+local K = {}
 
 -- NOTE: Setup highlight
 local setup_highlight = function()
@@ -195,10 +196,12 @@ end
 -- NOTE: sync Neotree/NvimTree with normal
 local setup_syn_sidebar_with_normal = function()
   local executions = {
-    "highlight! link NeoTreeNormal Normal",
-    "highlight! link NvimTreeNormal Normal",
+    "highlight! link NvimTreeEndOfBuffer NvimTreeNormal",
+    "highlight! link NeoTreeEndOfBuffer NeoTreeNormal",
     "highlight! link NeoTreeNormalNC NormalNC",
     "highlight! link NvimTreeNormalNC NormalNC",
+    "highlight! link NeoTreeNormal Normal",
+    "highlight! link NvimTreeNormal Normal",
   }
 
   cmd_executions = vim.list_extend(cmd_executions, executions)
@@ -343,7 +346,7 @@ local setup_transparent_background = function()
   cmd_executions = vim.list_extend(cmd_executions, executions)
 end
 
-local init_highlight = function()
+K.init_highlight = function()
   setup_highlight()
   setup_cursor_line_highlight()
   setup_cmp_highlight()
@@ -360,7 +363,9 @@ local init_highlight = function()
   if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
   if vim.b.syn_all_noice_cmdline_border then setup_synchronized_noice_cmdline() end
 
-  vim.cmd(table.concat(cmd_executions, "\n"))
+  for i, cmd in ipairs(cmd_executions) do
+    vim.cmd(cmd)
+  end
 end
 
-init_highlight()
+return K
