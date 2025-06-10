@@ -174,15 +174,6 @@ return {
   --   }
   -- end,
   {
-    "folke/lazydev.nvim",
-    lazy = true,
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
-  },
-  {
     'saghen/blink.compat',
     version = '*',
     lazy = true,
@@ -395,15 +386,8 @@ return {
           'snippets',
           'path',
           'buffer',
-          "lazydev"
         },
         providers = {
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
           lsp = { name = "LSP" },
           snippets = { name = "snippets" },
           path = { name = "path" },

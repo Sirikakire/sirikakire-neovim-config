@@ -1,5 +1,4 @@
 require("autocmd") -- NOTE: Autocmd
--- NOTE: Loading Neovim global variable
 require("init").setup({
   transparent_background = false,
   mapleader = " ",
@@ -7,13 +6,13 @@ require("init").setup({
   doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = true,
+  thick_win_separator = false, -- Đổi thành false để giảm tải rendering
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = true,
   float_window_brightness = 0,
-  better_cmp_cursor_line = false,
+  better_cmp_cursor_line = true,
   line_space = 0,
   colorscheme = "everforest",
   neovide_setting = {
@@ -27,10 +26,13 @@ require("init").setup({
     }
   }
 })
-
 require("options-setup") -- NOTE: Neovim options
 require("lazy-nvim") -- NOTE: Lazy vim install and import plugins
 require("wsl-win32yank") -- NOTE: Clipboard integration for Neovim on WSL, should install win32yank via scoop
 require("keymap").setup_custom_keymap() -- NOTE: Neovim custom keymap
 require("neovide") -- NOTE: Neovide setting
-require("highlight").init_highlight()
+
+-- Defer non-critical highlights
+vim.defer_fn(function()
+  require("highlight").init_highlight()
+end, 100)

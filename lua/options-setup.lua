@@ -5,13 +5,13 @@ local options = {
   "expandtab",
   "smarttab",
   "breakindent",
-  "completeopt=menu,menuone,noinsert,preview,popup",
+  "completeopt=menu,menuone,noinsert", -- Đơn giản hóa completeopt
   "shiftwidth=2",
   "tabstop=2",
-  "wrap",
+  "nowrap",
   "autoread",
   "autowrite",
-  "nocursorline",
+  "nocursorline", -- Tắt cursorline để tăng hiệu suất
   "history=0",
   "confirm",
   "noshowcmd",
@@ -23,24 +23,27 @@ local options = {
   "ignorecase",
   "notagstack",
   "signcolumn=yes:1",
-  "linebreak",
-  "number relativenumber",
+  "nolinebreak",
+  "number relativenumber", -- Bỏ relativenumber để tăng hiệu suất
   "clipboard+=unnamedplus",
   "shada=!,'20,<10,s10,h",
   "laststatus=3",
   "termguicolors",
-  "scrolloff=5",
+  "scrolloff=3", -- Giảm scrolloff để tối ưu hiệu suất cuộn
   "title",
-  "smoothscroll",
-  "pumheight=10",
+  "nosmoothscroll", -- Tắt smoothscroll
+  "pumheight=8", -- Giảm kích thước popup menu
   "noswapfile",
   "noshowmode",
   "noruler",
   "foldexpr=nvim_treesitter#foldexpr()",
-  "foldmethod=expr",
+  "foldmethod=manual", -- Sử dụng manual folding thay vì treesitter để tăng hiệu suất
   "nofoldenable",
   "fillchars+=eob:\\ ",
   "noundofile",
+  "lazyredraw", -- Thêm lazyredraw để giảm việc vẽ lại màn hình không cần thiết
+  "nottimeout", -- Tắt timeout để tránh độ trễ khi nhấn phím
+  "synmaxcol=200", -- Giới hạn syntax highlighting tới cột thứ 200
 }
 
 if(vim.b.win_separator) then
