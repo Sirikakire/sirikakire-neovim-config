@@ -37,7 +37,7 @@ local options = {
   "noshowmode",
   "noruler",
   "foldexpr=nvim_treesitter#foldexpr()",
-  "foldmethod=manual", -- Sử dụng manual folding thay vì treesitter để tăng hiệu suất
+  "foldmethod=expr", -- Sử dụng manual folding thay vì treesitter để tăng hiệu suất
   "nofoldenable",
   "fillchars+=eob:\\ ",
   "noundofile",

@@ -12,12 +12,12 @@ require("init").setup({
   syn_all_telescope_border = false,
   syn_sidebar_with_normal = true,
   float_window_brightness = 0,
-  better_cmp_cursor_line = true,
+  better_cmp_cursor_line = false,
   line_space = 0,
   colorscheme = "tokyodark",
   neovide_setting = {
     transparency = 1,
-    opacity = 1,
+    opacity = 0.9,
     dont_apply_transparent_background = true,
     font_setting = {
       name = "JetBrainsMonoNL Nerd Font",

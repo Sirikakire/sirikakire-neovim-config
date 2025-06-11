@@ -81,6 +81,9 @@ return {
         lualine_x = {
           {
             'diagnostics',
+            color = {
+              bg = "none"
+            },
             icon = {
               " :",
               color = {
@@ -117,11 +120,14 @@ return {
           },
           {
             'diff',
+            color = {
+              bg = "none"
+            },
             icon = {
               " :",
               color = {
                 fg = vim.opt.background._value == "light" and require("utils").light_palette.red or require("utils").dark_palette.red, -- Default to red if terminal color is not set
-                bg = "none", -- No background color
+                bg = nil, -- No background color
               }
               -- color = function ()
               --   local opt = {}
@@ -146,7 +152,6 @@ return {
             },
             -- source = nil, -- A function that works as a data source for diff.
           },
-
         },
         lualine_y = {
           {
