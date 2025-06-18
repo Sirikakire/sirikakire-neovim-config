@@ -40,7 +40,7 @@ local options = {
   -- t  - tags
   -- i  - included files
   -- k  - dictionary
-  "complete =.,w,b,u,t,i,k",
+  "complete=",
   -- Set the jump options
   -- 'jumpoptions' controls how Neovim handles the jump list (CTRL-O and CTRL-I navigation)
   -- Available options:
@@ -54,7 +54,6 @@ local options = {
 -- Useful for maintaining exact file contents without modifications
 -- Some file formats or systems don't require trailing newlines
   "nofixendofline",
-  "list",
   "number relativenumber", -- Bỏ relativenumber để tăng hiệu suất
   "clipboard+=unnamedplus",
   "shada=!,'20,<10,s10,h",

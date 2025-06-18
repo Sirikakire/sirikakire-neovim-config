@@ -3,7 +3,7 @@ require("init").setup({
   transparent_background = false,
   mapleader = " ",
   border_color = "#e7c173",
-  doc_border_type = "single",
+  doc_border_type = "padding",
   win_separator = true,
   background_theme = "dark",
   thick_win_separator = false, -- Đổi thành false để giảm tải rendering
