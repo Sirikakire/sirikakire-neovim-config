@@ -17,7 +17,7 @@ require("init").setup({
   colorscheme = "tokyodark",
   neovide_setting = {
     transparency = 1,
-    opacity = 0.9,
+    opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
       name = "JetBrainsMonoNL Nerd Font Propo",

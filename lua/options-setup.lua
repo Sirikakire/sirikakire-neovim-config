@@ -19,11 +19,42 @@ local options = {
   "backspace=start,eol,indent",
   "shiftround",
   "nobackup",
+  "nospell",
   "nowritebackup",
   "ignorecase",
   "notagstack",
   "signcolumn=yes:1",
   "nolinebreak",
+  -- Set the session options to save and restore
+  -- 'buffers'  : save and restore buffers
+  -- 'tabpages' : save and restore tab pages
+  -- 'winsize'  : save and restore window sizes
+  -- 'winpos'   : save and restore window positions
+  -- 'terminal' : save and restore terminal buffers
+  -- 'localoptions' : save and restore local options
+  "sessionoptions=buffers,tabpages,winsize,winpos,localoptions",
+  -- .  - current buffer
+  -- w  - buffers in windows
+  -- b  - other loaded buffers
+  -- u  - unloaded buffers
+  -- t  - tags
+  -- i  - included files
+  -- k  - dictionary
+  "complete =.,w,b,u,t,i,k",
+  -- Set the jump options
+  -- 'jumpoptions' controls how Neovim handles the jump list (CTRL-O and CTRL-I navigation)
+  -- Available options:
+  --   'stack': Makes each window maintain its own separate jump list history
+  --   'view': Saves the view (viewport position, folds, etc.) when adding a jump
+  --   'clear': Removes jumps that do not resolve to valid buffer positions
+  --   Multiple options can be combined like: "stack,view,clear"
+  "jumpoptions=clean",
+-- Control whether Neovim adds a newline at end of file
+-- When false, Neovim will not automatically add a newline at EOF
+-- Useful for maintaining exact file contents without modifications
+-- Some file formats or systems don't require trailing newlines
+  "nofixendofline",
+  "list",
   "number relativenumber", -- Bỏ relativenumber để tăng hiệu suất
   "clipboard+=unnamedplus",
   "shada=!,'20,<10,s10,h",
@@ -44,6 +75,7 @@ local options = {
   "lazyredraw", -- Thêm lazyredraw để giảm việc vẽ lại màn hình không cần thiết
   "nottimeout", -- Tắt timeout để tránh độ trễ khi nhấn phím
   "synmaxcol=200", -- Giới hạn syntax highlighting tới cột thứ 200
+  "syntax=off"
 }
 
 if(vim.b.win_separator) then
@@ -89,3 +121,9 @@ end
 for i, option in pairs(options) do
   vim.cmd("set "..option)
 end
+
+vim.filetype.add({
+  extension = {
+    jbuilder = "ruby", -- Set filetype for jbuilder as ruby filetype
+  },
+})
