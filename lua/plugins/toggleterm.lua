@@ -44,11 +44,13 @@ return {
       end, 0)
 
       local api = require("nvim-tree.api")
-      local nvimtree_view = require("nvim-tree.view")
-      if nvimtree_view.is_visible() and term.direction == "horizontal" then
-        local nvimtree_width = vim.fn.winwidth(nvimtree_view.get_winnr())
+      local explorer = require("nvim-tree.core").get_explorer()
+      if not explorer then return end
+
+      if explorer.view:is_visible() and term.direction == "horizontal" then
+        -- local nvimtree_width = vim.fn.winwidth(explorer.view:get_winnr())
         api.tree.toggle()
-        nvimtree_view.View.width = nvimtree_width
+        -- explorer.view.width = nvimtree_width
         api.tree.toggle(false, true)
       end
     end
