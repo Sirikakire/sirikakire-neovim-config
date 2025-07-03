@@ -3,6 +3,10 @@ return {
   lazy = false,
   branch = "main",
   opts = {
+    experimental = {
+      check_rtp = false,
+      check_rtp_message = false
+    },
     preview = {
       filetypes = { "markdown", "Avante" },
       ignore_buftypes = {},

@@ -1,6 +1,9 @@
 return {
   "nvim-telescope/telescope.nvim",
   keys = require("keymap").telescope_keymaps,
+  dependencies = {
+    "OXY2DEV/markview.nvim"
+  },
   event = "VeryLazy",
   config = function()
     local actions = require("telescope.actions")

@@ -20,7 +20,7 @@ require("init").setup({
     opacity = 1,
     dont_apply_transparent_background = true,
     font_setting = {
-      name = "JetBrainsMonoNL Nerd Font Propo",
+      name = "FantasqueSansM Nerd Font",
       size = 13,
       bold = false,
     }

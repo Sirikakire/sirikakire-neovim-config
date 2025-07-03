@@ -6,7 +6,7 @@ vim.cmd('autocmd BufEnter * set formatoptions-=cro') -- NOTE:  Disable auto comm
 -- NOTE: Setup autocmd for better yank UI
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function ()
-    vim.highlight.on_yank({
+    vim.hl.on_yank({
       higroup = "IncSearch",
       timeout = 200
     })

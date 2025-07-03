@@ -8,6 +8,9 @@ return {
     auto_suggestions_provider = "copilot",
     cursor_applying_provider = "copilot",
     memory_summary_provider = "copilot",
+    experimental = {
+      check_rtp = false,
+    },
     provider = "copilot",
     providers = {
       copilot = {
