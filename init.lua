@@ -1,12 +1,12 @@
 require("autocmd") -- NOTE: Autocmd
 require("init").setup({
-  transparent_background = false,
+  transparent_background = true,
   mapleader = " ",
   border_color = "#e7c173",
-  doc_border_type = "padding",
+  doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = false, -- Đổi thành false để giảm tải rendering
+  thick_win_separator = true, -- Đổi thành false để giảm tải rendering
   syn_all_border_color = false,
   syn_all_noice_cmdline_border = false,
   syn_all_telescope_border = false,

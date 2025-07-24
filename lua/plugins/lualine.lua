@@ -217,7 +217,9 @@ return {
         lualine_z = {}
       },
       tabline = {
-        lualine_a = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
           {
             "buffers",
             padding = 1,
@@ -239,8 +241,6 @@ return {
             },
           }
         },
-        lualine_b = {},
-        lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
