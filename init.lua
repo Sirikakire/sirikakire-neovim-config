@@ -1,6 +1,6 @@
 require("autocmd") -- NOTE: Autocmd
 require("init").setup({
-  transparent_background = true,
+  transparent_background = false,
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "single",
