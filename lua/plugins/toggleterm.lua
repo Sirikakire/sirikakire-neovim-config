@@ -38,21 +38,21 @@ return {
       -- default = 0 which means the feature is turned off
       -- horizontal_breakpoint = 135,
     },
-    on_open = function(term)
-      vim.defer_fn(function()
-        vim.wo[term.window].winbar = ""
-      end, 0)
-
-      local api = require("nvim-tree.api")
-      local explorer = require("nvim-tree.core").get_explorer()
-      if not explorer then return end
-
-      if explorer.view:is_visible() and term.direction == "horizontal" then
-        -- local nvimtree_width = vim.fn.winwidth(explorer.view:get_winnr())
-        api.tree.toggle()
-        -- explorer.view.width = nvimtree_width
-        api.tree.toggle(false, true)
-      end
-    end
+    -- on_open = function(term)
+    --   vim.defer_fn(function()
+    --     vim.wo[term.window].winbar = ""
+    --   end, 0)
+    --
+    --   local api = require("nvim-tree.api")
+    --   local explorer = require("nvim-tree.core").get_explorer()
+    --   if not explorer then return end
+    --
+    --   if explorer.view:is_visible() and term.direction == "horizontal" then
+    --     -- local nvimtree_width = vim.fn.winwidth(explorer.view:get_winnr())
+    --     api.tree.toggle()
+    --     -- explorer.view.width = nvimtree_width
+    --     api.tree.toggle(false, true)
+    --   end
+    -- end
   }
 }
