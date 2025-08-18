@@ -70,8 +70,7 @@ return {
           stack_upwards = true,       -- Display notification items from bottom to top
           icon_separator = " ",       -- Separator between group name and icon
           group_separator = "---",    -- Separator between notification groups
-          group_separator_hl =        -- Highlight group used for group separator
-            "Comment",
+          group_separator_hl = "NormalFloat",
           render_message =            -- How to render notification messages
             function(msg, cnt)
               return cnt == 1 and msg or string.format("(%dx) %s", cnt, msg)
@@ -90,6 +89,7 @@ return {
           y_padding = 0,              -- Padding from bottom edge of window boundary
           align = "bottom",           -- How to align the notification window
           relative = "editor",        -- What the notification window position is relative to
+          tabstop = 8,
         },
       },
 
