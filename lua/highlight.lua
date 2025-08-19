@@ -218,57 +218,6 @@ local setup_add_brightness_to_float_window = function()
   })
 end
 
--- NOTE: Setup synchronized Telescope border
-local setup_synchronized_telescope = function ()
-  local executions = {
-    "highlight! link TelescopePreviewTitle TelescopePreviewBorder",
-    "highlight! link TelescopePromptTitle TelescopePromptBorder",
-    "highlight! link TelescopeResultsTitle TelescopeResultsBorder",
-    "highlight! link TelescopePreviewBorder TelescopeBorder",
-    "highlight! link TelescopePromptBorder TelescopeBorder",
-    "highlight! link TelescopeResultsBorder TelescopeBorder",
-    "highlight! link TelescopeBorder WinSeparator",
-  }
-
-  cmd_executions = vim.list_extend(cmd_executions, executions)
-end
-
-local setup_synchronized_noice_cmdline = function ()
-  local executions = {
-    "highlight! link NoiceCmdline WinSeparator",
-    "highlight! link NoiceCmdlineIcon NoiceCmdline",
-    "highlight! link NoiceCmdlineIconCalculator NoiceCmdline",
-    "highlight! link NoiceCmdlineIconCmdline NoiceCmdline",
-    "highlight! link NoiceCmdlineIconFilter NoiceCmdline",
-    "highlight! link NoiceCmdlineIconHelp NoiceCmdline",
-    "highlight! link NoiceCmdlineIconIncRename NoiceCmdline",
-    "highlight! link NoiceCmdlineIconInput NoiceCmdline",
-    "highlight! link NoiceCmdlineIconLua NoiceCmdline",
-    "highlight! link NoiceCmdlineIconSearch NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderCalculator NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderFilter NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderHelp NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderIncRename NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderInput NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderLua NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupBorderSearch NoiceCmdline",
-    "highlight! link NoiceCmdlinePrompt NoiceCmdline",
-    "highlight! link NoiceCmdlinePopupTitle NoiceCmdline",
-    "highlight! link NoiceCmdlinePopup NONE",
-    "highlight! link NoiceCmdlinePopupBorderCmdline NONE",
-    "highlight! link NoiceCmdlinePopupBorder NONE"
-  }
-
-  cmd_executions = vim.list_extend(cmd_executions, executions)
-end
-
--- NOTE: Setup synchronized WinSeparator background
-local setup_synchronized_border_color = function()
-  cmd_executions = vim.list_extend(cmd_executions, {
-    "highlight! WinSeparator ctermbg=NONE guibg=NONE guifg="..vim.b.border_color
-  })
-end
-
 -- NOTE: Optional transparent 
 local setup_transparent_background = function()
   local executions = {
@@ -359,9 +308,6 @@ K.init_highlight = function()
   if vim.b.float_window_brightness then setup_add_brightness_to_float_window() end
   if vim.b.better_cmp_cursor_line then setup_better_cmp_cursor_line() end
   if vim.b.transparent_background then setup_transparent_background() end
-  if vim.b.syn_all_border_color then setup_synchronized_border_color() end
-  if vim.b.syn_all_telescope_border then setup_synchronized_telescope() end
-  if vim.b.syn_all_noice_cmdline_border then setup_synchronized_noice_cmdline() end
 
   for i, cmd in ipairs(cmd_executions) do
     vim.cmd(cmd)

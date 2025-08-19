@@ -7,9 +7,6 @@ vim.b.win_separator = true
 vim.b.border_color = "#ffffff"
 vim.b.transparent_background = false
 vim.b.thick_win_separator = false
-vim.b.syn_all_border_color = false
-vim.b.syn_all_telescope_border = false
-vim.b.syn_all_noice_cmdline_border = false
 vim.b.float_window_brightness = 0
 -- "bold": Bold line box.
 -- "double": Double-line box.
@@ -45,10 +42,6 @@ M.setup = function (params)
     vim.b.win_separator = params.win_separator
   end
 
-  if params.syn_all_border_color ~= nil then
-    vim.b.syn_all_border_color = params.syn_all_border_color
-  end
-
   if params.border_color ~= nil then
     vim.b.border_color = params.border_color
   end
@@ -59,14 +52,6 @@ M.setup = function (params)
     else
       vim.b.transparent_background = params.transparent_background
     end
-  end
-
-  if params.syn_all_telescope_border ~= nil then
-    vim.b.syn_all_telescope_border = params.syn_all_telescope_border
-  end
-
-  if params.syn_all_noice_cmdline_border ~= nil then
-    vim.b.syn_all_noice_cmdline_border = params.syn_all_noice_cmdline_border
   end
 
   if params.mapleader ~= nil then

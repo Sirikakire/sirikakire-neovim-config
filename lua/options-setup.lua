@@ -111,7 +111,7 @@ else
   })
 end
 
-if (vim.g.neovide) then
+if (vim.g.neovide) and (vim.b.line_space) then
   options = vim.list_extend(options, {
     "linespace=" .. vim.b.line_space
   })

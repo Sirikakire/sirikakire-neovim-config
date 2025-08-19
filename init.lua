@@ -6,15 +6,12 @@ require("init").setup({
   doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = true, -- Đổi thành false để giảm tải rendering
-  syn_all_border_color = false,
-  syn_all_noice_cmdline_border = false,
-  syn_all_telescope_border = false,
+  thick_win_separator = false, -- Đổi thành false để giảm tải rendering
   syn_sidebar_with_normal = true,
   float_window_brightness = 0,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "onedark",
+  colorscheme = "onenord",
   neovide_setting = {
     transparency = 1,
     opacity = 1,

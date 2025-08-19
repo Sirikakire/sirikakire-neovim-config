@@ -1,5 +1,6 @@
 return {
   "yetone/avante.nvim",
+  build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   keys = require("keymap").avante_keymaps,
@@ -15,7 +16,7 @@ return {
     providers = {
       copilot = {
         endpoint = "https://api.githubcopilot.com",
-        model = "claude-3.7-sonnet", -- Model to use, e.g., "claude-3-7-sonnet"
+        model = "claude-3.7-sonnet-thought", -- Model to use, e.g., "claude-3-7-sonnet"
         proxy = nil, -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
         timeout = 30000, -- Timeout in milliseconds
@@ -56,6 +57,21 @@ return {
       enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
       -- enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
       auto_focus_on_diff_view = true,
+      auto_approve_tool_permissions = false, -- Default: show permission prompts for all tools
+      enable_fastapply = false, -- Whether to enable fast apply mode
+    },
+    prompt_logger = { -- logs prompts to disk (timestamped, for replay/debugging)
+      enabled = false, -- toggle logging entirely
+      log_dir = vim.fn.stdpath("cache") .. "/avante_prompts", -- directory where logs are saved
+      fortune_cookie_on_success = false, -- shows a random fortune after each logged prompt (requires `fortune` installed)
+      next_prompt = {
+        normal = "<C-n>", -- load the next (newer) prompt log in normal mode
+        insert = "<C-n>",
+      },
+      prev_prompt = {
+        normal = "<C-p>", -- load the previous (older) prompt log in normal mode
+        insert = "<C-p>",
+      },
     },
     history = {
       max_tokens = 0,
@@ -74,6 +90,10 @@ return {
         dismiss = "<C-]>",
       },
     },
+    selection = {
+      enabled = true,
+      hint_display = "delayed",
+    },
     hints = { enabled = true },
     windows = {
       fillchars = "eob: ",
@@ -81,6 +101,11 @@ return {
       wrap = true, -- similar to vim.o.wrap
       width = 40, -- default % based on available width
       height = 30,
+      spinner = {
+        editing = { "⡀", "⠄", "⠂", "⠁", "⠈", "⠐", "⠠", "⢀", "⣀", "⢄", "⢂", "⢁", "⢈", "⢐", "⢠", "⣠", "⢤", "⢢", "⢡", "⢨", "⢰", "⣰", "⢴", "⢲", "⢱", "⢸", "⣸", "⢼", "⢺", "⢹", "⣹", "⢽", "⢻", "⣻", "⢿", "⣿" },
+        generating = { "·", "✢", "✳", "∗", "✻", "✽" }, -- Spinner characters for the 'generating' state
+        thinking = { "🤯", "🙄" }, -- Spinner characters for the 'thinking' state
+      },
       sidebar_header = {
         enabled = true, -- true, false to enable/disable the header
         align = "center", -- left, center, right for title
@@ -116,5 +141,4 @@ return {
       throttle = 600,
     },
   },
-  build = "make",
 }
