@@ -74,7 +74,10 @@ local options = {
   "lazyredraw", -- Thêm lazyredraw để giảm việc vẽ lại màn hình không cần thiết
   "nottimeout", -- Tắt timeout để tránh độ trễ khi nhấn phím
   "synmaxcol=200", -- Giới hạn syntax highlighting tới cột thứ 200
-  "syntax=off"
+  "syntax=off",
+  "updatetime=4000", -- Tăng updatetime để giảm tần suất xử lý sự kiện
+  "nohlsearch", -- Tắt highlight kết quả tìm kiếm
+  "re=1" -- Sử dụng regex engine cũ nhưng nhanh hơn
 }
 
 if(vim.b.win_separator) then
@@ -120,9 +123,3 @@ end
 for i, option in pairs(options) do
   vim.cmd("set "..option)
 end
-
-vim.filetype.add({
-  extension = {
-    jbuilder = "ruby", -- Set filetype for jbuilder as ruby filetype
-  },
-})

@@ -391,6 +391,7 @@ return {
           lsp = { name = "LSP" },
           snippets = { name = "snippets" },
           path = { name = "path" },
+          cmdline = {},
           buffer = {
             name = "buffer",
             max_items = 10,
@@ -406,6 +407,7 @@ return {
           },
         },
       },
+      fuzzy = { implementation = "prefer_rust_with_warning" }
     },
     opts_extend = { "sources.default" }
   }

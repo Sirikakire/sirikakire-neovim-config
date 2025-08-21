@@ -214,7 +214,8 @@ local setup_add_brightness_to_float_window = function()
   local normalFloatBackgroundAfterAddBrightness = init.addBrightnessToHexColor(normalFloatBackground, vim.b.float_window_brightness)
 
   cmd_executions = vim.list_extend(cmd_executions, {
-    "highlight! NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness
+    "highlight! NormalFloat guibg="..normalFloatBackgroundAfterAddBrightness,
+    "highlight! FloatBorder guibg="..normalFloatBackgroundAfterAddBrightness
   })
 end
 
