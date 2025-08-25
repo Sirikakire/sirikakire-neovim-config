@@ -1,7 +1,9 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
-    event = "BufEnter",
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    branch = "master",
+    lazy = false,
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = require("utils").treesitter_parsers,
