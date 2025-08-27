@@ -76,7 +76,7 @@ local options = {
   "synmaxcol=200", -- Giới hạn syntax highlighting tới cột thứ 200
   "syntax=off",
   "updatetime=4000", -- Tăng updatetime để giảm tần suất xử lý sự kiện
-  "nohlsearch", -- Tắt highlight kết quả tìm kiếm
+  -- "nohlsearch", -- Tắt highlight kết quả tìm kiếm
   "re=1" -- Sử dụng regex engine cũ nhưng nhanh hơn
 }
 

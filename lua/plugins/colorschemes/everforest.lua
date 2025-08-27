@@ -38,7 +38,7 @@ return vim.b.colorscheme ~= "everforest" and {} or {
       diagnostic_virtual_text = "coloured",
       ---Some plugins support highlighting error/warning/info/hint lines, but this
       ---feature is disabled by default in this colour scheme.
-      diagnostic_line_highlight = false,
+      diagnostic_line_highlight = true,
       ---By default, this color scheme won't colour the foreground of |spell|, instead
       ---colored under curls will be used. If you also want to colour the foreground,
       ---set this option to `true`.

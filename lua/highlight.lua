@@ -34,6 +34,7 @@ local setup_highlight = function()
     "highlight! link BufferDefaultOffset NvimTreeNormal",
     "highlight! link NvimTreeFolderIcon NvimTreeFolderName",
     "highlight! link WinBar Normal",
+    "highlight! link NormalNC Normal",
     "highlight! link WinBarNC NormalNC",
     "highlight! link StatusLine Normal",
     "highlight! link StatusLineNC Normal",
