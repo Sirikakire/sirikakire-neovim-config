@@ -7,8 +7,8 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = require("utils").treesitter_parsers,
-        auto_install = false, -- Tắt auto_install để tăng tốc khởi động
-        sync_install = false, -- Tắt sync_install để tăng tốc khởi động
+        auto_install = true, -- Tắt auto_install để tăng tốc khởi động
+        sync_install = true, -- Tắt sync_install để tăng tốc khởi động
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,

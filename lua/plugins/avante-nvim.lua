@@ -16,7 +16,7 @@ return {
     providers = {
       copilot = {
         endpoint = "https://api.githubcopilot.com",
-        model = "claude-3.7-sonnet-thought", -- Model to use, e.g., "claude-3-7-sonnet"
+        model = "gemini-2.0-flash-001", -- Model to use, e.g., "claude-3-7-sonnet"
         proxy = nil, -- [protocol://]host[:port] Use this proxy
         allow_insecure = false, -- Allow insecure server connections
         timeout = 30000, -- Timeout in milliseconds
@@ -53,7 +53,7 @@ return {
       auto_apply_diff_after_generation = true,
       support_paste_from_clipboard = true,
       minimize_diff = false, -- Whether to remove unchanged lines when applying a code block
-      enable_token_counting = false, -- Whether to enable token counting. Default to true.
+      enable_token_counting = true, -- Whether to enable token counting. Default to true.
       enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
       -- enable_claude_text_editor_tool_mode = false, -- Whether to enable Claude Text Editor Tool Mode.
       auto_focus_on_diff_view = true,

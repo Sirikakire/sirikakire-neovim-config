@@ -46,7 +46,7 @@ return {
       },
       copilot_node_command = 'node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
-      copilot_model = "claude-3.7-sonnet-thought"
+      copilot_model = "gemini-2.0-flash-001"
     }
   },
   -- {
