@@ -2,6 +2,9 @@ return {
   "yetone/avante.nvim",
   build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
   event = "VeryLazy",
+  dependencies = {
+    "OXY2DEV/markview.nvim"
+  },
   version = false, -- Never set this value to "*"! Never!
   keys = require("keymap").avante_keymaps,
   opts = {
