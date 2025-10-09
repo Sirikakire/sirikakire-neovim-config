@@ -64,4 +64,12 @@ if vim.g.neovide and vim.b.neovide_setting then
   -- )
   --
   -- vim.g.neovide_title_text_color = "pink"
+
+  vim.api.nvim_create_autocmd("VimLeave", {
+    callback = function ()
+      if vim.g.neovide_fullscreen == true then
+        vim.g.neovide_fullscreen = false
+      end
+    end
+  })
 end

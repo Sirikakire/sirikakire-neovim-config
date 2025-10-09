@@ -17,8 +17,8 @@ return   {
     preview = {
       filetypes = { "markdown", "md", "quarto", "norg", "rmd", "org", "vimwiki", "Avante" },
       icon_provider = "devicons", -- "mini" or "devicons"
-      ignore_buftypes = { "nofile" },
-      ignore_previews = {},
+      ignore_buftypes = {},
+      raw_previews = {},
 
       modes = { "n", "no", "c" },
       hybrid_modes = {},
@@ -123,7 +123,6 @@ return   {
       enable = true,
       properties = {}
     },
-    buf_ignore = {},
     max_length = 99999,
   },
 }
