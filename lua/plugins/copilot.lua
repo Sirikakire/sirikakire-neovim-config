@@ -44,9 +44,9 @@ return {
       filetypes = {
         ["*"] = true,
       },
-      copilot_node_command = 'node', -- Node.js version must be > 18.x
+      copilot_node_command = '/home/sirikakire/.nvm/versions/node/v22.20.0/bin/node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
-      copilot_model = "gemini-2.0-flash-001"
+      copilot_model = "claude-3.7-sonnet"
     }
   },
   -- {
