@@ -46,7 +46,7 @@ return {
       },
       copilot_node_command = '/home/sirikakire/.nvm/versions/node/v22.20.0/bin/node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
-      copilot_model = "claude-3.7-sonnet"
+      copilot_model = "gpt-5-mini"
     }
   },
   -- {
