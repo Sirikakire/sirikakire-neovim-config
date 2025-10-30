@@ -8,10 +8,10 @@ require("init").setup({
   background_theme = "dark",
   thick_win_separator = false, -- Đổi thành false để giảm tải rendering
   syn_sidebar_with_normal = true,
-  float_window_brightness = 50,
+  float_window_brightness = 40,
   better_cmp_cursor_line = false,
   line_space = 0,
-  colorscheme = "eldritch",
+  colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     opacity = 1,

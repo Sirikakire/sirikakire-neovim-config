@@ -200,12 +200,12 @@ return {
           },
         },
         lualine_z = {
-          {
-            function () return "" end,
-            padding = 0,
-            separator = { left = "", right = "█" },
-            draw_empty = true,
-          },
+          -- {
+          --   function () return "" end,
+          --   padding = 0,
+          --   separator = { left = "", right = "█" },
+          --   draw_empty = true,
+          -- },
         }
       },
       inactive_sections = {
