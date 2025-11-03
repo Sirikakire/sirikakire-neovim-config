@@ -31,6 +31,16 @@ return {
       -- NOTE: Styling
       require("lspconfig.ui.windows").default_options.border = require("utils").border
 
+      -- NOTE: Setup LSP capabilities
+      -- vim.lsp.config("*", {
+      --   capabilities = vim.tbl_deep_extend(
+      --     "force",
+      --     vim.lsp.protocol.make_client_capabilities(),
+      --     -- require('cmp_nvim_lsp').default_capabilities()
+      --     require('blink.cmp').get_lsp_capabilities()
+      --   ),
+      -- })
+
       -- NOTE: Disabled LSP generate logging file
       vim.lsp.set_log_level("off")
 
