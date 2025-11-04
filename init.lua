@@ -1,15 +1,14 @@
-require("autocmd") -- NOTE: Autocmd
 require("init").setup({
-  transparent_background = false,
+  transparent_background = true,
   mapleader = " ",
   border_color = "#e7c173",
-  doc_border_type = "padding",
+  doc_border_type = "single",
   win_separator = true,
   background_theme = "dark",
-  thick_win_separator = false, -- Đổi thành false để giảm tải rendering
+  thick_win_separator = true, -- Đổi thành false để giảm tải rendering
   syn_sidebar_with_normal = true,
   float_window_brightness = 40,
-  better_cmp_cursor_line = false,
+  better_cmp_cursor_line = true,
   line_space = 0,
   colorscheme = "nordic",
   neovide_setting = {
@@ -23,6 +22,8 @@ require("init").setup({
     }
   }
 })
+
+require("autocmd") -- NOTE: Autocmd
 require("lazy-nvim") -- NOTE: Lazy vim install and import plugins
 require("options-setup") -- NOTE: Neovim options
 require("clipboard-provider") -- NOTE: Clipboard integration for Neovim on WSL, should install win32yank via scoop
