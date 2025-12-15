@@ -7,10 +7,10 @@ require("init").setup({
   background_theme = "dark",
   thick_win_separator = true, -- Đổi thành false để giảm tải rendering
   syn_sidebar_with_normal = true,
-  float_window_brightness = 40,
+  float_window_brightness = 0,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "nordic",
+  colorscheme = "onedark-nvim",
   neovide_setting = {
     transparency = 1,
     opacity = 1,
