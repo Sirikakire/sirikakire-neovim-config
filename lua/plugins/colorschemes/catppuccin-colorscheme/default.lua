@@ -26,12 +26,16 @@ return {
   end,
   integrations = {
     cmp = true,
+    blink_cmp = {
+      style = 'bordered',
+    },
     treesitter = true,
     telescope = { enabled = true },
     notify = true,
     gitsigns = true,
     barbar = true,
     markdown = true,
+    markview = true,
     mason = true,
     noice = true,
     nvimtree = true,
