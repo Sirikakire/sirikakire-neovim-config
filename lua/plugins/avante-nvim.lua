@@ -9,6 +9,7 @@ return {
   keys = require("keymap").avante_keymaps,
   opts = {
     mode = "legacy", -- "agentic" | "legacy"
+    instructions_file = "~/.config/nvim/avante.md",
     auto_suggestions_provider = "copilot",
     cursor_applying_provider = "copilot",
     memory_summary_provider = "copilot",
@@ -16,6 +17,12 @@ return {
       check_rtp = false,
     },
     provider = "copilot",
+    system_prompt = nil,
+    override_prompt_dir = nil,
+    rules = {
+      project_dir = nil, ---@type string | nil (could be relative dirpath)
+      global_dir = nil, ---@type string | nil (absolute dirpath)
+    },
     providers = {
       copilot = {
         endpoint = "https://api.githubcopilot.com",
@@ -62,6 +69,18 @@ return {
       auto_focus_on_diff_view = true,
       auto_approve_tool_permissions = false, -- Default: show permission prompts for all tools
       enable_fastapply = false, -- Whether to enable fast apply mode
+      ---@type boolean | string[] -- true: auto-approve all tools, false: normal prompts, string[]: auto-approve specific tools by name
+      auto_check_diagnostics = true,
+      allow_access_to_git_ignored_files = true,
+      include_generated_by_commit_line = true, -- Controls if 'Generated-by: <provider/model>' line is added to git commit message
+      auto_add_current_file = true, -- Whether to automatically add the current file when opening a new chat
+      --- popup is the original yes,all,no in a floating window
+      --- inline_buttons is the new inline buttons in the sidebar
+      ---@type "popup" | "inline_buttons"
+      confirmation_ui_style = "popup",
+      --- Whether to automatically open files and navigate to lines when ACP agent makes edits
+      ---@type boolean
+      acp_follow_agent_locations = true,
     },
     prompt_logger = { -- logs prompts to disk (timestamped, for replay/debugging)
       enabled = false, -- toggle logging entirely
@@ -119,13 +138,13 @@ return {
         height = 3, -- Height of the input window in vertical layout
       },
       edit = {
-        border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        border = require("utils").border,
         start_insert = false, -- Start insert mode when opening the edit window
       },
       ask = {
         floating = true, -- Open the 'AvanteAsk' prompt in a floating window
         start_insert = false, -- Start insert mode when opening the ask window
-        border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        border = require("utils").border,
         focus_on_apply = "ours", -- which diff to focus after applying
       },
     },
@@ -143,5 +162,10 @@ return {
       debounce = 600,
       throttle = 600,
     },
+    disabled_tools = {}, ---@type string[]
+    custom_tools = {},
+    slash_commands = {},
+    shortcuts = {},
+    ask_opts = {},
   },
 }

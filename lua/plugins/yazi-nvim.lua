@@ -36,14 +36,13 @@ return {
     },
     -- set_keymappings_function = function(yazi_buffer_id, config, context) end,
     clipboard_register = "*",
-    -- hooks = {
-    --   yazi_opened = function(preselected_path, yazi_buffer_id, config)
-    --   end,
+    hooks = {
+      -- yazi_opened = function(preselected_path, yazi_buffer_id, config) end,
     --   yazi_closed_successfully = function(chosen_file, config, state) end,
     --   yazi_opened_multiple_files = function(chosen_files, config, state) end,
     --   on_yazi_ready = function(buffer, config, process_api) end,
     --   before_opening_window = function(window_options) end,
-    -- },
+    },
     highlight_hovered_buffers_in_same_directory = true,
     integrations = {
       -- grep_in_directory = function(directory)

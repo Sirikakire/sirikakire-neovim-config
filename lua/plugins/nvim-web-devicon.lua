@@ -3,7 +3,7 @@ return {
   event = "VimEnter",
   config = function ()
     require("nvim-web-devicons").setup({
-      override = require("icons"),
+      -- override = require("icons"),
       color_icons = true,
       default = true,
       strict = false
