@@ -231,7 +231,7 @@ return {
             mode = 0,
             max_length = vim.o.columns,
             buffers_color = {
-              active = 'lualine_a_normal',
+              active = 'lualine_a_insert',
               inactive = 'lualine_a_inactive',
             },
             symbols = {

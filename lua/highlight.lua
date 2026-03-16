@@ -49,6 +49,8 @@ local setup_highlight = function()
     "highlight! link lualine_c_normal Normal",
     "highlight! link lualine_c_inactive Normal",
     "highlight! link lualine_c_insert Normal",
+    "highlight! link @variable @variable",
+    "highlight! link @tag.attribute @property"
   }
 
   cmd_executions = vim.list_extend(cmd_executions, executions)
