@@ -1,51 +1,3 @@
-local fillchars = function()
-  if vim.b.win_separator then
-    if vim.b.thick_win_separator then
-      return table.concat({
-        "horiz:━",
-        "horizup:┻",
-        "horizdown:┳",
-        "vert:┃",
-        "vertleft:┫",
-        "vertright:┣",
-        "verthoriz:╋",
-      }, ",")
-    else
-      return table.concat({
-        "horiz:─",
-        "horizup:┴",
-        "horizdown:┬",
-        "vert:│",
-        "vertleft:┤",
-        "vertright:├",
-        "verthoriz:┼",
-      }, ",")
-    end
-  end
-
-  return table.concat({
-    "horiz: ",
-    "horizup: ",
-    "horizdown: ",
-    "vert: ",
-    "vertleft: ",
-    "vertright: ",
-    "verthoriz: ",
-  }, ",")
-end
-
-local fillchars_value = table.concat({
-  "horiz:─",
-  "horizup:┴",
-  "horizdown:┬",
-  "vert:│",
-  "vertleft:┤",
-  "vertright:├",
-  "verthoriz:┼",
-}, ",")
-
-vim.notify("fillchars_value", vim.inspect(fillchars_value))
-
 return {
   "folke/sidekick.nvim",
   opts = {
@@ -87,9 +39,7 @@ return {
         ---@param terminal sidekick.cli.Terminal
         config = function(terminal)
         end,
-        wo = {
-          fillchars = fillchars_value
-        }, ---@type vim.wo
+        wo = {}, ---@type vim.wo
         bo = {}, ---@type vim.bo
         layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"
         --- Options used when layout is "float"

@@ -108,19 +108,19 @@ return {
               'cmdline'
             },
             columns = {
-              { 'kind_icon' },
               { 'label', 'label_description', gap = 1 },
-              -- { 'source_name' },
+              { 'kind_icon' },
+              { 'source_name' },
             },
             components = {
               source_name = {
-                text = function(ctx) return ctx.source_name:gsub("^%l", string.upper) end,
+                text = function(ctx) return "["..ctx.source_name:gsub("^%l", string.upper).."]" end,
                 highlight = 'BlinkCmpSource',
               },
               kind_icon = {
                 text = function(ctx)
-                  local kind_icon = require("utils").nv_chad_icons[ctx.kind]
-                  return kind_icon
+                  local kind_icon = require("utils").custom_icon[ctx.kind]
+                  return kind_icon .. "  " .. ctx.kind
                 end,
               },
             }
@@ -129,13 +129,13 @@ return {
         documentation = {
           auto_show = true,
           treesitter_highlighting = true,
-          auto_show_delay_ms = 200,
+          auto_show_delay_ms = 0,
           window = {
             border = require("utils").border,
             winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
           },
         },
-        ghost_text = { enabled = false },
+        ghost_text = { enabled = true },
         list = {
           max_items = 20,
           selection = {
@@ -198,9 +198,9 @@ return {
             auto_show = true, -- Inherits from top level `completion.menu.auto_show` config when not set
             draw = {
               columns = {
-                { 'kind_icon' },
                 { 'label', 'label_description', gap = 1 },
-                -- { 'source_name' },
+                { 'kind_icon' },
+                { 'source_name' },
               },
             },
           }
@@ -214,9 +214,9 @@ return {
           'buffer',
         },
         providers = {
-          lsp = { name = "LSP" },
-          snippets = { name = "snippets" },
-          path = { name = "path" },
+          lsp = {},
+          snippets = { preset = 'luasnip' }, -- @type 'default' | 'luasnip' | 'mini_snippets' | 'vsnip'
+          path = {},
           cmdline = {},
           buffer = {
             name = "buffer",

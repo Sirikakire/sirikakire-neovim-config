@@ -125,6 +125,37 @@ U.sign_icons = {
   -- success = '󰄲',
 }
 
+U.custom_icon = {
+  Text          = "",
+  Method        = "",
+  Function      = "",
+  Constructor   = "",
+  Field         = "",
+  Variable      = "",
+  Class         = "",
+  Interface     = "",
+  Module        = "",
+  Property      = "",
+  Unit          = "",
+  Value         = "",
+  Enum          = "",
+  Keyword       = "",
+  Snippet       = "",
+  Color         = "",
+  File          = "",
+  Reference     = "",
+  Folder        = "",
+  EnumMember    = "",
+  Constant      = "",
+  Struct        = "",
+  Array         = "[]",
+  Event         = "",
+  Operator      = "",
+  TypeParameter = "",
+  TabNine       = "󰂂",
+  Copilot       = "",
+}
+
 U.navic_icon = {
   File          = "󰈙",
   Module        = "",
@@ -132,7 +163,7 @@ U.navic_icon = {
   Package       = "",
   Class         = "󰌗",
   Method        = "󰆧",
-  Property      = "",
+  Property      = "",
   Field         = "",
   Constructor   = "",
   Enum          = "󰕘",
@@ -235,36 +266,6 @@ U.local_icons = {
   Copilot       = ""
 }
 
-U.kind_icons = {
-  Text          = '',
-  Method        = '',
-  Function      = '',
-  Constructor   = '',
-  Field         = '',
-  Variable      = '',
-  Class         = '',
-  Interface     = '',
-  Module        = '',
-  Property      = '',
-  Unit          = '',
-  Value         = '',
-  Enum          = '',
-  Keyword       = '',
-  Snippet       = '',
-  Color         = '',
-  File          = '',
-  Reference     = '',
-  Folder        = '',
-  EnumMember    = '',
-  Constant      = '',
-  Struct        = '',
-  Array         = "[]",
-  Event         = '',
-  Operator      = '',
-  TypeParameter = '',
-  TabNine       = '󰂂',
-  Copilot       = ' '
-}
 
 -- NOTE: Lsp server list
 U.lsp_servers = {
