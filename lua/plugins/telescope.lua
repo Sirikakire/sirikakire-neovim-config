@@ -8,7 +8,9 @@ return {
   config = function()
     local actions = require("telescope.actions")
     -- local common_setting = { theme = "ivy" }
-    local common_setting = {}
+    local common_setting = {
+      hidden = true
+    }
 
     local select_one_or_multi = function(prompt_bufnr)
       local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
