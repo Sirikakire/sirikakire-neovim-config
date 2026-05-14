@@ -42,7 +42,7 @@ return {
       -- })
 
       -- NOTE: Disabled LSP generate logging file
-      vim.lsp.set_log_level("off")
+      vim.lsp.set_level("off")
 
       -- NOTE: Mapping keymap for lsp
       vim.api.nvim_create_autocmd("LspAttach", {
