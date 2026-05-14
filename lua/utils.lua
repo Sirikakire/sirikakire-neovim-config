@@ -286,7 +286,6 @@ U.lsp_servers = {
 
 -- NOTE: Treesitter parser list
 U.treesitter_parsers = {
-  "lua",
   "javascript",
   "diff",
   "typescript",
@@ -302,11 +301,9 @@ U.treesitter_parsers = {
   "regex",
   "tsx",
   "vim",
-  "vimdoc",
   "vue",
   "xml",
   "yaml",
-  "markdown",
   "markdown_inline"
 }
 
