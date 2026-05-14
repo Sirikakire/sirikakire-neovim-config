@@ -4,7 +4,7 @@ return {
     build = ":TSUpdate",
     branch = "main",
     lazy = false,
-    config = function()
+    -- config = function()
       -- require('nvim-treesitter').setup({
       --   auto_install = true, -- Tắt auto_install để tăng tốc khởi động
       --   sync_install = true, -- Tắt sync_install để tăng tốc khởi động
@@ -31,6 +31,12 @@ return {
       --     enable_close_on_slash = false, -- Tắt để tăng hiệu suất
       --   },
       -- })
+    -- end
+    init = function()
+      require('nvim-treesitter').install(require("utils").treesitter_parsers)
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
     end
   },
   {
