@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = require("utils").treesitter_parsers,
+  pattern = require('nvim-treesitter').get_installed(),
   callback = function()
     vim.treesitter.start()
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
