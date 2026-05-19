@@ -215,7 +215,7 @@ return {
         },
         providers = {
           lsp = {},
-          snippets = { preset = 'luasnip' }, -- @type 'default' | 'luasnip' | 'mini_snippets' | 'vsnip'
+          snippets = {}, -- @type 'default' | 'luasnip' | 'mini_snippets' | 'vsnip'
           path = {},
           cmdline = {},
           buffer = {

@@ -12,6 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
   {
+    pkg = {
+      sources = {
+        "lazy",
+        "rockspec", -- will only be used when rocks.enabled is true
+        "packspec",
+      },
+    },
+    rocks = {
+      enabled = false,
+      hererocks = false
+    },
+
     spec = {
       { import = "plugins.colorschemes" },
       { import = "plugins" },

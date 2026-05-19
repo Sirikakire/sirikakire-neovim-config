@@ -90,16 +90,7 @@ return {
           align = "bottom",           -- How to align the notification window
           relative = "editor",        -- What the notification window position is relative to
           tabstop = 8,
-        },
-      },
-
-      -- Options related to integrating with other plugins
-      integration = {
-        ["nvim-tree"] = {
-          enable = true,              -- Integrate with nvim-tree/nvim-tree.lua (if installed)
-        },
-        ["xcodebuild-nvim"] = {
-          enable = true,              -- Integrate with wojciech-kulik/xcodebuild.nvim (if installed)
+          avoid = { "NvimTree", "xcodebuild-nvim" }
         },
       },
 
