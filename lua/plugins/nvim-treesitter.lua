@@ -34,9 +34,6 @@ return {
     -- end
     init = function()
       require('nvim-treesitter').install(require("utils").treesitter_parsers)
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.wo[0][0].foldmethod = 'expr'
     end
   },
   {
