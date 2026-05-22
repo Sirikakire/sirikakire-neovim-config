@@ -41,7 +41,7 @@ return {
         end,
         wo = {}, ---@type vim.wo
         bo = {}, ---@type vim.bo
-        layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"
+        layout = "right", ---@type "float"|"left"|"bottom"|"top"|"right"
         --- Options used when layout is "float"
         ---@type vim.api.keyset.win_config
         float = {
@@ -51,7 +51,7 @@ return {
         -- Options used when layout is "left"|"bottom"|"top"|"right"
         ---@type vim.api.keyset.win_config
         split = {
-          width = 80, -- set to 0 for default split width
+          width = 70, -- set to 0 for default split width
           height = 20, -- set to 0 for default split height
         },
         --- CLI Tool Keymaps (default mode is `t`)
