@@ -50,6 +50,11 @@ K.setup_custom_keymap = function()
     vim.notify(vim.inspect(groups))
   end
 
+  vim.keymap.set("n", "<leader>cp", function()
+    vim.fn.setreg("+", vim.fn.expand("%:p"))
+    print("Copied: " .. vim.fn.expand("%:p"))
+  end)
+
   vim.keymap.set("n", "<leader>rn", function()
     local user_change_input = vim.fn.input("Enter change pattern  : ")
     local user_replace_input = vim.fn.input("Enter replace pattern for '" .. user_change_input .. "'  : ")
