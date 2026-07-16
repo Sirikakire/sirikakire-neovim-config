@@ -1,6 +1,9 @@
 return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
+  cond = function()
+    return vim.fn.argc() == 0
+  end,
   priority = 80,
   opts = {
     theme = "hyper",

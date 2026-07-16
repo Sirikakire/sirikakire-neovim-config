@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  -- event = "VeryLazy",
   config = function ()
     local sign_icon = require("utils").sign_icons
     require("lualine").setup({
