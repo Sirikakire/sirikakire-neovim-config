@@ -1,7 +1,7 @@
 require("vim._core.ui2").enable({})
 
 require("init").setup({
-  transparent_background = false,
+  transparent_background = true,
   mapleader = " ",
   border_color = "#e7c173",
   doc_border_type = "single",
@@ -12,7 +12,7 @@ require("init").setup({
   float_window_brightness = 5,
   better_cmp_cursor_line = true,
   line_space = 0,
-  colorscheme = "catppuccin",
+  colorscheme = "nordic",
   neovide_setting = {
     transparency = 1,
     opacity = 1,

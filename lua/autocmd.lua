@@ -19,11 +19,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = require('nvim-treesitter').get_installed(),
-  callback = function()
-    vim.treesitter.start()
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
+  callback = function(args)
+    local treesitter = require('nvim-treesitter')
+    local lang = vim.treesitter.language.get_lang(args.match)
+    if vim.list_contains(treesitter.get_installed(), lang) then
+      vim.treesitter.start(args.buf)
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+      vim.wo[0][0].foldmethod = 'expr'
+    end
   end,
 })
