@@ -304,7 +304,8 @@ U.treesitter_parsers = {
   "vue",
   "xml",
   "yaml",
-  "markdown_inline"
+  "markdown_inline",
+  "lua"
 }
 
 U.spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
