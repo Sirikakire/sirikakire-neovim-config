@@ -7,6 +7,22 @@ return {
   event = "VeryLazy",
   config = function()
     local actions = require("telescope.actions")
+
+    -- Workaround: telescope assert() khi libuv báo lỗi đọc pipe (vd. picker đóng khi rg/fd còn chạy)
+    local ok, async_job = pcall(require, "telescope.async_job")
+    if ok and async_job.LinesPipe then
+      local channel = require("plenary.async").control.channel
+      function async_job.LinesPipe:read()
+        local read_tx, read_rx = channel.oneshot()
+        self.handle:read_start(function(err, data)
+          self.handle:read_stop()
+          if err then data = nil end -- coi lỗi như EOF thay vì crash
+          read_tx(data)
+          if data == nil then self.eof_tx() end
+        end)
+        return read_rx()
+      end
+    end
     -- local common_setting = { theme = "ivy" }
     local common_setting = {
       hidden = true
@@ -78,14 +94,14 @@ return {
         path_display = { "absolute" },
       },
       pickers = {
-        find_files = vim.list_extend(common_setting, {}),
-        live_grep = vim.list_extend(common_setting, {}),
-        buffers = vim.list_extend(common_setting, {}),
-        diagnostics = vim.list_extend(common_setting, {}),
-        git_bcommits = vim.list_extend(common_setting, {}),
-        lsp_references = vim.list_extend(common_setting, {}),
-        highlights = vim.list_extend(common_setting, {}),
-        autocommands = vim.list_extend(common_setting, {}),
+        find_files = vim.deepcopy(common_setting),
+        live_grep = vim.deepcopy(common_setting),
+        buffers = vim.deepcopy(common_setting),
+        diagnostics = vim.deepcopy(common_setting),
+        git_bcommits = vim.deepcopy(common_setting),
+        lsp_references = vim.deepcopy(common_setting),
+        highlights = vim.deepcopy(common_setting),
+        autocommands = vim.deepcopy(common_setting),
       },
     })
 

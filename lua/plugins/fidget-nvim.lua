@@ -103,5 +103,49 @@ return {
           string.format("%s/fidget.nvim.log", vim.fn.stdpath("cache")),
       },
     })
+
+    -- NOTE: Chuyển message mặc định của Vim (qua ui2, bật ở init.lua) sang fidget.
+    -- Giữ nguyên cách hiển thị mặc định cho: search cmdline/count, prompt/confirm, output dạng list
+    -- (:ls, :set, :map...), :!shell, wildlist, completion, progress và message quá dài.
+    local ok_ui2, ui2_msg = pcall(require, "vim._core.ui2.messages")
+    if ok_ui2 and type(ui2_msg.msg_show) == "function" then
+      local ui2 = require("vim._core.ui2")
+      local levels = vim.log.levels
+      local kind_level = {
+        emsg = levels.ERROR,
+        echoerr = levels.ERROR,
+        lua_error = levels.ERROR,
+        rpc_error = levels.ERROR,
+        wmsg = levels.WARN,
+        [""] = levels.INFO,
+        echo = levels.INFO,
+        echomsg = levels.INFO,
+        lua_print = levels.INFO,
+        bufwrite = levels.INFO,
+        undo = levels.INFO,
+        quickfix = levels.INFO,
+      }
+      local max_lines = 10 -- Message dài hơn thì để ui2 hiển thị (pager) cho dễ đọc
+      local orig_msg_show = ui2_msg.msg_show
+
+      ui2_msg.msg_show = function(kind, content, ...)
+        local level = kind_level[kind]
+        if level and not (ui2.cmd and ui2.cmd.prompt) then
+          local parts = {}
+          for _, chunk in ipairs(content) do
+            parts[#parts + 1] = chunk[2]
+          end
+          local text = vim.trim(table.concat(parts))
+          local _, line_breaks = text:gsub("\n", "")
+          if text ~= "" and line_breaks < max_lines then
+            vim.schedule(function()
+              pcall(vim.notify, text, level)
+            end)
+            return
+          end
+        end
+        return orig_msg_show(kind, content, ...)
+      end
+    end
   end
 }
